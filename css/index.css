@@ -1,0 +1,47 @@
+body{
+    background-image: url("../img/background.jpg");
+    background-size: 100%;
+}
+.top{
+    width: 100%;
+    display: flex;
+    position: fixed;
+    background-color: rgba(204, 204, 204, 0.269);
+    box-shadow: 50px 50px 50px 0px rgba(0, 0, 0, 0.537); 
+}
+.toptable{
+    margin-left: 50px;
+}
+.tableitem{
+    padding-left: 25px;
+}
+.test{
+    color: red;
+}
+.left{
+
+}
+.block{
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.343); 
+    width: 500px;
+    box-shadow: 50px 50px 50px 0px rgba(0, 0, 0, 0.537); 
+}
+p{
+    margin-left: 15px;
+}
+.title{
+    color: red;
+    margin-left: 15px;
+    font-size: xx-large;
+}
+.right{
+    background-color: rgba(255, 255, 255, 0.489); 
+    display: block;
+    position: fixed;
+    top: 100px;
+    right: 500px;
+    width: 500px;
+    transition: transform 200ms ease-in;
+    transform: translateX(calc(-24px + 100%));
+}
