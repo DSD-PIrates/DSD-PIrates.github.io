@@ -1,1 +1,0 @@
-# atoposyz.github.io
