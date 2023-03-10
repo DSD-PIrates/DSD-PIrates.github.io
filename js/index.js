@@ -9,7 +9,7 @@ var linklist = [
     ["#"],
     ["docs/test.html", "#", "#", "#", "#", "#"],
     ["docs/test.html"],
-    ["#"],
+    ["docs/test.md"],
     ["#"]
 ]
 
