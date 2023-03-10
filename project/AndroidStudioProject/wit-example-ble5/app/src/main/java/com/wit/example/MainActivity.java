@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements IBluetoothFoundOb
     }
 
     private String getFormattedDateTime() {
-        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss.ss");
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy-MM-dd;HH:mm:ss.SSS");
         Date curDate = new Date(System.currentTimeMillis());
         String str = formatter.format(curDate);
         return str;
