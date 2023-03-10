@@ -6,6 +6,6 @@ window.onload = function(){
         text = text + '<td class="tableitem">' + menulist[i] + "</td>"
     }
     console.log(text)
-    document.getElementById("toptable").innerHTML = text
-    console.log(text)
+    //document.getElementById("toptable").innerHTML = text
+    //console.log(text)
 }

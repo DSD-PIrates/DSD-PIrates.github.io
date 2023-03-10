@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>小组名-项目名</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/index.css" >
-    <script src="/js/index.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>小组名-项目名</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/index.css" >
+    <script src="js/index.js"></script>
     
 </head>
 <body>
     <div class="top">
-        <p>小组名-项目名</p>
-        <table class="toptable" id="toptable"></table>
+        <!--<p>小组名-项目名</p>-->
+        <ul class="nav nav-pills">
+            小组名-项目名
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                </ul>
+                
+            </li>
+              <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                </ul>
+            </li>
+            
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Dropdown <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+              </ul>
+            </li>
+            
+          </ul>
     </div>
-    <p class="test">测试测试</p>
+    <p class="test" style="font-size: large;">&nbsp;</p>
     <div style="display: flex; width: 100%;">
         <div class="left">
             <div class="block">
@@ -47,5 +86,7 @@
         </div>
         <div class="right">Content</div>
     </div>
+    <script src="https://cdn.jsdelivr.cn/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
 </html>
