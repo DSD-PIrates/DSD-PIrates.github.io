@@ -8,7 +8,7 @@ var menulist = [
 var linklist = [
     ["#"],
     ["docs/test.html", "#", "#", "#", "#", "#"],
-    ["#"],
+    ["docs/test.html"],
     ["#"],
     ["#"]
 ]
