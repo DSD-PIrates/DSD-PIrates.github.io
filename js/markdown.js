@@ -1,9 +1,5 @@
-/*var md = window.markdownit({
-    html: true,
-    linkify: true,
-    typographer: true,
-  }).use(window.markdownitSub)
-*/
+var md = window.markdownit("default")
+
 function readTextFile(filePath, callback) {
     const xhrFile = new XMLHttpRequest();
     xhrFile.open("GET", filePath, true);
@@ -19,11 +15,9 @@ var testpath = "../md/TestAll.md"
 
 window.onload = function() {
     topbar()
-    var converter = new showdown.Converter()
     readTextFile(testpath, (textDetail) => {
         console.log(textDetail)
-        //var result = md.render(textDetail)
-        var result = converter.makeHtml(textDetail)
+        var result = md.render(textDetail)
         document.getElementById("markdown").innerHTML = result
     })
 }
