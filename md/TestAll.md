@@ -9,15 +9,11 @@
 
 **加粗文本** __加粗文本__
 
-==标记文本==
 
 ~~删除文本~~
 
 > 引用文本
 
-H~2~O is是液体。
-
-2^10^ 运算结果是 1024。
 
 - 项目
   * 项目
@@ -29,22 +25,6 @@ H~2~O is是液体。
 
 - [ ] 计划任务
 - [x] 完成任务
-
-图片: ![Alt](https://img-home.csdnimg.cn/images/20220524100510.png)
-
-带尺寸的图片: ![Alt](https://img-home.csdnimg.cn/images/20220524100510.png =60x60)
-
-宽度确定高度等比例的图片: ![Alt](https://img-home.csdnimg.cn/images/20220524100510.png =60x)
-
-高度确定宽度等比例的图片: ![Alt](https://img-home.csdnimg.cn/images/20220524100510.png =x60)
-
-居中的图片: ![Alt](https://img-home.csdnimg.cn/images/20220524100510.png#pic_center)
-
-居中并且带尺寸的图片: ![Alt](https://img-home.csdnimg.cn/images/20220524100510.png#pic_center =60x60)
-
-居右的图片: ![Alt](https://img-home.csdnimg.cn/images/20220524100510.png#pic_right)
-
-链接: [link](https://www.csdn.net/)
 
 @[TOC](这里写目录标题)
 # 一级目录
@@ -61,6 +41,11 @@ var foo = 'bar';
 ```javascript
 // An highlighted block
 var foo = 'bar';
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
 ```
 
 | 项目 | Value |
@@ -76,8 +61,6 @@ var foo = 'bar';
 一个具有注脚的文本。[^1]
 
 [^1]: 注脚的解释
-
-Markdown将文本转换为 HTML。
 
 Gamma公式展示 $\Gamma(n) = (n-1)!\quad\forall
 n\in\mathbb N$ 是通过 Euler integral

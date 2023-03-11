@@ -16,8 +16,10 @@ var testpath = "../md/TestAll.md"
 window.onload = function() {
     topbar()
     readTextFile(testpath, (textDetail) => {
-        console.log(textDetail)
+        //console.log(textDetail)
         var result = md.render(textDetail)
         document.getElementById("markdown").innerHTML = result
+        hljs.highlightAll()
     })
+    
 }
