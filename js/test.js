@@ -1,5 +1,4 @@
-import MarkdownIt from 'markdown-it';
-var md = new MarkdownIt();
+var md = window.markdownit();
 var result = md.render('# markdown-it rulezz!');
 console.log(result)
 window.onload = function() {
