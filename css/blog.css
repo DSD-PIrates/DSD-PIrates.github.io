@@ -4,3 +4,19 @@
 .besides{
     background-color: rgba(219, 219, 219, 0.568);
 }
+.top{
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items:center;
+    top: 0;
+    left: 0;
+    background-color: rgba(206, 206, 206, 0.927);
+    box-shadow: 50px 50px 50px 0px rgba(0, 0, 0, 0.537); 
+}
+.toptable{
+    margin-left: 50px;
+}
+.tableitem{
+    padding-left: 25px;
+}

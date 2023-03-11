@@ -17,24 +17,13 @@ function readTextFile(filePath, callback) {
 const filePath = `../md/BlogForWeek1.md`
 var testpath = "../md/TestAll.md"
 
-
-
 window.onload = function() {
     topbar()
-    marked.setOptions({
-        renderer: new marked.Renderer(),
-        gfm: true,
-        tables: true,
-        breaks: false,
-        pedantic: false,
-        sanitize: true,
-        smartLists: true,
-        smartypants: false
-    });  
+    var converter = new showdown.Converter()
     readTextFile(testpath, (textDetail) => {
         console.log(textDetail)
         //var result = md.render(textDetail)
-        var result = marked.parse(textDetail)
+        var result = converter.makeHtml(textDetail)
         document.getElementById("markdown").innerHTML = result
     })
 }

@@ -7,10 +7,10 @@ function topbar() {
         ["在线数据"]
     ]
     var linklist = [
-        ["#"],
-        ["docs/test.html", "#", "#", "#", "#", "docs/week1.html"],
-        ["docs/test.html"],
-        ["docs/test.md"],
+        ["../index.html"],
+        ["../docs/test.html", "#", "#", "#", "#", "../docs/week1.html"],
+        ["../docs/test.html"],
+        ["../docs/test.md"],
         ["#"]
     ]
     
@@ -42,9 +42,4 @@ function topbar() {
     text = text + '</ul>'
     console.log(text)
     document.getElementById("top").innerHTML = toptext + text
-}
-
-window.onload = function(){
-    topbar()
-    //console.log(text)
 }
