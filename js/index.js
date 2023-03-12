@@ -11,7 +11,7 @@ function topbar() {
         ["docs/week1.html", "docs/week1.html"],
         ["docs/member.html"],
         ["docs/borrow.html"],
-        ["#"]
+        ["docs/realtimedata.html"]
     ]
     
     var caret = '<span class="caret"></span>'
