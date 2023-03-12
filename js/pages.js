@@ -1,14 +1,14 @@
 function topbar() {
     var menulist = [
         ["首页"], 
-        ["NEWS", "week1"],
+        ["NEWS", "week1", "More..."],
         ["Members"],
         ["借用"],
         ["在线数据"]
     ]
     var linklist = [
         ["../index.html"],
-        ["../docs/week1.html", "../docs/week1.html"],
+        ["../docs/week1.html", "../docs/week1.html", "../docs/news.html"],
         ["../docs/member.html"],
         ["../docs/borrow.html"],
         ["#"]

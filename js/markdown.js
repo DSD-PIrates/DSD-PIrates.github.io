@@ -10,15 +10,11 @@ function readTextFile(filePath, callback) {
     xhrFile.send();
 }
 
-const filePath = `../md/BlogForWeek1.md`
-
-window.onload = function() {
-    topbar()
-    readTextFile(filePath, (textDetail) => {
+function LoadMarkdown(filepath) {
+    readTextFile(filepath, (textDetail) => {
         //console.log(textDetail)
         var result = md.render(textDetail)
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
     })
-    
 }
