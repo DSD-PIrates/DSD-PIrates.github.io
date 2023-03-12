@@ -2,6 +2,8 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 import hashlib
 
+import Dumper
+
 host_ip = '0.0.0.0'
 host = (host_ip, 8192)
 MAX_VALUE_CNT = 100
@@ -10,6 +12,20 @@ SERVER_PASSWORD = "GDSS-GGN-2015"
 DB_JSON_NAME = "db.json"
 TYPE_LIST = ["ping", "read", "write"]
 
+def deepCopy(req): # to deep copy an object
+    if type(req) == dict:
+        ans = {}
+        for x in req:
+            ans[x] = req[x]
+        return ans
+    elif type(req) == list:
+        ans = []
+        for x in req:
+            ans.append(x)
+        return ans
+    else:
+        return req
+    
 def loadDB(filename):
     assert type(filename) == str
     suc_flag = True
@@ -31,20 +47,6 @@ def saveDB(mem, filename):
         suc_flag = False
     return suc_flag
 
-def deepCopy(req): # to deep copy an object
-    if type(req) == dict:
-        ans = {}
-        for x in req:
-            ans[x] = req[x]
-        return ans
-    elif type(req) == list:
-        ans = []
-        for x in req:
-            ans.append(x)
-        return ans
-    else:
-        return req
-
 def getMd5(s: str):
     assert type(s) == str
     str_to_encode = s
@@ -60,7 +62,7 @@ def checkHashCorrect(req):
     # check hash value here
     req_copy = deepCopy(req)
     req_copy["hash"] = SERVER_PASSWORD
-    hash_value = getMd5(json.dumps(req_copy))
+    hash_value = getMd5(Dumper.MyDumps(req_copy))
     if hash_value == req["hash"]:
         return True
     else:

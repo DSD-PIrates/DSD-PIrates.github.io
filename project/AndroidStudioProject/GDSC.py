@@ -2,8 +2,25 @@ import requests
 import json
 import hashlib
 
-SERVER_URL = "http://localhost:8192"
+import Dumper
+
+SERVER_URL = "http://139.155.89.85:8192"
 SERVER_PASSWORD = "GDSS-GGN-2015"
+VERSION = "0.0.1"
+
+def deepCopy(req): # to deep copy an object
+    if type(req) == dict:
+        ans = {}
+        for x in req:
+            ans[x] = req[x]
+        return ans
+    elif type(req) == list:
+        ans = []
+        for x in req:
+            ans.append(x)
+        return ans
+    else:
+        return req
 
 def getMd5(s: str):
     assert type(s) == str
@@ -34,7 +51,7 @@ def sendRequest(url, data):
         }
     return ans
 
-def readDataFromServer(name, maxn):
+def readDataFromServer(name, maxn=1):
     assert type(name) == str
     assert type(maxn) == int and maxn > 0
 
@@ -48,17 +65,16 @@ def readDataFromServer(name, maxn):
 def writeDataToServer(name, data):
     assert type(name) == str
     obj_tosend = {
-        "type" : "write",
         "name": name,
+        "type" : "write",
         "data" : data,
         "hash" : SERVER_PASSWORD
     }
-    hash_value = getMd5(json.dumps(obj_tosend))
+    hash_value = getMd5(Dumper.MyDumps(obj_tosend))
     obj_tosend["hash"] = hash_value
     ans = sendRequest(SERVER_URL, obj_tosend)
     return ans
 
 if __name__ == "__main__":
-    print(writeDataToServer("sensor_l1_v1", {
-        "value": "test"
-    }))
+    ans = readDataFromServer("WT901-R3_v0.0.1")
+    print(ans)
