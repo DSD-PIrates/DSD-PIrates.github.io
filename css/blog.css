@@ -24,7 +24,6 @@
 .tableitem{
     padding-left: 25px;
 }
-<<<<<<< HEAD
 .name{
     color: rgb(0, 0, 0);
     margin-left: 15px;
@@ -184,7 +183,7 @@ body
 {
   background: #2e2e2e;
   color: var(--clr);
-=======
+}
 table {
     position: relative;
     overflow: hidden!important;
@@ -244,5 +243,4 @@ table td{
     text-overflow: ellipsis;
     vertical-align: middle;
     border-collapse: collapse;
->>>>>>> 4e8d78ca8adb696faef0db3821e0a64629aa8187
 }
