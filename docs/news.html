@@ -22,16 +22,17 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
-                    <ul class="nav bs-docs-sidenav"></ul>
-                </nav>
+                <div class="input-group">
+                    <input type="text" class="form-control" onkeydown="onKeyDown(event)"/>
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <script src="../js/pages.js"></script>
-    <script>topbar()</script>
+    <script src="../js/index.js"></script>
+    <script>topbar(1)</script>
 </body>
 </html>
