@@ -12,7 +12,29 @@
     <link rel="stylesheet" type="text/css" href="../css/news.css" >
 </head>
 <body>
-    <div class="top" id="top"></div>
+    <!--<div class="top" id="top"></div>-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#collapsed-nav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class='navbar-brand'>
+                    小组名-项目名
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="collapsed-nav">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">菜单1</a></li>
+                    <li><a href="#">菜单2</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container bs-docs-container">
         <div class="row">
             <div class="col-md-9 blog" role="main">
@@ -20,7 +42,7 @@
                     <div class="postTitle">
                         <a href="week1.html">Week1</a>
                     </div>
-                    <span class="postMeta">2023.3.12</span>
+                    <span class="postMeta">posted on 2023.3.12</span>
                     <div class="postCon">
                         <div class="mainText">
                             摘要：            
@@ -53,12 +75,6 @@ A LENOVO pad with a USB-type C cable</div>
                     12346
                 </div>
                 
-            </div>
-            <div class="col-md-3">
-                <div class="input-group">
-                    <input type="text" class="form-control" onkeydown="onKeyDown(event)"/>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                </div>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ var menulist = [
     [{name: "NEWS", src: ""}, {name: "Week1", src: "docs/week1.html"}, {name: "More", src: "docs/news.html"}],
     [{name: "Members", src: "docs/member.html"}],
     [{name: "Things", src: "docs/borrow.html"}],
-    [{name: "Online", src: "#"}]
+    [{name: "Online", src: "docs/realtimedata.html"}]
 ]
 
 var caret = '<span class="caret"></span>'
