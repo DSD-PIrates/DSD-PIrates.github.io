@@ -11,11 +11,10 @@ function readTextFile(filePath, callback) {
 }
 
 const filePath = `../md/BlogForWeek1.md`
-var testpath = "../md/TestAll.md"
 
 window.onload = function() {
     topbar()
-    readTextFile(testpath, (textDetail) => {
+    readTextFile(filePath, (textDetail) => {
         //console.log(textDetail)
         var result = md.render(textDetail)
         document.getElementById("markdown").innerHTML = result
