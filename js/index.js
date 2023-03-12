@@ -9,8 +9,8 @@ function topbar() {
     var linklist = [
         ["#"],
         ["docs/test.html", "#", "#", "#", "#", "docs/week1.html"],
-        ["docs/test.html"],
-        ["docs/test.md"],
+        ["docs/member.html"],
+        ["docs/borrow.html"],
         ["#"]
     ]
     
