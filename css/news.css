@@ -1,0 +1,61 @@
+.day {
+    display: block;
+    margin: 3.5rem auto;
+    padding-bottom: 3.3rem;
+    word-wrap: break-word;
+    position: relative;
+    min-height: 10px;
+    border-bottom: #e9e9e9 1px solid;
+    text-align: left;
+}
+.day:after {
+    display: block;
+    border: 1px solid #e9e9e9;
+    margin-left: -5px;
+    background: #FFF;
+    border-radius: 100%;
+    box-shadow: rgba(255,255,255,.7) 0 0 0 5px;
+}
+.postTitle{
+    font-size: 20px;
+    float: right;
+    width: 100%;
+    clear: both;
+}
+.postTitle a:active, .postTitle a:visited {
+    color: #4A4A4A;
+    transition: color .3s ease;
+    font-size: 20px;
+}
+.postMeta {
+    font-size: 14px;
+    color: #888;
+    top: 10px;
+    display: inline-block;
+    position: relative;
+}
+.postCon {
+    font-feature-settings: 'liga' 1,'onum' 1,'kern' 1;
+    line-height: 1.7em;
+    word-wrap: break-word;
+    padding: 25px 0 10px;
+    color: #3a4145;
+    font-family: Noto Sans SC,serif;
+    margin: 0;
+    text-align: justify;
+    font-size: 1.45em;
+    display: block;
+    position: relative;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    width: 100%;
+    clear: both;
+}
+.mainText{
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
