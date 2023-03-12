@@ -4,11 +4,11 @@ import hashlib
 
 host_ip = '0.0.0.0'
 host = (host_ip, 8192)
-
-TYPE_LIST = ["ping", "read", "write"]
-DB_JSON_NAME = "db.json"
 MAX_VALUE_CNT = 100
 SERVER_PASSWORD = "GDSS-GGN-2015"
+
+DB_JSON_NAME = "db.json"
+TYPE_LIST = ["ping", "read", "write"]
 
 def loadDB(filename):
     assert type(filename) == str
@@ -54,7 +54,7 @@ def getMd5(s: str):
     return str(md5_code)
 
 def checkHashCorrect(req):
-    assert type(req) == str
+    assert type(req) == dict
     assert req.get("hash") is not None and type(req.get("hash")) == str
 
     # check hash value here
@@ -125,17 +125,22 @@ def getWriteData(req):
         return {
             "result": "inner error: mem[name] is not a list"
         }
-    mem[name].append(data)
-    if len(mem[name]) > MAX_VALUE_CNT:
-        mem[name] = mem[name][-MAX_VALUE_CNT:]
-    flag = saveDB(mem, DB_JSON_NAME)
-    if not flag:
+    if data not in mem[name]:
+        mem[name].append(data)
+        if len(mem[name]) > MAX_VALUE_CNT:
+            mem[name] = mem[name][-MAX_VALUE_CNT:]
+        flag = saveDB(mem, DB_JSON_NAME)
+        if not flag:
+            return {
+                "result": "fail to write database file"
+            }
         return {
-            "result": "fail to write database file"
+            "result": "write success"
         }
-    return {
-        "result": "write success"
-    }
+    else:
+        return {
+            "result": "value duplicated"
+        }
 
 def getOutputDataByInput(req):
     if type(req) != dict:
