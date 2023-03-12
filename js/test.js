@@ -1,6 +1,20 @@
-var md = window.markdownit();
-var result = md.render('# markdown-it rulezz!');
-console.log(result)
-window.onload = function() {
-    document.getElementById("mark").innerHTML = result
+var md = window.markdownit("default")
+
+function readTextFile(filePath, callback) {
+    const xhrFile = new XMLHttpRequest();
+    xhrFile.open("GET", filePath, true);
+    xhrFile.onload  = function() {
+        const allText = xhrFile.response;
+        callback(allText)
+    }
+    xhrFile.send();
+}
+
+function LoadMarkdown(filepath) {
+    readTextFile(filepath, (textDetail) => {
+        //console.log(textDetail)
+        var result = md.render(textDetail)
+        document.getElementById("markdown").innerHTML = result
+        hljs.highlightAll()
+    })
 }
