@@ -1,3 +1,6 @@
+*{
+    font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
 .blog{
     background-color: rgba(219, 219, 219, 0.568);
 }
@@ -11,6 +14,7 @@
     align-items:center;
     top: 0;
     left: 0;
+    z-index: 10;
     background-color: rgba(206, 206, 206, 0.927);
     box-shadow: 50px 50px 50px 0px rgba(0, 0, 0, 0.537); 
 }
@@ -20,6 +24,7 @@
 .tableitem{
     padding-left: 25px;
 }
+<<<<<<< HEAD
 .name{
     color: rgb(0, 0, 0);
     margin-left: 15px;
@@ -179,4 +184,65 @@ body
 {
   background: #2e2e2e;
   color: var(--clr);
+=======
+table {
+    position: relative;
+    overflow: hidden!important;
+    box-sizing: border-box;
+    width: 100%!important;
+    background-color: #fff;
+    border: 1px solid #dfe3ec;
+    font-size: 14px;
+    color: #222;
+    margin: 0 0 10px;
+    padding: 0;
+    border-right: 0;
+    border-bottom: 0;
+    display: table!important;
+    border-collapse: initial!important;
+    border-spacing: 0;
+    text-indent: initial;
+    word-break: break-word;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+table th{
+    border-bottom: 1px solid #dfe3ec;
+    border-right: 1px solid #dfe3ec;
+    background-color: #eef0f6;
+    text-align: left;
+    overflow: hidden;
+    padding: 0 18px;
+    min-width: 100px;
+    height: 40px;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    display: table-cell;
+    position: relative;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+table td{
+    border-bottom: 1px solid #dfe6ec;
+    border-right: 1px solid #dfe3ec;
+    min-width: 0;
+    background-color: #fff;
+    padding: 0 20px;
+    height: 40px;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    display: table-cell;
+    position: relative;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    border-collapse: collapse;
+>>>>>>> 4e8d78ca8adb696faef0db3821e0a64629aa8187
 }

@@ -40,7 +40,7 @@ function topbar() {
         
     }
     text = text + '</ul>'
-    console.log(text)
+    //console.log(text)
     document.getElementById("top").innerHTML = toptext + text
 }
 
