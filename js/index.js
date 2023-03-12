@@ -1,6 +1,7 @@
 var menulist = [
     [{name: "Home", src: "index.html"}],
     [{name: "NEWS", src: ""}, {name: "Week1", src: "docs/week1.html"}, {name: "More", src: "docs/news.html"}],
+    [{name: "Documents", src: ""}, {name: "README", src: "docs/readme.html"}, {name: "More", src :""}],
     [{name: "Members", src: "docs/member.html"}],
     [{name: "Things", src: "docs/borrow.html"}],
     [{name: "Online", src: "docs/realtimedata.html"}]
@@ -41,6 +42,7 @@ function topbar(flag) {
         
     }
     text = text + '</ul>'
-    //console.log(text)
+    console.log(text)
+    //document.getElementById("top").innerHTML = text
     document.getElementById("top").innerHTML = toptext + text
 }
