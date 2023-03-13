@@ -24,13 +24,50 @@
     <div class="top" id="top"></div>
     <p class="test" style="font-size: x-large;">&nbsp;</p>
     <div class="container">
+      <script type="text/javascript">
+        document.setItem("anglex", {"data":[140, 232, 101, 264, 90, 340, 250, 300,220, 302, 181, 234, 210, 290, 150, 300]})
+        </script>
         <div id="main1" style="width: 300px;height:300px;"></div>
+        <div id="main2" style="width: 300px;height:300px;"></div>
+        <div id="main3" style="width: 300px;height:300px;"></div>
        <script type="text/javascript">
-           var chartDom1 = document.getElementById('main1');
-var myChart1 = echarts.init(chartDom1);
-var option1;
+        
+//  setInterval(function(){
+//      send()
+//  }, 2000) 
+          var data = {
+            "angle":{
+              "x":[1, 4,5,6,7,6],
+              "y":[1, 4,5,6,7,6],
+              "z":[1, 4,5,6,7,6],
+            },
+            "as":{
+              "x":[1, 4,5,6,7,6],
+              "y":[1, 4,5,6,7,6],
+              "z":[1, 4,5,6,7,6],
+            },
+            "acc":{
+              "x":[1, 4,5,6,7,6],
+              "y":[1, 4,5,6,7,6],
+              "z":[1, 4,5,6,7,6],
+            },
+          }
+          var anglex = data.angle.x
+          var angley = data.angle.y
+          var anglez = data.angle.z
 
-option1 = {
+          var asx = data.as.x
+          var asy = data.as.y
+          var asz = data.as.z
+
+          var accx = data.acc.x
+          var accy = data.acc.y
+          var accz = data.acc.z
+          var chartDom1 = document.getElementById('main1');
+          var myChart1 = echarts.init(chartDom1);
+          var option1;
+
+          option1 = {
   color: ['#80FFA5','#37A2FF', '#FF0087'],
   title: {
     text: 'Angle',
@@ -100,7 +137,7 @@ option1 = {
       emphasis: {
         focus: 'series'
       },
-      data: [140, 232, 101, 264, 90, 340, 250, 300,220, 302, 181, 234, 210, 290, 150, 300]
+      data: anglex
     },
     {
       name: 'Y',
@@ -127,7 +164,7 @@ option1 = {
       emphasis: {
         focus: 'series'
       },
-      data: [320, 132, 201, 334, 190, 130, 220,300,220, 302, 181, 234, 210, 290, 150, 300]
+      data: angley
     },
     {
       name: 'Z',
@@ -158,20 +195,16 @@ option1 = {
       emphasis: {
         focus: 'series'
       },
-      data: [220, 302, 181, 234, 210, 290, 150, 300,220, 302, 181, 234, 210, 290, 150, 300]
+      data: anglez
     }
   ]
 };
 
 option1 && myChart1.setOption(option1);
 
-</script>
-
-<div id="main2" style="width: 300px;height:300px;"></div>
-       <script type="text/javascript">
             var chartDom2 = document.getElementById('main2');
-var myChart2 = echarts.init(chartDom2);
-var option2;
+            var myChart2 = echarts.init(chartDom2);
+            var option2;
 
 option2 = {
   color: ['#80FFA5','#37A2FF', '#FF0087'],
@@ -243,7 +276,7 @@ option2 = {
       emphasis: {
         focus: 'series'
       },
-      data: [140, 232, 101, 264, 90, 340, 250, 300,220, 302, 181, 234, 210, 290, 150, 300]
+      data: asx
     },
     {
       name: 'Y',
@@ -270,7 +303,7 @@ option2 = {
       emphasis: {
         focus: 'series'
       },
-      data: [320, 132, 201, 334, 190, 130, 220,300,220, 302, 181, 234, 210, 290, 150, 300]
+      data: asy
     },
     {
       name: 'Z',
@@ -301,16 +334,13 @@ option2 = {
       emphasis: {
         focus: 'series'
       },
-      data: [220, 302, 181, 234, 210, 290, 150, 300,220, 302, 181, 234, 210, 290, 150, 300]
+      data: asz
     }
   ]
 };
 
 option2 && myChart2.setOption(option2);
 
-</script>
-<div id="main3" style="width: 300px;height:300px;"></div>
-       <script type="text/javascript">
             var chartDom3 = document.getElementById('main3');
 var myChart3 = echarts.init(chartDom3);
 var option3;
@@ -385,7 +415,7 @@ option3 = {
       emphasis: {
         focus: 'series'
       },
-      data: [-0.304, 0.222, 0.323, 0.222, 0.323, 0.222]
+      data: accx
     },
     {
       name: 'Y',
@@ -412,7 +442,7 @@ option3 = {
       emphasis: {
         focus: 'series'
       },
-      data: [-0.304, 0.222, 0.323, 0.222, 0.323, 0.222]
+      data: accy
     },
     {
       name: 'Z',
@@ -443,7 +473,7 @@ option3 = {
       emphasis: {
         focus: 'series'
       },
-      data: [-0.304, 0.222, 0.323, 0.222, 0.323, 0.222]
+      data: accz
     }
   ]
 };
