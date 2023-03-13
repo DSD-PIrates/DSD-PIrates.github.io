@@ -47,3 +47,6 @@ Build `Android software` that can read sensor data in real time, research the fe
 
 Specify `Document Format Negotiations` and `Group Workload Measurement Specification` - **Bob**
 
+Real-time display technology for sensor data (used to check the correctness of data transmission) - **Zin**
+
+Research on end-to-end latency between different devices - **Aidan**
