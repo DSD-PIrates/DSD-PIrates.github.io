@@ -10,7 +10,7 @@
     <!-- 引入 echarts.js -->
     <!--<script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
     <script type="text/javascript" src="../js/echarts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script> -->
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/index.css" >
@@ -26,67 +26,140 @@
     <div class="container">
         <div id="main1" style="width: 300px;height:300px;"></div>
        <script type="text/javascript">
-            var chartDom1 = document.getElementById('main1');
-            var myChart1 = echarts.init(chartDom1);
-            var option1;
+           var chartDom1 = document.getElementById('main1');
+var myChart1 = echarts.init(chartDom1);
+var option1;
 
-    var data1 = [];
-    // Parametric curve
-    for (var t = 0; t < 25; t += 0.001) {
-        var x = (1 + 0.25 * Math.cos(75 * t)) * Math.cos(t);
-        var y = (1 + 0.25 * Math.cos(75 * t)) * Math.sin(t);
-        var z = t + 2.0 * Math.sin(75 * t);
-        data1.push([x, y, z]);
-    }
 option1 = {
-    title: {
-            text: '角度'
-        },
-  tooltip: {},
-  backgroundColor: '#fff',
-  visualMap: {
-    show: false,
-    dimension: 2,
-    min: 0,
-    max: 30,
-    inRange: {
-      color: [
-        '#313695',
-        '#4575b4',
-        '#74add1',
-        '#abd9e9',
-        '#e0f3f8',
-        '#ffffbf',
-        '#fee090',
-        '#fdae61',
-        '#f46d43',
-        '#d73027',
-        '#a50026'
-      ]
+  color: ['#80FFA5','#37A2FF', '#FF0087'],
+  title: {
+    text: 'Angle',
+    textStyle:{
+        color:'#FF4500',
+        fontFamily:'sans-serif',
     }
   },
-  xAxis3D: {
-    type: 'value'
-  },
-  yAxis3D: {
-    type: 'value'
-  },
-  zAxis3D: {
-    type: 'value'
-  },
-  grid3D: {
-    viewControl: {
-      projection: 'orthographic'
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985'
+      }
     }
   },
+  legend: {
+    data: ['X', 'Y', 'Z']
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  // grid: {
+  //   left: '3%',
+  //   right: '4%',
+  //   bottom: '3%',
+  //   containLabel: true
+  // },
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: false,
+      // data: ['0', '1', '2', '3', '4', '5']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
   series: [
     {
-      type: 'line3D',
-      data: data1,
+      name: 'X',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
       lineStyle: {
-        width: 4
-      }
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(128, 255, 165)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(1, 191, 236)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [140, 232, 101, 264, 90, 340, 250, 300,220, 302, 181, 234, 210, 290, 150, 300]
     },
+    {
+      name: 'Y',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(55, 162, 255)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(116, 21, 219)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320, 132, 201, 334, 190, 130, 220,300,220, 302, 181, 234, 210, 290, 150, 300]
+    },
+    {
+      name: 'Z',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      label: {
+        show: true,
+        position: 'top'
+      },
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(255, 0, 135)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(135, 0, 157)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [220, 302, 181, 234, 210, 290, 150, 300,220, 302, 181, 234, 210, 290, 150, 300]
+    }
   ]
 };
 
@@ -97,66 +170,139 @@ option1 && myChart1.setOption(option1);
 <div id="main2" style="width: 300px;height:300px;"></div>
        <script type="text/javascript">
             var chartDom2 = document.getElementById('main2');
-            var myChart2 = echarts.init(chartDom2);
-            var option2;
+var myChart2 = echarts.init(chartDom2);
+var option2;
 
-    var data2 = [];
-    // Parametric curve
-    for (var t = 0; t < 25; t += 0.001) {
-        var x = (1 + 0.25 * Math.cos(75 * t)) * Math.cos(t);
-        var y = (1 + 0.25 * Math.cos(75 * t)) * Math.sin(t);
-        var z = t + 2.0 * Math.sin(75 * t);
-        data2.push([x, y, z]);
-    }
 option2 = {
-    title: {
-            text: '角速度'
-        },
-  tooltip: {},
-  backgroundColor: '#fff',
-  visualMap: {
-    show: false,
-    dimension: 2,
-    min: 0,
-    max: 30,
-    inRange: {
-      color: [
-        '#313695',
-        '#4575b4',
-        '#74add1',
-        '#abd9e9',
-        '#e0f3f8',
-        '#ffffbf',
-        '#fee090',
-        '#fdae61',
-        '#f46d43',
-        '#d73027',
-        '#a50026'
-      ]
+  color: ['#80FFA5','#37A2FF', '#FF0087'],
+  title: {
+    text: 'As',
+    textStyle:{
+        color:'#FF4500',
+        fontFamily:'sans-serif',
     }
   },
-  xAxis3D: {
-    type: 'value'
-  },
-  yAxis3D: {
-    type: 'value'
-  },
-  zAxis3D: {
-    type: 'value'
-  },
-  grid3D: {
-    viewControl: {
-      projection: 'orthographic'
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985'
+      }
     }
   },
+  legend: {
+    data: ['X', 'Y', 'Z']
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  // grid: {
+  //   left: '3%',
+  //   right: '4%',
+  //   bottom: '3%',
+  //   containLabel: true
+  // },
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: false,
+      // data: ['0', '1', '2', '3', '4', '5']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
   series: [
     {
-      type: 'line3D',
-      data: data2,
+      name: 'X',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
       lineStyle: {
-        width: 4
-      }
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(128, 255, 165)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(1, 191, 236)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [140, 232, 101, 264, 90, 340, 250, 300,220, 302, 181, 234, 210, 290, 150, 300]
     },
+    {
+      name: 'Y',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(55, 162, 255)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(116, 21, 219)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320, 132, 201, 334, 190, 130, 220,300,220, 302, 181, 234, 210, 290, 150, 300]
+    },
+    {
+      name: 'Z',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      label: {
+        show: true,
+        position: 'top'
+      },
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(255, 0, 135)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(135, 0, 157)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [220, 302, 181, 234, 210, 290, 150, 300,220, 302, 181, 234, 210, 290, 150, 300]
+    }
   ]
 };
 
@@ -166,71 +312,143 @@ option2 && myChart2.setOption(option2);
 <div id="main3" style="width: 300px;height:300px;"></div>
        <script type="text/javascript">
             var chartDom3 = document.getElementById('main3');
-            var myChart3 = echarts.init(chartDom3);
-            var option3;
+var myChart3 = echarts.init(chartDom3);
+var option3;
 
-    var data3 = [];
-    // Parametric curve
-    for (var t = 0; t < 25; t += 0.001) {
-        var x = (1 + 0.25 * Math.cos(75 * t)) * Math.cos(t);
-        var y = (1 + 0.25 * Math.cos(75 * t)) * Math.sin(t);
-        var z = t + 2.0 * Math.sin(75 * t);
-        data3.push([x, y, z]);
-    }
 option3 = {
-    title: {
-            text: '角加速度'
-        },
-  tooltip: {},
-  backgroundColor: '#fff',
-  visualMap: {
-    show: false,
-    dimension: 2,
-    min: 0,
-    max: 30,
-    inRange: {
-      color: [
-        '#313695',
-        '#4575b4',
-        '#74add1',
-        '#abd9e9',
-        '#e0f3f8',
-        '#ffffbf',
-        '#fee090',
-        '#fdae61',
-        '#f46d43',
-        '#d73027',
-        '#a50026'
-      ]
+  color: ['#80FFA5','#37A2FF', '#FF0087'],
+  title: {
+    text: 'Acc',
+    textStyle:{
+        color:'#FF4500',
+        fontFamily:'sans-serif',
     }
   },
-  xAxis3D: {
-    type: 'value',
-  },
-  yAxis3D: {
-    type: 'value',
-  },
-  zAxis3D: {
-    type: 'value',
-  },
-  grid3D: {
-    viewControl: {
-      projection: 'orthographic',
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#6a7985'
+      }
     }
   },
+  legend: {
+    data: ['X', 'Y', 'Z']
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  // grid: {
+  //   left: '3%',
+  //   right: '4%',
+  //   bottom: '3%',
+  //   containLabel: true
+  // },
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: false,
+      // data: ['0', '1', '2', '3', '4', '5']
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value'
+    }
+  ],
   series: [
     {
-      type: 'line3D',
-      data: data3,
+      name: 'X',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
       lineStyle: {
-        width: 4
-      }
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(128, 255, 165)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(1, 191, 236)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [-0.304, 0.222, 0.323, 0.222, 0.323, 0.222]
     },
+    {
+      name: 'Y',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(55, 162, 255)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(116, 21, 219)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [-0.304, 0.222, 0.323, 0.222, 0.323, 0.222]
+    },
+    {
+      name: 'Z',
+      type: 'line',
+      stack: 'Total',
+      smooth: true,
+      lineStyle: {
+        width: 0
+      },
+      showSymbol: false,
+      label: {
+        show: true,
+        position: 'top'
+      },
+      areaStyle: {
+        opacity: 0.8,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          {
+            offset: 0,
+            color: 'rgb(255, 0, 135)'
+          },
+          {
+            offset: 1,
+            color: 'rgb(135, 0, 157)'
+          }
+        ])
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [-0.304, 0.222, 0.323, 0.222, 0.323, 0.222]
+    }
   ]
 };
 
 option3 && myChart3.setOption(option3);
-
 </script>
       </div>
         <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
@@ -240,7 +458,8 @@ option3 && myChart3.setOption(option3);
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
-    <script src="../js/pages.js"></script>
+    <script src="../js/index.js"></script>
+    <script>topbar(1)</script>
     <script src="../js/markdown.js"></script>
 </body>
 </html>
