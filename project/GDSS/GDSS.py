@@ -187,7 +187,7 @@ class Resquest(BaseHTTPRequestHandler):
 
         data = getOutputDataByInput(inputData)
         self.send_response(200)
-        self.send_header('Content-type', 'application/json')
+        self.send_header('Content-type', 'image/png')
         self.end_headers()
         self.wfile.write(json.dumps(data).encode())
     
