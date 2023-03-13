@@ -24,6 +24,7 @@ import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -308,10 +309,11 @@ public class MainActivity extends AppCompatActivity implements IBluetoothFoundOb
      * @author huangyajun
      * @date 2022/6/29 8:46
      */
+    private HashMap<String, Long> lastSendTime = new HashMap<String, Long> ();
+
     @Override
     public void onRecord(Bwt901ble bwt901ble) {
-        // String deviceData = getDeviceData(bwt901ble);
-        // Log.d(TAG, "device data [ " + bwt901ble.getDeviceName() + "] = " + deviceData);
+        final long TIME_SPEC = 200; // TODO: config it
 
         // 修改这里可以将得到的 deviceData 发送到服务端
         List<NameValuePair> pairList = new ArrayList<NameValuePair>(2);
@@ -319,12 +321,25 @@ public class MainActivity extends AppCompatActivity implements IBluetoothFoundOb
 
         // String outputData = "device data [ " + bwt901ble.getDeviceName() + "] = " + deviceData;
         // Log.d(TAG, outputData);
-        try {
-            SendHttpPost("http://192.168.43.123:8000", pairList); // config it
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        String deviceName = bwt901ble.getDeviceName();
+        long timeNow = System.currentTimeMillis();
+
+        if(!lastSendTime.containsKey(deviceName)) {
+            lastSendTime.put(deviceName, -TIME_SPEC);
         }
-        Log.d(TAG, pairList.toString()); // output data
+
+        if(timeNow - lastSendTime.get(deviceName) >= TIME_SPEC) { // timeout
+            try {
+                SendHttpPost("http://192.168.43.123:8000", pairList); // TODO: config it
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            lastSendTime.put(deviceName, timeNow);
+            Log.d(TAG, pairList.toString()); // output data
+        }else {
+            Log.d(TAG, "Too many data, stacked.");
+        }
     }
 
     /**
