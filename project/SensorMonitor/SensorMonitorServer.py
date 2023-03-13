@@ -1,17 +1,19 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
+import traceback
 
 import GDSC
 
 host_ip = '0.0.0.0'
 host = (host_ip, 1638)
 
-KNOWN_FILE_LIST = ["index.html"]
+KNOWN_FILE_LIST = ["index.html", "realtimedata.html"]
 
 def getFile(filename):
     assert type(filename) == str
+    print("filename = " + filename)
     try:
-        fp = open(filename)
+        fp = open(filename, encoding="utf-8")
         context = fp.read()
     except:
         context = "<h1>File Not Found</h1>"
