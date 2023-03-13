@@ -42,7 +42,7 @@ def sendRequest(url, data):
         }
     try:
         res = requests.post(url=url,
-                headers ={"Content-Type": "text/json; charset=utf-8"},
+                headers ={"Content-Type": "application/json; charset=utf-8"},
                 data = data)
         ans = res.text
     except:
