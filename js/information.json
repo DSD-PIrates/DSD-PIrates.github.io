@@ -1,0 +1,20 @@
+[
+    [
+        {
+            "title": "BlogForWeek1",
+            "src": "BlogForWeek1.html",
+            "time": "2023.3.12",
+            "abstract": "Abstract: ## Equipment Borrowed from Mr. Zhang Six sensors Network card + two antennas Two USB to USB-type C cables Raspberry Pi box Raspberry Pi Charging Cable HDMI to MINI-HDMI TF card reader ## Equipment Borrowed from Xiangxi Zheng A LENOVO pad with a USB-type C cable"
+        }
+    ],
+    [
+        {
+            "title": "GDSS",
+            "src": "GDSS.html",
+            "time": "2023.3.12",
+            "abstract": "# General Data Storage Server ``` Version : 0.0.1 Author  : Bob ``` A General Data Storage Server can establish a correspondence between names and values, allowing for modification and querying of a particular value. In our general data server, all data transmission uses the HTTP protocol, and data storage and"
+
+        }
+    ]
+]
+

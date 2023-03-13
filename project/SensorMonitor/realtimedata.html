@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>realtimedata</title>
+  <!--引入 jquery.js-->
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+  </script>
+  <!-- 引入 echarts.js -->
+  <!--<script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>-->
+  <!-- <script type="text/javascript" src="../js/echarts.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      padding: 80px 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <script type="text/javascript">
+      function send(callback_with_data, maxn) {
+        $.ajax({
+          url: "/jsonData/WT901-R3_v0.0.1/" + maxn,
+          dataType: "json",
+          async: "true",
+          success: function (data) {
+            console.log(JSON.stringify(data.data))
+            callback_with_data(data.data)
+          },
+
+          error: function () {
+
+          }
+        });
+      }
+      function sendtest() {
+        var output = []
+        d = { "angleY": "17.699", "angleZ": "-121.959", "time": "2023-03-13+12:14:37.676", "asY": "0.183", "accX": "-0.304", "asZ": "0.000", "asX": "-0.244", "angleX": "3.867", "accZ": "0.951", "accY": "0.065" }
+        for (var i = 1; i <= 120; i++) {
+          output.push(d)
+        }
+        return output;
+
+      }
+
+    </script>
+    <div id="main1" style="width: 300px;height:300px;"></div>
+    <div id="main2" style="width: 300px;height:300px;"></div>
+    <div id="main3" style="width: 300px;height:300px;"></div>
+    <script type="text/javascript">
+      var anglex = [0]
+      var angley = [0]
+      var anglez = [0]
+
+      var asx = [0]
+      var asy = [0]
+      var asz = [0]
+
+      var accx = [0]
+      var accy = [0]
+      var accz = [0]
+      var thresh = 0
+      data = send(function (data) {
+        for (var i in data) {
+          date = data[i].time
+          day = parseInt(date.substr(8, 10))
+          hour = parseInt(date.substring(11, 13))
+          min = parseInt(date.substring(14, 16))
+          sec = parseInt(date.substring(17, 19))
+          msec = parseInt(date.substring(20, 22))
+          time = msec + 1000 * (sec + 60 * (min + 60 * (hour + 24 * day)))
+          if (time <= thresh) continue
+          thresh = time
+          d = data[i]
+
+          anglex.push(parseFloat(d.angleX))
+          angley.push(parseFloat(d.angleY))
+          anglez.push(parseFloat(d.angleZ))
+
+          asx.push(parseFloat(d.asX))
+          asy.push(parseFloat(d.asY))
+          asz.push(parseFloat(d.asZ))
+
+          accx.push(parseFloat(d.accX))
+          accy.push(parseFloat(d.accY))
+          accz.push(parseFloat(d.accZ))
+        }
+        console.log(parseFloat(anglex))
+      }, 20) // 初次申请的节点个数
+
+      setInterval(function () {
+        data = send(function (data) {
+          for (var i in data) {
+            date = data[i].time
+            day = parseInt(date.substring(8, 10))
+            hour = parseInt(date.substring(11, 13))
+            min = parseInt(date.substring(14, 16))
+            sec = parseInt(date.substring(17, 19))
+            msec = parseInt(date.substring(20, 22))
+            time = msec + 1000 * (sec + 60 * (min + 60 * (hour + 24 * day)))
+
+            if (time <= thresh) continue
+            thresh = time
+            d = data[i]
+            anglex.shift()
+            anglex.push(parseFloat(d.angleX))
+            angley.shift()
+            angley.push(parseFloat(d.angleY))
+            anglez.shift()
+            anglez.push(parseFloat(d.angleZ))
+
+            asx.shift()
+            asx.push(parseFloat(d.asX))
+            asy.shift()
+            asy.push(parseFloat(d.asY))
+            asz.shift()
+            asz.push(parseFloat(d.asZ))
+
+            accx.shift()
+            accx.push(parseFloat(d.accX))
+            accy.shift()
+            accy.push(parseFloat(d.accY))
+            accz.shift()
+            accz.push(parseFloat(d.accZ))
+          }
+          var chartDom1 = document.getElementById('main1');
+          var myChart1 = echarts.init(chartDom1);
+          var option1;
+
+          option1 = {
+            color: ['#80FFA5', '#37A2FF', '#FF0087'],
+            title: {
+              text: 'Angle',
+              textStyle: {
+                color: '#FF4500',
+                fontFamily: 'sans-serif',
+              }
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'cross',
+                label: {
+                  backgroundColor: '#6a7985'
+                }
+              }
+            },
+            legend: {
+              data: ['X', 'Y', 'Z']
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            // grid: {
+            //   left: '3%',
+            //   right: '4%',
+            //   bottom: '3%',
+            //   containLabel: true
+            // },
+            xAxis: [
+              {
+                type: 'category',
+                boundaryGap: false,
+                // data: ['0', '1', '2', '3', '4', '5']
+              }
+            ],
+            yAxis: [
+              {
+                type: 'value',
+                min: -180,
+                max: +180,
+                scale: false
+              }
+            ],
+            series: [
+              {
+                name: 'X',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(128, 255, 165)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(1, 191, 236)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: anglex
+              },
+              {
+                name: 'Y',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(55, 162, 255)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(116, 21, 219)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: angley
+              },
+              {
+                name: 'Z',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                label: {
+                  show: true,
+                  position: 'top'
+                },
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(255, 0, 135)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(135, 0, 157)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: anglez
+              }
+            ]
+          };
+
+          option1 && myChart1.setOption(option1);
+
+          var chartDom2 = document.getElementById('main2');
+          var myChart2 = echarts.init(chartDom2);
+          var option2;
+
+          option2 = {
+            color: ['#80FFA5', '#37A2FF', '#FF0087'],
+            title: {
+              text: 'As',
+              textStyle: {
+                color: '#FF4500',
+                fontFamily: 'sans-serif',
+              }
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'cross',
+                label: {
+                  backgroundColor: '#6a7985'
+                }
+              }
+            },
+            legend: {
+              data: ['X', 'Y', 'Z']
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            // grid: {
+            //   left: '3%',
+            //   right: '4%',
+            //   bottom: '3%',
+            //   containLabel: true
+            // },
+            xAxis: [
+              {
+                type: 'category',
+                boundaryGap: false,
+                // data: ['0', '1', '2', '3', '4', '5']
+              }
+            ],
+            yAxis: [
+              {
+                type: 'value',
+                min:-300,
+                min:300,
+                scale: false
+              }
+            ],
+            series: [
+              {
+                name: 'X',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(128, 255, 165)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(1, 191, 236)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: asx
+              },
+              {
+                name: 'Y',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(55, 162, 255)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(116, 21, 219)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: asy
+              },
+              {
+                name: 'Z',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                label: {
+                  show: true,
+                  position: 'top'
+                },
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(255, 0, 135)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(135, 0, 157)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: asz
+              }
+            ]
+          };
+
+          option2 && myChart2.setOption(option2);
+
+          var chartDom3 = document.getElementById('main3');
+          var myChart3 = echarts.init(chartDom3);
+          var option3;
+
+          option3 = {
+            color: ['#80FFA5', '#37A2FF', '#FF0087'],
+            title: {
+              text: 'Acc',
+              textStyle: {
+                color: '#FF4500',
+                fontFamily: 'sans-serif',
+              }
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: {
+                type: 'cross',
+                label: {
+                  backgroundColor: '#6a7985'
+                }
+              }
+            },
+            legend: {
+              data: ['X', 'Y', 'Z']
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            // grid: {
+            //   left: '3%',
+            //   right: '4%',
+            //   bottom: '3%',
+            //   containLabel: true
+            // },
+            xAxis: [
+              {
+                type: 'category',
+                boundaryGap: false,
+                // data: ['0', '1', '2', '3', '4', '5']
+              }
+            ],
+            yAxis: [
+              {
+                type: 'value',
+                min:-1.2,
+                min:1.2,
+                scale: false
+              }
+            ],
+            series: [
+              {
+                name: 'X',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(128, 255, 165)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(1, 191, 236)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: accx
+              },
+              {
+                name: 'Y',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(55, 162, 255)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(116, 21, 219)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: accy
+              },
+              {
+                name: 'Z',
+                type: 'line',
+                stack: 'Total',
+                smooth: true,
+                lineStyle: {
+                  width: 0
+                },
+                showSymbol: false,
+                label: {
+                  show: true,
+                  position: 'top'
+                },
+                areaStyle: {
+                  opacity: 0.8,
+                  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {
+                      offset: 0,
+                      color: 'rgb(255, 0, 135)'
+                    },
+                    {
+                      offset: 1,
+                      color: 'rgb(135, 0, 157)'
+                    }
+                  ])
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: accz
+              }
+            ]
+          };
+
+          option3 && myChart3.setOption(option3);
+        }, 1) // 增量
+
+      }, 200);
+    </script>
+  </div>
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+
+</body>
+
+</html>

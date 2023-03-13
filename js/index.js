@@ -1,7 +1,7 @@
 var menulist = [
     [{name: "Home", src: "index.html"}],
-    [{name: "NEWS", src: ""}, {name: "Week1", src: "docs/week1.html"}, {name: "More", src: "docs/news.html"}],
-    [{name: "Documents", src: ""}, {name: "GDSS", src: "docs/GDSS.html"}, {name: "More", src :""}],
+    [{name: "NEWS", src: ""}, {name: "BlogForWeek1", src: "docs/BlogForWeek1.html"}, {name: "More", src: "docs/news.html"}],
+    [{name: "Documents", src: ""}, {name: "GDSS", src: "docs/GDSS.html"}, {name: "More", src :"docs/documents.html"}],
     [{name: "Members", src: "docs/member.html"}],
     [{name: "Things", src: "docs/borrow.html"}],
     [{name: "Online", src: "docs/realtimedata.html"}]
