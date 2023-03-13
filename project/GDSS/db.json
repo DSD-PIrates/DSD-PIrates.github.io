@@ -1,3 +1,13 @@
 {
-    
+    "sensor_l1_v1": [
+        {
+            "data": "unknown"
+        },
+        {
+            "data": "known"
+        },
+        {
+            "value": "test"
+        }
+    ]
 }

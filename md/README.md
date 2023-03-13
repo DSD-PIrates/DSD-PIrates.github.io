@@ -109,12 +109,3 @@ def getObjectWithHashAttribute(GetObjectWithoutHashAttribute):
     return data # get the correct hash value
 ```
 
-## To Developer
-
-When attempting to deploy GDSS on a cloud server, I encountered issues establishing an HTTP connection. I later discovered that two actions were necessary:
-
-1. Open the corresponding port using the Ubuntu firewall, ufw.
-2. Configure the appropriate security group in the cloud server's console.
-
-Here is a related (Chinese) blog post: https://blog.csdn.net/u010058695/article/details/116486325
-
