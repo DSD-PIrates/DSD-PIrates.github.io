@@ -14,8 +14,20 @@ var dropdown_toggle_1 = '<a class="dropdown-toggle" data-toggle="dropdown" href=
 var dropdown_toggle_2 =  '" role="button" aria-haspopup="true" aria-expanded="false">'
 var dropdown_menu = '<ul class="dropdown-menu">'
 var toptext = `
-    <p style="font-size: x-large; text-align: center; margin: 0; padding-left: 10px; padding-right: 10px;">小组名-项目名</p>
-    <ul class="nav nav-pills" id="toptable">`
+<div class="container-fluid">
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#collapsed-nav">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class='navbar-brand'>
+        小组名-项目名
+    </div>
+</div>
+<div class="collapse navbar-collapse" id="collapsed-nav">
+    <ul class="nav navbar-nav">`
 
 function isNormalPage(flag) {
     if(flag == 0) {
@@ -41,8 +53,8 @@ function topbar(flag) {
         }
         
     }
-    text = text + '</ul>'
+    text = text + `</ul></ul></div></div>`
     console.log(text)
-    document.getElementById("top").innerHTML = text
-    //document.getElementById("top").innerHTML = toptext + text
+    //document.getElementById("top").innerHTML = text
+    document.getElementById("top").innerHTML = toptext + text
 }
