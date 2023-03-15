@@ -18,9 +18,13 @@
     <nav class="navbar navbar-default navbar-fixed-top" id="top"></nav>    
     <div class="container bs-docs-container">
         <div class="row">
-            <div class="col-md-12 blog" role="main">
+            <div class="col-md-10 blog" role="main">
                 <div id="markdown"></div>
             </div>
+            <div class="col-md-2 content" role="main">
+                <div id="content"></div>
+            </div>
+            
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
@@ -51,5 +55,6 @@
     <script src="../js/markdown.js"></script>
     <script>topbar(1)</script>
     <script>LoadMarkdown("../md/BlogForWeek1.md")</script>
+    <!--<script>makeEssayContent($("#markdown"), $("#content"))</script>-->
 </body>
 </html>
