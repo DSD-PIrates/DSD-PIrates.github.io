@@ -32,14 +32,14 @@
 <body>
   <div class="container">
     <script type="text/javascript">
-      function send(callback_with_data, maxn) {
+      function send(callback_with_data, deviceName, id, maxn) {
         $.ajax({
-          url: "/jsonData/WT901-R3_v0.0.1/" + maxn,
+          url: "/jsonData/" + deviceName + "/" + maxn,
           dataType: "json",
           async: "true",
           success: function (data) {
             console.log(JSON.stringify(data.data))
-            callback_with_data(data.data)
+            callback_with_data(data.data, id)
           },
 
           error: function () {
@@ -78,6 +78,8 @@
             }
           },
           legend: {
+            show: true,
+            top: "10%",
             data: ['X', 'Y', 'Z']
           },
           toolbox: {
@@ -228,7 +230,14 @@
       var myChartac6 = echarts.init(chartDomac6);
       myChart[5] = [myChartan6, myChartas6, myChartac6]
 
-      devicename = ["1", "2", "3", "4", "5", "6"]
+      devicename = [
+        "WT901-L1_v0.0.1",
+        "WT901-L2_v0.0.1",
+        "WT901-L3_v0.0.1",
+        "WT901-R1_v0.0.1",
+        "WT901-R2_v0.0.1",
+        "WT901-R3_v0.0.1",
+      ]
       var anglex = [[], [], [], [], [], []]
       var angley = [[], [], [], [], [], []]
       var anglez = [[], [], [], [], [], []]
@@ -244,7 +253,7 @@
       var xlable = [[], [], [], [], [], []]
       var t = [0, 0, 0, 0, 0, 0]
       for (var i = 0; i < 6; i++) {
-        data = send(function (data) {
+        data = send(function (data, i) {
           for (var ii in data) {
             date = data[ii].time
             day = parseInt(date.substr(8, 10))
@@ -270,12 +279,18 @@
             accy[i].push(parseFloat(d.accY))
             accz[i].push(parseFloat(d.accZ))
           }
-        }, 20)
+        }, devicename[i], i, 20)
+      }
+
+      function getDeviceName(name) {
+        return name.substr(6, 2);
       }
 
       setInterval(function () {
-        for (var i = 0; i < 6; i++) {
-          data = send(function (data) {
+        var i;
+        for (i = 0; i < 6; i++) {
+          // alert(i)
+          data = send(function (data, i) {
             for (var ii in data) {
               date = data[ii].time
               day = parseInt(date.substr(8, 10))
@@ -312,10 +327,11 @@
               accz[i].shift()
               accz[i].push(parseFloat(d.accZ))
             }
-          }, 1)
-          show(myChart[i][0], devicename[i]+"Angle", anglex[i], angley[i], anglez[i], xlable[i], -180, 180),
-          show(myChart[i][1], devicename[i]+"As", asx[i], asy[i], asz[i], xlable[i], -300, 300),
-          show(myChart[i][2], devicename[i]+"Acc", accx[i], accy[i], accz[i], xlable[i], -1.2, 1.2)
+          }, devicename[i], i, 1)
+          name_now = getDeviceName(devicename[i])
+          show(myChart[i][0], name_now + " Angle", anglex[i], angley[i], anglez[i], xlable[i], -180, 180),
+          show(myChart[i][1], name_now + " As", asx[i], asy[i], asz[i], xlable[i], -300, 300),
+          show(myChart[i][2], name_now + " Acc", accx[i], accy[i], accz[i], xlable[i], -1.2, 1.2)
         }
 
       }, 200);
