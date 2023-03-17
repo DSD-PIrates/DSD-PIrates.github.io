@@ -20,20 +20,23 @@ function genFromTitle(hLevel, index){
 		if (t.attr('hLevel') > hLevel) {
 			// 遇到更小的标题，递归生成
 			let nt = genFromTitle(t.attr('hLevel'), index)
-			ele += `<li>${nt.ele}</li>`
+			//ele += `<li>${nt.ele}</li>`
+			ele += nt.ele
 			// 从nt.index到index-1的标题都处理完毕，更新index
 			index = nt.index 
 		}
 		else if (t.attr('hLevel') < hLevel) break // 遇到更大的标题，向上返回
 		else {
 			t.attr('id', 'tp'+index) // 恰好每个标题有唯一index 直接拿来用
-	        ele += `<li>
-				        <a href="#tp${index}"> ${ t.text() } </a>
-			        </li>`;
+			tmp = ''
+			for(var i = 0; i < hLevel - 1; i++) {
+				tmp = tmp + '&nbsp;&nbsp;'
+			}
+	        ele = ele +  '<li>' + tmp + `<a href="#tp${index}"> ${ t.text() } </a></li>`;
 	        index ++;
 		}
 	}
-	ele = `<ul>${ele}</ul>`
+	//ele = `<ul>${ele}</ul>`
 	return {ele, index} //index 也要返回去，父函数继续往后生成
 }
  
@@ -45,7 +48,7 @@ function makeEssayContent(elEssay, elContent) {
         console.log(elEssay.find('h'+i))
 	}
     console.log(genFromTitle(1, 0).ele)
-	elContent.html(genFromTitle(1, 0).ele);//从第一个一级标题开始生成
+	elContent.html("<ul>" + genFromTitle(1, 0).ele + "</ul>");//从第一个一级标题开始生成
 }
 function LoadMarkdown(filepath) {
     readTextFile(filepath, (textDetail) => {
