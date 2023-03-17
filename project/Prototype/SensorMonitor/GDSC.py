@@ -76,5 +76,7 @@ def writeDataToServer(name, data):
     return ans
 
 if __name__ == "__main__":
-    ans = readDataFromServer("WT901-R3_v0.0.1")
+    ans = writeDataToServer("test", {
+        "data": "fuck!"
+    })
     print(ans)
