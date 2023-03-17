@@ -23,7 +23,7 @@ var toptext = `
         <span class="icon-bar"></span>
     </button>
     <div class='navbar-brand'>
-        小组名-项目名
+        PIrates-RoseberryPi
     </div>
 </div>
 <div class="collapse navbar-collapse" id="collapsed-nav">
