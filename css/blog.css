@@ -10,22 +10,31 @@ h1, h2, h3, h4, h5, h6{
   padding-top: 50px;
   margin-top: -50px;
 }
-.con{
+.toc{
     background-color: rgba(255, 255, 255, 0.933);
     position: fixed;
     right: 60px;
 }
-.con a{
+.toc a{
   color: #000;
+  padding-left: 5px;
+}
+#toc li.active{
+  background-color: rgba(80,80,80,.04);
+}
+#toc li a.active {
+  color: #807dd4;
+  padding-left: 2px;
+  border-left: 3px solid #807dd4;
 }
 li::marker{
   content: ""
 }
-#content ul{
+#toc ul{
   padding-left: 10px;
   padding-right: 10px;
 }
-#content li{
+#toc li{
   margin-top: 5px;
   margin-bottom: 5px;
 }

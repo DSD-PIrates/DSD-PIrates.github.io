@@ -39,6 +39,42 @@ function genFromTitle(hLevel, index){
 	//ele = `<ul>${ele}</ul>`
 	return {ele, index} //index 也要返回去，父函数继续往后生成
 }
+
+// 定义一个函数，用于判断一个元素是否在窗口范围内
+function isInViewport(element) {
+    var rect = element.getBoundingClientRect();
+    return (
+        rect.top >= -10 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) +10
+    );
+}
+
+// 定义一个函数，用于高亮当前章节对应的目录项
+function highlightToc() {
+    // 获取所有的目录链接元素
+    var links = document.querySelectorAll("#toc li a");
+	var linkbars = document.querySelectorAll("#toc li");
+    // 遍历所有的目录链接元素，取消高亮样式，并找到第一个在视口范围内的锚点对应的链接元素，添加高亮样式
+    for (var i=0; i<links.length; i++) {
+      links[i].classList.remove("active");
+	  linkbars[i].classList.remove("active");
+    }
+	for (var i=0; i<links.length; i++) {
+		var anchorId=links[i].getAttribute("href").slice(1);
+		var anchor=document.getElementById(anchorId);
+		if(isInViewport(anchor)){
+		  links[i].classList.add("active");
+		  linkbars[i].classList.add("active");
+		  break;
+		}
+	  }
+}
+
+// 在页面加载完成后，调用highlightToc函数
+window.addEventListener("load", highlightToc);
+
+// 在页面滚动时，调用highlightToc函数
+window.addEventListener("scroll", highlightToc);
  
 // elEssay为文档挂载点，elContent为生成的目录挂载点
 function makeEssayContent(elEssay, elContent) {
@@ -56,6 +92,6 @@ function LoadMarkdown(filepath) {
         var result = md.render(textDetail)
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
-        makeEssayContent($("#markdown"), $("#content"))
+        makeEssayContent($("#markdown"), $("#toc"))
     })
 }
