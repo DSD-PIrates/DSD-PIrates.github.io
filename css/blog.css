@@ -39,15 +39,7 @@ li::marker{
   margin-bottom: 5px;
 }
 .top{
-    width: 100%;
-    display: flex;
-    position: fixed;
-    align-items:center;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background-color: rgba(255, 255, 255, 0.783);
-    box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.333); 
+  padding-left: 16px;
 }
 .toptable{
     margin-left: 50px;

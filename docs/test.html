@@ -2,56 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BlogForWeek1</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/index.css" >
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" >
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-    
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--<div class="top" id="top"></div>-->
-    <nav class="navbar navbar-default navbar-fixed-top" id="top"></nav>
-    <div class="container bs-docs-container">
-        <div class="row">
-            <div class="col-md-12 blog" role="main">
-                <div id="markdown"></div>
-            </div>
-            <div class="con" role="main">
-                <div id="content"></div>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+    
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to My Website</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget velit euismod, ullamcorper velit nec, eleifend tellus. Sed in tellus eget libero ultrices imperdiet at nec enim. Suspendisse potenti.</p>
+        <hr class="my-4">
+        <p>Learn more about me and my work.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn More</a>
     </div>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            showProcessingMessages: false,
-            messageStyle: "none",
-            extensions: ["tex2jax.js"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-            tex2jax: {
-                inlineMath:  [ ["$", "$"] ],
-                displayMath: [ ["$$","$$"] ],
-                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
-                ignoreClass:"comment-content"
-            },
-            "HTML-CSS": {
-                availableFonts: ["STIX","TeX"],
-                showMathMenu: false
-            }
-        });
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-        </script>
-        <script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/markdown.js"></script>
-    <script>topbar(1)</script>
-    <script>LoadMarkdown("../md/BlogForWeek1.md")</script>
-</body>
-</html>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 1</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget velit euismod, ullamcorper velit nec, eleifend tellus.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 2</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget velit euismod, ullamcorper velit nec, eleifend tellus.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Project 3
+                        </h5> <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget velit euismod, ullamcorper velit nec, eleifend tellus.</p> <a href="#" class="btn btn-primary">Learn More</a> </div> </div> </div> </div> </div>
+                        <footer class="bg-light py-3">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p>Copyright © 2023 My Website.
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <a href="#">[Privacy Policy](poe://www.poe.com/_api/key_phrase?phrase=Privacy%20Policy&prompt=Tell%20me%20more%20about%20Privacy%20Policy.)</a> | <a href="#">[Terms of Service](poe://www.poe.com/_api/key_phrase?phrase=Terms%20of%20Service&prompt=Tell%20me%20more%20about%20Terms%20of%20Service.)</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                        
+                        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                        </body> </html>
