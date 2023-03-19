@@ -15,7 +15,11 @@ function loadList(num) {
         List = TmpList[num]
         console.log(List)
         for(var i = 0; i < List.length; i++) {
-            text = text + `<div class="day"><div class="postTitle"><a href="` + List[i].src + `">` + List[i].title + `</a></div><span class="postMeta">Posted on ` + List[i].time + `</span><div class="postCon"><div class="mainText">` + List[i].abstract + `</div><a href="` + List[i].src + `">Read more.</a></div>`
+            text = text + `<div class="day">` + 
+            `<div class="postTitle"><a href="` + List[i].src + `">` + List[i].title + `</a></div>` +
+            `<span class="postMeta">Posted on ` + List[i].time + `</span>`+ 
+            `<div class="postCon"><div class="mainText">` + List[i].abstract + `</div><a href="` + List[i].src + `">Read more.</a></div>`+ 
+            `</div>`
         }
         console.log(text)
         document.getElementById("articlelist").innerHTML = text
