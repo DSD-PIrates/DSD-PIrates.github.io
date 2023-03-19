@@ -4,6 +4,7 @@ import datetime
 
 data = {}
 file = "centerResearch on end-to-end latency between different devices.md"
+docid = 0
 
 with open(file, "r") as f:
     content = f.read(250)
@@ -76,6 +77,6 @@ txt = r'''
     <script>LoadMarkdown("../md/{filename}")</script>
 </body>
 </html>
-'''.format(title=data.title, id = 0, filename=file)
+'''.format(title=data.title, id = docid, filename=file)
 with open("../docs/" + data.src, "w") as f:
     f.write(txt)

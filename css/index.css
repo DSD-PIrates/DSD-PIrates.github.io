@@ -1,7 +1,9 @@
 body{
-    background-image: url("../img/background.jpg");
+    /*background-image: url("../img/background.jpg");*/
+    background-color: rgb(255, 255, 255);
     background-size: 100%;
 }
 .top{
     padding-left: 16px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }

@@ -21,13 +21,11 @@ var dropdown_toggle_1 = '<a class="nav-link dropdown-toggle" data-bs-toggle="dro
 var dropdown_toggle_2 =  '" role="button" aria-expanded="false">'
 var dropdown_menu = '<ul class="dropdown-menu" aria-labelledby="navbarDropdown">'
 var toptext = `
-<div class="navbar-brand">PIrates-RoseberryPi
-    <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
-        data-bs-target="#collapsed-nav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-</div>
+<div class="navbar-brand">PIrates-RoseberryPi</div>
+<button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+    data-bs-target="#collapsed-nav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
 <div class="collapse navbar-collapse" id="collapsed-nav">
     <ul class="navbar-nav">`
 
