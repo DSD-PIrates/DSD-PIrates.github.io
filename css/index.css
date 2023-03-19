@@ -3,19 +3,5 @@ body{
     background-size: 100%;
 }
 .top{
-    width: 100%;
-    display: flex;
-    position: fixed;
-    align-items:center;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.927);
-    box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.334); 
-}
-.toptable{
-    margin-left: 50px;
-}
-.tableitem{
-    padding-left: 25px;
+    padding-left: 16px;
 }
