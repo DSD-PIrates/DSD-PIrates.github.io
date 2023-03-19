@@ -1,6 +1,6 @@
 {
-    "title": "GDSS",
-    "src": "GDSS.html",
-    "time": "2023-03-12 22:29",
-    "abstract": "# General Data Storage Server\n\n```\nVersion : 0.0.1\nAuthor  : Bob\n```\n\nA General Data Storage Server can establish a correspondence between names and values, allowing for modification and querying of a particular value. In our general data server, all"
+    "title": "centerResearch on end-to-end latency between different devices",
+    "src": "centerResearch on end-to-end latency between different devices.html",
+    "time": "2023-03-19 12:39",
+    "abstract": "#### <center>Research on end-to-end latency between different devices</center>\n\n<center>Three kinds of HTTP transmission sensor real-time monitoring data (Android to PC, PC to cloud, Android to cloud) round-trip time delay (RTT) test</center>\n\n```\nAu"
 }

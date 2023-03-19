@@ -10,7 +10,7 @@ function readTextFile(filePath, callback) {
     xhrFile.send();
 }
 
-
+var abLevel = 0
 
 // 函数的含义是，在第index个标题处生成目录树，该标题级别为hLevel
 function genFromTitle(hLevel, index){
@@ -29,7 +29,7 @@ function genFromTitle(hLevel, index){
 		else {
 			t.attr('id', 'tp'+index) // 恰好每个标题有唯一index 直接拿来用
 			tmp = ''
-			for(var i = 0; i < hLevel - 1; i++) {
+			for(var i = 0; i < hLevel - 1 - abLevel; i++) {
 				tmp = tmp + '&nbsp;&nbsp;'
 			}
 	        ele = ele +  '<li>' + tmp + `<a href="#tp${index}"> ${ t.text() } </a></li>`;
@@ -79,8 +79,14 @@ window.addEventListener("scroll", highlightToc);
 // elEssay为文档挂载点，elContent为生成的目录挂载点
 function makeEssayContent(elEssay, elContent) {
 	// 首先标记所有标题
+	var flag = 0
 	for (let i = 1; i <= 6; i++) {
 		elEssay.find('h'+i).addClass('isTitle').attr('hLevel', i)
+		if(elEssay.find('h'+i).length < 1 && flag == 0) {
+			abLevel++
+		} else {
+			flag = 1
+		}
         console.log(elEssay.find('h'+i))
 	}
     console.log(genFromTitle(1, 0).ele)
