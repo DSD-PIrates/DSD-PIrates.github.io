@@ -2,9 +2,9 @@
 
 ## Case: Server Requests to Obtain the Sensor Status
 
-| Author   | Version | Statue    | Date       |
-| -------- | ------- | --------- | ---------- |
-| Somebody | 1       | Unaudited | 2023-03-19 |
+| Author | Version | Statue    | Date       |
+| ------ | ------- | --------- | ---------- |
+| Aidan  | 1       | Unaudited | 2023-03-19 |
 
 ### Brief Introduction
 
@@ -58,7 +58,7 @@ In Exception Flow 4a, the server will not get the information from the embedded 
 
 ### Revision History
 
-| Version | Date       | Author   | Description      | Status    |
-| ------- | ---------- | -------- | ---------------- | --------- |
-| 1       | 2023-03-19 | Somebody | Original Version | Unaudited |
+| Version | Date       | Author | Description      | Status    |
+| ------- | ---------- | ------ | ---------------- | --------- |
+| 1       | 2023-03-19 | Aidan  | Original Version | Unaudited |
 

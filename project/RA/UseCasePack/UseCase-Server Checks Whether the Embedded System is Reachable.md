@@ -2,9 +2,9 @@
 
 ## Case: Server Checks Whether the Embedded System is Reachable
 
-| Author   | Version | Statue    | Date       |
-| -------- | ------- | --------- | ---------- |
-| Somebody | 1       | Unaudited | 2023-03-19 |
+| Author | Version | Statue    | Date       |
+| ------ | ------- | --------- | ---------- |
+| Aidan  | 1       | Unaudited | 2023-03-19 |
 
 ### Brief Introduction
 
@@ -50,6 +50,6 @@ In Exception Flow 3a, server will not get the response from the embedded system,
 
 ### Revision History
 
-| Version | Date       | Author   | Description      | Status    |
-| ------- | ---------- | -------- | ---------------- | --------- |
-| 1       | 2023-03-19 | Somebody | Original Version | Unaudited |
+| Version | Date       | Author | Description      | Status    |
+| ------- | ---------- | ------ | ---------------- | --------- |
+| 1       | 2023-03-19 | Aidan  | Original Version | Unaudited |

@@ -2,9 +2,9 @@
 
 ## Case: Server Requests Real-time Data
 
-| Author   | Version | Statue    | Date       |
-| -------- | ------- | --------- | ---------- |
-| Somebody | 1       | Unaudited | 2023-03-19 |
+| Author | Version | Statue    | Date       |
+| ------ | ------- | --------- | ---------- |
+| Aidan  | 1       | Unaudited | 2023-03-19 |
 
 ### Brief Introduction
 
@@ -58,7 +58,7 @@ When the server requests the data that the sensor starts detecting, the process 
 
 ### Revision History
 
-| Version | Date       | Author   | Description      | Status    |
-| ------- | ---------- | -------- | ---------------- | --------- |
-| 1       | 2023-03-19 | Somebody | Original Version | Unaudited |
+| Version | Date       | Author | Description      | Status    |
+| ------- | ---------- | ------ | ---------------- | --------- |
+| 1       | 2023-03-19 | Aidan  | Original Version | Unaudited |
 

@@ -2,9 +2,9 @@
 
 ## Case: Server Requests Sensor Calibration
 
-| Author   | Version | Statue    | Date       |
-| -------- | ------- | --------- | ---------- |
-| Somebody | 1       | Unaudited | 2023-03-19 |
+| Author | Version | Statue    | Date       |
+| ------ | ------- | --------- | ---------- |
+| Aidan  | 1       | Unaudited | 2023-03-19 |
 
 ### Brief Introduction
 
@@ -49,10 +49,10 @@ When the server requests sensor calibration, the process starts; After the serve
 
 ### Visual Model
 
-<img src="C:\Users\lz\OneDrive\桌面\RA\Server Requests Sensor Calibration.svg" style="zoom:150%;" />
+<img src="./Server Requests Sensor Calibration.svg" style="zoom:150%;" />
 
 ### Revision History
 
-| Version | Date       | Author   | Description      | Status    |
-| ------- | ---------- | -------- | ---------------- | --------- |
-| 1       | 2023-03-19 | Somebody | Original Version | Unaudited |
+| Version | Date       | Author | Description      | Status    |
+| ------- | ---------- | ------ | ---------------- | --------- |
+| 1       | 2023-03-19 | Aidan  | Original Version | Unaudited |

@@ -2,9 +2,9 @@
 
 ## Case: Server Requests to Obtain Sensor Details
 
-| Author   | Version | Statue    | Date       |
-| -------- | ------- | --------- | ---------- |
-| Somebody | 1       | Unaudited | 2023-03-19 |
+| Author | Version | Statue    | Date       |
+| ------ | ------- | --------- | ---------- |
+| Aidan  | 1       | Unaudited | 2023-03-19 |
 
 ### Brief Introduction
 
@@ -54,6 +54,6 @@ When the server requests to obtain the sensor details, the process begins; it en
 
 ### Revision History
 
-| Version | Date       | Author   | Description      | Status    |
-| ------- | ---------- | -------- | ---------------- | --------- |
-| 1       | 2023-03-19 | Somebody | Original Version | Unaudited |
+| Version | Date       | Author | Description      | Status    |
+| ------- | ---------- | ------ | ---------------- | --------- |
+| 1       | 2023-03-19 | Aidan  | Original Version | Unaudited |
