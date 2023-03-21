@@ -2,42 +2,36 @@
 
 ## Case: Server Requests to Obtain Sensor Details
 
-| Author | Version | Statue    | Date       |
-| ------ | ------- | --------- | ---------- |
-| Aidan  | 1       | Unaudited | 2023-03-19 |
+| Author     | Version | Statue    | Date       |
+| ---------- | ------- | --------- | ---------- |
+| Aidan, Bob | 1       | Unaudited | 2023-03-21 |
 
 ### Brief Introduction
 
-When the server requests to obtain the sensor details, the process begins; it ends when the server confirms the signal has been received.
+When the server requests to obtain the sensor details, the process begins, it ends when the server confirms the response has been received. 
 
 ### Actors
 
 - Server
-- User
 
 ### Pre-Conditions
 
 - The embedded system has been powered on.
-- The network is smooth and the server is able to send messages to the embedded system.
+
+- The network is available and the server is able to send messages to the embedded system.
 
 ### Basic Flow
 
-2. The server **requests** to obtain the sensor details, including sensor model, sensor serial number.
-2. The embedded begin to connect with the sensors and acquire the sensor details.
-2. The embedded system  **response** sensors' details to the server.
+1. The server **REQUESTs** to obtain the sensor details, including sensor name, sensor type and sensor serial number.
+
+2. The embedded system  **RESPONSE** sensors' details to the server.
 2. The server receives the information.
 
 ### Exception Flows
 
-- 2a：
-  1. The server requests to obtain the sensor details, including sensor model, sensor serial number.
-  2. The use case ends as the sensor did not receive the request.
-- 3a:
-  1. The server requests to obtain the sensor details, including sensor model, sensor serial number.
-  2. The sensor receives the request and sends its own details to the server.
-  3. If the server does not receive the information, it will request to obtain the sensor details again after a timeout.
-  4. The sensor receives the request and sends its own details to the server again.
-  5. The server receives the information and returns a response.
+- 5a：
+  1. If the server does not receive the **RESPONSE**, it should check the reachability of the embedded system, and try to obtain the sensor details again if the embedded system is reachable (return to Basic Flow step 1).
+  2. If the embedded system is not reachable, use case ends.
 
 ### Post Conditions
 
@@ -46,7 +40,9 @@ When the server requests to obtain the sensor details, the process begins; it en
 
 ### Supplemental Requirements
 
+1. The details of the sensors are part of the configuration data of the embedded system, even when some sensor runs out of battery, the sensor details **CAN** still be acquired.
 
+2. Sensor details contain sensor name, sensor type and sensor serial number.
 
 ### Visual Model
 
@@ -54,6 +50,6 @@ When the server requests to obtain the sensor details, the process begins; it en
 
 ### Revision History
 
-| Version | Date       | Author | Description      | Status    |
-| ------- | ---------- | ------ | ---------------- | --------- |
-| 1       | 2023-03-19 | Aidan  | Original Version | Unaudited |
+| Version | Date       | Author     | Description      | Status    |
+| ------- | ---------- | ---------- | ---------------- | --------- |
+| 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
