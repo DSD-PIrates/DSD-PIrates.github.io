@@ -1,16 +1,18 @@
 var menulist = [
     [{name: "Home", src: "index.html"}],
     [
-        {name: "NEWS", src: ""}, 
+        {name: "News", src: ""}, 
+        {name: "Website Construction Record", src: "docs/Website Construction Record.html"},
+        {name: "Research on end-to-end latency between different devices", src: "docs/Research on end-to-end latency between different devices.html"}, 
         {name: "BlogForWeek1", src: "docs/BlogForWeek1.html"}, 
         {name: "More", src: "docs/news.html"}
     ],[
         {name: "Documents", src: ""}, 
-        {name: "Research on end-to-end latency between different devices", src: "docs/Research on end-to-end latency between different devices.html"}, 
+        {name: "End-to-end latency between different devices", src: "docs/End-to-end latency between different devices.html"}, 
         {name: "GDSS", src: "docs/GDSS.html"}, {name: "More", src :"docs/documents.html"}
     ],
     [{name: "Members", src: "docs/member.html"}],
-    [{name: "Things", src: "docs/borrow.html"}],
+    [{name: "Borrowing", src: "docs/borrow.html"}],
     [{name: "Online", src: "docs/realtimedata.html"}]
 ]
 
@@ -21,7 +23,7 @@ var dropdown_toggle_1 = '<a class="nav-link dropdown-toggle" data-bs-toggle="dro
 var dropdown_toggle_2 =  '" role="button" aria-expanded="false">'
 var dropdown_menu = '<ul class="dropdown-menu" aria-labelledby="navbarDropdown">'
 var toptext = `
-<div class="navbar-brand">PIrates-RoseberryPi</div>
+<div class="navbar-brand">PIrates-Raspberry Pi</div>
 <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
     data-bs-target="#collapsed-nav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
