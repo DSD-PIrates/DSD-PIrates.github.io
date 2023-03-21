@@ -5,6 +5,18 @@
             "src": "BlogForWeek1.html",
             "time": "2023.3.11 14:10",
             "abstract": "Abstract: ## Equipment Borrowed from Mr. Zhang Six sensors Network card + two antennas Two USB to USB-type C cables Raspberry Pi box Raspberry Pi Charging Cable HDMI to MINI-HDMI TF card reader ## Equipment Borrowed from Xiangxi Zheng A LENOVO pad with a USB-type C cable"
+        },
+        {
+            "title": "Research on end-to-end latency between different devices",
+            "src": "Research on end-to-end latency between different devices.html",
+            "time": "2023-03-19 12:39",
+            "abstract": "#### Research on end-to-end latency between different devices\n\nThree kinds of HTTP transmission sensor real-time monitoring data (Android to PC, PC to cloud, Android to cloud) round-trip time delay (RTT) test\n\n```\nAu"
+        },
+        {
+            "title": "Website Construction Record",
+            "src": "Website Construction Record.html",
+            "time": "2023-03-21 21:52",
+            "abstract": "# Website Construction Record\n\n> Author: Mark\n\nAccording to the requirements of the group presentation, our group's website includes the following pages: **Home**, **News**, **Documents**, **Members**, **Borrowing**, and **Online Features**, which ar"
         }
     ],
     [
@@ -15,11 +27,12 @@
             "abstract": "# General Data Storage Server\n\n```\nVersion : 0.0.1\nAuthor  : Bob\n```\n\nA General Data Storage Server can establish a correspondence between names and values, allowing for modification and querying of a particular value. In our general data server, all"
         },
         {
-            "title": "Research on end-to-end latency between different devices",
-            "src": "Research on end-to-end latency between different devices.html",
+            "title": "End-to-end latency between different devices",
+            "src": "End-to-end latency between different devices.html",
             "time": "2023-03-19 12:39",
-            "abstract": "#### Research on end-to-end latency between different devices\n\nThree kinds of HTTP transmission sensor real-time monitoring data (Android to PC, PC to cloud, Android to cloud) round-trip time delay (RTT) test\n\n```\nAu"
+            "abstract": "##### 1. Testing from Android to PC:\n\n| index | value(ms) |\n| -------- | -------- |\n| mean        | 26.8827       |\n| Standard Deviation        | 20.8187       |\n\n##### 2. Testing from PC to cloud:\n\n| index | value(ms) |\n| -------- | -------- |\n| mea"
         }
+        
     ]
 ]
 

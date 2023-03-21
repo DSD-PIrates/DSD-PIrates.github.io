@@ -87,11 +87,19 @@ function makeEssayContent(elEssay, elContent) {
 		} else {
 			flag = 1
 		}
-        console.log(elEssay.find('h'+i))
+        //console.log(elEssay.find('h'+i))
 	}
-    console.log(genFromTitle(1, 0).ele)
+    //console.log(genFromTitle(1, 0).ele)
 	elContent.html("<ul>" + genFromTitle(1, 0).ele + "</ul>");//从第一个一级标题开始生成
 }
+/*
+function setWidthofToc() {
+	console.log(getComputedStyle(document.querySelector('.blog')).width)
+	var widthInPercentage = parseFloat(getComputedStyle(document.querySelector('.col-md-10')).width)
+	console.log(widthInPercentage)
+	document.querySelector('.toc').style.maxWidth = (100 - widthInPercentage) + "%"
+}
+*/
 function LoadMarkdown(filepath) {
     readTextFile(filepath, (textDetail) => {
         //console.log(textDetail)
@@ -99,5 +107,6 @@ function LoadMarkdown(filepath) {
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
         makeEssayContent($("#markdown"), $("#toc"))
+		//setWidthofToc()
     })
 }
