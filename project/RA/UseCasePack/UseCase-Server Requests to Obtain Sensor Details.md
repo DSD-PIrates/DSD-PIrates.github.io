@@ -46,6 +46,10 @@ When the server requests to obtain the sensor details, the process begins, it en
 
 <img src="./Server Requests Sensor Details.svg" style="zoom:150%;" />
 
+### Sequence Diagram
+
+<img src="./RequestSensorDetails.svg" />
+
 ### Revision History
 
 | Version | Date       | Author     | Description      | Status    |

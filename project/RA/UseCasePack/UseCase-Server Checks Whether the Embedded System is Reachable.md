@@ -51,6 +51,10 @@ In Exception Flow 4a, server confirms that the embedded system is inaccessible.
 
 <img src="./Server Checks Whether the Sensor is Reachable.svg" style="zoom:150%;" />
 
+### Sequence Diagram
+
+<img src="./checkAccessibility.svg"/>
+
 ### Revision History
 
 | Version | Date       | Author     | Description      | Status    |

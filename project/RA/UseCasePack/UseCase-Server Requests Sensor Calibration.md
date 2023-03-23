@@ -47,6 +47,10 @@ During calibration, it should be ensured that the sensor is placed on a horizont
 
 <img src="./Server Requests Sensor Calibration.svg" style="zoom:150%;" />
 
+### Sequence Diagram
+
+<img src="./RequestSensorCalibration.svg" />
+
 ### Revision History
 
 | Version | Date       | Author     | Description      | Status    |
