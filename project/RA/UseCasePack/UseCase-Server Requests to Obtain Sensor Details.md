@@ -44,11 +44,11 @@ When the server requests to obtain the sensor details, the process begins, it en
 
 ### Visual Model
 
-<img src="./Server Requests Sensor Details.svg" style="zoom:150%;" />
+<img src="./UseCaseDiagram/Server Requests Sensor Details.svg" style="zoom:150%;" />
 
 ### Sequence Diagram
 
-<img src="./RequestSensorDetails.svg" />
+<img src="./SequenceDiagram/RequestSensorDetails.svg" />
 
 ### Revision History
 

@@ -81,11 +81,11 @@ For Exception Flow 10a, The server detected the embedded system offline.
 
 **Visual Model**
 
-<img src="Server Requests Real-time Data [Async].svg" style="zoom:150%;" />
+<img src="./UseCaseDiagram/Server Requests Real-time Data [Async].svg" style="zoom:150%;" />
 
 **Sequence Diagram**
 
-![](RequestRealtimeData(Async).svg)
+![](./SequenceDiagram/RequestRealtimeData(Async).svg)
 
 **Revision History**
 
@@ -140,11 +140,11 @@ For Exception Flow 10a, The server detected the embedded system offline.
 
 **Visual Model**
 
-<img src="Server Requests Real-time Data [Sync].svg" style="zoom:150%;" />
+<img src="./UseCaseDiagram/Server Requests Real-time Data [Sync].svg" style="zoom:150%;" />
 
 **Sequence Diagram**
 
-![](RequestRealtimeData(Sync).svg)
+![](./SequenceDiagram/RequestRealtimeData(Sync).svg)
 
 **Revision History**
 
@@ -203,11 +203,11 @@ In Exception Flow 4a, server confirms that the embedded system is inaccessible.
 
 **Visual Model**
 
-<img src="Server Checks Whether the Sensor is Reachable.svg" style="zoom:150%;" />
+<img src="./UseCaseDiagram/Server Checks Whether the Sensor is Reachable.svg" style="zoom:150%;" />
 
 **Sequence Diagram**
 
-![](checkAccessibility.svg)
+![](./SequenceDiagram/checkAccessibility.svg)
 
 **Revision History**
 
@@ -262,11 +262,11 @@ During calibration, it should be ensured that the sensor is placed on a horizont
 
 **Visual Model**
 
-<img src="Server Requests Sensor Calibration.svg" style="zoom:150%;" />
+<img src="./UseCaseDiagram/Server Requests Sensor Calibration.svg" style="zoom:150%;" />
 
 **Sequence Diagram**
 
-![](RequestSensorCalibration.svg)
+![](./SequenceDiagram/RequestSensorCalibration.svg)
 
 **Revision History**
 
@@ -322,11 +322,11 @@ When the server requests to obtain the sensor details, the process begins, it en
 
 **Visual Model**
 
-<img src="Server Requests Sensor Details.svg" style="zoom:150%;" />
+<img src="./UseCaseDiagram/Server Requests Sensor Details.svg" style="zoom:150%;" />
 
 **Sequence Diagram**
 
-![](RequestSensorDetails.svg)
+![](./SequenceDiagram/RequestSensorDetails.svg)
 
 **Revision History**
 
@@ -383,11 +383,11 @@ None.
 
 **Visual Model**
 
-<img src="Server Requests Sensor Status.svg" style="zoom:150%;" />
+<img src="./UseCaseDiagram/Server Requests Sensor Status.svg" style="zoom:150%;" />
 
 **Sequence Diagram**
 
-![](RequestSensorStatus.svg)
+![](./SequenceDiagram/RequestSensorStatus.svg)
 
 **Revision History**
 
