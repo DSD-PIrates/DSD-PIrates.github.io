@@ -45,11 +45,11 @@ For Exception Flow 10a, The server detected the embedded system offline.
 
 ### Visual Model
 
-<img src="Server Requests Real-time Data.svg" style="zoom:150%;" />
+<img src="./Server Requests Real-time Data.svg" style="zoom:150%;" />
 
 ### Sequence Diagram
 
-<img src="RequestRealtimeData(Sync).svg" />
+<img src="./RequestRealtimeData(Sync).svg" />
 
 ### Revision History
 

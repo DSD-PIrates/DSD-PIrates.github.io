@@ -47,11 +47,11 @@ None.
 
 ### Visual Model
 
-<img src="Server Requests Sensor Status.svg" style="zoom:150%;" />
+<img src="./Server Requests Sensor Status.svg" style="zoom:150%;" />
 
 ### Sequence Diagram
 
-<img src="RequestSensorStatus.svg" />
+<img src="./RequestSensorStatus.svg" />
 
 ### Revision History
 
