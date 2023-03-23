@@ -22,7 +22,7 @@ QA Team - By developing testing procedures founded in the system requirements, t
 
 ## 2. Use Cases
 
-![](combination.svg)
+![](./UseCaseDiagram/combination.svg)
 
 ### 2.1 Case 1: Server Requests Real-time Data (Async)
 
