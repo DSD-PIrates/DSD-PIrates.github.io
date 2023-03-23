@@ -8,12 +8,7 @@ var menulist = [
         {name: "More", src: "docs/news.html"}
     ],[
         {name: "Documents", src: ""}, 
-        {name: "UseCase-Server Checks Whether the Embedded System is Reachable", src: "docs/UseCase-Server Checks Whether the Embedded System is Reachable.html"},
-        {name: "UseCase-Server Requests Real-time Data Async", src: "docs/UseCase-Server Requests Real-time Data Async.html"},
-        {name: "UseCase-Server Requests Real-time Data Sync", src: "docs/UseCase-Server Requests Real-time Data Sync.html"},
-        {name: "UseCase-Server Requests Sensor Calibration", src: "docs/UseCase-Server Requests Sensor Calibration.html"},
-        {name: "UseCase-Server Requests Real-time Data Async", src: "docs/UseCase-Server Requests Real-time Data Async.html"},
-        {name: "UseCase-Server Checks Whether the Embedded System is Reachable", src: "docs/UseCase-Server Checks Whether the Embedded System is Reachable.html"},
+        {name: "Software Requirements Specification (SRS)", src: "docs/Software Requirements Specification (SRS).html"},
         {name: "End-to-end latency between different devices", src: "docs/End-to-end latency between different devices.html"}, 
         {name: "GDSS", src: "docs/GDSS.html"}, {name: "More", src :"docs/documents.html"}
     ],

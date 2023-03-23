@@ -1,6 +1,6 @@
 {
-    "title": "UseCase-Server Requests to Obtain the Sensor Status",
-    "src": "UseCase-Server Requests to Obtain the Sensor Status.html",
-    "time": "2023-03-23 10:43",
-    "abstract": "\n\n## Case: Server Requests to Obtain the Sensor Status\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the server req"
+    "title": "Software Requirements Specification (SRS)",
+    "src": "Software Requirements Specification (SRS).html",
+    "time": "2023-03-23 17:36",
+    "abstract": "# Software Requirements Specification (SRS)\n\nVersion 1, last updated by Aidan at 2023-3-23\n\n[TOC]\n\n## 1. Introduction\n\n### 1.1 Intended Audience and Purpose\n\nThis document is intended to provided information guiding the development process, ensuring "
 }
