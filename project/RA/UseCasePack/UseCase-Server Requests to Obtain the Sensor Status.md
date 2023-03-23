@@ -49,6 +49,10 @@ None.
 
 <img src="Server Requests Sensor Status.svg" style="zoom:150%;" />
 
+### Sequence Diagram
+
+<img src="RequestSensorStatus.svg" />
+
 ### Revision History
 
 | Version | Date       | Author     | Description      | Status    |
