@@ -102,11 +102,19 @@ function setWidthofToc() {
 */
 function LoadMarkdown(filepath) {
     readTextFile(filepath, (textDetail) => {
-        //console.log(textDetail)
+		var prefilepaths = filepath.split("/")
+		var prefilepath = ""
+		for(var i = 0; i < prefilepaths.length - 1; i++) {
+			prefilepath = prefilepath + prefilepaths[i] + '/'
+		}
+        console.log(prefilepath)
         var result = md.render(textDetail)
+		result = result.replace(/\.\//g, prefilepath).replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"')
+		console.log(result)
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
         makeEssayContent($("#markdown"), $("#toc"))
 		//setWidthofToc()
     })
 }
+
