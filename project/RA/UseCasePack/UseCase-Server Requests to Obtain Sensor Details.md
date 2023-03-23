@@ -1,5 +1,3 @@
-
-
 ## Case: Server Requests to Obtain Sensor Details
 
 | Author     | Version | Statue    | Date       |

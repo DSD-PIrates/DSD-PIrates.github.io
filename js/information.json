@@ -31,8 +31,43 @@
             "src": "End-to-end latency between different devices.html",
             "time": "2023-03-19 12:39",
             "abstract": "##### 1. Testing from Android to PC:\n\n| index | value(ms) |\n| -------- | -------- |\n| mean        | 26.8827       |\n| Standard Deviation        | 20.8187       |\n\n##### 2. Testing from PC to cloud:\n\n| index | value(ms) |\n| -------- | -------- |\n| mea"
+        },
+        {
+            "title": "UseCase-Server Checks Whether the Embedded System is Reachable",
+            "src": "UseCase-Server Checks Whether the Embedded System is Reachable.html",
+            "time": "2023-03-23 10:43",
+            "abstract": "\n\n## Case: Server Checks Whether the Embedded System is Reachable\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the"
+        },
+        {
+            "title": "UseCase-Server Requests Real-time Data Async",
+            "src": "UseCase-Server Requests Real-time Data Async.html",
+            "time": "2023-03-23 10:43",
+            "abstract": "\n\n## Case: Server Requests Real-time Data (Async)\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the server requests"
+        },
+        {
+            "title": "UseCase-Server Requests Real-time Data Sync",
+            "src": "UseCase-Server Requests Real-time Data Sync.html",
+            "time": "2023-03-23 10:43",
+            "abstract": "\n\n## Case: Server Requests Real-time Data (Sync)\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the server requests "
+        },
+        {
+            "title": "UseCase-Server Requests Sensor Calibration",
+            "src": "UseCase-Server Requests Sensor Calibration.html",
+            "time": "2023-03-23 10:43",
+            "abstract": "\n\n## Case: Server Requests Sensor Calibration\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the server requests sen"
+        },
+        {
+            "title": "UseCase-Server Requests to Obtain Sensor Details",
+            "src": "UseCase-Server Requests to Obtain Sensor Details.html",
+            "time": "2023-03-23 11:04",
+            "abstract": "## Case: Server Requests to Obtain Sensor Details\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the server requests"
+        },
+        {
+            "title": "UseCase-Server Requests to Obtain the Sensor Status",
+            "src": "UseCase-Server Requests to Obtain the Sensor Status.html",
+            "time": "2023-03-23 10:43",
+            "abstract": "\n\n## Case: Server Requests to Obtain the Sensor Status\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the server req"
         }
-        
     ]
 ]
 

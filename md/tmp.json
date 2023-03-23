@@ -1,6 +1,6 @@
 {
-    "title": "Website Construction Record",
-    "src": "Website Construction Record.html",
-    "time": "2023-03-21 21:52",
-    "abstract": "# Website Construction Record\n\n> Author: Mark\n\nAccording to the requirements of the group presentation, our group's website includes the following pages: **Home**, **News**, **Documents**, **Members**, **Borrowing**, and **Online Features**, which ar"
+    "title": "UseCase-Server Requests to Obtain the Sensor Status",
+    "src": "UseCase-Server Requests to Obtain the Sensor Status.html",
+    "time": "2023-03-23 10:43",
+    "abstract": "\n\n## Case: Server Requests to Obtain the Sensor Status\n\n| Author     | Version | Statue    | Date       |\n| ---------- | ------- | --------- | ---------- |\n| Aidan, Bob | 1       | Unaudited | 2023-03-21 |\n\n### Brief Introduction\n\nWhen the server req"
 }
