@@ -24,6 +24,8 @@ QA Team - By developing testing procedures founded in the system requirements, t
 
 ![](./UseCaseDiagram/combination.svg)
 
+​	
+
 ### 2.1 Case 1: Server Requests Real-time Data (Async)
 
 | Author     | Version | Statue    | Date       |
@@ -93,7 +95,9 @@ For Exception Flow 10a, The server detected the embedded system offline.
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
 
+​			
 
+​	
 
 ### 2.2 Case 2: Server Requests Real-time Data (Sync)
 
@@ -152,7 +156,9 @@ For Exception Flow 10a, The server detected the embedded system offline.
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
 
+​		
 
+​	
 
 ### 2.3 Case 3: Server Checks Whether the Embedded System is Reachable
 
@@ -215,7 +221,9 @@ In Exception Flow 4a, server confirms that the embedded system is inaccessible.
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
 
+​			
 
+​	
 
 ### 2.4 Case 4: Server Requests Sensor Calibration
 
@@ -274,7 +282,9 @@ During calibration, it should be ensured that the sensor is placed on a horizont
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
 
+​			
 
+​	
 
 ### 2.5 Case 5: Server Requests to Obtain Sensor Details
 
@@ -334,7 +344,9 @@ When the server requests to obtain the sensor details, the process begins, it en
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
 
+​			
 
+​	
 
 ### 2.6 Case 6: Server Requests to Obtain the Sensor Status
 
@@ -394,6 +406,10 @@ None.
 | Version | Date       | Author     | Description      | Status    |
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
+
+​		
+
+
 
 ## 3. Appendices
 
