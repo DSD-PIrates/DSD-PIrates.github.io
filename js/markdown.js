@@ -55,9 +55,22 @@ function highlightToc() {
     var links = document.querySelectorAll("#toc li a");
 	var linkbars = document.querySelectorAll("#toc li");
     // 遍历所有的目录链接元素，取消高亮样式，并找到第一个在视口范围内的锚点对应的链接元素，添加高亮样式
+	var lighting = -1
+	
     for (var i=0; i<links.length; i++) {
-      links[i].classList.remove("active");
-	  linkbars[i].classList.remove("active");
+		console.log(lighting)
+		if(links[i].classList.contains("active") && lighting == -1) {
+			lighting = i;
+		} else if(links[i].classList.contains("active") && lighting > -1) {
+			links[lighting].classList.remove("active");
+	  		linkbars[lighting].classList.remove("active");
+			links[i].classList.remove("active");
+	  		linkbars[i].classList.remove("active");
+		} else{
+			links[i].classList.remove("active");
+	  		linkbars[i].classList.remove("active");
+		}
+      	
     }
 	for (var i=0; i<links.length; i++) {
 		var anchorId=links[i].getAttribute("href").slice(1);
