@@ -49,22 +49,27 @@ When the server requests the data that the sensor starts detecting, the process 
 
 **Basic Flow**
 
-1. The server **REQUESTs** to obtain real-time data, with the sampling rate attached.
-2. The embedded system gets the **REQUEST** and send the **RESPONSE** that it is ready to deliver real-time data.
-3. The embedded system enters **real-time data transmission mode**.
-4. The embedded system gets real-time data and **SEND(by REQUEST)** it back to server.
-5. the server get the real-time data and **RESPONSE** to the embedded system that the data is collected.
-6. Repeat steps 3 and 4 for several times until the server no longer wants to continue receiving data.
-7. The server **REQUESTs** to stop sending real-time data.
-8. The embedded system stop the detection of real-time data, the embedded system exits **real-time data transmission mode**.
-9. The embedded system **RESPONSE** to server that the transmission has been stopped.
-10. The server receives the information.
+| **Basic Flow** | Actor                                                        | System                                                       |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1              | The server **REQUESTs** to obtain real-time data, with the sampling rate attached. |                                                              |
+| 2              |                                                              | The embedded system gets the **REQUEST** and send the **RESPONSE** that it is ready to deliver real-time data. |
+| 3              |                                                              | The embedded system enters **real-time data transmission mode**. |
+| 4              |                                                              | The embedded system gets real-time data and **SEND(by REQUEST)** it back to server. |
+| 5              | The server get the real-time data and **RESPONSE** to the embedded system that the data is collected. |                                                              |
+| 6              |                                                              | Repeat steps 3 and 4 for several times until the server no longer wants to continue receiving data. |
+| 7              | The server **REQUESTs** to stop sending real-time data.      |                                                              |
+| 8              |                                                              | The embedded system stop the detection of real-time data, the embedded system exits **real-time data transmission mode**. |
+| 9              |                                                              | The embedded system **RESPONSE** to server that the transmission has been stopped. |
+| 10             | The server receives the information.                         |                                                              |
 
 **Exception Flows**
 
-- 10a：If the server can not receives the **RESPONSE** from the embedded system.
-  1. The server resend the **REQUEST** as in Basic Flow step 7 for at most three times, if the server gets the **RESPONSE** from the embedded system, use case ends normally. There should be a 0.5-second interval between two **REQUESTs**.
-  2. After three unsuccessful attempts, the server determines that the embedded system is unreachable, use case ends with exception.
+| 10a  | Actor                                                        | System                 |
+| ---- | ------------------------------------------------------------ | ---------------------- |
+|      |                                                              | From Basic Flow step 9 |
+| 1    | If the server can not receives the **RESPONSE** from the embedded system. |                        |
+| 2    | The server resend the **REQUEST** as in Basic Flow step 7 for at most three times, if the server gets the **RESPONSE** from the embedded system, use case ends normally. There should be a 0.5-second interval between two **REQUESTs**. |                        |
+| 3    | After three unsuccessful attempts, the server determines that the embedded system is unreachable, use case ends with exception. |                        |
 
 **Post Conditions**
 
@@ -121,21 +126,26 @@ When the server requests the data, the process starts; When the server gets the 
 
 **Basic Flow**
 
-1. The server **REQUESTs** to obtain real-time data, with the sampling rate attached.
-2. The embedded system get the real-time data from the sensors.
-3. The embedded system make a **RESPONSE** to the server.
-4. The server receives the information.
+| **Basic Flow** | Actor                                                        | System                                                       |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1              | The server **REQUESTs** to obtain real-time data, with the sampling rate attached. |                                                              |
+| 2              |                                                              | The embedded system get the real-time data from the sensors. |
+| 3              |                                                              | The embedded system make a **RESPONSE** to the server.       |
+| 4              | The server receives the information.                         |                                                              |
 
 **Exception Flows**
 
-- 4a: If the server fails to receive the real-time data from the embedded system, the server **WILL NOT** retry to request again, the data it should have received will be regarded as the latest cached data or an INVALID data (if there are no value cached).
+| 4a   | Actor                                                        | System                 |
+| ---- | ------------------------------------------------------------ | ---------------------- |
+|      |                                                              | From Basic Flow step 3 |
+| 1    | If the server fails to receive the real-time data from the embedded system, the server **WILL NOT** retry to request again, the data it should have received will be regarded as the latest cached data or an INVALID data (if there are no value cached). |                        |
 
 **Post Conditions**
 
 1. Data received should be cached by the server.
 2. The embedded system quits **real-time data transmission mode** after the Basic Flow.
 
-For Exception Flow 10a, The server detected the embedded system offline.
+For Exception Flow 4a, The server detected the embedded system offline.
 
 **Supplemental Requirements**
 
@@ -180,21 +190,27 @@ When the server wants to check if the embedded system is reachable, it sends an 
 
 **Basic Flow**
 
-1. The server sends an  **REQUEST** message to the embedded system to determine whether the embedded system is available.
-2. The embedded system receives the request sent by the server.
-3. The embedded system send the **RESPONSE** message to the server.
-4. The server receives the response message.
+| **Basic Flow** | Actor                                                        | System                                                       |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1              | The server sends an  **REQUEST** message to the embedded system to determine whether the embedded system is available. |                                                              |
+| 2              |                                                              | The embedded system receives the request sent by the server. |
+| 3              |                                                              | The embedded system send the **RESPONSE** message to the server. |
+| 4              | The server receives the response message.                    |                                                              |
 
 **Exception Flows**
 
-- 3a:
-  1. When the embedded system send the response, a network error occurs.
-  2. The embedded system do nothing, use case ends.
+| 3a   | Actor | System                                                       |
+| ---- | ----- | ------------------------------------------------------------ |
+|      |       | From Basic Flow step 2                                       |
+| 1    |       | When the embedded system send the response, a network error occurs. |
+| 2    |       | The embedded system do nothing, use case ends.               |
 
-- 4a:
-  1. When the server receives the response message, a network error occurs.
-  2. The server makes another attempt to send a **REQUEST**, server will retry for at most three times. There should be a 0.5-second interval between two **REQUESTs**. If server get the **RESPONSE** from the embedded system, return to Basic Flow step 4.
-  3. After server has been failed to connect for three times, server confirms that the embedded system is unreachable, use case ends.
+| 4a   | Actor                                                        | System                 |
+| ---- | ------------------------------------------------------------ | ---------------------- |
+|      |                                                              | From Basic Flow step 3 |
+| 1    | When the server receives the response message, a network error occurs. |                        |
+| 2    | The server makes another attempt to send a **REQUEST**, server will retry for at most three times. There should be a 0.5-second interval between two **REQUESTs**. If server get the **RESPONSE** from the embedded system, return to Basic Flow step 4. |                        |
+| 3    | After server has been failed to connect for three times, server confirms that the embedded system is unreachable, use case ends. |                        |
 
 **Post Conditions**
 
@@ -248,17 +264,29 @@ When the server requests sensor calibration, the process starts; After the serve
 
 **Basic Flow**
 
-1. The server sends a sensor calibration **REQUEST**;
-2. After receiving the request, the embedded system sends a response to the server and performs calibration;
-3. After the embedded system calibrates the sensor successfully, it sends a **RESPONSE** to the server.
-4. The server receives the information.
+| **Basic Flow** | Actor                                              | System                                                       |
+| -------------- | -------------------------------------------------- | ------------------------------------------------------------ |
+| 1              | The server sends a sensor calibration **REQUEST**; |                                                              |
+| 2              |                                                    | After receiving the request, the embedded system sends a response to the server and performs calibration; |
+| 3              |                                                    | After the embedded system calibrates the sensor successfully, it sends a **RESPONSE** to the server. |
+| 4              | The server receives the information.               |                                                              |
 
 **Exception Flows**
 
-- 2a: When **REQUEST** received, if the embedded system is in **real-time data transmission mode**,  the embedded system **RESPONSE** the error message to the server, use case ends.
+| 2a   | Actor                  | System                                                       |
+| ---- | ---------------------- | ------------------------------------------------------------ |
+|      | From Basic Flow step 1 |                                                              |
+| 1    |                        | When **REQUEST** received, if the embedded system is in **real-time data transmission mode**,  the embedded system **RESPONSE** the error message to the server, use case ends. |
 
-- 2b: When **REQUEST** received, if the sensors have been calibrated in the recently ten seconds, the embedded system will refuse to calibrate and **RESPONSE** the error message to the server, use case ends.
-- 4a: If server failed to receive the information, the server will check the reachability of the embedded system, and Requests Sensor Calibration again if the embedded system is accessible.
+| 2b   | Actor                  | System                                                       |
+| ---- | ---------------------- | ------------------------------------------------------------ |
+|      | From Basic Flow step 1 |                                                              |
+| 1    |                        | When **REQUEST** received, if the sensors have been calibrated in the recently ten seconds, the embedded system will refuse to calibrate and **RESPONSE** the error message to the server, use case ends. |
+
+| 4a   | Actor                                                        | System                 |
+| ---- | ------------------------------------------------------------ | ---------------------- |
+|      |                                                              | From Basic Flow step 3 |
+| 1    | If server failed to receive the information, the server will check the reachability of the embedded system, and Requests Sensor Calibration again if the embedded system is accessible. |                        |
 
 **Post Conditions**
 
@@ -308,16 +336,19 @@ When the server requests to obtain the sensor details, the process begins, it en
 
 **Basic Flow**
 
-1. The server **REQUESTs** to obtain the sensor details, including sensor name, sensor type and sensor serial number.
-
-2. The embedded system  **RESPONSE** sensors' details to the server.
-3. The server receives the information.
+| **Basic Flow** | Actor                                                        | System                                                       |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1              | The server **REQUESTs** to obtain the sensor details, including sensor name, sensor type and sensor serial number. |                                                              |
+| 2              |                                                              | The embedded system  **RESPONSE** sensors' details to the server. |
+| 3              | The server receives the information.                         |                                                              |
 
 **Exception Flows**
 
-- 3a：
-  1. If the server does not receive the **RESPONSE**, it should check the reachability of the embedded system, and try to obtain the sensor details again if the embedded system is reachable (return to Basic Flow step 1).
-  2. If the embedded system is not reachable, use case ends.
+| 3a   | Actor                                                        | System                 |
+| ---- | ------------------------------------------------------------ | ---------------------- |
+|      |                                                              | From Basic Flow step 2 |
+| 1    | If the server does not receive the **RESPONSE**, it should check the reachability of the embedded system, and try to obtain the sensor details again if the embedded system is reachable (return to Basic Flow step 1). |                        |
+| 2    | If the embedded system is not reachable, use case ends.      |                        |
 
 **Post Conditions**
 
@@ -369,21 +400,28 @@ When the server requests to obtain the sensor status, the process begins; it end
 
 **Basic Flow**
 
-1. The server **REQUESTs** to obtain the current status of the sensor, including sensor connection status, sensor power.
-2. The embedded system receives the request and try to connect with the sensors.
-3. The sensors reply the embedded system with their status and power.
-4. The embedded system collects the data from sensors and makes a **RESPONSE** to the server.
-5. The server receives the information.
+| **Basic Flow** | Actor                                                        | System                                                       | Sensor                                                       |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1              | The server **REQUESTs** to obtain the current status of the sensor, including sensor connection status, sensor power. |                                                              |                                                              |
+| 2              |                                                              | The embedded system receives the request and try to connect with the sensors. |                                                              |
+| 3              |                                                              |                                                              | The sensors reply the embedded system with their status and power. |
+| 4              |                                                              | The embedded system collects the data from sensors and makes a **RESPONSE** to the server. |                                                              |
+| 5              | The server receives the information.                         |                                                              |                                                              |
 
 **Exception Flows**
 
-- 2a：
-  1. The embedded system receives the request and sends the request to the sensors.
-  2. If the embedded system did not receive the response, the embedded system resend the request to the sensor for at most three times.
-  3. If some sensor fails to response for three times, it will be regarded as **OFF**, return to Basic Flow step 4.
-- 5a:
-  1. If the server can not receives the **RESPONSE** from the embedded system. The server resend the **REQUEST** as in Basic Flow step 1 for at most three times, if the server gets the **RESPONSE** from the embedded system, use case ends normally. There should be a 0.5-second interval between two **REQUESTs**.
-  2. After three unsuccessful attempts, the server determines that the embedded system is unreachable, use case ends with exception.
+| 2a   | Actor                   | System                                                       | Sensor                                                       |
+| ---- | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|      | From Basic Flow step 1. |                                                              |                                                              |
+| 1    |                         | The embedded system receives the request and sends the request to the sensors. |                                                              |
+| 2    |                         | If the embedded system did not receive the response, the embedded system resend the request to the sensor for at most three times. |                                                              |
+| 3    |                         |                                                              | If some sensor fails to response for three times, it will be regarded as **OFF**, return to Basic Flow step 4. |
+
+| 5a   | Actor                                                        | System                  |
+| ---- | ------------------------------------------------------------ | ----------------------- |
+|      |                                                              | From Basic Flow step 4. |
+| 1    | If the server can not receives the **RESPONSE** from the embedded system. The server resend the **REQUEST** as in Basic Flow step 1 for at most three times, if the server gets the **RESPONSE** from the embedded system, use case ends normally. There should be a 0.5-second interval between two **REQUESTs**. |                         |
+| 2    | After three unsuccessful attempts, the server determines that the embedded system is unreachable, use case ends with exception. |                         |
 
 **Post Conditions**
 
