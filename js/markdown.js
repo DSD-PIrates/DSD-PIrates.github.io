@@ -58,7 +58,7 @@ function highlightToc() {
 	var lighting = -1
 	
     for (var i=0; i<links.length; i++) {
-		console.log(lighting)
+		//console.log(lighting)
 		if(links[i].classList.contains("active") && lighting == -1) {
 			lighting = i;
 		} else if(links[i].classList.contains("active") && lighting > -1) {
@@ -78,6 +78,13 @@ function highlightToc() {
 		if(isInViewport(anchor)){
 		  links[i].classList.add("active");
 		  linkbars[i].classList.add("active");
+		  console.log($(linkbars[i]).offset())
+		  if($(linkbars[i]).offset().top > 4500) {
+			console.log('upupup')
+			$(linkbars[i]).scrollTop(1000);
+		  } else {
+			$(linkbars[i]).scrollTop(0);
+		  }
 		  break;
 		}
 	  }
@@ -120,11 +127,11 @@ function LoadMarkdown(filepath) {
 		for(var i = 0; i < prefilepaths.length - 1; i++) {
 			prefilepath = prefilepath + prefilepaths[i] + '/'
 		}
-        console.log(prefilepath)
+        //console.log(prefilepath)
         var result = md.render(textDetail)
 		result = result.replace(/\.\//g, prefilepath)
 		result = result.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"')
-		console.log(result)
+		//console.log(result)
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
         makeEssayContent($("#markdown"), $("#toc"))

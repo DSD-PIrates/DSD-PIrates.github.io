@@ -14,6 +14,8 @@ h1, h2, h3, h4, h5, h6{
     background-color: rgba(255, 255, 255, 0.933);
     position: fixed;
     right: 60px;
+    overflow: auto;
+    height: 90%;
     /*width: auto;*/
 }
 .toc a{
@@ -21,6 +23,19 @@ h1, h2, h3, h4, h5, h6{
   padding-left: 5px;
   text-decoration:none;
 }
+#toc{
+  max-height:fit-content;
+}
+.toc::-webkit-scrollbar-thumb{
+  background: #aaa;
+  border-radius: 3px;
+}
+.toc::-webkit-scrollbar{
+  width: 5px !important;
+  height: 5px !important;
+  background: transparent !important;
+}
+
 #toc li.active{
   background-color: rgba(80,80,80,.04);
 }
