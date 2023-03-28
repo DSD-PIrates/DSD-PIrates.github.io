@@ -1,6 +1,16 @@
 # Software Requirements Specification (SRS)
 
-Version 1, last updated by Aidan at 2023-3-23
+Revision History:
+
+| Data      | Author     | Description                           |
+| --------- | ---------- | ------------------------------------- |
+| 2023-3-23 | Aidan, Bob | Draft                                 |
+| 2023-3-24 | Aidan, Bob | Add Sequences                         |
+| 2023-3-26 | Aidan, Bob | Modify the workflow to a tabular form |
+| 2023-3-28 | Aidan, Bob | Improve the overall structure of SRS  |
+|           |            |                                       |
+|           |            |                                       |
+|           |            |                                       |
 
 [TOC]
 
@@ -18,15 +28,26 @@ Development Team - Details of specific requirements that the final software buil
 
 QA Team - By developing testing procedures founded in the system requirements, the QA Team can create a comprehensive testing regimen that will guarantee requirements are met.
 
+### 1.2 How to use the document
+*暂时为空
 
+## 2. Concept of Operations
 
-## 2. Use Cases
+### 2.1 System Context
+**System Requirements:**
+
+*暂时为空
+
+### 2.2 System capabilities
+*暂时为空
+
+## 3. Use Cases
 
 ![](./UseCaseDiagram/combination.svg)
 
 ​	
 
-### 2.1 Case 1: Server Requests Real-time Data (Async)
+### 3.1 Case 1: Server Requests Real-time Data (Async)
 
 | Author     | Version | Statue    | Date       |
 | ---------- | ------- | --------- | ---------- |
@@ -104,7 +125,7 @@ For Exception Flow 10a, The server detected the embedded system offline.
 
 ​	
 
-### 2.2 Case 2: Server Requests Real-time Data (Sync)
+### 3.2 Case 2: Server Requests Real-time Data (Sync)
 
 | Author     | Version | Statue    | Date       |
 | ---------- | ------- | --------- | ---------- |
@@ -170,7 +191,7 @@ For Exception Flow 4a, The server detected the embedded system offline.
 
 ​	
 
-### 2.3 Case 3: Server Checks Whether the Embedded System is Reachable
+### 3.3 Case 3: Server Checks Whether the Embedded System is Reachable
 
 | Author     | Version | Statue    | Date       |
 | ---------- | ------- | --------- | ---------- |
@@ -241,7 +262,7 @@ In Exception Flow 4a, server confirms that the embedded system is inaccessible.
 
 ​	
 
-### 2.4 Case 4: Server Requests Sensor Calibration
+### 3.4 Case 4: Server Requests Sensor Calibration
 
 | Author     | Version | Statue    | Date       |
 | ---------- | ------- | --------- | ---------- |
@@ -314,7 +335,7 @@ During calibration, it should be ensured that the sensor is placed on a horizont
 
 ​	
 
-### 2.5 Case 5: Server Requests to Obtain Sensor Details
+### 3.5 Case 5: Server Requests to Obtain Sensor Details
 
 | Author     | Version | Statue    | Date       |
 | ---------- | ------- | --------- | ---------- |
@@ -379,7 +400,7 @@ When the server requests to obtain the sensor details, the process begins, it en
 
 ​	
 
-### 2.6 Case 6: Server Requests to Obtain the Sensor Status
+### 3.6 Case 6: Server Requests to Obtain the Sensor Status
 
 | Author     | Version | Statue    | Date       |
 | ---------- | ------- | --------- | ---------- |
@@ -446,14 +467,35 @@ None.
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
 
 ​		
+## 4. Behavioral Requirements
 
+### 4.1 System Inputs and Outputs
+#### 4.1.1 Inputs
+*暂时为空
 
+#### 4.1.2 Outputs
+*暂时为空
 
-## 3. Appendices
+### 4.2 Detailed Output Behavior
+*暂时为空
 
-### 3.1 Definitions and acronyms
+### 4.3 Quality Requirements
+*暂时为空
 
-#### 3.1.1 Definitions 
+## 5. Expected Subsets
+*暂时为空
+
+## 6. Fundamental Assumptions
+*暂时为空
+
+## 7. Expected Changes
+*暂时为空
+
+## 8. Appendices
+
+### 8.1 Definitions and acronyms
+
+#### 8.1.1 Definitions 
 
 | Keyword | Definitions |
 | ------- | ----------- |
@@ -462,7 +504,7 @@ None.
 |         |             |
 |         |             |
 
-#### 3.1.2 Acronyms and abbreviations 
+#### 8.1.2 Acronyms and abbreviations 
 
 | Acronym or Abbreviation | Definitions |
 | ----------------------- | ----------- |
@@ -470,5 +512,5 @@ None.
 |                         |             |
 |                         |             |
 
-### 3.2 References
+### 8.2 References
 
