@@ -17,7 +17,9 @@
         <h1 class="display-4">Welcome to our website. </h1>
         <p class="lead">PIrates!</p>
     </div>
-    <div class="container" style="margin-top: 100px;">
+    <div class="container" style="margin-top: 50px;">
+        <h4 class="display-6">Gantt chart of our project</h2>
+        <div id="chart_div"></div>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -42,9 +44,11 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
-    <script>topbar(0)</script>
+    <script src="js/gantt.js"></script>
+    <script>topbar(0); drawChart()</script>
 </body>
 </html>

@@ -7,3 +7,9 @@ body{
     padding-left: 16px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
+#chart_div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
