@@ -35,7 +35,7 @@ function loadTitle() {
         docsList = TmpList[1]
         var num = 0
         for(var i = newsList.length - 1; i >= 0; i--) {
-            text = text + `<p><span class="new">NEW!</span><a href="` + newsList[i].src + `">` + newsList[i].title + `</a></p>`
+            text = text + `<p><span class="new">NEW!</span><a href="docs/` + newsList[i].src + `">` + newsList[i].title + `</a></p>`
             num++
             if(num >= 5) break;
         }
@@ -43,7 +43,7 @@ function loadTitle() {
         text = ``
         num = 0
         for(var i = docsList.length - 1; i >= 0; i--) {
-            text = text + `<p><span class="new">NEW!</span><a href="` + docsList[i].src + `">` + docsList[i].title + `</a></p>`
+            text = text + `<p><span class="new">NEW!</span><a href="docs/` + docsList[i].src + `">` + docsList[i].title + `</a></p>`
             num++
             if(num >= 5) break;
         }
