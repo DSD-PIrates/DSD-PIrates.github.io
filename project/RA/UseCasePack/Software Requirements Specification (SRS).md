@@ -32,24 +32,31 @@ QA Team - By developing testing procedures founded in the system requirements, t
 Table of Contents:
 
 1. Introduction
+
 2. Concept of Operations - broad description of the purpose of the application
     2.1 System Context - details any specific system requirements the application will require to run
     2.2 System Capabilities - description in prose of all capabilities available to the user in the interation
     2.3 Use cases - A detailed look at each functional requirement, describing the application context both before and after an action is taken
 
-3. Behavioral Requirements - How the application will interact with a user
-    3.1 Input and output requirments - A description of allowed inputs and generated outputs
-           3.1.1 Input - Describes any restrictions that will be placed on allowed input
-           3.1.2 Output - Describes the range of outputs that can be generated
-    3.2 Detailed Output Behavior - Output descriptions in prose
+3. Use Cases
 
-4. Quality Requirements - Requirements not pertaining to the function of the application will be listed here
+4. Behavioral Requirements - How the application will interact with a user
+    4.1 Input and output requirements - A description of allowed inputs and generated outputs
+           4.1.1 Input - Describes any restrictions that will be placed on allowed input
+           4.1.2 Output - Describes the range of outputs that can be generated
+    4.2 Detailed Output Behavior - Output descriptions in prose
+
+    4.3 Quality Requirements - Requirements not pertaining to the function of the application will be listed here
+
 5. Expected Subsets - Expected levels of functionality at checkpoints during development
+
 6. Fundamental Assumptions - Some specifics about input, output, or behavior upon which other requirements are founded will be listed here
+
 7. Expected Changes - Future features and directions the project is expected to take
+
 8. Appendices - Details aiding the understanding of this document
     8.1 Definitions and acronyms - Any technical terms or abbreviations will be spelled out here for ease of use of the document
-    8.1 Definitions - Definitions of technical or unusual terminology
+           8.1.1 Definitions - Definitions of technical or unusual terminology
            8.1.2 Acronyms and Abbreviations - Any abbreviated terms will be expanded here
     8.2 References - any external references necessary or helpful to understanding this document will be listed here
 
