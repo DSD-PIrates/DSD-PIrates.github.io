@@ -39,8 +39,8 @@ Table of Contents:
 3. Use Cases
 4. Behavioral Requirements - How the application will interact with a user  
     4.1 Input and output requirements - A description of allowed inputs and generated outputs  
-           4.1.1 Input - Describes any restrictions that will be placed on allowed input  
-           4.1.2 Output - Describes the range of outputs that can be generated   
+           &nbsp;&nbsp;4.1.1 Input - Describes any restrictions that will be placed on allowed input  
+           &nbsp;&nbsp;4.1.2 Output - Describes the range of outputs that can be generated   
     4.2 Detailed Output Behavior - Output descriptions in prose        
     4.3 Quality Requirements - Requirements not pertaining to the function of the application will be listed here   
 5. Expected Subsets - Expected levels of functionality at checkpoints during development
@@ -48,8 +48,8 @@ Table of Contents:
 7. Expected Changes - Future features and directions the project is expected to take
 8. Appendices - Details aiding the understanding of this document   
     8.1 Definitions and acronyms - Any technical terms or abbreviations will be spelled out here for ease of use of the document  
-           8.1.1 Definitions - Definitions of technical or unusual terminology  
-           8.1.2 Acronyms and Abbreviations - Any abbreviated terms will be expanded here  
+           &nbsp;&nbsp;8.1.1 Definitions - Definitions of technical or unusual terminology  
+           &nbsp;&nbsp;8.1.2 Acronyms and Abbreviations - Any abbreviated terms will be expanded here  
     8.2 References - any external references necessary or helpful to understanding this document will be listed here
 
 ## 2. Concept of Operations
