@@ -42,7 +42,7 @@ function readTextFile(filePath, callback) {
 }
 
 
-async function readMenuList(textDetail) {
+function readMenuList(textDetail) {
     var TmpList = JSON.parse(textDetail)
     for (var j = 0; j < 2; j++) {
         var _list = []
@@ -74,8 +74,8 @@ function isNormalPage(flag) {
     }
 }
 
-async function topbar(flag) {
-    readTextFile("../js/information_nd.json", function (arg) {
+function topbar(flag) {
+    readTextFile("../js/information.json", function (arg) {
         readMenuList(arg);
         var text = ""
         for (var i = 0; i < menulist.length; i++) {

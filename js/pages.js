@@ -53,7 +53,7 @@ function loadTitle() {
 
 function loadTitle() {
     var text = ``
-    readTextFile("js/information_nd.json", (textDetail) => {
+    readTextFile("js/information.json", (textDetail) => {
         TmpList = JSON.parse(textDetail)
         newsList = TmpList[0]
         docsList = TmpList[1]

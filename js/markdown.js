@@ -157,7 +157,7 @@ function LoadMarkdown(filepath) {
 }
 
 function getArticleSrc(type, pos) {
-	readTextFile("../js/information_nd.json", (textDetail) => {
+	readTextFile("../js/information.json", (textDetail) => {
         var TmpList = JSON.parse(textDetail)
 		var loadurl = "../" + TmpList[type][pos].src
 		document.title = TmpList[type][pos].title
