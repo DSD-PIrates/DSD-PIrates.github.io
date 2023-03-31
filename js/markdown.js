@@ -10,6 +10,23 @@ function readTextFile(filePath, callback) {
     xhrFile.send();
 }
 
+
+function getUrlParams(key) {
+    var url = window.location.search.substr(1);
+    if (url == '') {
+        return false;
+    }
+    var paramsArr = url.split('&&');
+    for (var i = 0; i < paramsArr.length; i++) {
+        var combina = paramsArr[i].split("=");
+        if (combina[0] == key) {
+            return combina[1];
+        }
+    }
+    return false;
+}
+
+
 var abLevel = 0
 
 // 函数的含义是，在第index个标题处生成目录树，该标题级别为hLevel
@@ -78,7 +95,7 @@ function highlightToc() {
 		if(isInViewport(anchor)){
 		  links[i].classList.add("active");
 		  linkbars[i].classList.add("active");
-		  console.log($(linkbars[i]).offset())
+		  //console.log($(linkbars[i]).offset())
 		  if($(linkbars[i]).offset().top > 4500) {
 			console.log('upupup')
 			$(linkbars[i]).scrollTop(1000);
@@ -139,3 +156,11 @@ function LoadMarkdown(filepath) {
     })
 }
 
+function getArticleSrc(type, pos) {
+	readTextFile("../js/information_nd.json", (textDetail) => {
+        var TmpList = JSON.parse(textDetail)
+		var loadurl = "../" + TmpList[type][pos].src
+		document.title = TmpList[type][pos].title
+		LoadMarkdown(loadurl)
+	})
+}
