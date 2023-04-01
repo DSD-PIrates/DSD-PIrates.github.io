@@ -41,8 +41,7 @@ Table of Contents:
     4.1 Input and output requirements - A description of allowed inputs and generated outputs  
            &nbsp;&nbsp;4.1.1 Input - Describes any restrictions that will be placed on allowed input  
            &nbsp;&nbsp;4.1.2 Output - Describes the range of outputs that can be generated   
-    4.2 Detailed Output Behavior - Output descriptions in prose        
-    4.3 Quality Requirements - Requirements not pertaining to the function of the application will be listed here   
+    4.2 Quality Requirements - Requirements not pertaining to the function of the application will be listed here   
 5. Expected Subsets - Expected levels of functionality at checkpoints during development
 6. Fundamental Assumptions - Some specifics about input, output, or behavior upon which other requirements are founded will be listed here
 7. Expected Changes - Future features and directions the project is expected to take
