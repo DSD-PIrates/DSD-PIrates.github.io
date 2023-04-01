@@ -6,10 +6,10 @@ Revision History:
 | --------- | ---------- | ------------------------------------- |
 | 2023-3-23 | Aidan, Bob | Draft                                 |
 | 2023-3-24 | Aidan, Bob | Add Sequences                         |
-| 2023-3-26 | Aidan, Bob | Modify the workflow to a tabular form |
-| 2023-3-28 | Aidan, Bob | Improve the overall structure of SRS  |
-| 2023-3-29 | Aidan, Bob | Delete one Use Case                   |
-|           |            |                                       |
+| 2023-3-26 | Aidan      | Modify the workflow to a tabular form |
+| 2023-3-28 | Aidan      | Improve the overall structure of SRS  |
+| 2023-3-29 | Aidan      | Delete one Use Case                   |
+| 2023-4-1  | Aidan      | Polish some specific details          |
 |           |            |                                       |
 
 [TOC]
@@ -90,12 +90,12 @@ When the server requests the data, the process starts; When the server gets the 
 
 **Basic Flow**
 
-| **Basic Flow** | Actor                                                        | System                                                       |
-| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1              | The server **REQUESTs** to obtain real-time data, with the sampling rate attached. |                                                              |
-| 2              |                                                              | The embedded system get the real-time data from the sensors. |
-| 3              |                                                              | The embedded system make a **RESPONSE** to the server.       |
-| 4              | The server receives the information.                         |                                                              |
+| **Basic Flow** | Actor                                             | System                                                       |
+| -------------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| 1              | The server **REQUESTs** to obtain real-time data. |                                                              |
+| 2              |                                                   | The embedded system get the real-time data from the sensors. |
+| 3              |                                                   | The embedded system make a **RESPONSE** to the server.       |
+| 4              | The server receives the information.              |                                                              |
 
 **Exception Flows**
 
@@ -407,19 +407,33 @@ None.
 
 ### 4.1 System Inputs and Outputs
 #### 4.1.1 Inputs
-*暂时为空
+1. Sensor data: data from sensors, including x, y, z axis velocity, x, y, z axis angular velocity, and x, y, z axis angular acceleration.
+2. System configuration: configure the parameters of how the system collects, processes and transmits data, such as data format, transmission protocol, etc.
+3. System status: including sensor status, network connection status, server status, etc.
+4. Requests from server: the embedded system mainly accepts requests from the server, including requesting real-time data, checking whether it is reachable, requesting sensor calibration, requesting sensor status, and requesting sensor detailed information.
 
 #### 4.1.2 Outputs
-*暂时为空
+1. Data processing results: The system should be able to initially process raw sensor data, such as unit conversion, calibration, segmentation, etc.
+2. Data transmission result: The system should be able to transmit the processed data to the server in real time, and return the transmission result, including success or failure messages.
+3. System status updates: The system should be able to regularly update status information, such as sensor status, network connection status, server status, etc., to monitor system health.
+4. Error Handling: The system should be able to automatically detect and handle various error conditions, such as sensor failure, network failure, server failure, etc., and provide error messages and suggested recovery actions.
 
-### 4.2 Detailed Output Behavior
-*暂时为空
-
-### 4.3 Quality Requirements
-The data sampling rate does not exceed 5 frames / s.
+### 4.2 Quality Requirements
+1. Data Accuracy: The system must be able to accurately collect sensor data and transmit it to the server to ensure the accuracy and reliability of the data.
+2. Real-time Performance: The system must be able to acquire and transmit data in real-time, ensuring that the server can process and respond to the data promptly.
+3. Reliability: The system must have high reliability, operate stably over a long period, and recover quickly when faults occur.
+4. Maintainability: The system must have high maintainability, including ease of debugging, testing, and upgrading, and be easy to maintain and manage.
+5. Low Power Consumption: The system must have low power consumption, extend battery life, and reduce its impact on the environment.
+6. Cost: The system must have low cost, provide functions that meet the requirements while maintaining a low cost.
 
 ## 5. Expected Subsets
-*暂时为空
+### 5.1 L0
+
+This version is able to collect data from sensors and store it locally.
+
+### 5.2 L1 
+
+This version can upload the data collected from the sensor to the server in real time for real-time analysis; it can provide functions such as sensor status and sensor detailed information to the server; it can respond to requests from the server to detect whether it is reachable.
 
 ## 6. Fundamental Assumptions
 *暂时为空
