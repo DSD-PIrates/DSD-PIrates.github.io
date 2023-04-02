@@ -113,7 +113,7 @@ For Exception Flow 4a, The server detected the embedded system offline.
 
 1. Depending on the network environment, the latency of real-time data may vary. Generally, real-time data has a delay of around 200 milliseconds.
 
-2. Real-time data includes the angles, angular velocities, and accelerations in the XYZ directions, as well as the timestamp of the data sampling determined by the embedded system at the time of sampling.
+2. Real-time data includes the angles, angular velocities, and accelerations in the XYZ directions, as well as the timestamp determined by the embedded system.
 
 **Visual Model**
 
@@ -157,7 +157,7 @@ When the server wants to check if the embedded system is reachable, it sends an 
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 1              | The server sends an  **REQUEST** message to the embedded system to determine whether the embedded system is available. |                                                              |
 | 2              |                                                              | The embedded system receives the request sent by the server. |
-| 3              |                                                              | The embedded system send the **RESPONSE** message to the server. |
+| 3              |                                                              | The embedded system sends the **RESPONSE** message to the server. |
 | 4              | The server receives the response message.                    |                                                              |
 
 **Exception Flows**
@@ -165,14 +165,14 @@ When the server wants to check if the embedded system is reachable, it sends an 
 | 3a   | Actor | System                                                       |
 | ---- | ----- | ------------------------------------------------------------ |
 |      |       | From Basic Flow step 2                                       |
-| 1    |       | When the embedded system send the response, a network error occurs. |
-| 2    |       | The embedded system do nothing, use case ends.               |
+| 1    |       | When the embedded system sends the response, a network error occurs. |
+| 2    |       | The embedded system does nothing, use case ends.             |
 
 | 4a   | Actor                                                        | System                 |
 | ---- | ------------------------------------------------------------ | ---------------------- |
 |      |                                                              | From Basic Flow step 3 |
 | 1    | When the server receives the response message, a network error occurs. |                        |
-| 2    | The server makes another attempt to send a **REQUEST**, server will retry for at most three times. There should be a 0.5-second interval between two **REQUESTs**. If server get the **RESPONSE** from the embedded system, return to Basic Flow step 4. |                        |
+| 2    | The server makes another attempt to send a **REQUEST**, server will retry for at most three times. There should be a 0.5-second interval between two **REQUESTs**. If server gets the **RESPONSE** from the embedded system, return to Basic Flow step 4. |                        |
 | 3    | After server has been failed to connect for three times, server confirms that the embedded system is unreachable, use case ends. |                        |
 
 **Post Conditions**
@@ -295,7 +295,7 @@ When the server requests to obtain the sensor details, the process begins, it en
 | **Basic Flow** | Actor                                                        | System                                                       |
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 1              | The server **REQUESTs** to obtain the sensor details, including sensor name, sensor type and sensor serial number. |                                                              |
-| 2              |                                                              | The embedded system  **RESPONSE** sensors' details to the server. |
+| 2              |                                                              | The embedded system  **RESPONSEs** sensors' details to the server. |
 | 3              | The server receives the information.                         |                                                              |
 
 **Exception Flows**
@@ -369,14 +369,13 @@ When the server requests to obtain the sensor status, the process begins; it end
 | 2a   | Actor                   | System                                                       | Sensor                                                       |
 | ---- | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |      | From Basic Flow step 1. |                                                              |                                                              |
-| 1    |                         | The embedded system receives the request and sends the request to the sensors. |                                                              |
-| 2    |                         | If the embedded system did not receive the response, the embedded system resend the request to the sensor for at most three times. |                                                              |
-| 3    |                         |                                                              | If some sensor fails to response for three times, it will be regarded as **OFF**, return to Basic Flow step 4. |
+| 1    |                         | The embedded system receives the request and sends the request to the sensors. If the embedded system did not receive the response, the embedded system resend the request to the sensor for at most three times. |                                                              |
+| 2    |                         |                                                              | If some sensor fails to response for three times, it will be regarded as **OFF**, return to Basic Flow step 4. |
 
 | 5a   | Actor                                                        | System                  |
 | ---- | ------------------------------------------------------------ | ----------------------- |
 |      |                                                              | From Basic Flow step 4. |
-| 1    | If the server can not receives the **RESPONSE** from the embedded system. The server resend the **REQUEST** as in Basic Flow step 1 for at most three times, if the server gets the **RESPONSE** from the embedded system, use case ends normally. There should be a 0.5-second interval between two **REQUESTs**. |                         |
+| 1    | If the server can not receive the **RESPONSE** from the embedded system. The server resends the **REQUEST** as in Basic Flow step 1 for at most three times, if the server gets the **RESPONSE** from the embedded system, use case ends normally. There should be a 0.5-second interval between two **REQUESTs**. |                         |
 | 2    | After three unsuccessful attempts, the server determines that the embedded system is unreachable, use case ends with exception. |                         |
 
 **Post Conditions**
@@ -446,12 +445,12 @@ This version can upload the data collected from the sensor to the server in real
 
 #### 8.1.1 Definitions 
 
-| Keyword | Definitions        |
-| ------- | ------------------ |
-| System  | The Embedded ystem |
-|         |                    |
-|         |                    |
-|         |                    |
+| Keyword      | Definitions                                                  |
+| ------------ | ------------------------------------------------------------ |
+| System       | The Embedded system                                          |
+| INVALID data | INVALID data refers to a frame of data that is zero at the corresponding data position for all sensors |
+|              |                                                              |
+|              |                                                              |
 
 #### 8.1.2 Acronyms and abbreviations 
 
