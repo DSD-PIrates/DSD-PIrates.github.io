@@ -2,15 +2,15 @@
 
 Revision History:
 
-| Data      | Author     | Description                           |
-| --------- | ---------- | ------------------------------------- |
-| 2023-3-23 | Aidan, Bob | Draft                                 |
-| 2023-3-24 | Aidan, Bob | Add Sequences                         |
-| 2023-3-26 | Aidan      | Modify the workflow to a tabular form |
-| 2023-3-28 | Aidan      | Improve the overall structure of SRS  |
-| 2023-3-29 | Aidan      | Delete one Use Case                   |
-| 2023-4-1  | Aidan      | Polish some specific details          |
-|           |            |                                       |
+| Data      | Author     | Description                                                  |
+| --------- | ---------- | ------------------------------------------------------------ |
+| 2023-3-23 | Aidan, Bob | Draft                                                        |
+| 2023-3-24 | Aidan, Bob | Add Sequences                                                |
+| 2023-3-26 | Aidan      | Modify the workflow to a tabular form                        |
+| 2023-3-28 | Aidan      | Improve the overall structure of SRS                         |
+| 2023-3-29 | Aidan      | Delete one Use Case                                          |
+| 2023-4-1  | Aidan      | Polish some specific details                                 |
+| 2023-4-5  | Bob, Aidan | Review the final version, polish the sequence diagram and fix some minor errors |
 
 [TOC]
 
