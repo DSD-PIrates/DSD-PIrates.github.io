@@ -392,7 +392,7 @@ None.
 
 **Sequence Diagram**
 
-![](./SequenceDiagram/RequestSensorStatus.svg)
+<img src="./SequenceDiagram/RequestSensorStatus.svg" style="zoom:130%;" />
 
 **Revision History**
 
