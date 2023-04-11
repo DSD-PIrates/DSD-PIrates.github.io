@@ -4,7 +4,10 @@
 
 .blog{
     background-color: rgba(255, 255, 255, 0.933);
-    
+    max-width: 80%;
+}
+img{
+  max-width: 80%;
 }
 h1, h2, h3, h4, h5, h6{
   padding-top: 50px;

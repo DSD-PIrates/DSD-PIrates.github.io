@@ -37,6 +37,12 @@
             "src": "project/RA/UseCasePack/Software Requirements Specification (SRS).md",
             "time": "2023-03-23 17:36",
             "abstract": "# Software Requirements Specification (SRS)\n\nVersion 1, last updated by Aidan at 2023-3-23\n\n[TOC]\n\n## 1. Introduction\n\n### 1.1 Intended Audience and Purpose\n\nThis document is intended to provided information guiding the development process, ensuring "
+        },
+        {
+            "title": "SDS",
+            "src": "md/SDS.md",
+            "time": "2023-04-11 09:42",
+            "abstract": "# Software Design Specification (SDS)Revision History: | Date      | Author | Description || ----      | ------ | ----------- || Apr 10   | Zin, Bob | First version |<style>#rev +table td:nth-child(1) { white-space: nowrap }</style><div i"
         }
     ]
 ]
