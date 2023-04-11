@@ -148,7 +148,7 @@ function LoadMarkdown(filepath) {
         var result = md.render(textDetail)
 		result = result.replace(/\.\//g, prefilepath)
 		result = result.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"')
-		result = result.replace('[toc]', '')
+		result = result.replace('[toc]', '').replace('[TOC]', '')
 		//console.log(result)
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
