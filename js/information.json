@@ -21,7 +21,7 @@
     ],
     [
         {
-            "title": "GDSS",
+            "title": "General Data Storage Server (GDSS)",
             "src": "md/GDSS.md",
             "time": "2023-03-12 22:29",
             "abstract": "# General Data Storage Server\n\n```\nVersion : 0.0.1\nAuthor  : Bob\n```\n\nA General Data Storage Server can establish a correspondence between names and values, allowing for modification and querying of a particular value. In our general data server, all"
