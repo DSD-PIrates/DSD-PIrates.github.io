@@ -6,7 +6,7 @@
     background-color: rgba(255, 255, 255, 0.933);
     max-width: 80%;
 }
-img{
+.blog img{
   max-width: 80%;
 }
 h1, h2, h3, h4, h5, h6{
@@ -19,7 +19,8 @@ h1, h2, h3, h4, h5, h6{
     right: 60px;
     overflow: auto;
     height: 90%;
-    /*width: auto;*/
+    display: none;
+    width: auto;
 }
 .toc a{
   color: #000;
@@ -80,6 +81,31 @@ h1, h2, h3, h4, h5, h6{
     margin: 0 auto;
     /* 内容居中 */
     text-align: center;
+}
+
+
+
+.opentoc{
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  transform: scale(1.5);
+  border-radius: 50%;
+  background-color: #807dd4;
+  animation-name: swichtoc;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-direction: normal;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+@keyframes swichtoc{
+  from{transform: scale(1.5) rotate(0);}
+  to{transform: scale(1.5) rotate(90deg);}
 }
 
 body

@@ -165,3 +165,15 @@ function getArticleSrc(type, pos) {
 		LoadMarkdown(loadurl)
 	})
 }
+
+function swichtoc() {
+	var toc = document.querySelector('.toc').style.display
+	if(toc=='block') {
+		document.querySelector('.toc').style.display='none'
+		document.querySelector('.opentoc').style.animationDirection='reverse'
+	} else {
+		document.querySelector('.toc').style.display='block'
+		document.querySelector('.opentoc').style.animationDirection='normal'
+		document.querySelector('.opentoc').style.animationPlayState='running'
+	}
+}
