@@ -51,9 +51,71 @@ The detailed description of the main use cases.
 
 - (1) Case: PredUserMotion
 
+  **Brief Introduction**
 
+  Use trained model and data from Embedding, to calculate the status of equipment and GUI shows the result, until user stops
+
+  **Actors**
+
+  User
+
+  **Pre-Conditions**
+
+  GUI has changed to Model mode
+
+  **Basic Flow**
+
+  |      | Actor                                   | System                  |
+  | ---- | --------------------------------------- | ----------------------- |
+  | 1    | User click "PredUserMotion_Sync" button |                         |
+  | 2    |                                         | GUI shows the **[MotionRecord]**   |
+  | 3    | User click "end" button                 |                         |
+  | 4    |                                         | GUI releases connection |
+
+  **Exception Flow**
+
+  |      | Actor | System                                                       |
+  | ---- | ----- | ------------------------------------------------------------ |
+  | 2.2  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
+  | 2.3  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+
+  **Post Condition**
+
+  GUI gets the result(the status of embedding)
 
 - (2) Case: CollectData
+
+  **Brief Introduction**
+
+  GUI requests server to begin and end getting data, and Server takes charge of managing embedding, get and save data, save to DataBase.
+
+  **Actors**
+
+  User
+
+  **Pre-Conditions**
+
+  GUI has changed into Equip mode
+
+  **Basic Flow**
+
+  |      | Actor                            | System                                                 |
+  | ---- | -------------------------------- | ------------------------------------------------------ |
+  | 1    | User click "Collect Data" button |                                                        |
+  | 2    |                                  | GUI shows the **[MotionTag]**, and wait user to choose |
+  | 3    | User choose one **[MotionTag]**  |                                                        |
+  | 4    | User click "Finish Data" button  |                                                        |
+  | 5    |                                  | GUI shows successful notion                            |
+
+  **Exception Flow**
+
+  |      | Actor | System                                                       |
+  | ---- | ----- | ------------------------------------------------------------ |
+  | 5.2  |       | If GUI receives error information, GUI shows error notion and back to Equip mode |
+
+  **Post Condition**
+
+  Data has collected and saved to Data DataBase
 
 #### 2.1.2 The secondary use cases
 
@@ -220,11 +282,11 @@ The detailed description of the main use cases.
   | 2    | User input **[AccountInformation]**          |                                      |
   | 3    |                                              | Display successful notion on screen. |
 
-  **Alternative Flow**
+  **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 1    |       | The alternative flow begins after step 3 of the main flow    |
+  | 1    |       | The Exception Flow begins after step 3 of the main flow    |
   | 2    |       | The app informed the user that he or she has input invalid information. |
 
   **Post Conditions**
@@ -275,7 +337,7 @@ The detailed description of the main use cases.
   | 3    | User inputs **[IPAddress]** and **[Port]** |                                                              |
   | 4    |                                            | GUI checks whether the input contents are legal and shows successful notion |
 
-  **Alternative Flow**
+  **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
@@ -308,7 +370,7 @@ The detailed description of the main use cases.
   | 1    | User Click "GetEquipInfo" button |                                   |
   | 2    |                                  | GUI shows **[DeviceInformation]** |
 
-  **Alternative Flow**
+  **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
@@ -341,13 +403,13 @@ The detailed description of the main use cases.
   | 3    | User chooses the Equipment to unbind |                                |
   | 4    |                                      | GUI shows successful notion    |
 
-  **Alternative Flow**
+  **Exception Flow**
 
-  |      |      |                                                              |
-  | ---- | ---- | ------------------------------------------------------------ |
-  | 2.2  |      | If there is no equipments on the user, show mistake notion and back to Equip mode |
-  | 4.2  |      | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 4.3  |      | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  |      | Actor | System                                                       |
+  | ---- | ----- | ------------------------------------------------------------ |
+  | 2.2  |       | If there is no equipments on the user, show mistake notion and back to Equip mode |
+  | 4.2  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
+  | 4.3  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
 
   **Post Condition**
 
@@ -371,18 +433,18 @@ The detailed description of the main use cases.
 
   **Basic Flow**
 
-  |      |                                  |                              |
+  |      | Actor                            | System                       |
   | ---- | -------------------------------- | ---------------------------- |
   | 1    | User Click "GetEquipInfo" button |                              |
   | 2    |                                  | GUI shows **[DeviceStatus]** |
 
-  **Alternative Flow**
+  **Exception Flow**
 
-  |      |      |                                                              |
-  | ---- | ---- | ------------------------------------------------------------ |
-  | 2.2  |      | If GUI receives mistake information(For example, Server cannot connect the Equipment), GUI shows the mistake information and back to Equip mode |
-  | 2.3  |      | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 2.4  |      | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  |      | Actor | System                                                       |
+  | ---- | ----- | ------------------------------------------------------------ |
+  | 2.2  |       | If GUI receives mistake information(For example, Server cannot connect the Equipment), GUI shows the mistake information and back to Equip mode |
+  | 2.3  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
+  | 2.4  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
 
   **Post Condition**
 
@@ -404,7 +466,7 @@ The detailed description of the main use cases.
 
   **Basic Flow**
 
-  |      |                                   |                                      |
+  |      | Actor                             | System                               |
   | ---- | --------------------------------- | ------------------------------------ |
   | 1    | The user choose to get user guide |                                      |
   | 2    |                                   | Get user guide and show it on screen |
@@ -427,7 +489,7 @@ The detailed description of the main use cases.
 
   **Basic Flow**
 
-  |      |                   |                             |
+  |      | Actor             | System                      |
   | ---- | ----------------- | --------------------------- |
   | 1    | User clicks Model |                             |
   | 2    |                   | GUI changes into model mode |
@@ -454,17 +516,17 @@ The detailed description of the main use cases.
 
   **Basic Flow**
 
-  |      |                                 |                             |
+  |      | Actor                           | System                      |
   | ---- | ------------------------------- | --------------------------- |
   | 1    | User clicks "ResetModel" button |                             |
   | 2    |                                 | GUI shows successful notion |
 
-  **Alternative Flow**
+  **Exception Flow**
 
-  |      |      |                                                              |
-  | ---- | ---- | ------------------------------------------------------------ |
-  | 2.2  |      | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 2.3  |      | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  |      | Actor | System                                                       |
+  | ---- | ----- | ------------------------------------------------------------ |
+  | 2.2  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
+  | 2.3  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
 
   **Post Condition**
 
@@ -491,21 +553,22 @@ The detailed description of the main use cases.
   | 1          | User click "ShowModelInfo" button |                               |
   | 2          |                                   | GUI shows the **[ModelInfo]** |
   
-**Alternative Flow**
-  
-| Alternative Flow | Actor | System                                                       |
+
+  **Exception Flow**
+
+  | Exception Flow | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
   | 2.2              |       | If GUI has not connected to Internet, GUI shows mistake information and back to Equip mode |
   | 2.3              |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
   | 2.4              |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
-  
-**Post Conditions**
-  
-none.
-  
-**Supplemental Requirements**
-  
-none.
+
+  **Post Conditions**
+
+  none.
+
+  **Supplemental Requirements**
+
+  none.
 
 
 - (18) Case:DataManagement  
@@ -529,7 +592,7 @@ none.
   | 1          | User clicks Data management |                            |
   | 2          |                             | GUI changes into data mode |
 
-  **Alternative Flow**
+  **Exception Flow**
 
   none.
 
@@ -563,18 +626,19 @@ none.
   | 1          | User clicks get data |                              |
   | 2          |                      | GUI shows **[MotionRecord]** |
   
-**Alternative Flow**
-  
-| Alternative Flow | Actor | System                                                       |
+
+**Exception Flow**
+
+| Exception Flow | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
   | 2.2              |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
-  
+
 **Post Conditions**
-  
+
 GUI upload **[MotionRecord]** to database, and back into data mode.
-  
+
 **Supplemental Requirements**
-  
+
 none.
 
 
@@ -601,9 +665,9 @@ none.
   | 3          | User chooses data to delete |                              |
   | 4          |                             | GUI shows successful notion  |
   
-  **Alternative Flow**
+  **Exception Flow**
 
-  | Alternative Flow | Actor | System                                                       |
+  | Exception Flow | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
   | 1.2              |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
   | 2.2              |       | If nothing on datalist, GUI shows mistake notion and back to data mode |
@@ -642,7 +706,7 @@ none.
   | 3          | User chooses **[MotionTag]** to change, and chooses the new type |                             |
   | 4          |                                                              | GUI shows successful notion |
   
-  **Alternative Flow**
+  **Exception Flow**
 
   | Alternative | Actor | System                                                       |
   | ----------- | ----- | ------------------------------------------------------------ |
