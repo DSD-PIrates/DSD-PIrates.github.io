@@ -146,7 +146,7 @@ The detailed description of the main use cases.
   | Exception Flow | Actor | System                                                       |
   | -------------- | ----- | ------------------------------------------------------------ |
   |                |       | From basic flow 1                                            |
-  | 4              |       | Inform visitor that he or she has input a **[AccountNumber]** that not exists or a wrong password. |
+  | 4              |       | Inform visitor that he or she has input a **[AccountNumber]** that not exists or a wrong **[Password]**. |
 
   **Post Conditions**
 
@@ -176,8 +176,8 @@ The detailed description of the main use cases.
   | 4          |                                 | GUI checks whether **[Password]** is legal     |
   | 5          | User reinputs **[Password]** |                                                        |
   | 6          |                                 | GUI checks whether the two **[Password]**s are same |
-  | 7          | User inputs **[RegisterInformation]** escape **[AccountNumberAndPassword]** |                                                        |
-  | 8          |                                 | GUI checks whether the **[RegisterInformation]** escape **[AccountNumberAndPassword]** is legal |
+  | 7          | User inputs **[RegisterInformation]** except **[AccountNumberAndPassword]** |                                                        |
+  | 8          |                                 | GUI checks whether the **[RegisterInformation]** except **[AccountNumberAndPassword]** is legal |
   | 9         |                                 | GUI shows successful notion and **[AccountNumber]** |
   
   **Exception Flow**
@@ -187,7 +187,7 @@ The detailed description of the main use cases.
   | 2.2            |       | If **[AccountNumber]** is not legal, shows mistake notion and back to step 1 |
   | 4.2            |       | If **[Password]** is not legal, shows mistake notion and back to step 3 |
   | 6.2            |       | If **[Password]** is different, shows mistake notion and back to step 5 |
-  | 8.2            |       | If **[RegisterInformation]** escape **[AccountNumberAndPassword]** is not legal, shows mistake notion and back to step 7 |
+  | 8.2            |       | If **[RegisterInformation]** except **[AccountNumberAndPassword]** is not legal, shows mistake notion and back to step 7 |
   | 9.2            |       | If GUI receives error information(For example, the user has connected to one equip), GUI shows the error notion, and back to Equip mode |
   | 9.3            |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
   
@@ -276,11 +276,11 @@ The detailed description of the main use cases.
 
   **Basic Flow**
 
-  |      | Actor                                        | System                               |
-  | ---- | -------------------------------------------- | ------------------------------------ |
-  | 1    | User choose to set **[AccountInformation]**. |                                      |
-  | 2    | User input **[AccountInformation]**          |                                      |
-  | 3    |                                              | Display successful notion on screen. |
+  |      | Actor                                                        | System                               |
+  | ---- | ------------------------------------------------------------ | ------------------------------------ |
+  | 1    | User choose to set **[AccountInformation]**.                 |                                      |
+  | 2    | User input **[AccountInformation]** except **[AccountNumber]** |                                      |
+  | 3    |                                                              | Display successful notion on screen. |
 
   **Exception Flow**
 
@@ -341,7 +341,7 @@ The detailed description of the main use cases.
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 4.2  |       | If the **[IPAddress]** or the [Port] is illegal, GUI shows the mistake notion, and back to step 3 |
+  | 4.2  |       | If the **[IPAddress]** or the **[Port]** is illegal, GUI shows the mistake notion, and back to step 3 |
   | 4.3  |       | If GUI receives error information(For example, the user has connected to one equip), GUI shows the error notion, and back to Equip mode |
   | 4.4  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
 
@@ -498,8 +498,6 @@ The detailed description of the main use cases.
 
   GUI changes into model mode
 
-
-
 - (16) Case:ResetModel   
 
   **Brief Introduction**
@@ -626,20 +624,15 @@ The detailed description of the main use cases.
   | 1          | User clicks get data |                              |
   | 2          |                      | GUI shows **[MotionRecord]** |
   
-
-**Exception Flow**
-
-| Exception Flow | Actor | System                                                       |
-  | ---------------- | ----- | ------------------------------------------------------------ |
-  | 2.2              |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
-
-**Post Conditions**
-
-GUI upload **[MotionRecord]** to database, and back into data mode.
-
-**Supplemental Requirements**
-
-none.
+  **Exception Flow**
+  
+  |      | Actor | System                                                       |
+  | ---- | ----- | ------------------------------------------------------------ |
+  | 2.2  |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
+  
+  **Post Conditions**
+  
+  GUI upload **[MotionRecord]** to database, and back into data mode.
 
 
 - (20) Case:DiscardData  
@@ -658,16 +651,16 @@ none.
 
   **Basic Flow**
 
-  | Basic Flow | Actor                       | System                       |
-  | ---------- | --------------------------- | ---------------------------- |
-  | 1          | User clicks get data        |                              |
-  | 2          |                             | GUI shows **[MotionRecord]** |
-  | 3          | User chooses data to delete |                              |
-  | 4          |                             | GUI shows successful notion  |
+  |      | Actor                       | System                       |
+  | ---- | --------------------------- | ---------------------------- |
+  | 1    | User clicks get data        |                              |
+  | 2    |                             | GUI shows **[MotionRecord]** |
+  | 3    | User chooses data to delete |                              |
+  | 4    |                             | GUI shows successful notion  |
   
   **Exception Flow**
 
-  | Exception Flow | Actor | System                                                       |
+  |  | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
   | 1.2              |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
   | 2.2              |       | If nothing on datalist, GUI shows mistake notion and back to data mode |
@@ -699,21 +692,21 @@ none.
 
   **Basic Flow**
 
-  | Basic Flow | Actor                                                        | System                      |
-  | ---------- | ------------------------------------------------------------ | --------------------------- |
-  | 1          | User clicks change label                                     |                             |
-  | 2          |                                                              | GUI shows **[MotionTag]**   |
-  | 3          | User chooses **[MotionTag]** to change, and chooses the new type |                             |
-  | 4          |                                                              | GUI shows successful notion |
+  |      | Actor                                                        | System                      |
+  | ---- | ------------------------------------------------------------ | --------------------------- |
+  | 1    | User clicks change label                                     |                             |
+  | 2    |                                                              | GUI shows **[MotionTag]**   |
+  | 3    | User chooses **[MotionTag]** to change, and chooses the new type |                             |
+  | 4    |                                                              | GUI shows successful notion |
   
   **Exception Flow**
 
-  | Alternative | Actor | System                                                       |
-  | ----------- | ----- | ------------------------------------------------------------ |
-  | 1.2         |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
-  | 2.2         |       | If nothing on datalist, GUI shows mistake notion and back to data mode |
-  | 3.2         |       | If User chooses nothing, or the new type is the same as the old one, or quit, GUI shows alter nothing and back to data mode |
-  | 4.2         |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
+  |      | Actor | System                                                       |
+  | ---- | ----- | ------------------------------------------------------------ |
+  | 1.2  |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
+  | 2.2  |       | If nothing on datalist, GUI shows mistake notion and back to data mode |
+  | 3.2  |       | If User chooses nothing, or the new type is the same as the old one, or quit, GUI shows alter nothing and back to data mode |
+  | 4.2  |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
   
   **Post Conditions**
 
