@@ -3,7 +3,7 @@ import json
 import datetime
 
 data = {}
-file = r"md\SDS.md"
+file = r"project\RA\SRS for Users.md"
 
 with open(file, "r", encoding='utf-8') as f:
     content = f.read(250)

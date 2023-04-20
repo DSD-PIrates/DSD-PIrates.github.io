@@ -1,6 +1,6 @@
 {
-    "title": "SDS",
-    "src": "md/SDS.md",
-    "time": "2023-04-11 09:42",
-    "abstract": "# Software Design Specification (SDS)Revision History: | Date      | Author | Description || ----      | ------ | ----------- || Apr 10   | Zin, Bob | First version |<style>#rev +table td:nth-child(1) { white-space: nowrap }</style><div i"
+    "title": "SRS for Users",
+    "src": "project/RA/SRS for Users.md",
+    "time": "2023-04-20 13:27",
+    "abstract": "# Software Requirement Specification[TOC]## 1. Introduction### 1.1 Compilatory PurposeThis ducument is compiled for 'Motion Prediction (MoPre)', which is a software system to predict the user's motion intention in the future time interval.### "
 }
