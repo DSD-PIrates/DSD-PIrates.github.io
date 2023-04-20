@@ -14,13 +14,13 @@ Revision History:
 
 [toc]
 
-## Introduction
+## 1. Introduction
 
-### Intended Audience and Purpose
+### 1.1 Intended Audience and Purpose
 
 The document is intended to help the customer understand the system design, and serves as the basis of task division and inter-module communication, providing design information for developers and testers.
 
-### How to use the document
+### 1.2 How to use the document
 
 The document is organized as follows:
 
@@ -28,23 +28,23 @@ The document is organized as follows:
 - show the detailed design of  modules
 
 
-## System Design
-### Context
+## 2. System Design
+### 2.1 Context
 
 - The embedded system module is divided in three part. The first part is the Router to respond to the requests from the server. The second part is four function components. They are called by Router to complete requests. The last part is DataCollector. It serves as a medium for interacting with sensors.
 - The embedded system is planned to develop with python
 
-### Architecture
-#### Component Diagram
+### 2.2 Architecture
+#### 2.2.1 Component Diagram
 - version 1.0
 
 ![component](./component.png)
 
 
 
-## Detailed Design
+## 3. Detailed Design
 
-### Class Diagram
+### 3.1 Class Diagram
 
 version 1.0
 
@@ -52,11 +52,11 @@ version 1.0
 
 
 
-### Class Design
+### 3.2 Class Design
 
 
 
-#### `Router`
+#### 3.2.1 `Router`
 
 ##### `Attribute`
 
@@ -96,7 +96,7 @@ Return `None` always.
 
 
 
-#### `Transaction`
+#### 3.2.2 `Transaction`
 
 ##### `Attribute`
 
@@ -126,7 +126,7 @@ Return `true` if match successfully,  `false` otherwise.
 
 
 
-#### `RealTimeData`
+#### 3.2.3 `RealTimeData`
 
 ##### `Attribute`
 
@@ -150,7 +150,7 @@ Return `true` if match successfully,  `false` otherwise.
 
 
 
-#### `SensorStatus`
+#### 3.2.4 `SensorStatus`
 
 ##### `Attribute`
 
@@ -174,7 +174,7 @@ Return `true` if match successfully,  `false` otherwise.
 
 
 
-#### `SensorDetails`
+#### 3.2.5 `SensorDetails`
 
 ##### `Attribute`
 
@@ -198,7 +198,7 @@ Return `true` if match successfully,  `false` otherwise.
 
 
 
-#### `SensorCalibration`
+#### 3.2.6 `SensorCalibration`
 
 ##### `Attribute`
 
@@ -222,7 +222,7 @@ Return `true` if match successfully,  `false` otherwise.
 
 
 
-#### `SensorCollector`
+#### 3.2.7 `SensorCollector`
 
 ##### `Attribute`
 
@@ -274,7 +274,7 @@ Return `None` always.
 
 
 
-#### `DataTransform`
+#### 3.2.8 `DataTransform`
 
 ##### `Attribute`
 
