@@ -61,7 +61,7 @@ function loadTitle() {
         for(var i = newsList.length - 1; i >= 0; i--) {
             text = text + `<p><a href="docs/article.html?type=0&&pos=` + i + `">` + newsList[i].title + `</a></p>`
             num++
-            if(num >= 5) break;
+            if(num >= 3) break;
         }
         document.getElementById("newstext").innerHTML = text
         text = ``
@@ -69,7 +69,7 @@ function loadTitle() {
         for(var i = docsList.length - 1; i >= 0; i--) {
             text = text + `<p><a href="docs/article.html?type=1&&pos=` + i + `">` + docsList[i].title + `</a></p>`
             num++
-            if(num >= 5) break;
+            if(num >= 3) break;
         }
         document.getElementById("docstext").innerHTML = text
         
