@@ -6,7 +6,7 @@ import json
 import importlib
 import traceback
 
-HOST = '127.0.0.1'
+HOST = '139.155.89.85'
 PORT = 11451
 MBUF = 1048576 * 10 # Max buffer size 10MB
 
