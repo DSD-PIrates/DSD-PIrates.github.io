@@ -6,7 +6,7 @@ import json
 import importlib
 import traceback
 
-HOST = '0.0.0.0'
+HOST = '139.155.89.85'
 PORT = 11451
 MBUF = 1048576 * 10 # Max buffer size 10MB
 
@@ -55,7 +55,7 @@ def work(conn, addr):
     # get body data
     try:    bodydata = data.split("\r\n\r\n", 1)[1]
     except: bodydata = None
-    print("[.] debug get addr = %s data = %s" % (addr, bodydata))
+    print(f"[.] debug get addr = {addr} data = {bodydata}")
     # get response for the request
     if bodydata is not None:
         ans = solve(bodydata)
@@ -72,15 +72,15 @@ def work(conn, addr):
     mergedData  = (httpHeader + "\r\n\r\n").encode() + dataToSend
     conn.sendall(mergedData)
     conn.close()
-    print("[-] closing %s" % str(addr))
+    print(f"[-] closing {addr}")
 
 if __name__ == "__main__":
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind((HOST, PORT))
     sock.listen()
-    print("[.] listening %s:%d" % (HOST, PORT))
+    print(f"[.] listening {HOST}:{PORT}")
     while True:
         conn, addr = sock.accept()
-        print("[+] connected by %s" % str(addr))
+        print(f"[+] connected by {addr}")
         t = threading.Thread(target=work, args=(conn, addr))
         t.start()

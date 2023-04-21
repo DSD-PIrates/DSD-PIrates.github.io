@@ -3,9 +3,10 @@ import json
 
 SERVER_IP   = "139.155.89.85"
 SERVER_PORT = 11451
+MBUF        = 1048576 * 10
 
 def makeError(msg):
-    return {"type"   : "Error", "message": str(msg)}
+    return {"type": "Error", "message": str(msg)}
 
 def clientRequest(data: dict, serverIP: str, serverPort: int):
     assert type(data)       == dict
@@ -19,7 +20,7 @@ def clientRequest(data: dict, serverIP: str, serverPort: int):
     try:
         conn.request("POST", "/", jsonData, headers)
         response = conn.getresponse()
-        body = response.read().decode()
+        body = response.read(MBUF).decode()
     except:
         body = None
     if body is None: return makeError("CanNotConnectToServer")
