@@ -1,6 +1,6 @@
 {
-    "title": "Software Requirements Specification (SRS)",
-    "src": "Software Requirements Specification (SRS).html",
-    "time": "2023-03-23 17:36",
-    "abstract": "# Software Requirements Specification (SRS)\n\nVersion 1, last updated by Aidan at 2023-3-23\n\n[TOC]\n\n## 1. Introduction\n\n### 1.1 Intended Audience and Purpose\n\nThis document is intended to provided information guiding the development process, ensuring "
+    "title": "External-Interface-Demo",
+    "src": "md/External-Interface-Demo.md",
+    "time": "2023-04-21 16:45",
+    "abstract": "# External Interface DocumentDefinition of the external interface of the embedded system.[TOC]## 1. General FeatureTo Communicate with an embedded system **#Device#**, you need to know the **#IPAndPort#** of the **#Device#** and send HTTP-P"
 }

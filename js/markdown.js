@@ -148,6 +148,7 @@ function LoadMarkdown(filepath) {
         var result = md.render(textDetail)
 		result = result.replace(/\.\//g, prefilepath)
 		result = result.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"')
+		result = result.replace('[toc]', '').replace('[TOC]', '')
 		//console.log(result)
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
@@ -163,4 +164,16 @@ function getArticleSrc(type, pos) {
 		document.title = TmpList[type][pos].title
 		LoadMarkdown(loadurl)
 	})
+}
+
+function swichtoc() {
+	var toc = document.querySelector('.toc').style.display
+	if(toc=='block') {
+		document.querySelector('.toc').style.display='none'
+		document.querySelector('.opentoc').style.animationDirection='reverse'
+	} else {
+		document.querySelector('.toc').style.display='block'
+		document.querySelector('.opentoc').style.animationDirection='normal'
+		document.querySelector('.opentoc').style.animationPlayState='running'
+	}
 }

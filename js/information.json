@@ -21,7 +21,7 @@
     ],
     [
         {
-            "title": "GDSS",
+            "title": "General Data Storage Server (GDSS)",
             "src": "md/GDSS.md",
             "time": "2023-03-12 22:29",
             "abstract": "# General Data Storage Server\n\n```\nVersion : 0.0.1\nAuthor  : Bob\n```\n\nA General Data Storage Server can establish a correspondence between names and values, allowing for modification and querying of a particular value. In our general data server, all"
@@ -37,6 +37,24 @@
             "src": "project/RA/UseCasePack/Software Requirements Specification (SRS).md",
             "time": "2023-03-23 17:36",
             "abstract": "# Software Requirements Specification (SRS)\n\nVersion 1, last updated by Aidan at 2023-3-23\n\n[TOC]\n\n## 1. Introduction\n\n### 1.1 Intended Audience and Purpose\n\nThis document is intended to provided information guiding the development process, ensuring "
+        },
+        {
+            "title": "Software Design Specification (SDS)",
+            "src": "md/SDS.md",
+            "time": "2023-04-11 09:42",
+            "abstract": "# Software Design Specification (SDS)Revision History: | Date      | Author | Description || ----      | ------ | ----------- || Apr 10   | Zin, Bob | First version |<style>#rev +table td:nth-child(1) { white-space: nowrap }</style><div i"
+        },
+        {
+            "title": "SRS for Users",
+            "src": "project/RA/SRS for Users.md",
+            "time": "2023-04-20 13:27",
+            "abstract": "# Software Requirement Specification[TOC]## 1. Introduction### 1.1 Compilatory PurposeThis ducument is compiled for 'Motion Prediction (MoPre)', which is a software system to predict the user's motion intention in the future time interval.### "
+        },
+        {
+            "title": "External Interface Demo",
+            "src": "md/External-Interface-Demo.md",
+            "time": "2023-04-21 16:23",
+            "abstract": "# External Interface DocumentDefinition of the external interface of the embedded system.[TOC]## 1. General FeatureTo Communicate with an embedded system **#Device#**, you need to know the **#IPAndPort#** of the **#Device#** and send HTTP-P"
         }
     ]
 ]
