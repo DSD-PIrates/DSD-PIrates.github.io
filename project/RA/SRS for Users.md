@@ -767,7 +767,7 @@ The detailed description of the main use cases.
 
 ### 3.2 Data Definition
 
-| Data                | Definitions                                                         |
+| Data                | Definition                                                         |
 | ------------------------------ | ------------------------------------------------------------ |
 | **[AccountInformation]**       | = AccountNumber + (PhoneNumber) + (EmailAddress) + (Birthday) |
 | **[AccountNumber]:**           | A non-empty string consists of digits `"0-9"`, Latin letters `"a-z, A-Z"` and underscore `"_"`. |
