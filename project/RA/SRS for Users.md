@@ -731,20 +731,139 @@ The detailed description of the main use cases.
 
 - (1) Case: Administrators wants to view the list of Devices
 
+  **Brief Introduction**
 
+  The Administrator is able to access information about the devices which are connecting with the system.
+
+  **Actors**
+
+  Administrator
+
+  **Pre-Conditions**
+
+  The management web page is open and running.
+
+  **Basic Flow**
+
+  |      | Actor                                                    | System                          |
+  | ---- | -------------------------------------------------------- | ------------------------------- |
+  | 1    | The Administrator hovers his mouse over the devices key. |                                 |
+  | 2    |                                                          | Web page shows **[SensorList]** |
+
+  **Post Conditions**
+
+  administrators should be able to obtain detailed information about the devices.
 
 - (2) Case: Administrators wants to manage users' information
 
+  **Brief Introduction**
 
+  The Administrator is able to manage information about the users.
+
+  **Actors**
+
+  Administrators
+
+  **Pre-Conditions**
+
+  The management web page is opened.
+
+  **Basic Flow**
+
+  |      | Actor                                                        | System                                                       |
+  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | 1    | The administrator hovers his mouse over the users management key. |                                                              |
+  | 2    |                                                              | Web page shows **[AccountInformation]** and the add, delete, revise, import and derive keys. |
+  | 3    | Administrators views **[AccountInformation]** and manage **[AccountInformation]**. |                                                              |
+  
+  **Post Conditions**
+  
+  Administrators can manage the users’ information in the system.
 
 - (3) Case: Administrators wants to put a notice on the web site
 
+  **Brief Introduction**
+
+  The Administrator is able to put a notice on the web site.
+
+  **Actors**
+
+  Administrators
+
+  **Pre-Conditions**
+
+  The management web page is opened.
+
+  **Basic Flow**
+
+  |      | Actor                                                        | System                                                       |
+  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | 1    | The administrator hovers his mouse over the notice adding key. |                                                              |
+  | 2    |                                                              | Web page turns to the page which has the function to edit a new notice. |
+  | 3    | Administrators add the new notice on the website.            |                                                              |
+  
+  **Post Conditions**
+  
+  Administrators can add a new notice on the web.
+
 #### 2.2.2 The secondary use cases
 
-- (4) Case: Adminstrators wants to view the historical data
+- (4) Case: Administrators wants to view the historical data
+
+  **Brief Introduction**
+
+  The Administrator is able to access information about the historical data.
+
+  **Actors**
+
+  Administrators
+
+  **Pre-Conditions**
+
+  The management web page is opened.
+
+  **Basic Flow**
+
+  |      | Actor                                                    | System                                                       |
+  | ---- | -------------------------------------------------------- | ------------------------------------------------------------ |
+  | 1    | The administrator hovers his mouse over the history key. |                                                              |
+  | 2    |                                                          | Web page shows the system historical data.                   |
+  | 3    | Administrators views the data.                           |                                                              |
+  | 4    | Administrator chooses to delete the history data.        |                                                              |
+  | 5    |                                                          | If the administrator is successfully deleted, the page is returned. If the administrator fails to delete, system prompt for deletion failed. |
+  
+  **Post Conditions**
+  
+  Administrators can view the historical information and delete them.
 
 
 - (5) Case: Administrator wants to manage the **#System#** log
+
+  **Brief Introduction**
+
+  The Administrator is able to system log. 
+
+  **Actors**
+
+  Administrators
+
+  **Pre-Conditions**
+
+  The management web page is opened.
+
+  **Basic Flow**
+
+  |      | Actor                                                        | System                                                       |
+  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | 1    | The administrator hovers his mouse over the log management key. |                                                              |
+  | 2    |                                                              | Web page turns to the page which shows the list of the logs. |
+  | 3    | Administrators click the set key.                            |                                                              |
+  | 4    | Administrators can revise or delete the log.                 |                                                              |
+  | 5    | Administrators click the reserve button to reserve the log.  |                                                              |
+  
+  **Post Conditions**
+  
+  Administrators can manage the system logs.
 
 
 
