@@ -127,7 +127,7 @@ Request:
 
 ```json
 {
-    "type": "GetSensorStatusResponse"
+    "type": "GetSensorStatusResponse",
     "L1":{
         "connect": true,
         "battery": 100
@@ -197,6 +197,7 @@ Response:
 
 ```json
 {
+    "type":"GetSensorDetailsResponse"
     "L1":{
         "name": "WT901BLE68",
         "macAddr": "D7:0F:4F:1D:4F:B5"
@@ -221,6 +222,27 @@ Response:
 
 The inner data structures of **#JsonAttribute#** `L2, L3, R1, R2, R3` are the same with the inner data structure of `L1`.
 
+### 2.5 "type":"Ping"
+
+Request:
+
+```json
+{
+    "type":"Ping"
+}
+```
+
+Response:
+
+```json
+{
+    "type"   : "PingResponse",
+    "message": "ConnectToEmbeddedSystemSuccessfully"
+}
+```
+
+
+
 ## 3. Appendix
 
 **#Device#**: The combination of a Raspberry Pi and six sensors.
@@ -231,7 +253,7 @@ The inner data structures of **#JsonAttribute#** `L2, L3, R1, R2, R3` are the sa
 
 **#EmbeddedSystem#**: The **#Device#** and the network communication program running on the **#Device#**.
 
-**#JsonAttribute#**: The value that belongs to string, Integer, JSON object, array, Boolean, or Null.
+**#JsonAttribute#**: The keys that define the attributes or characteristics of the object, and their corresponding values representing the values of those attributes or characteristics.
 
-**#MotionFrame#**: The JSON object consisting of key value pairs: "X":0.0, "Y":0.0,  "Z":0.0, "asX":0.0, "asY":0.0, "asZ":0.0, "accX":0.0, "accY":0.0, "accZ":0.0, "Timestamp":0.0.
+**\#MotionFrame#**: A snapshot of motion data captured by the six sensors at the same time. This data includes information such as acceleration, velocity, displacement and a timestamp.
 
