@@ -751,40 +751,42 @@ The detailed description of the main use cases.
 ## 3.Appendix
 
 ### 3.1 Explanation of Terms
-|Term|Explanation|
-|-|-|
-|**#AndroidAppTeam#**| A synonym for "**Dreamweaver-GUI Team**".| 
-|**#WebTeam#**|A synonym for "**mvps Team**".|
-|**#CentralServer#**|The program created by "**genshin-impact-server team**", which is a **#ServerProgram#**.|
-|**#Device#**|A raspberry pi with six sensors, each device will have a **FIXED** **[IPAddress]** and **[Port]** so that it can be accessed from the Internet if the device is powered on.|
-|**#AndroidApp#**|An android application for the **#Device#** users.|
-|**#ServerProgram#**|A program which will keep running 24hours a day.|
-|**#RA#**|Short for "**Requirement Analysis**", which is a synonym for "**Software Requirement Specification**".|
-|**#WebApp#**|A web site for the system administrator.|
-|**#ManageTheWholeSystem#**|View, modify the binding relationship between users and devices, manage user information and issue notifications.|
-|**#Software#**|Refer to the software system 'Motion Prediction (MoPre)'.|
-|**#System#**|Same as **#Software#**|
+| Term                       | Explanation                                                  |
+| -------------------------- | ------------------------------------------------------------ |
+| **#AndroidApp#**           | An android application for the **#Device#** users.           |
+| **#AndroidAppTeam#**       | A synonym for "**Dreamweaver-GUI Team**".                    |
+| **#CentralServer#**        | The program created by "**genshin-impact-server team**", which is a **#ServerProgram#**. |
+| **#Device#**               | A raspberry pi with six sensors, each device will have a **FIXED** **[IPAddress]** and **[Port]** so that it can be accessed from the Internet if the device is powered on. |
+| **#ManageTheWholeSystem#** | View, modify the binding relationship between users and devices, manage user information and issue notifications. |
+| **#RA#**                   | Short for "**Requirement Analysis**", which is a synonym for "**Software Requirement Specification**". |
+| **#ServerProgram#**        | A program which will keep running 24hours a day.             |
+| **#Software#**             | Refer to the software system 'Motion Prediction (MoPre)'.    |
+| **#System#**               | Same as **#Software#**                                       |
+| **#WebApp#**               | A web site for the system administrator.                     |
+| **#WebTeam#**              | A synonym for "**mvps Team**".                               |
 
-### 3.2 Data Definitions
-|Data Definitions|Tips|
-|-|-|
-|**[AccountNumber]:** A non-empty string consists of digits `"0-9"`, Latin letters `"a-z, A-Z"` and underscore `"_"`||
-|**[Password]:** A non-empty string (The Android App SHOULD assure that the password is "legal" so that the other team will just regard it as a string.)||
-|**[AccountNumberAndPassword]**=AccountNumber+Password||
-|**[AccountInformation]**=AccountNumber+(PhoneNumber)+(EmailAddress)+(Birthday)||
-|**[RegisterInformation]**=AccountNumber+Password+(PhoneNumber)+(EmailAddress)+(Birthday)||
-|**[IPAddress]:** A string consists of digits and dot `"."`||
-|**[Port]:** An integer not less than zero||
-|**[DeviceIdentifier]**=IPAddress+Port||
-|**[DeviceInformation]**=DeviceIdentifier+{SensorInformation}6||
-|**[SensorList]**= {SensorInformation}6||
-|**[SensorBattery]:** A non-negative integer which is not greater than 100||
-|**[SensorOnlineStatus]:** An integer, `0` represents the sensor is offline, and `1` represents the sensor is online.||
-|**[SensorStatus]**=SensorOnlineStatus+SensorBattery||
-|**[DeviceStatus]**={SensorStatus}6||
-|**[MotionTag]:** An integer, not less than zero and not greater than six.||
-|**[Timestamp]**: An integer, milliseconds from `1970-01-01 00:00`||
-|**[InitialTimestamp]:** A TimeStamp, to mark the begining time of a motion record.||
-|**[MotionFrame]**={X+Y+Z+asX+asY+asZ+accX+accY+accZ}9+Timestamp|`X, Y, Z, asX, asY, asZ, accX, accY, accZ` are nine real numbers provided by the embedded system.|
-|**[MotionRecord]**=AccountNumber+InitialTimestamp+MotionTag+{MotionFrame}||
-|**[ModelInfo]**=modelflag+acc||
+### 3.2 Data Definition
+
+| Data                | Definitions                                                         |
+| ------------------------------ | ------------------------------------------------------------ |
+| **[AccountInformation]**       | = AccountNumber + (PhoneNumber) + (EmailAddress) + (Birthday) |
+| **[AccountNumber]:**           | A non-empty string consists of digits `"0-9"`, Latin letters `"a-z, A-Z"` and underscore `"_"`. |
+| **[AccountNumberAndPassword]** | = AccountNumber + Password                                   |
+| **[DeviceIdentifier]**         | = IPAddress + Port                                           |
+| **[DeviceInformation]**        | = DeviceIdentifier + {SensorInformation}6                    |
+| **[DeviceStatus]**             | = {SensorStatus}6                                            |
+| **[InitialTimestamp]:**        | A Timestamp, used to mark the beginning time of a motion record. |
+| **[IPAddress]:**               | A string consists of digits and dot `"."`.                   |
+| **[ModelInfo]**                | = modelflag + acc                                            |
+| **[MotionFrame]**              | = {X + Y + Z + asX + asY + asZ + accX + accY + accZ}9 + Timestamp. <br>`X, Y, Z, asX, asY, asZ, accX, accY, accZ` are nine real numbers provided by the embedded system. |
+| **[MotionRecord]**             | = AccountNumber + InitialTimestamp + MotionTag + {MotionFrame} |
+| **[MotionTag]:**               | An integer, not less than zero and not greater than six.     |
+| **[Password]:**                | A non-empty string. The Android App SHOULD assure that the password is "legal" so that the other team will just regard it as a string. |
+| **[Port]:**                    | An integer not less than zero.                               |
+| **[RegisterInformation]**      | = AccountNumber + Password + (PhoneNumber) + (EmailAddress) + (Birthday) |
+| **[SensorBattery]:**           | A non-negative integer which is not greater than 100.        |
+| **[SensorInformation]**        | = MACAddress + Name                                          |
+| **[SensorList]**               | = {SensorInformation}6                                       |
+| **[SensorOnlineStatus]:**      | An integer, where `0` represents the sensor is offline, and `1` represents the sensor is online. |
+| **[SensorStatus]**             | = SensorOnlineStatus + SensorBattery                         |
+| **[Timestamp]**                | An integer, representing milliseconds from `1970-01-01 00:00`. |
