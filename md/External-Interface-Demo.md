@@ -245,15 +245,10 @@ Response:
 
 ## 3. Appendix
 
-**#Device#**: The combination of a Raspberry Pi and six sensors.
-
-**#IP#**、**#Port#**、**#IPAndPort#**: To simplify the design, we assume that each **#Device#** corresponds to a unique (IP, Port) pair.
-
-**#DemoEmbeddedSystem#**: A virtual **#Device#** with a complete interface of **#EmbeddedSystem#**,  but the data is fabricated.
-
-**#EmbeddedSystem#**: The **#Device#** and the network communication program running on the **#Device#**.
-
-**#JsonAttribute#**: The keys that define the attributes or characteristics of the object, and their corresponding values representing the values of those attributes or characteristics.
-
-**\#MotionFrame#**: A snapshot of motion data captured by the six sensors at the same time. This data includes information such as acceleration, velocity, displacement and a timestamp.
-
+| DataName                              | Data Definitions                                             |
+| :------------------------------------ | :----------------------------------------------------------- |
+| **#Device#**                          | The combination of a Raspberry Pi and six sensors.           |
+| **#DemoEmbeddedSystem#**              | A virtual **#Device#** with a complete interface of **#EmbeddedSystem#**,  but the data is fabricated. |
+| **#IP#**、**#Port#**、**#IPAndPort#** | To simplify the design, we assume that each **#Device#** corresponds to a unique (IP, Port) pair. |
+| **#JsonAttribute#**                   | The keys that define the attributes or characteristics of the object, and their corresponding values representing the values of those attributes or characteristics. |
+| **\#MotionFrame#**                    | A snapshot of motion data captured by the six sensors at the same time. This data includes information such as acceleration, velocity, displacement and a timestamp. |
