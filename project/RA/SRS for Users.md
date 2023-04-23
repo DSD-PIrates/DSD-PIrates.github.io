@@ -899,7 +899,7 @@ The detailed description of the main use cases.
 | **[ModelInfo]**                | = modelflag + acc                                            |
 | **[MotionFrame]**              | = {X + Y + Z + asX + asY + asZ + accX + accY + accZ}9 + Timestamp. <br>`X, Y, Z, asX, asY, asZ, accX, accY, accZ` are nine real numbers provided by the embedded system. |
 | **[MotionRecord]**             | = AccountNumber + InitialTimestamp + MotionTag + {MotionFrame} |
-| **[MotionTag]:**               | An integer, not less than zero and not greater than six.     |
+| **[MotionTag]:**               | An integer between 0 and 6, including 0 and 6. `0` represents `'Sit'`, `1` represents `'Stand'`, `2` represents `'Go straight'`, `3` represents `'Go uphill/upstairs'`, `4` represents `'Go downhill/dwonstairs'`, `5` represents `'Go left'`, and `6` represents `'Go right'`.     |
 | **[Password]:**                | A non-empty string. The Android App SHOULD assure that the password is "legal" so that the other team will just regard it as a string. |
 | **[Port]:**                    | An integer not less than zero.                               |
 | **[RegisterInformation]**      | = AccountNumber + Password + (PhoneNumber) + (EmailAddress) + (Birthday) |
