@@ -39,7 +39,7 @@ The **#Software#** should have below functions.
 
 ### 2.1 User Stories for the User of **#AndroidApp#**
 #### 2.1.1 Main user stories and corresponding main use cases
-The main purpose of the user of **#AndroidApp#** is listed as follows:
+The main purposes of the user of **#AndroidApp#** are listed as follows:
 
 |User Story|Main Use Cases|
 |-|-|
@@ -47,13 +47,13 @@ The main purpose of the user of **#AndroidApp#** is listed as follows:
 |As a **#Device#** user, I want to record my **#MotionData#** into **[MotionRecord]**.|(2) Case: CollectData  |
 |As a **#Device#** user, I want to acquire a trained model from my recorded **#MotionData#**.|*Included in (1) PredUserMotion, no user operation is required*|
 
-The detailed description of the main use cases.
+The detailed description of the main use cases：
 
 - (1) Case: PredUserMotion
 
   **Brief Introduction**
 
-  Use trained model and data from Embedding, to calculate the status of equipment and GUI shows the result, until user stops
+  Use trained model and real-time monitoring data, to give real-time predictions and GUI shows the result, until user stops
 
   **Actors**
 
@@ -67,8 +67,8 @@ The detailed description of the main use cases.
 
   |      | Actor                                   | System                  |
   | ---- | --------------------------------------- | ----------------------- |
-  | 1    | User click "PredUserMotion_Sync" button |                         |
-  | 2    |                                         | GUI shows the **[MotionRecord]**   |
+  | 1    | User click "PredUserMotion" button |                         |
+  | 2    |                                         | GUI shows the **[MotionTag]** |
   | 3    | User click "end" button                 |                         |
   | 4    |                                         | GUI releases connection |
 
@@ -81,13 +81,13 @@ The detailed description of the main use cases.
 
   **Post Condition**
 
-  GUI gets the result(the status of embedding)
+  GUI gets the result(**[MotionTag]**)
 
 - (2) Case: CollectData
 
   **Brief Introduction**
 
-  GUI requests server to begin and end getting data, and Server takes charge of managing embedding, get and save data, save to DataBase.
+  GUI requests to begin and end getting data, and **#System#** saves the data.
 
   **Actors**
 
@@ -115,7 +115,7 @@ The detailed description of the main use cases.
 
   **Post Condition**
 
-  Data has collected and saved to Data DataBase
+  Data has collected and saved
 
 #### 2.1.2 The secondary use cases
 
@@ -123,7 +123,7 @@ The detailed description of the main use cases.
 
   **Brief Introduction**
 
-  Allow user to log in the app and use functions.
+  Allow user to log in the **#AndroidApp#** and use functions.
 
   **Actors**
 
@@ -131,15 +131,15 @@ The detailed description of the main use cases.
 
   **Pre-Conditions**
 
-  The app is running.
+  The **#AndroidApp#** is running.
 
   **Basic Flow**
 
-  | Basic Flow | Actor                                     | System                    |
-  | ---------- | ----------------------------------------- | ------------------------- |
-  | 1          | User input **[AccountNumberAndPassword]** |                           |
-  | 2          |                                           | Show an successful notion |
-  | 3          |                                           | Change to user mode       |
+  | Basic Flow | Actor                                     | System                   |
+  | ---------- | ----------------------------------------- | ------------------------ |
+  | 1          | User input **[AccountNumberAndPassword]** |                          |
+  | 2          |                                           | Show a successful notion |
+  | 3          |                                           | Change to user mode      |
 
   **Exception Flow**
 
@@ -150,7 +150,7 @@ The detailed description of the main use cases.
 
   **Post Conditions**
 
-  The database has the user's information.
+  User information (**[AccountNumberAndPassword]**) is stored.
 
 - (4) Case: Register
 
@@ -195,7 +195,7 @@ The detailed description of the main use cases.
   
   User registered
 
-- (5) Case:LogOut  
+- (5) Case: LogOut  
 
   **Brief Introduction**
 
@@ -207,16 +207,16 @@ The detailed description of the main use cases.
 
   **Pre-Conditions**
 
-  A user has logged in the app.
+  A user has logged in the **#AndroidApp#**.
 
   **Basic Flow**
 
-  |      | Actor                           | System                       |
-  | ---- | ------------------------------- | ---------------------------- |
-  | 1    | User click the “log out” button |                              |
-  | 2    |                                 | The app turn to visitor mode |
+  |      | Actor                           | System                                    |
+  | ---- | ------------------------------- | ----------------------------------------- |
+  | 1    | User click the “log out” button |                                           |
+  | 2    |                                 | The **#AndroidApp#** turn to visitor mode |
 
-- (6) Case:UserInfo  
+- (6) Case: UserInfo  
 
   **Brief Introduction**
 
@@ -228,7 +228,7 @@ The detailed description of the main use cases.
 
   **Pre-Conditions**
 
-  A user has logged in the app.
+  A user has logged in the **#AndroidApp#**.
 
   **Basic Flow**
 
@@ -237,7 +237,7 @@ The detailed description of the main use cases.
   | 1    | User click the “User Information” button. |                                    |
   | 2    |                                           | Jump to User Information interface |
 
-- (7) Case:GetPersonInfo  
+- (7) Case: GetPersonInfo  
 
   **Brief Introduction**
 
@@ -258,13 +258,11 @@ The detailed description of the main use cases.
   | 1    | User choose to get **[AccountInformation]**. |                                                 |
   | 3    |                                              | Display **[AccountInformation]** on the screen. |
 
-
-
-- (8) Case:SetPersonInfo  
+- (8) Case: SetPersonInfo  
 
   **Brief Introduction**
 
-  Add personal information to database.
+  Add personal information.
 
   **Actors**
 
@@ -286,18 +284,18 @@ The detailed description of the main use cases.
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 1    |       | The Exception Flow begins after step 3 of the main flow    |
-  | 2    |       | The app informed the user that he or she has input invalid information. |
+  | 1    |       | The Exception Flow begins after step 3 of the main flow      |
+  | 2    |       | The **#AndroidApp#** informed the user that he or she has input invalid information. |
 
   **Post Conditions**
 
-  New **[AccountInformation]** has been added to database.
+  New **[AccountInformation]** has been added.
 
-- (9) Case:Equipment  
+- (9) Case: Equipment  
 
   **Brief Introduction**
 
-  The user who have auxiliary walking tools choose to bind the tools with app to get better prediction.
+  The user who have auxiliary walking tools choose to bind the tools with **#AndroidApp#** to get better prediction.
 
   **Actors**
 
@@ -314,11 +312,11 @@ The detailed description of the main use cases.
   | 1    | User click the equipment button. |                              |
   | 2    |                                  | Jump to equipment interface. |
 
-- (10) Case:ConnectEquip  
+- (10) Case: ConnectEquip  
 
   **Brief Introduction**
 
-  User input the IP address and port of the equipment, and Server saved this to Equip DataBase.
+  User input the IP address and port of the equipment, and the **#System#** saves this.
 
   **Actors**
 
@@ -333,7 +331,7 @@ The detailed description of the main use cases.
   |      | Actor                                      | System                                                       |
   | ---- | ------------------------------------------ | ------------------------------------------------------------ |
   | 1    | User Click "ConnectEquip" button           |                                                              |
-  | 2    |                                            | GUI shows the textbox, and wait user to input**[IPAddress]** and **[Port]** |
+  | 2    |                                            | GUI shows the textbox, and wait user to input **[IPAddress]** and **[Port]** |
   | 3    | User inputs **[IPAddress]** and **[Port]** |                                                              |
   | 4    |                                            | GUI checks whether the input contents are legal and shows successful notion |
 
@@ -347,13 +345,13 @@ The detailed description of the main use cases.
 
   **Post Conditions**
 
-  Equipment saved to Equipment DataBase, and Server will charge of corresponding to Equipment
+  Equipment is saved.
 
-- (11) Case:GetEquipInfo  
+- (11) Case: GetEquipInfo  
 
   **Brief Introduction**
 
-  GUI requests Server to give the Information of User's Equipment. Usually, Server needs to check the Embedding to get the Information.
+  GUI requests to give the Information of User's Equipment. 
 
   **Actors**
 
@@ -380,7 +378,7 @@ The detailed description of the main use cases.
 
   
 
-- (12) Case:UnbindEquip  
+- (12) Case: UnbindEquip  
 
   **Brief Introduction**
 
@@ -415,13 +413,11 @@ The detailed description of the main use cases.
 
   Equipment of User is successfully unbinded
 
-
-
-- (13) Case:GetEquipStatus 
+- (13) Case: GetEquipStatus 
 
   **Brief Introduction**
 
-  GUI requests Server to give the Status of User's Equipments. Usually, Server needs to check the Embedding to get the Status.
+  GUI requests to obtain the status of User's Equipments. 
 
   **Actors**
 
@@ -450,11 +446,11 @@ The detailed description of the main use cases.
 
   GUI gets the equipment information
 
-- (14) Case:GetUserGuide  
+- (14) Case: GetUserGuide  
 
   **Brief Introduction**
 
-  User get the app's user guide
+  User get the **#AndroidApp#**'s user guide
 
   **Actors**
 
@@ -471,9 +467,7 @@ The detailed description of the main use cases.
   | 1    | The user choose to get user guide |                                      |
   | 2    |                                   | Get user guide and show it on screen |
 
-
-
-- (15) Case:PredModel  
+- (15) Case: PredModel  
 
   **Brief Introduction**
 
@@ -498,11 +492,11 @@ The detailed description of the main use cases.
 
   GUI changes into model mode
 
-- (16) Case:ResetModel   
+- (16) Case: ResetModel   
 
   **Brief Introduction**
 
-  GUI requests Server to change the model of the user to initial model, whether the model of user is initial model or not.
+  GUI requests to change the model of the user to initial model, whether the model of user is initial model or not.
 
   **Actors**
 
@@ -528,13 +522,13 @@ The detailed description of the main use cases.
 
   **Post Condition**
 
-  The model of user resetted on his Algorithm database
+  The model of user resetted on his Algorithm database.
 
-- (17) Case:ShowModelInfo  
+- (17) Case: ShowModelInfo  
 
   **Brief Introduction**
 
-  GUI gets information of model from server. Usually, server should get the information from algorithm database.
+  GUI requests to get the information of model.
 
   **Actors**
 
@@ -560,16 +554,9 @@ The detailed description of the main use cases.
   | 2.3              |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
   | 2.4              |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
 
-  **Post Conditions**
-
-  none.
-
-  **Supplemental Requirements**
-
-  none.
 
 
-- (18) Case:DataManagement  
+- (18) Case: DataManagement  
 
   **Brief Introduction**
 
@@ -581,7 +568,7 @@ The detailed description of the main use cases.
 
   **Pre-Conditions**
 
-  User has log in.
+  User has logged in.
 
   **Basic Flow**
 
@@ -603,11 +590,11 @@ The detailed description of the main use cases.
   none.
 
 
-- (19) Case:GetData  
+- (19) Case: GetData  
 
   **Brief Introduction**
 
-  Get datalist from data DataBase.
+  GUI requests to get datalist.
 
   **Actors**
 
@@ -630,16 +617,13 @@ The detailed description of the main use cases.
   | ---- | ----- | ------------------------------------------------------------ |
   | 2.2  |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
   
-  **Post Conditions**
-  
-  GUI upload **[MotionRecord]** to database, and back into data mode.
 
 
-- (20) Case:DiscardData  
+- (20) Case: DiscardData  
 
   **Brief Introduction**
 
-  Get datalist from DataBase, and delete chosen data.
+  GUI requests to get datalist, and delete chosen data.
 
   **Actors**
 
@@ -676,7 +660,7 @@ The detailed description of the main use cases.
   none.
 
 
-- (21) Case:ChangeDataLabel
+- (21) Case: ChangeDataLabel
 
   **Brief Introduction**
 
@@ -900,7 +884,7 @@ The detailed description of the main use cases.
 | **[MotionFrame]**              | = {X + Y + Z + asX + asY + asZ + accX + accY + accZ}9 + Timestamp. <br>`X, Y, Z, asX, asY, asZ, accX, accY, accZ` are nine real numbers provided by the embedded system. |
 | **[MotionRecord]**             | = AccountNumber + InitialTimestamp + MotionTag + {MotionFrame} |
 | **[MotionTag]:**               | An integer between 0 and 6, including 0 and 6. `0` represents `'Sit'`, `1` represents `'Stand'`, `2` represents `'Go straight'`, `3` represents `'Go uphill/upstairs'`, `4` represents `'Go downhill/dwonstairs'`, `5` represents `'Go left'`, and `6` represents `'Go right'`.     |
-| **[Password]:**                | A non-empty string. The Android App SHOULD assure that the password is "legal" so that the other team will just regard it as a string. |
+| **[Password]:**                | A non-empty string. The **#AndroidApp#** SHOULD assure that the password is "legal" so that the other team will just regard it as a string. |
 | **[Port]:**                    | An integer not less than zero.                               |
 | **[RegisterInformation]**      | = AccountNumber + Password + (PhoneNumber) + (EmailAddress) + (Birthday) |
 | **[SensorBattery]:**           | A non-negative integer which is not greater than 100.        |
