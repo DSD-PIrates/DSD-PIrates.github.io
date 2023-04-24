@@ -1,10 +1,26 @@
 [
     {
-        "name": "WT901BLE68",
+        "name": "R1",
+        "macAddr": "F2:02:E0:8D:B8:05"
+    },
+    {
+        "name": "R2",
+        "macAddr": "C4:39:0D:A9:91:89"
+    },
+    {
+        "name": "R3",
+        "macAddr": "E8:67:FE:A6:D4:3C"
+    },
+    {
+        "name": "L1",
+        "macAddr": "D1:7A:2A:54:02:95"
+    },
+    {
+        "name": "L2",
         "macAddr": "D7:0F:4F:1D:4F:B5"
     },
     {
-        "name": "WT901-L1",
-        "macAddr": "D1:7A:2A:54:02:95"
+        "name": "L3",
+        "macAddr": "E6:7A:B7:B0:45:9D"
     }
 ]

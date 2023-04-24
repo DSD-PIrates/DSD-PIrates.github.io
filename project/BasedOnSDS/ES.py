@@ -21,7 +21,7 @@ INVALID_DATA      = {
     "accX": 0, "accY": 0, "accZ": 0,
     "asX" : 0, "asY" : 0, "asZ" : 0
 }
-SENSOR_COUNT      = 1 # TODO
+SENSOR_COUNT      = 6 # TODO
 TIME_OUT_SPAN     = 1 # seconds
 
 
@@ -31,8 +31,9 @@ class DataTransform:
 
 
 class SensorCollector:
-    def __init__(self, macAddr: str):
+    def __init__(self, macAddr: str, name: str):
         self.macAddr       = macAddr
+        self.name          = name
         self.cache         = None
         self.cacheTime     = datetime.datetime.utcnow()
         self.needCalibrate = False
@@ -64,14 +65,15 @@ class SensorCollector:
     async def __start_raw(self) -> None:
         while True:
             if DEBUG_SHOW:
-                print("[.] try to connect %s" % (self.macAddr), flush=True)
+                # print("[.] try to connect %s [%s]" % (self.macAddr, self.name), flush=True)
+                pass
             try:
                 client = BleakClient(self.macAddr)
                 await client.connect()
             except:
                 continue # just retry
             if DEBUG_SHOW:
-                print("[+] connected with %s" % (self.macAddr), flush=True)
+                print("[+] connected with %s [%s]" % (self.macAddr, self.name), flush=True)
             await client.start_notify(IMU_READ_UUID, lambda sender, data: self.__callback(sender, data))
             await asyncio.sleep(COLLECT_TIME_SPAN)
             while True:
@@ -79,7 +81,7 @@ class SensorCollector:
                 self.connected = self.__connectionCheck()
                 if not self.connected:
                     if DEBUG_SHOW:
-                        print("[-] connection break with %s" % (self.macAddr), flush=True)
+                        print("[-] connection break with %s [%s]" % (self.macAddr, self.name), flush=True)
                         await client.disconnect()
                         break
                 self.battery = self.__batteryCheck(client)
@@ -131,7 +133,7 @@ class Transaction:
 
 class Configuration:
     def __init__(self):
-        filename = FILEPATH + "/config.json"
+        filename = os.path.join(FILEPATH, "config.json")
         with open(filename, "r", encoding="utf-8") as fp:
             self.data = json.load(fp)
         assert type(self.data) == list and len(self.data) >= SENSOR_COUNT
@@ -146,7 +148,10 @@ class Configuration:
     def getMacAddrOfSensor(self, index):
         assert 0 <= index and index < SENSOR_COUNT # six sensor
         return self.data[index].get("macAddr")
-
+    
+    def getNameOfSensor(self, index):
+        assert 0 <= index and index < SENSOR_COUNT # six sensor
+        return self.data[index].get("name")
 
 class RealTimeData(Transaction):
     def __init__(self, sensorCollectorList: list):
@@ -158,7 +163,8 @@ class RealTimeData(Transaction):
     def getResponse(self, dataInput: dict) -> list:
         ans = {}
         for sensorId, sensorCollector in enumerate(self.sensorCollectorList):
-            ans[str(sensorId)] = sensorCollector.getRealtimeData()
+            sensorName = sensorCollector.name
+            ans[sensorName] = sensorCollector.getRealtimeData()
         timeBase = datetime.datetime(1970, 1, 1, 0, 0, 0)
         delta    = datetime.datetime.utcnow() - timeBase
         ans["timestamp"] = delta.total_seconds()
@@ -242,7 +248,8 @@ class Router:
         self.sensorCollectorList = []
         for i in range(SENSOR_COUNT):
             macAddr = self.config.getMacAddrOfSensor(i)
-            self.sensorCollectorList.append(SensorCollector(macAddr))
+            name    = self.config.getNameOfSensor   (i)
+            self.sensorCollectorList.append(SensorCollector(macAddr, name))
         self.transactionList = [
             RealTimeData     (self.sensorCollectorList             ), 
             SensorDetails    (self.sensorCollectorList, self.config), 
