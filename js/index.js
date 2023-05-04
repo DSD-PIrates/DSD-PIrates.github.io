@@ -1,22 +1,11 @@
 var menulist = [
     [{ name: "Home", src: "index.html" }],
-    [
-        /*{name: "News", src: ""}, 
-        {name: "Website Construction Record", src: "docs/Website Construction Record.html"},
-        {name: "Research on end-to-end latency between different devices", src: "docs/Research on end-to-end latency between different devices.html"}, 
-        {name: "BlogForWeek1", src: "docs/BlogForWeek1.html"}, 
-        {name: "More", src: "docs/news.html"}*/
-    ], [
-        /*{name: "Documents", src: ""}, 
-        {name: "Software Requirements Specification (SRS)", src: "docs/Software Requirements Specification (SRS).html"},
-        {name: "End-to-end latency between different devices", src: "docs/End-to-end latency between different devices.html"}, 
-        {name: "GDSS", src: "docs/GDSS.html"}, {name: "More", src :"docs/documents.html"}*/
-    ],
+    [], [],
     [{ name: "Members", src: "docs/member.html" }],
     [{ name: "Borrowing", src: "docs/borrow.html" }],
     [{ name: "Online", src: "docs/realtimedata.html" }]
 ]
-//{name: "", src: "docs/.html"},
+
 var caret = '<span class="caret"></span>'
 var presentation_normal = '<li class="nav-item">'
 var presentation_dropdown = '<li class="nav-item dropdown">'
