@@ -18,8 +18,8 @@ This ducument is compiled for 'Motion Prediction (MoPre)', which is a software s
     - The braces (without an integer `i` after it) in `"{A}"`  means Attribute `A` will repeat for zero or more times.
 
 ### 1.3 Potential Readers
-- Customer: User of **#AndroidApp#**, the one who uses a **#Device#** will login with the android app to collect data from theA **#Device#**.
-- **#System Administrator#**: User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.
+- **#Customer#**: **#AndroidAppUser#** or **#AndroidAppVisitor#**, the one who uses a **#Device#** will login with the android app to collect data from theA **#Device#**.
+- **#SystemAdministrator#**: User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.
 - Party A: The one who raised the target, played by Mr. Zhang.
 
 
@@ -37,15 +37,15 @@ The **#Software#** should have below functions.
 
 ## 2. User Story
 
-### 2.1 User Stories for the User of **#AndroidApp#**
+### 2.1 User Stories for the **#AndroidAppUser#**
 #### 2.1.1 Main user stories and corresponding main use cases
-The main purposes of the user of **#AndroidApp#** are listed as follows:
+The main purposes of the **#AndroidAppUser#** are listed as follows:
 
 |User Story|Main Use Cases|
 |-|-|
-|As a **#Device#** user, I want to use model to give real-time predictions based on my current **#MotionData#**.|(1) Case: PredUserMotion|
-|As a **#Device#** user, I want to record my **#MotionData#** into **[MotionRecord]**.|(2) Case: CollectData  |
-|As a **#Device#** user, I want to acquire a trained model from my recorded **#MotionData#**.|*Included in (1) PredUserMotion, no user operation is required*|
+|As a **#Customer#**, I want to use model to give real-time predictions based on my current **#MotionData#**.|(1) Case: PredUserMotion|
+|As a **#Customer#**, I want to record my **#MotionData#** into **[MotionRecord]**.|(2) Case: CollectData  |
+|As a **#Customer#**, I want to acquire a trained model from my recorded **#MotionData#**.|*Included in (1) PredUserMotion, no user operation is required*|
 
 The detailed description of the main use cases：
 
@@ -53,65 +53,65 @@ The detailed description of the main use cases：
 
   **Brief Introduction**
 
-  Use trained model and real-time monitoring data, to give real-time predictions and GUI shows the result, until user stops
+  Use trained model and real-time monitoring data, to give real-time predictions and **#AndroidApp#** shows the result, until **#AndroidAppUser#** stops
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed to Model mode
+  **#AndroidApp#** has changed to Model mode
 
   **Basic Flow**
 
   |      | Actor                                   | System                  |
   | ---- | --------------------------------------- | ----------------------- |
-  | 1    | User click "PredUserMotion" button |                         |
-  | 2    |                                         | GUI shows the **[MotionTag]** |
-  | 3    | User click "end" button                 |                         |
-  | 4    |                                         | GUI releases connection |
+  | 1    | **#AndroidAppUser#** click "PredUserMotion" button |                         |
+  | 2    |                                         | **#AndroidApp#** shows the **[MotionTag]** |
+  | 3    | **#AndroidAppUser#** click "end" button                 |                         |
+  | 4    |                                         | **#AndroidApp#** releases connection |
 
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 2.3  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 2.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.3  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
   **Post Condition**
 
-  GUI gets the result(**[MotionTag]**)
+  **#AndroidApp#** gets the result(**[MotionTag]**)
 
 - (2) Case: CollectData
 
   **Brief Introduction**
 
-  GUI requests to begin and end getting data, and **#System#** saves the data.
+  **#AndroidApp#** requests to begin and end getting data, and **#System#** saves the data.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into Equip mode
+  **#AndroidApp#** has changed into Equip mode
 
   **Basic Flow**
 
   |      | Actor                            | System                                                 |
   | ---- | -------------------------------- | ------------------------------------------------------ |
-  | 1    | User click "Collect Data" button |                                                        |
-  | 2    |                                  | GUI shows the **[MotionTag]**, and wait user to choose |
-  | 3    | User choose one **[MotionTag]**  |                                                        |
-  | 4    | User click "Finish Data" button  |                                                        |
-  | 5    |                                  | GUI shows successful notion                            |
+  | 1    | **#AndroidAppUser#** click "Collect Data" button |                                                        |
+  | 2    |                                  | **#AndroidApp#** shows the **[MotionTag]**, and wait **#AndroidAppUser#** to choose |
+  | 3    | **#AndroidAppUser#** choose one **[MotionTag]**  |                                                        |
+  | 4    | **#AndroidAppUser#** click "Finish Data" button  |                                                        |
+  | 5    |                                  | **#AndroidApp#** shows successful notion                            |
 
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 5.2  |       | If GUI receives error information, GUI shows error notion and back to Equip mode |
+  | 5.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows error notion and back to Equip mode |
 
   **Post Condition**
 
@@ -123,11 +123,11 @@ The detailed description of the main use cases：
 
   **Brief Introduction**
 
-  Allow user to log in the **#AndroidApp#** and use functions.
+  Allow **#AndroidAppVisitor#** to log in the **#AndroidApp#** and use functions.
 
   **Actors**
 
-  Visitor
+  **#AndroidAppVisitor#**
 
   **Pre-Conditions**
 
@@ -137,9 +137,9 @@ The detailed description of the main use cases：
 
   | Basic Flow | Actor                                     | System                   |
   | ---------- | ----------------------------------------- | ------------------------ |
-  | 1          | User input **[AccountNumberAndPassword]** |                          |
+  | 1          | **#AndroidAppVisitor#** input **[AccountNumberAndPassword]** |                          |
   | 2          |                                           | Show a successful notion |
-  | 3          |                                           | Change to user mode      |
+  | 3          |                                           | Become **#AndroidAppUser#**      |
 
   **Exception Flow**
 
@@ -150,35 +150,35 @@ The detailed description of the main use cases：
 
   **Post Conditions**
 
-  User information (**[AccountNumberAndPassword]**) is stored.
+  **#AndroidAppUser#** information (**[AccountNumberAndPassword]**) is stored.
 
 - (4) Case: Register
 
   **Brief Introduction**
   
-  Register user
+  Register **#AndroidAppUser#**
   
   **Actors**
   
-  User
+  **#AndroidAppVisitor#**
   
   **Pre-Conditions**
   
-  GUI in visitor mode
+  **#AndroidAppVisitor#** has launched App.
   
   **Basic Flow**
   
   | Basic Flow | Actor                           | System                                                 |
   | ---------- | ------------------------------- | ------------------------------------------------------ |
-  | 1          | User inputs **[AccountNumber]** |                                                        |
-  | 2          |                                 | GUI checks whether **[AccountNumber]** is legal |
-  | 3          | User inputs **[Password]** |                                                        |
-  | 4          |                                 | GUI checks whether **[Password]** is legal     |
-  | 5          | User reinputs **[Password]** |                                                        |
-  | 6          |                                 | GUI checks whether the two **[Password]**s are same |
-  | 7          | User inputs **[RegisterInformation]** except **[AccountNumberAndPassword]** |                                                        |
-  | 8          |                                 | GUI checks whether the **[RegisterInformation]** except **[AccountNumberAndPassword]** is legal |
-  | 9         |                                 | GUI shows successful notion and **[AccountNumber]** |
+  | 1          | **#AndroidAppVisitor#** inputs **[AccountNumber]** |                                                        |
+  | 2          |                                 | **#AndroidApp#** checks whether **[AccountNumber]** is legal |
+  | 3          | **#AndroidAppVisitor#** inputs **[Password]** |                                                        |
+  | 4          |                                 | **#AndroidApp#** checks whether **[Password]** is legal     |
+  | 5          | **#AndroidAppVisitor#** reinputs **[Password]** |                                                        |
+  | 6          |                                 | **#AndroidApp#** checks whether the two **[Password]**s are same |
+  | 7          | **#AndroidAppVisitor#** inputs **[RegisterInformation]** except **[AccountNumberAndPassword]** |                                                        |
+  | 8          |                                 | **#AndroidApp#** checks whether the **[RegisterInformation]** except **[AccountNumberAndPassword]** is legal |
+  | 9         |                                 | **#AndroidApp#** shows successful notion and **[AccountNumber]** |
   
   **Exception Flow**
   
@@ -188,53 +188,53 @@ The detailed description of the main use cases：
   | 4.2            |       | If **[Password]** is not legal, shows mistake notion and back to step 3 |
   | 6.2            |       | If **[Password]** is different, shows mistake notion and back to step 5 |
   | 8.2            |       | If **[RegisterInformation]** except **[AccountNumberAndPassword]** is not legal, shows mistake notion and back to step 7 |
-  | 9.2            |       | If GUI receives error information(For example, the user has connected to one equip), GUI shows the error notion, and back to Equip mode |
-  | 9.3            |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 9.2            |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion. |
+  | 9.3            |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion. |
   
   **Post Conditions**
   
-  User registered
+  An account is registered.
 
 - (5) Case: LogOut  
 
   **Brief Introduction**
 
-  User log out
+  **#AndroidAppUser#** log out
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  A user has logged in the **#AndroidApp#**.
+  A **#AndroidAppUser#** has logged in the **#AndroidApp#**.
 
   **Basic Flow**
 
   |      | Actor                           | System                                    |
   | ---- | ------------------------------- | ----------------------------------------- |
-  | 1    | User click the “log out” button |                                           |
+  | 1    | **#AndroidAppUser#** click the “log out” button |                                           |
   | 2    |                                 | The **#AndroidApp#** turn to visitor mode |
 
 - (6) Case: UserInfo  
 
   **Brief Introduction**
 
-  User choose to do something with personal information.and change to user information mode.
+  **#AndroidAppUser#** choose to do something with personal information.and change to user information mode.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  A user has logged in the **#AndroidApp#**.
+  **#AndroidAppUser#** has logged in the **#AndroidApp#**.
 
   **Basic Flow**
 
   |      | Actor                                     | System                             |
   | ---- | ----------------------------------------- | ---------------------------------- |
-  | 1    | User click the “User Information” button. |                                    |
+  | 1    | **#AndroidAppUser#** click the “User Information” button. |                                    |
   | 2    |                                           | Jump to User Information interface |
 
 - (7) Case: GetPersonInfo  
@@ -245,17 +245,17 @@ The detailed description of the main use cases：
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  User choose the “user information” button.
+  **#AndroidAppUser#** choose the “user information” button.
 
   **Basic Flow**
 
   |      | Actor                                        | System                                          |
   | ---- | -------------------------------------------- | ----------------------------------------------- |
-  | 1    | User choose to get **[AccountInformation]**. |                                                 |
+  | 1    | **#AndroidAppUser#** choose to get **[AccountInformation]**. |                                                 |
   | 3    |                                              | Display **[AccountInformation]** on the screen. |
 
 - (8) Case: SetPersonInfo  
@@ -266,18 +266,18 @@ The detailed description of the main use cases：
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  User choose the “user information” button.
+  **#AndroidAppUser#** choose the “user information” button.
 
   **Basic Flow**
 
   |      | Actor                                                        | System                               |
   | ---- | ------------------------------------------------------------ | ------------------------------------ |
-  | 1    | User choose to set **[AccountInformation]**.                 |                                      |
-  | 2    | User input **[AccountInformation]** except **[AccountNumber]** |                                      |
+  | 1    | **#AndroidAppUser#** choose to set **[AccountInformation]**.                 |                                      |
+  | 2    | **#AndroidAppUser#** input **[AccountInformation]** except **[AccountNumber]** |                                      |
   | 3    |                                                              | Display successful notion on screen. |
 
   **Exception Flow**
@@ -285,7 +285,7 @@ The detailed description of the main use cases：
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
   | 1    |       | The Exception Flow begins after step 3 of the main flow      |
-  | 2    |       | The **#AndroidApp#** informed the user that he or she has input invalid information. |
+  | 2    |       | The **#AndroidApp#** informed the **#AndroidAppUser#** that he or she has input invalid information. |
 
   **Post Conditions**
 
@@ -295,53 +295,53 @@ The detailed description of the main use cases：
 
   **Brief Introduction**
 
-  The user who have auxiliary walking tools choose to bind the tools with **#AndroidApp#** to get better prediction.
+  The **#AndroidAppUser#** who have auxiliary walking tools choose to bind the tools with **#AndroidApp#** to get better prediction.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  A user has logged in.
+  A **#AndroidAppUser#** has logged in.
 
   **Basic Flow**
 
   |      | Actor                            | System                       |
   | ---- | -------------------------------- | ---------------------------- |
-  | 1    | User click the equipment button. |                              |
+  | 1    | **#AndroidAppUser#** click the equipment button. |                              |
   | 2    |                                  | Jump to equipment interface. |
 
 - (10) Case: ConnectEquip  
 
   **Brief Introduction**
 
-  User input the IP address and port of the equipment, and the **#System#** saves this.
+  **#AndroidAppUser#** input the IP address and port of the equipment, and the **#System#** saves this.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into Equipment mode
+  **#AndroidApp#** has changed into Equipment mode
 
   **Basic Flow**
 
   |      | Actor                                      | System                                                       |
   | ---- | ------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | User Click "ConnectEquip" button           |                                                              |
-  | 2    |                                            | GUI shows the textbox, and wait user to input **[IPAddress]** and **[Port]** |
-  | 3    | User inputs **[IPAddress]** and **[Port]** |                                                              |
-  | 4    |                                            | GUI checks whether the input contents are legal and shows successful notion |
+  | 1    | **#AndroidAppUser#** Click "ConnectEquip" button           |                                                              |
+  | 2    |                                            | **#AndroidApp#** shows the textbox, and wait **#AndroidAppUser#** to input **[IPAddress]** and **[Port]** |
+  | 3    | **#AndroidAppUser#** inputs **[IPAddress]** and **[Port]** |                                                              |
+  | 4    |                                            | **#AndroidApp#** checks whether the input contents are legal and shows successful notion |
 
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 4.2  |       | If the **[IPAddress]** or the **[Port]** is illegal, GUI shows the mistake notion, and back to step 3 |
-  | 4.3  |       | If GUI receives error information(For example, the user has connected to one equip), GUI shows the error notion, and back to Equip mode |
-  | 4.4  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 4.2  |       | If the **[IPAddress]** or the **[Port]** is illegal, **#AndroidApp#** shows the mistake notion, and back to step 3 |
+  | 4.3  |       | If **#AndroidApp#** receives error information(For example, the user has connected to one equip), **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 4.4  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
   **Post Conditions**
 
@@ -351,30 +351,30 @@ The detailed description of the main use cases：
 
   **Brief Introduction**
 
-  GUI requests to give the Information of User's Equipment. 
+  **#AndroidApp#** requests to give the Information of **#AndroidAppUser#**'s Equipment. 
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into Equip mode
+  **#AndroidApp#** has changed into Equip mode
 
   **Basic Flow**
 
   |      | Actor                            | System                            |
   | ---- | -------------------------------- | --------------------------------- |
-  | 1    | User Click "GetEquipInfo" button |                                   |
-  | 2    |                                  | GUI shows **[DeviceInformation]** |
+  | 1    | **#AndroidAppUser#** Click "GetEquipInfo" button |                                   |
+  | 2    |                                  | **#AndroidApp#** shows **[DeviceInformation]** |
 
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 6.2  |       | If GUI receives mistake information(For example, Server cannot connect the Equipment), GUI shows the mistake information and back to Equip mode |
-  | 6.3  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 6.4  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 6.2  |       | If **#AndroidApp#** receives mistake information(For example, Server cannot connect the Equipment), **#AndroidApp#** shows the mistake information and back to Equip mode |
+  | 6.3  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 6.4  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
   
 
@@ -382,89 +382,89 @@ The detailed description of the main use cases：
 
   **Brief Introduction**
 
-  GUI shows
+  **#AndroidApp#** shows
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into Equip mode
+  **#AndroidApp#** has changed into Equip mode
 
   **Basic Flow**
 
   |      | Actor                                | System                         |
   | ---- | ------------------------------------ | ------------------------------ |
-  | 1    | User clicks "UnbindEquip" button     |                                |
-  | 2    |                                      | GUI shows the **[SensorList]** |
-  | 3    | User chooses the Equipment to unbind |                                |
-  | 4    |                                      | GUI shows successful notion    |
+  | 1    | **#AndroidAppUser#** clicks "UnbindEquip" button     |                                |
+  | 2    |                                      | **#AndroidApp#** shows the **[SensorList]** |
+  | 3    | **#AndroidAppUser#** chooses the Equipment to unbind |                                |
+  | 4    |                                      | **#AndroidApp#** shows successful notion    |
 
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If there is no equipments on the user, show mistake notion and back to Equip mode |
-  | 4.2  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 4.3  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 2.2  |       | If there is no equipments on the **#AndroidAppUser#**, show mistake notion and back to Equip mode |
+  | 4.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 4.3  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
   **Post Condition**
 
-  Equipment of User is successfully unbinded
+  Equipment of **#AndroidAppUser#** is successfully unbinded
 
 - (13) Case: GetEquipStatus 
 
   **Brief Introduction**
 
-  GUI requests to obtain the status of User's Equipments. 
+  **#AndroidApp#** requests to obtain the status of **#AndroidAppUser#**'s Equipments. 
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into Equip mode
+  **#AndroidApp#** has changed into Equip mode
 
   **Basic Flow**
 
   |      | Actor                            | System                       |
   | ---- | -------------------------------- | ---------------------------- |
-  | 1    | User Click "GetEquipInfo" button |                              |
-  | 2    |                                  | GUI shows **[DeviceStatus]** |
+  | 1    | **#AndroidAppUser#** Click "GetEquipInfo" button |                              |
+  | 2    |                                  | **#AndroidApp#** shows **[DeviceStatus]** |
 
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If GUI receives mistake information(For example, Server cannot connect the Equipment), GUI shows the mistake information and back to Equip mode |
-  | 2.3  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 2.4  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 2.2  |       | If **#AndroidApp#** receives mistake information(For example, Server cannot connect the Equipment), **#AndroidApp#** shows the mistake information and back to Equip mode |
+  | 2.3  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.4  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
   **Post Condition**
 
-  GUI gets the equipment information
+  **#AndroidApp#** gets the equipment information
 
 - (14) Case: GetUserGuide  
 
   **Brief Introduction**
 
-  User get the **#AndroidApp#**'s user guide
+  **#AndroidAppUser#** get the **#AndroidApp#**'s user guide
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  A user has logged in. 
+  A **#AndroidAppUser#** has logged in. 
 
   **Basic Flow**
 
   |      | Actor                             | System                               |
   | ---- | --------------------------------- | ------------------------------------ |
-  | 1    | The user choose to get user guide |                                      |
+  | 1    | The **#AndroidAppUser#** choose to get user guide |                                      |
   | 2    |                                   | Get user guide and show it on screen |
 
 - (15) Case: PredModel  
@@ -475,84 +475,84 @@ The detailed description of the main use cases：
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  A user has logged in. 
+  A **#AndroidAppUser#** has logged in. 
 
   **Basic Flow**
 
   |      | Actor             | System                      |
   | ---- | ----------------- | --------------------------- |
-  | 1    | User clicks Model |                             |
-  | 2    |                   | GUI changes into model mode |
+  | 1    | **#AndroidAppUser#** clicks Model |                             |
+  | 2    |                   | **#AndroidApp#** changes into model mode |
 
   **Post Condition**
 
-  GUI changes into model mode
+  **#AndroidApp#** changes into model mode
 
 - (16) Case: ResetModel   
 
   **Brief Introduction**
 
-  GUI requests to change the model of the user to initial model, whether the model of user is initial model or not.
+  **#AndroidApp#** requests to change the model of the **#AndroidAppUser#** to initial model, whether the model of **#AndroidAppUser#** is initial model or not.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into Model mode
+  **#AndroidApp#** has changed into Model mode
 
   **Basic Flow**
 
   |      | Actor                           | System                      |
   | ---- | ------------------------------- | --------------------------- |
-  | 1    | User clicks "ResetModel" button |                             |
-  | 2    |                                 | GUI shows successful notion |
+  | 1    | **#AndroidAppUser#** clicks "ResetModel" button |                             |
+  | 2    |                                 | **#AndroidApp#** shows successful notion |
 
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 2.3  |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 2.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.3  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
   **Post Condition**
 
-  The model of user resetted on his Algorithm database.
+  The model of **#AndroidAppUser#** resetted on his Algorithm database.
 
 - (17) Case: ShowModelInfo  
 
   **Brief Introduction**
 
-  GUI requests to get the information of model.
+  **#AndroidApp#** requests to get the information of model.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  User has changed into Model mode.
+  **#AndroidAppUser#** has changed into Model mode.
 
   **Basic Flow**
 
   | Basic Flow | Actor                             | System                        |
   | ---------- | --------------------------------- | ----------------------------- |
-  | 1          | User click "ShowModelInfo" button |                               |
-  | 2          |                                   | GUI shows the **[ModelInfo]** |
+  | 1          | **#AndroidAppUser#** click "ShowModelInfo" button |                               |
+  | 2          |                                   | **#AndroidApp#** shows the **[ModelInfo]** |
   
 
   **Exception Flow**
 
   | Exception Flow | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
-  | 2.2              |       | If GUI has not connected to Internet, GUI shows mistake information and back to Equip mode |
-  | 2.3              |       | If GUI receives error information, GUI shows the error notion, and back to Equip mode |
-  | 2.4              |       | If GUI waits more than time limitation, GUI shows the error notion, and back to Equip mode |
+  | 2.2              |       | If **#AndroidApp#** has not connected to Internet, **#AndroidApp#** shows mistake information and back to Equip mode |
+  | 2.3              |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.4              |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
 
 
@@ -564,18 +564,18 @@ The detailed description of the main use cases：
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  User has logged in.
+  **#AndroidAppUser#** has logged in.
 
   **Basic Flow**
 
   | Basic Flow | Actor                       | System                     |
   | ---------- | --------------------------- | -------------------------- |
-  | 1          | User clicks Data management |                            |
-  | 2          |                             | GUI changes into data mode |
+  | 1          | **#AndroidAppUser#** clicks Data management |                            |
+  | 2          |                             | **#AndroidApp#** changes into data mode |
 
   **Exception Flow**
 
@@ -583,7 +583,7 @@ The detailed description of the main use cases：
 
   **Post Conditions**
 
-  GUI changes into data mode.
+  **#AndroidApp#** changes into data mode.
 
   **Supplemental Requirements**
 
@@ -594,28 +594,28 @@ The detailed description of the main use cases：
 
   **Brief Introduction**
 
-  GUI requests to get datalist.
+  **#AndroidApp#** requests to get datalist.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into data mode.
+  **#AndroidApp#** has changed into data mode.
 
   **Basic Flow**
 
   | Basic Flow | Actor                | System                       |
   | ---------- | -------------------- | ---------------------------- |
-  | 1          | User clicks get data |                              |
-  | 2          |                      | GUI shows **[MotionRecord]** |
+  | 1          | **#AndroidAppUser#** clicks get data |                              |
+  | 2          |                      | **#AndroidApp#** shows **[MotionRecord]** |
   
   **Exception Flow**
   
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
+  | 2.2  |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
   
 
 
@@ -623,37 +623,37 @@ The detailed description of the main use cases：
 
   **Brief Introduction**
 
-  GUI requests to get datalist, and delete chosen data.
+  **#AndroidApp#** requests to get datalist, and delete chosen data.
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into data mode.
+  **#AndroidApp#** has changed into data mode.
 
   **Basic Flow**
 
   |      | Actor                       | System                       |
   | ---- | --------------------------- | ---------------------------- |
-  | 1    | User clicks get data        |                              |
-  | 2    |                             | GUI shows **[MotionRecord]** |
-  | 3    | User chooses data to delete |                              |
-  | 4    |                             | GUI shows successful notion  |
+  | 1    | **#AndroidAppUser#** clicks get data        |                              |
+  | 2    |                             | **#AndroidApp#** shows **[MotionRecord]** |
+  | 3    | **#AndroidAppUser#** chooses data to delete |                              |
+  | 4    |                             | **#AndroidApp#** shows successful notion  |
   
   **Exception Flow**
 
   |  | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
-  | 1.2              |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
-  | 2.2              |       | If nothing on datalist, GUI shows mistake notion and back to data mode |
-  | 3.2              |       | If User chooses nothing or quit, GUI shows delete nothing and back to data mode |
-  | 4.2              |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
+  | 1.2              |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
+  | 2.2              |       | If nothing on datalist, **#AndroidApp#** shows mistake notion and back to data mode |
+  | 3.2              |       | If **#AndroidAppUser#** chooses nothing or quit, **#AndroidApp#** shows delete nothing and back to data mode |
+  | 4.2              |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
   
   **Post Conditions**
 
-  Discard chosen data from data database, and GUI back into data mode.
+  Discard chosen data from data database, and **#AndroidApp#** back into data mode.
 
   **Supplemental Requirements**
 
@@ -668,33 +668,33 @@ The detailed description of the main use cases：
 
   **Actors**
 
-  User
+  **#AndroidAppUser#**
 
   **Pre-Conditions**
 
-  GUI has changed into data mode.
+  **#AndroidApp#** has changed into data mode.
 
   **Basic Flow**
 
   |      | Actor                                                        | System                      |
   | ---- | ------------------------------------------------------------ | --------------------------- |
-  | 1    | User clicks change label                                     |                             |
-  | 2    |                                                              | GUI shows **[MotionTag]**   |
-  | 3    | User chooses **[MotionTag]** to change, and chooses the new type |                             |
-  | 4    |                                                              | GUI shows successful notion |
+  | 1    | **#AndroidAppUser#** clicks change label                                     |                             |
+  | 2    |                                                              | **#AndroidApp#** shows **[MotionTag]**   |
+  | 3    | **#AndroidAppUser#** chooses **[MotionTag]** to change, and chooses the new type |                             |
+  | 4    |                                                              | **#AndroidApp#** shows successful notion |
   
   **Exception Flow**
 
   |      | Actor | System                                                       |
   | ---- | ----- | ------------------------------------------------------------ |
-  | 1.2  |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
-  | 2.2  |       | If nothing on datalist, GUI shows mistake notion and back to data mode |
-  | 3.2  |       | If User chooses nothing, or the new type is the same as the old one, or quit, GUI shows alter nothing and back to data mode |
-  | 4.2  |       | If GUI cannot connect to Internet, shows mistake notion and back to data mode |
+  | 1.2  |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
+  | 2.2  |       | If nothing on datalist, **#AndroidApp#** shows mistake notion and back to data mode |
+  | 3.2  |       | If **#AndroidAppUser#** chooses nothing, or the new type is the same as the old one, or quit, **#AndroidApp#** shows alter nothing and back to data mode |
+  | 4.2  |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
   
   **Post Conditions**
 
-  GUI upload data to data database, and back into data mode.
+  **#AndroidApp#** upload data to data database, and back into data mode.
 
   **Supplemental Requirements**
 
@@ -707,8 +707,8 @@ The main purpose of the user of **#WebApp#** is listed as follows:
 
 |User Story|Main Use Cases|
 |-|-|
-|As an **#System Administrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** users and **#Devices#**.|(1) Case: Administrators wants to view the list of **#Devices#**|
-|As an **#System Administrator#** of the **#Software#**, I want to manage user information.|(2) Case: Administrators wants to manage users' information|
+|As an **#SystemAdministrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** users and **#Devices#**.|(1) Case: Administrators wants to view the list of **#Devices#**|
+|As an **#SystemAdministrator#** of the **#Software#**, I want to manage user information.|(2) Case: Administrators wants to manage users' information|
 |As an administrator of the **#Software#**, I want to issue notifications.|(3) Case: Administrators wants to put a notice on the web site|
 
 The detailed description of the main use cases.
@@ -717,11 +717,11 @@ The detailed description of the main use cases.
 
   **Brief Introduction**
 
-  The **#System Administrator#** is able to access information about the **#Devices#** which are connecting with the system.
+  The **#SystemAdministrator#** is able to access information about the **#Devices#** which are connecting with the system.
 
   **Actors**
 
-  **#System Administrator#**
+  **#SystemAdministrator#**
 
   **Pre-Conditions**
 
@@ -731,22 +731,22 @@ The detailed description of the main use cases.
 
   |      | Actor                                                    | System                          |
   | ---- | -------------------------------------------------------- | ------------------------------- |
-  | 1    | The **#System Administrator#** hovers his mouse over the **#Devices#** key. |                                 |
+  | 1    | The **#SystemAdministrator#** hovers his mouse over the **#Devices#** key. |                                 |
   | 2    |                                                          | Web page shows **[SensorList]** |
 
   **Post Conditions**
 
-  **#System Administrator#** should be able to obtain detailed information about the **#Devices#**.
+  **#SystemAdministrator#** should be able to obtain detailed information about the **#Devices#**.
 
 - (2) Case: Administrators wants to manage users' information
 
   **Brief Introduction**
 
-  The **#System Administrator#** is able to manage information about the users.
+  The **#SystemAdministrator#** is able to manage information about the users.
 
   **Actors**
 
-  **#System Administrator#**
+  **#SystemAdministrator#**
 
   **Pre-Conditions**
 
@@ -756,23 +756,23 @@ The detailed description of the main use cases.
 
   |      | Actor                                                        | System                                                       |
   | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#System Administrator#** hovers his mouse over the users management key. |                                                              |
+  | 1    | The **#SystemAdministrator#** hovers his mouse over the users management key. |                                                              |
   | 2    |                                                              | Web page shows **[AccountInformation]** and the add, delete, revise, import and derive keys. |
-  | 3    | **#System Administrator#** views **[AccountInformation]** and manage **[AccountInformation]**. |                                                              |
+  | 3    | **#SystemAdministrator#** views **[AccountInformation]** and manage **[AccountInformation]**. |                                                              |
   
   **Post Conditions**
   
-  **#System Administrator#** can manage the users’ information in the system.
+  **#SystemAdministrator#** can manage the users’ information in the system.
 
 - (3) Case: Administrators wants to put a notice on the web site
 
   **Brief Introduction**
 
-  The **#System Administrator#** is able to put a notice on the web site.
+  The **#SystemAdministrator#** is able to put a notice on the web site.
 
   **Actors**
 
-  **#System Administrator#**
+  **#SystemAdministrator#**
 
   **Pre-Conditions**
 
@@ -782,13 +782,13 @@ The detailed description of the main use cases.
 
   |      | Actor                                                        | System                                                       |
   | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#System Administrator#** hovers his mouse over the notice adding key. |                                                              |
+  | 1    | The **#SystemAdministrator#** hovers his mouse over the notice adding key. |                                                              |
   | 2    |                                                              | Web page turns to the page which has the function to edit a new notice. |
-  | 3    | **#System Administrator#** adds the new notice on the website.            |                                                              |
+  | 3    | **#SystemAdministrator#** adds the new notice on the website.            |                                                              |
   s
   **Post Conditions**
   
-  **#System Administrator#** can add a new notice on the web.
+  **#SystemAdministrator#** can add a new notice on the web.
 
 #### 2.2.2 The secondary use cases
 
@@ -796,11 +796,11 @@ The detailed description of the main use cases.
 
   **Brief Introduction**
 
-  The **#System Administrator#** is able to access information about the historical data.
+  The **#SystemAdministrator#** is able to access information about the historical data.
 
   **Actors**
 
-  **#System Administrator#**
+  **#SystemAdministrator#**
 
   **Pre-Conditions**
 
@@ -810,26 +810,26 @@ The detailed description of the main use cases.
 
   |      | Actor                                                    | System                                                       |
   | ---- | -------------------------------------------------------- | ------------------------------------------------------------ |
-  | 1    | The **#System Administrator#** hovers his mouse over the history key. |                                                              |
+  | 1    | The **#SystemAdministrator#** hovers his mouse over the history key. |                                                              |
   | 2    |                                                          | Web page shows the system historical data.                   |
-  | 3    | **#System Administrator#** views the data.                           |                                                              |
-  | 4    | **#System Administrator#** chooses to delete the history data.        |                                                              |
-  | 5    |                                                          | If the **#System Administrator#** is successfully deleted, the page is returned. If the **#System Administrator#** fails to delete, system prompt for deletion failed. |
+  | 3    | **#SystemAdministrator#** views the data.                           |                                                              |
+  | 4    | **#SystemAdministrator#** chooses to delete the history data.        |                                                              |
+  | 5    |                                                          | If the **#SystemAdministrator#** is successfully deleted, the page is returned. If the **#SystemAdministrator#** fails to delete, system prompt for deletion failed. |
   
   **Post Conditions**
   
-  **#System Administrator#** can view the historical information and delete them.
+  **#SystemAdministrator#** can view the historical information and delete them.
 
 
 - (5) Case: Administrator wants to manage the **#System#** log
 
   **Brief Introduction**
 
-  The **#System Administrator#** is able to system log. 
+  The **#SystemAdministrator#** is able to system log. 
 
   **Actors**
 
-  **#System Administrator#**
+  **#SystemAdministrator#**
 
   **Pre-Conditions**
 
@@ -839,15 +839,15 @@ The detailed description of the main use cases.
 
   |      | Actor                                                        | System                                                       |
   | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#System Administrator#** hovers his mouse over the log management key. |                                                              |
+  | 1    | The **#SystemAdministrator#** hovers his mouse over the log management key. |                                                              |
   | 2    |                                                              | Web page turns to the page which shows the list of the logs. |
-  | 3    | **#System Administrator#** clicks the set key.                            |                                                              |
-  | 4    | **#System Administrator#** can revise or delete the log.                 |                                                              |
-  | 5    | **#System Administrator#** clicks the reserve button to reserve the log.  |                                                              |
+  | 3    | **#SystemAdministrator#** clicks the set key.                            |                                                              |
+  | 4    | **#SystemAdministrator#** can revise or delete the log.                 |                                                              |
+  | 5    | **#SystemAdministrator#** clicks the reserve button to reserve the log.  |                                                              |
   
   **Post Conditions**
   
-  **#System Administrator#** can manage the system logs.
+  **#SystemAdministrator#** can manage the system logs.
 
 
 
@@ -856,7 +856,7 @@ The detailed description of the main use cases.
 ### 3.1 Explanation of Terms
 | Term                       | Explanation                                                  |
 | -------------------------- | ------------------------------------------------------------ |
-| **#AndroidApp#**           | An android application for the **#Device#** users.           |
+| **#AndroidApp#**           | An android application for **#Customer#**.           |
 | **#AndroidAppTeam#**       | A synonym for "**Dreamweaver-GUI Team**".                    |
 | **#CentralServer#**        | The program created by "**genshin-impact-server team**", which is a **#ServerProgram#**. |
 | **#Device#**               | A raspberry pi with six sensors, each **#Device#** will have a **FIXED** **[IPAddress]** and **[Port]** so that it can be accessed from the Internet if the **#Device#** is powered on. |
@@ -866,8 +866,10 @@ The detailed description of the main use cases.
 | **#ServerProgram#**        | A program which will keep running 24hours a day.             |
 | **#Software#**             | Refer to the software system 'Motion Prediction (MoPre)'.    |
 | **#System#**               | Same as **#Software#**                                       |
-|**#System Administrator#**|User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.|
-| **#WebApp#**               | A web site for the **#System Administrator#**.                     |
+|**#SystemAdministrator#**|User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.|
+|**#AndroidAppUser#**|User of **#AndroidApp#**, who has logged in.|
+|**#AndroidAppVisitor#**|User of **#AndroidApp#**, who has not logged in.|
+| **#WebApp#**               | A web site for the **#SystemAdministrator#**.                     |
 | **#WebTeam#**              | A synonym for "**mvps Team**".                               |
 
 ### 3.2 Data Definition
