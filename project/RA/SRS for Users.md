@@ -707,17 +707,17 @@ The main purpose of the user of **#WebApp#** is listed as follows:
 
 |User Story|Main Use Cases|
 |-|-|
-|As an **#System Administrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** user and **#Device#**.|(1) Case: Administrators wants to view the list of Devices|
+|As an **#System Administrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** users and **#Devices#**.|(1) Case: Administrators wants to view the list of **#Devices#**|
 |As an **#System Administrator#** of the **#Software#**, I want to manage user information.|(2) Case: Administrators wants to manage users' information|
 |As an administrator of the **#Software#**, I want to issue notifications.|(3) Case: Administrators wants to put a notice on the web site|
 
 The detailed description of the main use cases.
 
-- (1) Case: Administrators wants to view the list of Devices
+- (1) Case: Administrators wants to view the list of **#Devices#**
 
   **Brief Introduction**
 
-  The **#System Administrator#** is able to access information about the devices which are connecting with the system.
+  The **#System Administrator#** is able to access information about the **#Devices#** which are connecting with the system.
 
   **Actors**
 
@@ -731,12 +731,12 @@ The detailed description of the main use cases.
 
   |      | Actor                                                    | System                          |
   | ---- | -------------------------------------------------------- | ------------------------------- |
-  | 1    | The **#System Administrator#** hovers his mouse over the devices key. |                                 |
+  | 1    | The **#System Administrator#** hovers his mouse over the **#Devices#** key. |                                 |
   | 2    |                                                          | Web page shows **[SensorList]** |
 
   **Post Conditions**
 
-  **#System Administrator#** should be able to obtain detailed information about the devices.
+  **#System Administrator#** should be able to obtain detailed information about the **#Devices#**.
 
 - (2) Case: Administrators wants to manage users' information
 
@@ -859,8 +859,9 @@ The detailed description of the main use cases.
 | **#AndroidApp#**           | An android application for the **#Device#** users.           |
 | **#AndroidAppTeam#**       | A synonym for "**Dreamweaver-GUI Team**".                    |
 | **#CentralServer#**        | The program created by "**genshin-impact-server team**", which is a **#ServerProgram#**. |
-| **#Device#**               | A raspberry pi with six sensors, each device will have a **FIXED** **[IPAddress]** and **[Port]** so that it can be accessed from the Internet if the device is powered on. |
-| **#ManageTheWholeSystem#** | View, modify the binding relationship between users and devices, manage user information and issue notifications. |
+| **#Device#**               | A raspberry pi with six sensors, each **#Device#** will have a **FIXED** **[IPAddress]** and **[Port]** so that it can be accessed from the Internet if the **#Device#** is powered on. |
+|**#Devices#**|Many devices, a device refers to a **#Device#**.|
+| **#ManageTheWholeSystem#** | View, modify the binding relationship between users and **#Devices#**, manage user information and issue notifications. |
 | **#RA#**                   | Short for "**Requirement Analysis**", which is a synonym for "**Software Requirement Specification**". |
 | **#ServerProgram#**        | A program which will keep running 24hours a day.             |
 | **#Software#**             | Refer to the software system 'Motion Prediction (MoPre)'.    |
