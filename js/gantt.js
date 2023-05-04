@@ -22,7 +22,7 @@ function drawChart() {
         ['SD1', 'First Round of Software Design',
             new Date(2023, 2, 31), new Date(2023, 3, 6), null, 80, 'RA1,RA2'],
         ['CODE1', 'First Round of Coding',
-            new Date(2023, 3, 7), new Date(2023, 3, 16), null, 0, 'SD1'],
+            new Date(2023, 3, 7), new Date(2023, 3, 16), null, 80, 'SD1'],
         ['TEST1', 'First Round of Testing',
             new Date(2023, 3, 14), new Date(2023, 3, 20), null, 0, 'SD1,CODE1'],
         ['TEST2', 'System Integration Testing',
