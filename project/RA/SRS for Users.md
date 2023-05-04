@@ -709,7 +709,7 @@ The detailed description of the main use cases：
 
 #### 2.2.1 Use Case Diagram for #SystemAdministrator#
 
-
+<img src="UseCaseForSystemAdministrator.svg" style="zoom:70%;" />
 
 #### 2.2.2 Main user stories and corresponding main use cases
 
