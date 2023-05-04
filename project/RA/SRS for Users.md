@@ -18,8 +18,8 @@ This ducument is compiled for 'Motion Prediction (MoPre)', which is a software s
     - The braces (without an integer `i` after it) in `"{A}"`  means Attribute `A` will repeat for zero or more times.
 
 ### 1.3 Potential Readers
-- Customer: User of **#AndroidApp#**, the one who uses a **#Device#** will login with the android app to collect data from the **#Device#**.
-- System administrator: User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.
+- Customer: User of **#AndroidApp#**, the one who uses a **#Device#** will login with the android app to collect data from theA **#Device#**.
+- **#System Administrator#**: User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.
 - Party A: The one who raised the target, played by Mr. Zhang.
 
 
@@ -707,8 +707,8 @@ The main purpose of the user of **#WebApp#** is listed as follows:
 
 |User Story|Main Use Cases|
 |-|-|
-|As an administrator of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** user and **#Device#**.|(1) Case: Administrators wants to view the list of Devices|
-|As an administrator of the **#Software#**, I want to manage user information.|(2) Case: Administrators wants to manage users' information|
+|As an **#System Administrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** user and **#Device#**.|(1) Case: Administrators wants to view the list of Devices|
+|As an **#System Administrator#** of the **#Software#**, I want to manage user information.|(2) Case: Administrators wants to manage users' information|
 |As an administrator of the **#Software#**, I want to issue notifications.|(3) Case: Administrators wants to put a notice on the web site|
 
 The detailed description of the main use cases.
@@ -717,11 +717,11 @@ The detailed description of the main use cases.
 
   **Brief Introduction**
 
-  The Administrator is able to access information about the devices which are connecting with the system.
+  The **#System Administrator#** is able to access information about the devices which are connecting with the system.
 
   **Actors**
 
-  Administrator
+  **#System Administrator#**
 
   **Pre-Conditions**
 
@@ -731,22 +731,22 @@ The detailed description of the main use cases.
 
   |      | Actor                                                    | System                          |
   | ---- | -------------------------------------------------------- | ------------------------------- |
-  | 1    | The Administrator hovers his mouse over the devices key. |                                 |
+  | 1    | The **#System Administrator#** hovers his mouse over the devices key. |                                 |
   | 2    |                                                          | Web page shows **[SensorList]** |
 
   **Post Conditions**
 
-  administrators should be able to obtain detailed information about the devices.
+  **#System Administrator#** should be able to obtain detailed information about the devices.
 
 - (2) Case: Administrators wants to manage users' information
 
   **Brief Introduction**
 
-  The Administrator is able to manage information about the users.
+  The **#System Administrator#** is able to manage information about the users.
 
   **Actors**
 
-  Administrators
+  **#System Administrator#**
 
   **Pre-Conditions**
 
@@ -756,23 +756,23 @@ The detailed description of the main use cases.
 
   |      | Actor                                                        | System                                                       |
   | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The administrator hovers his mouse over the users management key. |                                                              |
+  | 1    | The **#System Administrator#** hovers his mouse over the users management key. |                                                              |
   | 2    |                                                              | Web page shows **[AccountInformation]** and the add, delete, revise, import and derive keys. |
-  | 3    | Administrators views **[AccountInformation]** and manage **[AccountInformation]**. |                                                              |
+  | 3    | **#System Administrator#** views **[AccountInformation]** and manage **[AccountInformation]**. |                                                              |
   
   **Post Conditions**
   
-  Administrators can manage the users’ information in the system.
+  **#System Administrator#** can manage the users’ information in the system.
 
 - (3) Case: Administrators wants to put a notice on the web site
 
   **Brief Introduction**
 
-  The Administrator is able to put a notice on the web site.
+  The **#System Administrator#** is able to put a notice on the web site.
 
   **Actors**
 
-  Administrators
+  **#System Administrator#**
 
   **Pre-Conditions**
 
@@ -782,13 +782,13 @@ The detailed description of the main use cases.
 
   |      | Actor                                                        | System                                                       |
   | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The administrator hovers his mouse over the notice adding key. |                                                              |
+  | 1    | The **#System Administrator#** hovers his mouse over the notice adding key. |                                                              |
   | 2    |                                                              | Web page turns to the page which has the function to edit a new notice. |
-  | 3    | Administrators add the new notice on the website.            |                                                              |
-  
+  | 3    | **#System Administrator#** adds the new notice on the website.            |                                                              |
+  s
   **Post Conditions**
   
-  Administrators can add a new notice on the web.
+  **#System Administrator#** can add a new notice on the web.
 
 #### 2.2.2 The secondary use cases
 
@@ -796,11 +796,11 @@ The detailed description of the main use cases.
 
   **Brief Introduction**
 
-  The Administrator is able to access information about the historical data.
+  The **#System Administrator#** is able to access information about the historical data.
 
   **Actors**
 
-  Administrators
+  **#System Administrator#**
 
   **Pre-Conditions**
 
@@ -810,26 +810,26 @@ The detailed description of the main use cases.
 
   |      | Actor                                                    | System                                                       |
   | ---- | -------------------------------------------------------- | ------------------------------------------------------------ |
-  | 1    | The administrator hovers his mouse over the history key. |                                                              |
+  | 1    | The **#System Administrator#** hovers his mouse over the history key. |                                                              |
   | 2    |                                                          | Web page shows the system historical data.                   |
-  | 3    | Administrators views the data.                           |                                                              |
-  | 4    | Administrator chooses to delete the history data.        |                                                              |
-  | 5    |                                                          | If the administrator is successfully deleted, the page is returned. If the administrator fails to delete, system prompt for deletion failed. |
+  | 3    | **#System Administrator#** views the data.                           |                                                              |
+  | 4    | **#System Administrator#** chooses to delete the history data.        |                                                              |
+  | 5    |                                                          | If the **#System Administrator#** is successfully deleted, the page is returned. If the **#System Administrator#** fails to delete, system prompt for deletion failed. |
   
   **Post Conditions**
   
-  Administrators can view the historical information and delete them.
+  **#System Administrator#** can view the historical information and delete them.
 
 
 - (5) Case: Administrator wants to manage the **#System#** log
 
   **Brief Introduction**
 
-  The Administrator is able to system log. 
+  The **#System Administrator#** is able to system log. 
 
   **Actors**
 
-  Administrators
+  **#System Administrator#**
 
   **Pre-Conditions**
 
@@ -839,15 +839,15 @@ The detailed description of the main use cases.
 
   |      | Actor                                                        | System                                                       |
   | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The administrator hovers his mouse over the log management key. |                                                              |
+  | 1    | The **#System Administrator#** hovers his mouse over the log management key. |                                                              |
   | 2    |                                                              | Web page turns to the page which shows the list of the logs. |
-  | 3    | Administrators click the set key.                            |                                                              |
-  | 4    | Administrators can revise or delete the log.                 |                                                              |
-  | 5    | Administrators click the reserve button to reserve the log.  |                                                              |
+  | 3    | **#System Administrator#** clicks the set key.                            |                                                              |
+  | 4    | **#System Administrator#** can revise or delete the log.                 |                                                              |
+  | 5    | **#System Administrator#** clicks the reserve button to reserve the log.  |                                                              |
   
   **Post Conditions**
   
-  Administrators can manage the system logs.
+  **#System Administrator#** can manage the system logs.
 
 
 
@@ -865,7 +865,8 @@ The detailed description of the main use cases.
 | **#ServerProgram#**        | A program which will keep running 24hours a day.             |
 | **#Software#**             | Refer to the software system 'Motion Prediction (MoPre)'.    |
 | **#System#**               | Same as **#Software#**                                       |
-| **#WebApp#**               | A web site for the system administrator.                     |
+|**#System Administrator#**|User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.|
+| **#WebApp#**               | A web site for the **#System Administrator#**.                     |
 | **#WebTeam#**              | A synonym for "**mvps Team**".                               |
 
 ### 3.2 Data Definition
