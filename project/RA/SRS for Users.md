@@ -38,7 +38,12 @@ The **#Software#** should have below functions.
 ## 2. User Story
 
 ### 2.1 User Stories for the **#AndroidAppUser#**
-#### 2.1.1 Main user stories and corresponding main use cases
+
+#### 2.1.1 Use Case Diagram for #Customer#
+
+![](UseCaseForCustomer.svg)
+
+#### 2.1.2 Main user stories and corresponding main use cases
 The main purposes of the **#AndroidAppUser#** are listed as follows:
 
 |User Story|Main Use Cases|
@@ -117,7 +122,7 @@ The detailed description of the main use cases：
 
   Data has collected and saved
 
-#### 2.1.2 The secondary use cases
+#### 2.1.3 The secondary use cases
 
 - (3) Case: Login
 
@@ -701,7 +706,12 @@ The detailed description of the main use cases：
   none.
 
 ### 2.2 User Stories for the User of **#WebApp#**
-#### 2.2.1 Main user stories and corresponding main use cases
+
+#### 2.2.1 Use Case Diagram for #SystemAdministrator#
+
+
+
+#### 2.2.2 Main user stories and corresponding main use cases
 
 The main purpose of the user of **#WebApp#** is listed as follows:
 
@@ -790,7 +800,7 @@ The detailed description of the main use cases.
   
   **#SystemAdministrator#** can add a new notice on the web.
 
-#### 2.2.2 The secondary use cases
+#### 2.2.3 The secondary use cases
 
 - (4) Case: Administrators wants to view the historical data
 
