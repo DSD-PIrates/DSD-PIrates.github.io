@@ -3,9 +3,10 @@
 ## 1. Introduction
 
 ### 1.1 Compilatory Purpose
-This ducument is compiled for 'Motion Prediction (MoPre)', which is a software system to predict the user's motion intention in the future time interval.
 
-### 1.2 Ducument Conventions
+This document is compiled for 'Motion Prediction (MoPre)', which is a software system to predict the user's motion intention in the future time interval.
+
+### 1.2 Document Conventions
 
 - Every term between two sharp symbol "**#**" (like **#AndriodApp#**) can be found in section "Explanation of Terms" in the Appendix.
 - Symbols in the Data Definitions
@@ -18,12 +19,12 @@ This ducument is compiled for 'Motion Prediction (MoPre)', which is a software s
     - The braces (without an integer `i` after it) in `"{A}"`  means Attribute `A` will repeat for zero or more times.
 
 ### 1.3 Potential Readers
-- **#Customer#**: **#AndroidAppUser#** or **#AndroidAppVisitor#**, the one who uses a **#Device#** will login with the android app to collect data from theA **#Device#**.
+- **#Customer#**: **#AndroidAppUser#** (or **#AndroidAppVisitor#**), the one who uses a **#Device#** will login with the android app to collect data from a **#Device#**. **#AndroidAppVisitor#** refers to users who have not yet logged in.
 - **#SystemAdministrator#**: User of **#WebApp#**, the administrator will use the **#WebApp#** as a dashboard to check and **#ManageTheWholeSystem#**.
-- Party A: The one who raised the target, played by Mr. Zhang.
-
+- Party A: The one who raised the target, played by Prof. Zhang.
 
 ### 1.4 Product Scope
+
 The **#Software#** should have below functions.
 - Track the motion of users using 6-axis sensors, bind to legs, to form a labeled dataset of human motions. These data are collected using Bluetooth; 
 - Train a generalization model to predict human motions in general (via the dataset); 
@@ -56,17 +57,11 @@ The detailed description of the main use cases：
 
 - (1) Case: PredUserMotion
 
-  **Brief Introduction**
+  **Brief Introduction**: Use trained model and real-time monitoring data, to give real-time predictions and **#AndroidApp#** shows the result, until **#AndroidAppUser#** stops
 
-  Use trained model and real-time monitoring data, to give real-time predictions and **#AndroidApp#** shows the result, until **#AndroidAppUser#** stops
+  **Actors**: **#AndroidAppUser#**
 
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed to Model mode
+  **Pre-Conditions**: **#AndroidApp#** has changed to Model mode
 
   **Basic Flow**
 
@@ -90,17 +85,11 @@ The detailed description of the main use cases：
 
 - (2) Case: CollectData
 
-  **Brief Introduction**
+  **Brief Introduction**: **#AndroidApp#** requests to begin and end getting data, and **#System#** saves the data.
 
-  **#AndroidApp#** requests to begin and end getting data, and **#System#** saves the data.
+  **Actors**: **#AndroidAppUser#**
 
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed into Equip mode
+  **Pre-Conditions**: **#AndroidApp#** has changed into Equip mode
 
   **Basic Flow**
 
@@ -126,17 +115,11 @@ The detailed description of the main use cases：
 
 - (3) Case: Login
 
-  **Brief Introduction**
+  **Brief Introduction**: Allow **#AndroidAppVisitor#** to log in the **#AndroidApp#** and use functions.
 
-  Allow **#AndroidAppVisitor#** to log in the **#AndroidApp#** and use functions.
+  **Actors**: **#AndroidAppVisitor#**
 
-  **Actors**
-
-  **#AndroidAppVisitor#**
-
-  **Pre-Conditions**
-
-  The **#AndroidApp#** is running.
+  **Pre-Conditions**: The **#AndroidApp#** is running.
 
   **Basic Flow**
 
@@ -147,16 +130,16 @@ The detailed description of the main use cases：
   | 3          |                                           | Become **#AndroidAppUser#**      |
 
   **Exception Flow**
-
+  
   | Exception Flow | Actor | System                                                       |
   | -------------- | ----- | ------------------------------------------------------------ |
   |                |       | From basic flow 1                                            |
   | 4              |       | Inform visitor that he or she has input a **[AccountNumber]** that not exists or a wrong **[Password]**. |
-
+  
   **Post Conditions**
-
+  
   **#AndroidAppUser#** information (**[AccountNumberAndPassword]**) is stored.
-
+  
 - (4) Case: Register
 
   **Brief Introduction**
