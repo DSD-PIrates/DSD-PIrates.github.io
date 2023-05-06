@@ -50,12 +50,14 @@ The main purposes of the **#AndroidAppUser#** are listed as follows:
 |User Story|Main Use Cases|
 |-|-|
 |As a **#Customer#**, I want to use model to give real-time **#MotionPrediction#** based on my current **#MotionData#**.|(1) Case: PredUserMotion|
-|As a **#Customer#**, I want to record my **#MotionData#** into **[MotionRecord]**.|(2) Case: CollectData  |
+|As a **#Customer#**, I want to record my **#MotionData#** into **[MotionRecord]**.|(2) Case: Collectdata  |
 |As a **#Customer#**, I want to acquire a trained model from my recorded **#MotionData#**.|*Included in (1) PredUserMotion, no user operation is required*|
 
 The detailed description of the main use cases：
 
 - **(1) Case: PredUserMotion**
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\PredUserMotion.png" style="zoom: 60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                          |
   | ------------------------------------------------------------ | -------------------- | ------------------------------------------- |
@@ -75,7 +77,9 @@ The detailed description of the main use cases：
 
   > **Post Condition**: **#AndroidApp#** shows the **#MotionPrediction#**
 
-- **(2) Case: CollectData**
+- **(2) Case: Collectdata**
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\CollectData.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
   | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
@@ -99,6 +103,8 @@ The detailed description of the main use cases：
 
 - **(3) Case: Login**
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\Login.png" style="zoom:60%;" />
+
   | **Brief Introduction**                                       | **Actors**              | **Pre-Conditions**               |
   | ------------------------------------------------------------ | ----------------------- | -------------------------------- |
   | Allow **#AndroidAppVisitor#** to log in the **#AndroidApp#**. | **#AndroidAppVisitor#** | The **#AndroidApp#** is running. |
@@ -118,6 +124,8 @@ The detailed description of the main use cases：
   
 - **(4) Case: Register**
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\Register.png" style="zoom:60%;" />
+  
   | **Brief Introduction**                     | **Actors**              | **Pre-Conditions**                                     |
   | ------------------------------------------ | ----------------------- | ------------------------------------------------------ |
   | **#AndroidAppVisitor#** wants to register. | **#AndroidAppVisitor#** | **#AndroidAppVisitor#** has launched **#AndroidApp#**. |
@@ -147,6 +155,8 @@ The detailed description of the main use cases：
   
 - **(5) Case: LogOut**  
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\LogOut.png" style="zoom:65%;" />
+
   | **Brief Introduction**                  | **Actors**           | **Pre-Conditions**                                       |
   | --------------------------------------- | -------------------- | -------------------------------------------------------- |
   | **#AndroidAppUser#** wants to logs out. | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in the **#AndroidApp#**. |
@@ -157,6 +167,8 @@ The detailed description of the main use cases：
   | 2              |                                                 | The **#AndroidApp#** turn to visitor mode |
   
 - **(6) Case: UserInfo**  
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\UserInfo.png" style="zoom:65%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                       |
   | ------------------------------------------------------------ | -------------------- | -------------------------------------------------------- |
@@ -169,6 +181,8 @@ The detailed description of the main use cases：
   
 - **(7) Case: GetPersonInfo**  
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetPersonInfo.png" style="zoom:60%;" />
+
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                         |
   | ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------- |
   | **#AndroidAppUser#** wants to get the personal **[AccountInformation]** set before. | **#AndroidAppUser#** | **#AndroidAppUser#** choose the “user information” button. |
@@ -179,6 +193,8 @@ The detailed description of the main use cases：
   | 3              |                                                              | Display **[AccountInformation]** on the screen. |
   
 - **(8) Case: SetPersonInfo**  
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\SetPersonInfo.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                         |
   | ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------- |
@@ -199,6 +215,8 @@ The detailed description of the main use cases：
   
 - **(9) Case: Equipment**  
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\Equipment.png" style="zoom:65%;" />
+
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                  |
   | ------------------------------------------------------------ | -------------------- | ----------------------------------- |
   | The **#AndroidAppUser#** chooses to bind the **#Device#** with **#AndroidApp#**. | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in. |
@@ -209,6 +227,8 @@ The detailed description of the main use cases：
   | 2              |                                                  | Jump to equipment interface. |
   
 - **(10) Case: ConnectEquip**  
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ConnectEquip.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                |
   | ------------------------------------------------------------ | -------------------- | ------------------------------------------------- |
@@ -228,8 +248,9 @@ The detailed description of the main use cases：
   | 4.4                |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
   
   > **Post Conditions**: **[DeviceIdentifier]** is saved.
-  
 - **(11) Case: GetEquipInfo**  
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetEquipInfo.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
   | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
@@ -247,6 +268,8 @@ The detailed description of the main use cases：
   | 6.4                |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
   
 - **(12) Case: UnbindEquip**  
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\UnbindEquip.png" style="zoom:60%;" />
 
   | **Brief Introduction**                             | **Actors**           | **Pre-Conditions**                            |
   | -------------------------------------------------- | -------------------- | --------------------------------------------- |
@@ -266,8 +289,9 @@ The detailed description of the main use cases：
   | 4.3            |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
   
   > **Post Condition**:  A **#Device#** of **#AndroidAppUser#** is successfully unbinded
-  
 - **(13) Case: GetEquipStatus** 
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetEquipStatus.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
   | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
@@ -285,8 +309,9 @@ The detailed description of the main use cases：
   | 2.4                |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
   
   > **Post Condition**: **#AndroidApp#** gets the **[DeviceStatus]**
-  
 - **(14) Case: GetUserGuide**
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetUserGuide.png" style="zoom:67%;" />
 
   | **Brief Introduction**                                      | **Actors**           | **Pre-Conditions**                  |
   | ----------------------------------------------------------- | -------------------- | ----------------------------------- |
@@ -312,6 +337,8 @@ The detailed description of the main use cases：
   
 - **(16) Case: ResetModel**   
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ResetModel.png" style="zoom:60%;" />
+
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                             |
   | ------------------------------------------------------------ | -------------------- | ---------------------------------------------- |
   | **#AndroidAppUser#** requests to change the model to initial model, whether the model is initial model or not. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Model model. |
@@ -325,41 +352,47 @@ The detailed description of the main use cases：
   | -------------- | ----- | ------------------------------------------------------------ |
   | 2.2            |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
   | 2.3            |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
-
+  
   > **Post Condition**: The model is resetted.
   
 - **(17) Case: ShowModelInfo**  
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ShowModelInfo.png" style="zoom:60%;" />
+
   | **Brief Introduction**                                    | **Actors**           | **Pre-Conditions**                             |
-| --------------------------------------------------------- | -------------------- | ---------------------------------------------- |
+  | --------------------------------------------------------- | -------------------- | ---------------------------------------------- |
   | **#AndroidAppUser#** requests to get the **[ModelInfo]**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Model model. |
 
   | Basic Flow | Actor                             | System                        |
-| ---------- | --------------------------------- | ----------------------------- |
+  | ---------- | --------------------------------- | ----------------------------- |
   | 1          | **#AndroidAppUser#** click "ShowModelInfo" button |                               |
-| 2          |                                   | **#AndroidApp#** shows the **[ModelInfo]** |
+  | 2          |                                   | **#AndroidApp#** shows the **[ModelInfo]** |
   
-| Exception Flow | Actor | System                                                       |
+  | Exception Flow | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
-| 2.2              |       | If **#AndroidApp#** has not connected to Internet, **#AndroidApp#** shows mistake information and back to Equip mode |
+  | 2.2              |       | If **#AndroidApp#** has not connected to Internet, **#AndroidApp#** shows mistake information and back to Equip mode |
   | 2.3              |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
-| 2.4              |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.4              |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
-- **(18) Case: DataManagement**  
+- **(18) Case: DataManagement**
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\DataManagement.png" style="zoom:67%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                  |
-| ------------------------------------------------------------ | -------------------- | ----------------------------------- |
+  | ------------------------------------------------------------ | -------------------- | ----------------------------------- |
   | **#AndroidAppUser#** changes into data mode to manage the collected **[MotionRecord]**s. | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in. |
 
   | Basic Flow | Actor                       | System                     |
-| ---------- | --------------------------- | -------------------------- |
+  | ---------- | --------------------------- | -------------------------- |
   | 1          | **#AndroidAppUser#** clicks Data management |                            |
-| 2          |                             | **#AndroidApp#** changes into data mode |
+  | 2          |                             | **#AndroidApp#** changes into data mode |
   
 > **Post Conditions**: **#AndroidApp#** changes into data mode.
 
 
 - **(19) Case: GetData**  
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetData.png" style="zoom:60%;" />
 
   | **Brief Introduction**                           | **Actors**           | **Pre-Conditions**                           |
   | ------------------------------------------------ | -------------------- | -------------------------------------------- |
@@ -376,7 +409,9 @@ The detailed description of the main use cases：
   
 
 
-- **(20) Case: DiscardData**  
+- **(20) Case: DiscardData** 
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\DiscardData.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                           |
   | ------------------------------------------------------------ | -------------------- | -------------------------------------------- |
@@ -400,6 +435,8 @@ The detailed description of the main use cases：
 
 
 - **(21) Case: ChangeDataLabel**
+
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ChangeDataLabel.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                           |
   | ------------------------------------------------------------ | -------------------- | -------------------------------------------- |
@@ -440,10 +477,12 @@ The detailed description of the main use cases.
 
 - **(1) Case: #SystemAdministrator# wants to view the list of #Device#s**
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ViewDeviceList.png" style="zoom:60%;" />
+  
   | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
   | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
   | The **#SystemAdministrator#** is able to access list of the **#Device#**s which are connecting with the **#System#**. | **#SystemAdministrator#** | The **#WebApp#** is open and running. |
-
+  
   | Basic Flow | Actor                                                        | System                                       |
   | ---------- | ------------------------------------------------------------ | -------------------------------------------- |
   | 1          | The **#SystemAdministrator#** hovers his mouse over the **#Device#**s key. |                                              |
@@ -453,26 +492,30 @@ The detailed description of the main use cases.
   
 - **(2) Case: #SystemAdministrator# wants to manage [RegisterInformation]**
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ManageRegisterInfo.png" style="zoom:60%;" />
+  
   | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
   | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
   | The **#SystemAdministrator#** is able to manage **[RegisterInformation]** of the **#AndroidAppUser#**s. | **#SystemAdministrator#** | The **#WebApp#** is open and running. |
-
+  
   | **Basic Flow** | Actor                                                        | System                                                       |
   | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
   | 1              | The **#SystemAdministrator#** hovers his mouse over the users management key. |                                                              |
   | 2              |                                                              | Web page shows **[RegisterInformation]** and the add, delete, revise, import and derive keys. |
   | 3              | **#SystemAdministrator#** views **[RegisterInformation]** and manage **[RegisterInformation]**. |                                                              |
-
+  
   > **Post Conditions**: **#SystemAdministrator#** can manage the  **#AndroidAppUser#**'s **[RegisterInformation]**.
 
 #### 2.2.3 The secondary use cases
 
 - **(3) Case: #SystemAdministrator# wants to view the historical [MotionRecord]**
 
+  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ViewData.png" style="zoom:60%;" />
+  
   | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
   | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
   | The **#SystemAdministrator#** is able to access historical **[MotionRecord]**. | **#SystemAdministrator#** | The **#WebApp#** is open and running. |
-
+  
   | **Basic Flow** | Actor                                                        | System                                                       |
   | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
   | 1              | The **#SystemAdministrator#** hovers his mouse over the history key. |                                                              |
@@ -480,7 +523,7 @@ The detailed description of the main use cases.
   | 3              | **#SystemAdministrator#** views the **[MotionRecord]**.      |                                                              |
   | 4              | **#SystemAdministrator#** chooses to delete the history **[MotionRecord]**. |                                                              |
   | 5              |                                                              | If the **#SystemAdministrator#** is successfully deleted, the page is returned. If the **#SystemAdministrator#** fails to delete, **#System#** prompt for deletion failed. |
-
+  
   > **Post Conditions**: **#SystemAdministrator#** can view the historical **[MotionRecord]** and delete them.
 
 ## 3.Appendix
