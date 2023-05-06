@@ -57,7 +57,7 @@ The detailed description of the main use cases：
 
 - **(1) Case: PredUserMotion**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\PredUserMotion.png" style="zoom: 60%;" />
+  <img src="pic\PredUserMotion.png" style="zoom: 60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                          |
   | ------------------------------------------------------------ | -------------------- | ------------------------------------------- |
@@ -79,7 +79,7 @@ The detailed description of the main use cases：
 
 - **(2) Case: Collectdata**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\CollectData.png" style="zoom:60%;" />
+  <img src="pic\CollectData.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
   | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
@@ -103,7 +103,7 @@ The detailed description of the main use cases：
 
 - **(3) Case: Login**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\Login.png" style="zoom:60%;" />
+  <img src="pic\Login.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**              | **Pre-Conditions**               |
   | ------------------------------------------------------------ | ----------------------- | -------------------------------- |
@@ -124,7 +124,7 @@ The detailed description of the main use cases：
   
 - **(4) Case: Register**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\Register.png" style="zoom:60%;" />
+  <img src="pic\Register.png" style="zoom:60%;" />
   
   | **Brief Introduction**                     | **Actors**              | **Pre-Conditions**                                     |
   | ------------------------------------------ | ----------------------- | ------------------------------------------------------ |
@@ -155,7 +155,7 @@ The detailed description of the main use cases：
   
 - **(5) Case: LogOut**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\LogOut.png" style="zoom:65%;" />
+  <img src="pic\LogOut.png" style="zoom:65%;" />
 
   | **Brief Introduction**                  | **Actors**           | **Pre-Conditions**                                       |
   | --------------------------------------- | -------------------- | -------------------------------------------------------- |
@@ -168,7 +168,7 @@ The detailed description of the main use cases：
   
 - **(6) Case: UserInfo**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\UserInfo.png" style="zoom:65%;" />
+  <img src="pic\UserInfo.png" style="zoom:65%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                       |
   | ------------------------------------------------------------ | -------------------- | -------------------------------------------------------- |
@@ -181,7 +181,7 @@ The detailed description of the main use cases：
   
 - **(7) Case: GetPersonInfo**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetPersonInfo.png" style="zoom:60%;" />
+  <img src="pic\GetPersonInfo.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                         |
   | ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------- |
@@ -194,7 +194,7 @@ The detailed description of the main use cases：
   
 - **(8) Case: SetPersonInfo**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\SetPersonInfo.png" style="zoom:60%;" />
+  <img src="pic\SetPersonInfo.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                         |
   | ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------- |
@@ -215,7 +215,7 @@ The detailed description of the main use cases：
   
 - **(9) Case: Equipment**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\Equipment.png" style="zoom:65%;" />
+  <img src="pic\Equipment.png" style="zoom:65%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                  |
   | ------------------------------------------------------------ | -------------------- | ----------------------------------- |
@@ -228,7 +228,7 @@ The detailed description of the main use cases：
   
 - **(10) Case: ConnectEquip**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ConnectEquip.png" style="zoom:60%;" />
+  <img src="pic\ConnectEquip.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                |
   | ------------------------------------------------------------ | -------------------- | ------------------------------------------------- |
@@ -250,7 +250,7 @@ The detailed description of the main use cases：
   > **Post Conditions**: **[DeviceIdentifier]** is saved.
 - **(11) Case: GetEquipInfo**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetEquipInfo.png" style="zoom:60%;" />
+  <img src="pic\GetEquipInfo.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
   | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
@@ -269,7 +269,7 @@ The detailed description of the main use cases：
   
 - **(12) Case: UnbindEquip**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\UnbindEquip.png" style="zoom:60%;" />
+  <img src="pic\UnbindEquip.png" style="zoom:60%;" />
 
   | **Brief Introduction**                             | **Actors**           | **Pre-Conditions**                            |
   | -------------------------------------------------- | -------------------- | --------------------------------------------- |
@@ -291,7 +291,7 @@ The detailed description of the main use cases：
   > **Post Condition**:  A **#Device#** of **#AndroidAppUser#** is successfully unbinded
 - **(13) Case: GetEquipStatus** 
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetEquipStatus.png" style="zoom:60%;" />
+  <img src="pic\GetEquipStatus.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
   | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
@@ -311,7 +311,7 @@ The detailed description of the main use cases：
   > **Post Condition**: **#AndroidApp#** gets the **[DeviceStatus]**
 - **(14) Case: GetUserGuide**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetUserGuide.png" style="zoom:67%;" />
+  <img src="pic\GetUserGuide.png" style="zoom:67%;" />
 
   | **Brief Introduction**                                      | **Actors**           | **Pre-Conditions**                  |
   | ----------------------------------------------------------- | -------------------- | ----------------------------------- |
@@ -337,7 +337,7 @@ The detailed description of the main use cases：
   
 - **(16) Case: ResetModel**   
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ResetModel.png" style="zoom:60%;" />
+  <img src="pic\ResetModel.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                             |
   | ------------------------------------------------------------ | -------------------- | ---------------------------------------------- |
@@ -357,7 +357,7 @@ The detailed description of the main use cases：
   
 - **(17) Case: ShowModelInfo**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ShowModelInfo.png" style="zoom:60%;" />
+  <img src="pic\ShowModelInfo.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                    | **Actors**           | **Pre-Conditions**                             |
   | --------------------------------------------------------- | -------------------- | ---------------------------------------------- |
@@ -376,7 +376,7 @@ The detailed description of the main use cases：
 
 - **(18) Case: DataManagement**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\DataManagement.png" style="zoom:67%;" />
+  <img src="pic\DataManagement.png" style="zoom:67%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                  |
   | ------------------------------------------------------------ | -------------------- | ----------------------------------- |
@@ -392,7 +392,7 @@ The detailed description of the main use cases：
 
 - **(19) Case: GetData**  
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\GetData.png" style="zoom:60%;" />
+  <img src="pic\GetData.png" style="zoom:60%;" />
 
   | **Brief Introduction**                           | **Actors**           | **Pre-Conditions**                           |
   | ------------------------------------------------ | -------------------- | -------------------------------------------- |
@@ -411,7 +411,7 @@ The detailed description of the main use cases：
 
 - **(20) Case: DiscardData** 
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\DiscardData.png" style="zoom:60%;" />
+  <img src="pic\DiscardData.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                           |
   | ------------------------------------------------------------ | -------------------- | -------------------------------------------- |
@@ -436,7 +436,7 @@ The detailed description of the main use cases：
 
 - **(21) Case: ChangeDataLabel**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ChangeDataLabel.png" style="zoom:60%;" />
+  <img src="pic\ChangeDataLabel.png" style="zoom:60%;" />
 
   | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                           |
   | ------------------------------------------------------------ | -------------------- | -------------------------------------------- |
@@ -477,7 +477,7 @@ The detailed description of the main use cases.
 
 - **(1) Case: #SystemAdministrator# wants to view the list of #Device#s**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ViewDeviceList.png" style="zoom:60%;" />
+  <img src="pic\ViewDeviceList.png" style="zoom:60%;" />
   
   | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
   | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
@@ -492,7 +492,7 @@ The detailed description of the main use cases.
   
 - **(2) Case: #SystemAdministrator# wants to manage [RegisterInformation]**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ManageRegisterInfo.png" style="zoom:60%;" />
+  <img src="pic\ManageRegisterInfo.png" style="zoom:60%;" />
   
   | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
   | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
@@ -510,7 +510,7 @@ The detailed description of the main use cases.
 
 - **(3) Case: #SystemAdministrator# wants to view the historical [MotionRecord]**
 
-  <img src="D:\OneDrive\文档\GitHub\atoposyz.github.io\project\RA\pic\ViewData.png" style="zoom:60%;" />
+  <img src="pic\ViewData.png" style="zoom:60%;" />
   
   | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
   | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
