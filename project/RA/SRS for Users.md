@@ -702,7 +702,6 @@ The main purpose of the user of **#WebApp#** is listed as follows:
 |-|-|
 |As an **#SystemAdministrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** users and **#Devices#**.|(1) Case: Administrators wants to view the list of **#Devices#**|
 |As an **#SystemAdministrator#** of the **#Software#**, I want to manage user information.|(2) Case: Administrators wants to manage users' information|
-|As an administrator of the **#Software#**, I want to issue notifications.|(3) Case: Administrators wants to put a notice on the web site|
 
 The detailed description of the main use cases.
 
@@ -757,35 +756,9 @@ The detailed description of the main use cases.
   
   **#SystemAdministrator#** can manage the users’ information in the system.
 
-- (3) Case: Administrators wants to put a notice on the web site
-
-  **Brief Introduction**
-
-  The **#SystemAdministrator#** is able to put a notice on the web site.
-
-  **Actors**
-
-  **#SystemAdministrator#**
-
-  **Pre-Conditions**
-
-  The management web page is opened.
-
-  **Basic Flow**
-
-  |      | Actor                                                        | System                                                       |
-  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#SystemAdministrator#** hovers his mouse over the notice adding key. |                                                              |
-  | 2    |                                                              | Web page turns to the page which has the function to edit a new notice. |
-  | 3    | **#SystemAdministrator#** adds the new notice on the website.            |                                                              |
-  s
-  **Post Conditions**
-  
-  **#SystemAdministrator#** can add a new notice on the web.
-
 #### 2.2.3 The secondary use cases
 
-- (4) Case: Administrators wants to view the historical data
+- (3) Case: Administrators wants to view the historical data
 
   **Brief Introduction**
 
@@ -812,37 +785,6 @@ The detailed description of the main use cases.
   **Post Conditions**
   
   **#SystemAdministrator#** can view the historical information and delete them.
-
-
-- (5) Case: Administrator wants to manage the **#System#** log
-
-  **Brief Introduction**
-
-  The **#SystemAdministrator#** is able to system log. 
-
-  **Actors**
-
-  **#SystemAdministrator#**
-
-  **Pre-Conditions**
-
-  The management web page is opened.
-
-  **Basic Flow**
-
-  |      | Actor                                                        | System                                                       |
-  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#SystemAdministrator#** hovers his mouse over the log management key. |                                                              |
-  | 2    |                                                              | Web page turns to the page which shows the list of the logs. |
-  | 3    | **#SystemAdministrator#** clicks the set key.                            |                                                              |
-  | 4    | **#SystemAdministrator#** can revise or delete the log.                 |                                                              |
-  | 5    | **#SystemAdministrator#** clicks the reserve button to reserve the log.  |                                                              |
-  
-  **Post Conditions**
-  
-  **#SystemAdministrator#** can manage the system logs.
-
-
 
 ## 3.Appendix
 
