@@ -40,7 +40,7 @@ The **#Software#** should have below functions.
 
 ### 2.1 User Stories for the **#AndroidAppUser#**
 
-#### 2.1.1 Use Case Diagram for #Customer#
+#### 2.1.1 Use Case Diagram for **#Customer#**
 
 ![](./UseCaseForCustomer.svg)
 
@@ -49,112 +49,86 @@ The main purposes of the **#AndroidAppUser#** are listed as follows:
 
 |User Story|Main Use Cases|
 |-|-|
-|As a **#Customer#**, I want to use model to give real-time predictions based on my current **#MotionData#**.|(1) Case: PredUserMotion|
-|As a **#Customer#**, I want to record my **#MotionData#** into **[MotionRecord]**.|(2) Case: CollectData  |
+|As a **#Customer#**, I want to use model to give real-time **#MotionPrediction#** based on my current **#MotionData#**.|(1) Case: PredUserMotion|
+|As a **#Customer#**, I want to record my **#MotionData#** into **[MotionRecord]**.|(2) Case: Collectdata  |
 |As a **#Customer#**, I want to acquire a trained model from my recorded **#MotionData#**.|*Included in (1) PredUserMotion, no user operation is required*|
 
 The detailed description of the main use cases：
 
-- (1) Case: PredUserMotion
+- **(1) Case: PredUserMotion**
 
-  **Brief Introduction**: Use trained model and real-time monitoring data, to give real-time predictions and **#AndroidApp#** shows the result, until **#AndroidAppUser#** stops
+  <img src="pic\PredUserMotion.png" style="zoom: 60%;" />
 
-  **Actors**: **#AndroidAppUser#**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                          |
+  | ------------------------------------------------------------ | -------------------- | ------------------------------------------- |
+  | Use trained model and real-time monitoring **#MotionData#**, to give real-time **#MotionPrediction#** and **#AndroidApp#** shows the result, until **#AndroidAppUser#** stops. | **#AndroidAppUser#** | **#AndroidApp#** has changed to Model mode. |
 
-  **Pre-Conditions**: **#AndroidApp#** has changed to Model mode
-
-  **Basic Flow**
-
-  |      | Actor                                   | System                  |
+  | Basic Flow | Actor                                   | System                  |
   | ---- | --------------------------------------- | ----------------------- |
   | 1    | **#AndroidAppUser#** click "PredUserMotion" button |                         |
-  | 2    |                                         | **#AndroidApp#** shows the **[MotionTag]** |
+  | 2    |                                         | **#AndroidApp#** shows the **#MotionPrediction#** |
   | 3    | **#AndroidAppUser#** click "end" button                 |                         |
   | 4    |                                         | **#AndroidApp#** releases connection |
 
-  **Exception Flow**
+  | **Exception Flow** | Actor | System                                                       |
+  | ------------------ | ----- | ------------------------------------------------------------ |
+  | 2.2                |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.3                |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
-  | 2.3  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  > **Post Condition**: **#AndroidApp#** shows the **#MotionPrediction#**
 
-  **Post Condition**
+- **(2) Case: Collectdata**
 
-  **#AndroidApp#** gets the result(**[MotionTag]**)
+  <img src="pic\CollectData.png" style="zoom:60%;" />
 
-- (2) Case: CollectData
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
+  | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
+  | **#AndroidApp#** requests to begin and end getting **#MotionData#**, and **#System#** saves the **#MotionData#** as **[MotionRecord]**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Equip mode. |
 
-  **Brief Introduction**: **#AndroidApp#** requests to begin and end getting data, and **#System#** saves the data.
+  | **Basic Flow** | Actor                                            | System                                                       |
+  | -------------- | ------------------------------------------------ | ------------------------------------------------------------ |
+  | 1              | **#AndroidAppUser#** click "Collect Data" button |                                                              |
+  | 2              |                                                  | **#AndroidApp#** shows the **[MotionTag]**, and wait **#AndroidAppUser#** to choose |
+  | 3              | **#AndroidAppUser#** choose one **[MotionTag]**  |                                                              |
+  | 4              | **#AndroidAppUser#** click "Finish Data" button  |                                                              |
+  | 5              |                                                  | **#AndroidApp#** shows successful notion                     |
+  
+  | **Exception Flow** | Actor | System                                                       |
+  | ------------------ | ----- | ------------------------------------------------------------ |
+  | 5.2                |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows error notion and back to Equip mode |
 
-  **Actors**: **#AndroidAppUser#**
-
-  **Pre-Conditions**: **#AndroidApp#** has changed into Equip mode
-
-  **Basic Flow**
-
-  |      | Actor                            | System                                                 |
-  | ---- | -------------------------------- | ------------------------------------------------------ |
-  | 1    | **#AndroidAppUser#** click "Collect Data" button |                                                        |
-  | 2    |                                  | **#AndroidApp#** shows the **[MotionTag]**, and wait **#AndroidAppUser#** to choose |
-  | 3    | **#AndroidAppUser#** choose one **[MotionTag]**  |                                                        |
-  | 4    | **#AndroidAppUser#** click "Finish Data" button  |                                                        |
-  | 5    |                                  | **#AndroidApp#** shows successful notion                            |
-
-  **Exception Flow**
-
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 5.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows error notion and back to Equip mode |
-
-  **Post Condition**
-
-  Data has collected and saved
+  > **Post Condition**: **#MotionData#** has been collected and saved.
 
 #### 2.1.3 The secondary use cases
 
-- (3) Case: Login
+- **(3) Case: Login**
 
-  **Brief Introduction**: Allow **#AndroidAppVisitor#** to log in the **#AndroidApp#** and use functions.
+  <img src="pic\Login.png" style="zoom:60%;" />
 
-  **Actors**: **#AndroidAppVisitor#**
-
-  **Pre-Conditions**: The **#AndroidApp#** is running.
-
-  **Basic Flow**
+  | **Brief Introduction**                                       | **Actors**              | **Pre-Conditions**               |
+  | ------------------------------------------------------------ | ----------------------- | -------------------------------- |
+  | Allow **#AndroidAppVisitor#** to log in the **#AndroidApp#**. | **#AndroidAppVisitor#** | The **#AndroidApp#** is running. |
 
   | Basic Flow | Actor                                     | System                   |
   | ---------- | ----------------------------------------- | ------------------------ |
   | 1          | **#AndroidAppVisitor#** input **[AccountNumberAndPassword]** |                          |
   | 2          |                                           | Show a successful notion |
   | 3          |                                           | Become **#AndroidAppUser#**      |
-
-  **Exception Flow**
   
   | Exception Flow | Actor | System                                                       |
   | -------------- | ----- | ------------------------------------------------------------ |
   |                |       | From basic flow 1                                            |
-  | 4              |       | Inform visitor that he or she has input a **[AccountNumber]** that not exists or a wrong **[Password]**. |
+  | 4              |       | Inform **#AndroidAppVisitor#** that he or she has input a **[AccountNumber]** that not exists or a wrong **[Password]**. |
   
-  **Post Conditions**
+  > **Post Conditions**: **#AndroidAppUser#**'s **[AccountNumberAndPassword]** is stored.
   
-  **#AndroidAppUser#** information (**[AccountNumberAndPassword]**) is stored.
-  
-- (4) Case: Register
+- **(4) Case: Register**
 
-  **Brief Introduction**
+  <img src="pic\Register.png" style="zoom:60%;" />
   
-  Register **#AndroidAppUser#**
-  
-  **Actors**
-  
-  **#AndroidAppVisitor#**
-  
-  **Pre-Conditions**
-  
-  **#AndroidAppVisitor#** has launched App.
-  
-  **Basic Flow**
+  | **Brief Introduction**                     | **Actors**              | **Pre-Conditions**                                     |
+  | ------------------------------------------ | ----------------------- | ------------------------------------------------------ |
+  | **#AndroidAppVisitor#** wants to register. | **#AndroidAppVisitor#** | **#AndroidAppVisitor#** has launched **#AndroidApp#**. |
   
   | Basic Flow | Actor                           | System                                                 |
   | ---------- | ------------------------------- | ------------------------------------------------------ |
@@ -168,8 +142,6 @@ The detailed description of the main use cases：
   | 8          |                                 | **#AndroidApp#** checks whether the **[RegisterInformation]** except **[AccountNumberAndPassword]** is legal |
   | 9         |                                 | **#AndroidApp#** shows successful notion and **[AccountNumber]** |
   
-  **Exception Flow**
-  
   | Exception Flow | Actor | System                                                       |
   | -------------- | ----- | ------------------------------------------------------------ |
   | 2.2            |       | If **[AccountNumber]** is not legal, shows mistake notion and back to step 1 |
@@ -179,518 +151,316 @@ The detailed description of the main use cases：
   | 9.2            |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion. |
   | 9.3            |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion. |
   
-  **Post Conditions**
+  > **Post Conditions**: **#AndroidAppVisitor#**  registers as **#AndroidAppUser#** .
   
-  An account is registered.
+- **(5) Case: LogOut**  
 
-- (5) Case: LogOut  
+  <img src="pic\LogOut.png" style="zoom:65%;" />
 
-  **Brief Introduction**
+  | **Brief Introduction**                  | **Actors**           | **Pre-Conditions**                                       |
+  | --------------------------------------- | -------------------- | -------------------------------------------------------- |
+  | **#AndroidAppUser#** wants to logs out. | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in the **#AndroidApp#**. |
 
-  **#AndroidAppUser#** log out
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  A **#AndroidAppUser#** has logged in the **#AndroidApp#**.
-
-  **Basic Flow**
-
-  |      | Actor                           | System                                    |
-  | ---- | ------------------------------- | ----------------------------------------- |
-  | 1    | **#AndroidAppUser#** click the “log out” button |                                           |
-  | 2    |                                 | The **#AndroidApp#** turn to visitor mode |
-
-- (6) Case: UserInfo  
-
-  **Brief Introduction**
-
-  **#AndroidAppUser#** choose to do something with personal information.and change to user information mode.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidAppUser#** has logged in the **#AndroidApp#**.
-
-  **Basic Flow**
-
-  |      | Actor                                     | System                             |
-  | ---- | ----------------------------------------- | ---------------------------------- |
-  | 1    | **#AndroidAppUser#** click the “User Information” button. |                                    |
-  | 2    |                                           | Jump to User Information interface |
-
-- (7) Case: GetPersonInfo  
-
-  **Brief Introduction**
-
-  Get the personal information set before.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidAppUser#** choose the “user information” button.
-
-  **Basic Flow**
-
-  |      | Actor                                        | System                                          |
-  | ---- | -------------------------------------------- | ----------------------------------------------- |
-  | 1    | **#AndroidAppUser#** choose to get **[AccountInformation]**. |                                                 |
-  | 3    |                                              | Display **[AccountInformation]** on the screen. |
-
-- (8) Case: SetPersonInfo  
-
-  **Brief Introduction**
-
-  Add personal information.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidAppUser#** choose the “user information” button.
-
-  **Basic Flow**
-
-  |      | Actor                                                        | System                               |
-  | ---- | ------------------------------------------------------------ | ------------------------------------ |
-  | 1    | **#AndroidAppUser#** choose to set **[AccountInformation]**.                 |                                      |
-  | 2    | **#AndroidAppUser#** input **[AccountInformation]** except **[AccountNumber]** |                                      |
-  | 3    |                                                              | Display successful notion on screen. |
-
-  **Exception Flow**
-
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 1    |       | The Exception Flow begins after step 3 of the main flow      |
-  | 2    |       | The **#AndroidApp#** informed the **#AndroidAppUser#** that he or she has input invalid information. |
-
-  **Post Conditions**
-
-  New **[AccountInformation]** has been added.
-
-- (9) Case: Equipment  
-
-  **Brief Introduction**
-
-  The **#AndroidAppUser#** who have auxiliary walking tools choose to bind the tools with **#AndroidApp#** to get better prediction.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  A **#AndroidAppUser#** has logged in.
-
-  **Basic Flow**
-
-  |      | Actor                            | System                       |
-  | ---- | -------------------------------- | ---------------------------- |
-  | 1    | **#AndroidAppUser#** click the equipment button. |                              |
-  | 2    |                                  | Jump to equipment interface. |
-
-- (10) Case: ConnectEquip  
-
-  **Brief Introduction**
-
-  **#AndroidAppUser#** input the IP address and port of the equipment, and the **#System#** saves this.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed into Equipment mode
-
-  **Basic Flow**
-
-  |      | Actor                                      | System                                                       |
-  | ---- | ------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | **#AndroidAppUser#** Click "ConnectEquip" button           |                                                              |
-  | 2    |                                            | **#AndroidApp#** shows the textbox, and wait **#AndroidAppUser#** to input **[IPAddress]** and **[Port]** |
-  | 3    | **#AndroidAppUser#** inputs **[IPAddress]** and **[Port]** |                                                              |
-  | 4    |                                            | **#AndroidApp#** checks whether the input contents are legal and shows successful notion |
-
-  **Exception Flow**
-
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 4.2  |       | If the **[IPAddress]** or the **[Port]** is illegal, **#AndroidApp#** shows the mistake notion, and back to step 3 |
-  | 4.3  |       | If **#AndroidApp#** receives error information(For example, the user has connected to one equip), **#AndroidApp#** shows the error notion, and back to Equip mode |
-  | 4.4  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
-
-  **Post Conditions**
-
-  Equipment is saved.
-
-- (11) Case: GetEquipInfo  
-
-  **Brief Introduction**
-
-  **#AndroidApp#** requests to give the Information of **#AndroidAppUser#**'s Equipment. 
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed into Equip mode
-
-  **Basic Flow**
-
-  |      | Actor                            | System                            |
-  | ---- | -------------------------------- | --------------------------------- |
-  | 1    | **#AndroidAppUser#** Click "GetEquipInfo" button |                                   |
-  | 2    |                                  | **#AndroidApp#** shows **[DeviceInformation]** |
-
-  **Exception Flow**
-
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 6.2  |       | If **#AndroidApp#** receives mistake information(For example, Server cannot connect the Equipment), **#AndroidApp#** shows the mistake information and back to Equip mode |
-  | 6.3  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
-  | 6.4  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
-
+  | **Basic Flow** | Actor                                           | System                                    |
+  | -------------- | ----------------------------------------------- | ----------------------------------------- |
+  | 1              | **#AndroidAppUser#** click the “log out” button |                                           |
+  | 2              |                                                 | The **#AndroidApp#** turn to visitor mode |
   
+- **(6) Case: UserInfo**  
 
-- (12) Case: UnbindEquip  
+  <img src="pic\UserInfo.png" style="zoom:65%;" />
 
-  **Brief Introduction**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                       |
+  | ------------------------------------------------------------ | -------------------- | -------------------------------------------------------- |
+  | **#AndroidAppUser#** choose to do something with personal **[AccountInformation]**. | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in the **#AndroidApp#**. |
 
-  **#AndroidApp#** shows
+  | **Basic Flow** | Actor                                                     | System                             |
+  | -------------- | --------------------------------------------------------- | ---------------------------------- |
+  | 1              | **#AndroidAppUser#** click the “User Information” button. |                                    |
+  | 2              |                                                           | Jump to User Information interface |
+  
+- **(7) Case: GetPersonInfo**  
 
-  **Actors**
+  <img src="pic\GetPersonInfo.png" style="zoom:60%;" />
 
-  **#AndroidAppUser#**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                         |
+  | ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------- |
+  | **#AndroidAppUser#** wants to get the personal **[AccountInformation]** set before. | **#AndroidAppUser#** | **#AndroidAppUser#** choose the “user information” button. |
 
-  **Pre-Conditions**
+  | **Basic Flow** | Actor                                                        | System                                          |
+  | -------------- | ------------------------------------------------------------ | ----------------------------------------------- |
+  | 1              | **#AndroidAppUser#** choose to get **[AccountInformation]**. |                                                 |
+  | 3              |                                                              | Display **[AccountInformation]** on the screen. |
+  
+- **(8) Case: SetPersonInfo**  
 
-  **#AndroidApp#** has changed into Equip mode
+  <img src="pic\SetPersonInfo.png" style="zoom:60%;" />
 
-  **Basic Flow**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                         |
+  | ------------------------------------------------------------ | -------------------- | ---------------------------------------------------------- |
+  | **#AndroidAppUser#** wants to modify personal **[AccountInformation]**. | **#AndroidAppUser#** | **#AndroidAppUser#** choose the “user information” button. |
 
-  |      | Actor                                | System                         |
-  | ---- | ------------------------------------ | ------------------------------ |
-  | 1    | **#AndroidAppUser#** clicks "UnbindEquip" button     |                                |
-  | 2    |                                      | **#AndroidApp#** shows the **[SensorList]** |
-  | 3    | **#AndroidAppUser#** chooses the Equipment to unbind |                                |
-  | 4    |                                      | **#AndroidApp#** shows successful notion    |
+  | **Basic Flow** | Actor                                                        | System                               |
+  | -------------- | ------------------------------------------------------------ | ------------------------------------ |
+  | 1              | **#AndroidAppUser#** choose to set **[AccountInformation]**. |                                      |
+  | 2              | **#AndroidAppUser#** input **[AccountInformation]** except **[AccountNumber]** |                                      |
+  | 3              |                                                              | Display successful notion on screen. |
 
-  **Exception Flow**
+  | Exception Flow | Actor | System                                                       |
+  | -------------- | ----- | ------------------------------------------------------------ |
+  | 1              |       | The Exception Flow begins after step 3 of the main flow      |
+  | 2              |       | The **#AndroidApp#** informed the **#AndroidAppUser#** that he or she has input invalid **[AccountInformation]**. |
+  
+  > **Post Conditions**: **[AccountInformation]** has been modified.
+  
+- **(9) Case: Equipment**  
 
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If there is no equipments on the **#AndroidAppUser#**, show mistake notion and back to Equip mode |
-  | 4.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
-  | 4.3  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  <img src="pic\Equipment.png" style="zoom:65%;" />
 
-  **Post Condition**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                  |
+  | ------------------------------------------------------------ | -------------------- | ----------------------------------- |
+  | The **#AndroidAppUser#** chooses to bind the **#Device#** with **#AndroidApp#**. | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in. |
 
-  Equipment of **#AndroidAppUser#** is successfully unbinded
+  | **Basic Flow** | Actor                                            | System                       |
+  | -------------- | ------------------------------------------------ | ---------------------------- |
+  | 1              | **#AndroidAppUser#** click the equipment button. |                              |
+  | 2              |                                                  | Jump to equipment interface. |
+  
+- **(10) Case: ConnectEquip**  
 
-- (13) Case: GetEquipStatus 
+  <img src="pic\ConnectEquip.png" style="zoom:60%;" />
 
-  **Brief Introduction**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                                |
+  | ------------------------------------------------------------ | -------------------- | ------------------------------------------------- |
+  | **#AndroidAppUser#** input the **[IPAddress]** and **[Port]** of the **#Device#**, and the **#System#** saves this. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Equipment mode. |
 
-  **#AndroidApp#** requests to obtain the status of **#AndroidAppUser#**'s Equipments. 
+  | **Basic Flow** | Actor                                                      | System                                                       |
+  | -------------- | ---------------------------------------------------------- | ------------------------------------------------------------ |
+  | 1              | **#AndroidAppUser#** Click "ConnectEquip" button           |                                                              |
+  | 2              |                                                            | **#AndroidApp#** shows the textbox, and wait **#AndroidAppUser#** to input **[IPAddress]** and **[Port]** |
+  | 3              | **#AndroidAppUser#** inputs **[IPAddress]** and **[Port]** |                                                              |
+  | 4              |                                                            | **#AndroidApp#** checks whether the input contents are legal and shows successful notion |
+  
+  | **Exception Flow** | Actor | System                                                       |
+  | ------------------ | ----- | ------------------------------------------------------------ |
+  | 4.2                |       | If the **[IPAddress]** or the **[Port]** is illegal, **#AndroidApp#** shows the mistake notion, and back to step 3 |
+  | 4.3                |       | If **#AndroidApp#** receives error information(For example, the user has connected to one **#Device#**), **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 4.4                |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  
+  > **Post Conditions**: **[DeviceIdentifier]** is saved.
+- **(11) Case: GetEquipInfo**  
 
-  **Actors**
+  <img src="pic\GetEquipInfo.png" style="zoom:60%;" />
 
-  **#AndroidAppUser#**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
+  | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
+  | **#AndroidAppUser#** requests to give the **[DeviceInformation]**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Equip mode. |
 
-  **Pre-Conditions**
+  | Basic Flow | Actor                                            | System                                         |
+  | ---------- | ------------------------------------------------ | ---------------------------------------------- |
+  | 1          | **#AndroidAppUser#** Click "GetEquipInfo" button |                                                |
+  | 2          |                                                  | **#AndroidApp#** shows **[DeviceInformation]** |
+  
+  | **Exception Flow** | Actor | System                                                       |
+  | ------------------ | ----- | ------------------------------------------------------------ |
+  | 6.2                |       | If **#AndroidApp#** receives mistake information(For example, Server cannot connect the **#Device#**), **#AndroidApp#** shows the mistake information and back to Equip mode |
+  | 6.3                |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 6.4                |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  
+- **(12) Case: UnbindEquip**  
 
-  **#AndroidApp#** has changed into Equip mode
+  <img src="pic\UnbindEquip.png" style="zoom:60%;" />
 
-  **Basic Flow**
+  | **Brief Introduction**                             | **Actors**           | **Pre-Conditions**                            |
+  | -------------------------------------------------- | -------------------- | --------------------------------------------- |
+  | **#AndroidAppUser#** wants to unbind **#Device#**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Equip mode. |
 
-  |      | Actor                            | System                       |
-  | ---- | -------------------------------- | ---------------------------- |
-  | 1    | **#AndroidAppUser#** Click "GetEquipInfo" button |                              |
-  | 2    |                                  | **#AndroidApp#** shows **[DeviceStatus]** |
+  | **Basic Flow** | Actor                                                   | System                                      |
+  | -------------- | ------------------------------------------------------- | ------------------------------------------- |
+  | 1              | **#AndroidAppUser#** clicks "UnbindEquip" button        |                                             |
+  | 2              |                                                         | **#AndroidApp#** shows the **[SensorList]** |
+  | 3              | **#AndroidAppUser#** chooses the **#Device#** to unbind |                                             |
+  | 4              |                                                         | **#AndroidApp#** shows successful notion    |
+  
+  | Exception Flow | Actor | System                                                       |
+  | -------------- | ----- | ------------------------------------------------------------ |
+  | 2.2            |       | If there is no **#Device#**s on the **#AndroidAppUser#**, show mistake notion and back to Equip mode |
+  | 4.2            |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 4.3            |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  
+  > **Post Condition**:  A **#Device#** of **#AndroidAppUser#** is successfully unbinded
+- **(13) Case: GetEquipStatus** 
 
-  **Exception Flow**
+  <img src="pic\GetEquipStatus.png" style="zoom:60%;" />
 
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If **#AndroidApp#** receives mistake information(For example, Server cannot connect the Equipment), **#AndroidApp#** shows the mistake information and back to Equip mode |
-  | 2.3  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
-  | 2.4  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                            |
+  | ------------------------------------------------------------ | -------------------- | --------------------------------------------- |
+  | **#AndroidAppUser#** requests to obtain the **[DeviceStatus]** of a **#Device#**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Equip mode. |
 
-  **Post Condition**
+  | **Basic Flow** | Actor                                            | System                                    |
+  | -------------- | ------------------------------------------------ | ----------------------------------------- |
+  | 1              | **#AndroidAppUser#** Click "GetEquipInfo" button |                                           |
+  | 2              |                                                  | **#AndroidApp#** shows **[DeviceStatus]** |
+  
+  | **Exception Flow** | Actor | System                                                       |
+  | ------------------ | ----- | ------------------------------------------------------------ |
+  | 2.2                |       | If **#AndroidApp#** receives mistake information(For example, Server cannot connect the **#Device#**), **#AndroidApp#** shows the mistake information and back to Equip mode |
+  | 2.3                |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.4                |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  
+  > **Post Condition**: **#AndroidApp#** gets the **[DeviceStatus]**
+- **(14) Case: GetUserGuide**
 
-  **#AndroidApp#** gets the equipment information
+  <img src="pic\GetUserGuide.png" style="zoom:67%;" />
 
-- (14) Case: GetUserGuide  
+  | **Brief Introduction**                                      | **Actors**           | **Pre-Conditions**                  |
+  | ----------------------------------------------------------- | -------------------- | ----------------------------------- |
+  | **#AndroidAppUser#** gets the **#AndroidApp#**'s user guide | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in. |
 
-  **Brief Introduction**
+  | **Basic Flow** | Actor                                             | System                               |
+  | -------------- | ------------------------------------------------- | ------------------------------------ |
+  | 1              | The **#AndroidAppUser#** choose to get user guide |                                      |
+  | 2              |                                                   | Get user guide and show it on screen |
+  
+- **(15) Case: PredModel**  
 
-  **#AndroidAppUser#** get the **#AndroidApp#**'s user guide
+  | **Brief Introduction**                               | **Actors**           | **Pre-Conditions**                  |
+  | ---------------------------------------------------- | -------------------- | ----------------------------------- |
+  | Change into model mode to get **#MotionPrediction#** | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in. |
 
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  A **#AndroidAppUser#** has logged in. 
-
-  **Basic Flow**
-
-  |      | Actor                             | System                               |
-  | ---- | --------------------------------- | ------------------------------------ |
-  | 1    | The **#AndroidAppUser#** choose to get user guide |                                      |
-  | 2    |                                   | Get user guide and show it on screen |
-
-- (15) Case: PredModel  
-
-  **Brief Introduction**
-
-  Change into model mode to get prediction results
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  A **#AndroidAppUser#** has logged in. 
-
-  **Basic Flow**
-
-  |      | Actor             | System                      |
+  | **Basic Flow** | Actor             | System                      |
   | ---- | ----------------- | --------------------------- |
   | 1    | **#AndroidAppUser#** clicks Model |                             |
   | 2    |                   | **#AndroidApp#** changes into model mode |
+  
+  > **Post Condition**: **#AndroidApp#** changes into model mode
+  
+- **(16) Case: ResetModel**   
 
-  **Post Condition**
+  <img src="pic\ResetModel.png" style="zoom:60%;" />
 
-  **#AndroidApp#** changes into model mode
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                             |
+  | ------------------------------------------------------------ | -------------------- | ---------------------------------------------- |
+  | **#AndroidAppUser#** requests to change the model to initial model, whether the model is initial model or not. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Model model. |
 
-- (16) Case: ResetModel   
+  | **Basic Flow** | Actor                                           | System                                   |
+  | -------------- | ----------------------------------------------- | ---------------------------------------- |
+  | 1              | **#AndroidAppUser#** clicks "ResetModel" button |                                          |
+  | 2              |                                                 | **#AndroidApp#** shows successful notion |
+  
+  | Exception Flow | Actor | System                                                       |
+  | -------------- | ----- | ------------------------------------------------------------ |
+  | 2.2            |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  | 2.3            |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
+  
+  > **Post Condition**: The model is resetted.
+  
+- **(17) Case: ShowModelInfo**  
 
-  **Brief Introduction**
+  <img src="pic\ShowModelInfo.png" style="zoom:60%;" />
 
-  **#AndroidApp#** requests to change the model of the **#AndroidAppUser#** to initial model, whether the model of **#AndroidAppUser#** is initial model or not.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed into Model mode
-
-  **Basic Flow**
-
-  |      | Actor                           | System                      |
-  | ---- | ------------------------------- | --------------------------- |
-  | 1    | **#AndroidAppUser#** clicks "ResetModel" button |                             |
-  | 2    |                                 | **#AndroidApp#** shows successful notion |
-
-  **Exception Flow**
-
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
-  | 2.3  |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
-
-  **Post Condition**
-
-  The model of **#AndroidAppUser#** resetted on his Algorithm database.
-
-- (17) Case: ShowModelInfo  
-
-  **Brief Introduction**
-
-  **#AndroidApp#** requests to get the information of model.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidAppUser#** has changed into Model mode.
-
-  **Basic Flow**
+  | **Brief Introduction**                                    | **Actors**           | **Pre-Conditions**                             |
+  | --------------------------------------------------------- | -------------------- | ---------------------------------------------- |
+  | **#AndroidAppUser#** requests to get the **[ModelInfo]**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into Model model. |
 
   | Basic Flow | Actor                             | System                        |
   | ---------- | --------------------------------- | ----------------------------- |
   | 1          | **#AndroidAppUser#** click "ShowModelInfo" button |                               |
   | 2          |                                   | **#AndroidApp#** shows the **[ModelInfo]** |
   
-
-  **Exception Flow**
-
   | Exception Flow | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
   | 2.2              |       | If **#AndroidApp#** has not connected to Internet, **#AndroidApp#** shows mistake information and back to Equip mode |
   | 2.3              |       | If **#AndroidApp#** receives error information, **#AndroidApp#** shows the error notion, and back to Equip mode |
   | 2.4              |       | If **#AndroidApp#** waits more than time limitation, **#AndroidApp#** shows the error notion, and back to Equip mode |
 
+- **(18) Case: DataManagement**
 
+  <img src="pic\DataManagement.png" style="zoom:67%;" />
 
-- (18) Case: DataManagement  
-
-  **Brief Introduction**
-
-  Change into data mode to manage the collected data.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidAppUser#** has logged in.
-
-  **Basic Flow**
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                  |
+  | ------------------------------------------------------------ | -------------------- | ----------------------------------- |
+  | **#AndroidAppUser#** changes into data mode to manage the collected **[MotionRecord]**s. | **#AndroidAppUser#** | **#AndroidAppUser#** has logged in. |
 
   | Basic Flow | Actor                       | System                     |
   | ---------- | --------------------------- | -------------------------- |
   | 1          | **#AndroidAppUser#** clicks Data management |                            |
   | 2          |                             | **#AndroidApp#** changes into data mode |
-
-  **Exception Flow**
-
-  none.
-
-  **Post Conditions**
-
-  **#AndroidApp#** changes into data mode.
-
-  **Supplemental Requirements**
-
-  none.
+  
+> **Post Conditions**: **#AndroidApp#** changes into data mode.
 
 
-- (19) Case: GetData  
+- **(19) Case: GetData**  
 
-  **Brief Introduction**
+  <img src="pic\GetData.png" style="zoom:60%;" />
 
-  **#AndroidApp#** requests to get datalist.
-
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed into data mode.
-
-  **Basic Flow**
+  | **Brief Introduction**                           | **Actors**           | **Pre-Conditions**                           |
+  | ------------------------------------------------ | -------------------- | -------------------------------------------- |
+  | **#AndroidApp#** requests to get **#DataList#**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into data mode. |
 
   | Basic Flow | Actor                | System                       |
   | ---------- | -------------------- | ---------------------------- |
-  | 1          | **#AndroidAppUser#** clicks get data |                              |
-  | 2          |                      | **#AndroidApp#** shows **[MotionRecord]** |
+  | 1          | **#AndroidAppUser#** clicks 'get data' |                              |
+  | 2          |                      | **#AndroidApp#** shows **#DataList#** of **[MotionRecord]**s |
   
-  **Exception Flow**
-  
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 2.2  |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
+  | Exception Flow | Actor | System                                                       |
+  | -------------- | ----- | ------------------------------------------------------------ |
+  | 2.2            |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
   
 
 
-- (20) Case: DiscardData  
+- **(20) Case: DiscardData** 
 
-  **Brief Introduction**
+  <img src="pic\DiscardData.png" style="zoom:60%;" />
 
-  **#AndroidApp#** requests to get datalist, and delete chosen data.
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                           |
+  | ------------------------------------------------------------ | -------------------- | -------------------------------------------- |
+  | **#AndroidAppUser#** requests to get **#DataList#**, and delete chosen **[MotionRecord]**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into data mode. |
 
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed into data mode.
-
-  **Basic Flow**
-
-  |      | Actor                       | System                       |
-  | ---- | --------------------------- | ---------------------------- |
-  | 1    | **#AndroidAppUser#** clicks get data        |                              |
-  | 2    |                             | **#AndroidApp#** shows **[MotionRecord]** |
-  | 3    | **#AndroidAppUser#** chooses data to delete |                              |
-  | 4    |                             | **#AndroidApp#** shows successful notion  |
+  | **Basic Flow** | Actor                                                     | System                                                       |
+  | -------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
+  | 1              | **#AndroidAppUser#** clicks 'get data'                    |                                                              |
+  | 2              |                                                           | **#AndroidApp#** shows **#DataList#** of **[MotionRecord]**s |
+  | 3              | **#AndroidAppUser#** chooses **[MotionRecord]** to delete |                                                              |
+  | 4              |                                                           | **#AndroidApp#** shows successful notion                     |
   
-  **Exception Flow**
-
-  |  | Actor | System                                                       |
+  | **Exception Flow** | Actor | System                                                       |
   | ---------------- | ----- | ------------------------------------------------------------ |
   | 1.2              |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
-  | 2.2              |       | If nothing on datalist, **#AndroidApp#** shows mistake notion and back to data mode |
+  | 2.2              |       | If nothing on **#DataList#**, **#AndroidApp#** shows mistake notion and back to data mode |
   | 3.2              |       | If **#AndroidAppUser#** chooses nothing or quit, **#AndroidApp#** shows delete nothing and back to data mode |
   | 4.2              |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
   
-  **Post Conditions**
-
-  Discard chosen data from data database, and **#AndroidApp#** back into data mode.
-
-  **Supplemental Requirements**
-
-  none.
+  > **Post Conditions**: Discard chosen **[MotionRecord]**, and **#AndroidApp#** back into data mode.
 
 
-- (21) Case: ChangeDataLabel
+- **(21) Case: ChangeDataLabel**
 
-  **Brief Introduction**
+  <img src="pic\ChangeDataLabel.png" style="zoom:60%;" />
 
-  Change the label of data in database.
+  | **Brief Introduction**                                       | **Actors**           | **Pre-Conditions**                           |
+  | ------------------------------------------------------------ | -------------------- | -------------------------------------------- |
+  | **#AndroidAppUser#** wants to change the **[MotionTag]** of **[MotionRecord]**. | **#AndroidAppUser#** | **#AndroidApp#** has changed into data mode. |
 
-  **Actors**
-
-  **#AndroidAppUser#**
-
-  **Pre-Conditions**
-
-  **#AndroidApp#** has changed into data mode.
-
-  **Basic Flow**
-
-  |      | Actor                                                        | System                      |
-  | ---- | ------------------------------------------------------------ | --------------------------- |
-  | 1    | **#AndroidAppUser#** clicks change label                                     |                             |
-  | 2    |                                                              | **#AndroidApp#** shows **[MotionTag]**   |
-  | 3    | **#AndroidAppUser#** chooses **[MotionTag]** to change, and chooses the new type |                             |
-  | 4    |                                                              | **#AndroidApp#** shows successful notion |
+  | **Basic Flow** | Actor                                                        | System                                                       |
+  | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | 1              | **#AndroidAppUser#** clicks 'change label'                   |                                                              |
+  | 2              |                                                              | **#AndroidApp#** shows **[MotionTag]** of **[MotionRecord]** |
+  | 3              | **#AndroidAppUser#** chooses **[MotionTag]** to change, and chooses the new **[MotionTag]** |                                                              |
+  | 4              |                                                              | **#AndroidApp#** shows successful notion                     |
   
-  **Exception Flow**
-
-  |      | Actor | System                                                       |
-  | ---- | ----- | ------------------------------------------------------------ |
-  | 1.2  |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
-  | 2.2  |       | If nothing on datalist, **#AndroidApp#** shows mistake notion and back to data mode |
-  | 3.2  |       | If **#AndroidAppUser#** chooses nothing, or the new type is the same as the old one, or quit, **#AndroidApp#** shows alter nothing and back to data mode |
-  | 4.2  |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
+  | **Exception Flow** | Actor | System                                                       |
+  | ------------------ | ----- | ------------------------------------------------------------ |
+  | 1.2                |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
+  | 2.2                |       | If nothing on **#DataList#**, **#AndroidApp#** shows mistake notion and back to data mode |
+  | 3.2                |       | If **#AndroidAppUser#** chooses nothing, or the new **[MotionTag]** is the same as the old one, or quit, **#AndroidApp#** shows alter nothing and back to data mode |
+  | 4.2                |       | If **#AndroidApp#** cannot connect to Internet, shows mistake notion and back to data mode |
   
-  **Post Conditions**
-
-  **#AndroidApp#** upload data to data database, and back into data mode.
-
-  **Supplemental Requirements**
-
-  none.
+  > **Post Conditions**: **#AndroidApp#** upload **[MotionRecord]**, and back into data mode.
 
 ### 2.2 User Stories for the User of **#WebApp#**
 
-#### 2.2.1 Use Case Diagram for #SystemAdministrator#
+#### 2.2.1 Use Case Diagram for **#SystemAdministrator#**
 
 <img src="./UseCaseForSystemAdministrator.svg" style="zoom:70%;" />
 
@@ -700,149 +470,61 @@ The main purpose of the user of **#WebApp#** is listed as follows:
 
 |User Story|Main Use Cases|
 |-|-|
-|As an **#SystemAdministrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** users and **#Devices#**.|(1) Case: Administrators wants to view the list of **#Devices#**|
-|As an **#SystemAdministrator#** of the **#Software#**, I want to manage user information.|(2) Case: Administrators wants to manage users' information|
-|As an administrator of the **#Software#**, I want to issue notifications.|(3) Case: Administrators wants to put a notice on the web site|
+|As an **#SystemAdministrator#** of the **#Software#**, I want to view, modify the binding relationship between **#AndroidApp#** users and **#Device#**s.|(1) Case: **#SystemAdministrator#** wants to view the list of **#Device#**s|
+|As an **#SystemAdministrator#** of the **#Software#**, I want to manage **#AndroidAppUser#**'s **[RegisterInformation]**.|(2) Case: **#SystemAdministrator#** wants to manage **[RegisterInformation]**|
 
 The detailed description of the main use cases.
 
-- (1) Case: Administrators wants to view the list of **#Devices#**
+- **(1) Case: #SystemAdministrator# wants to view the list of #Device#s**
 
-  **Brief Introduction**
-
-  The **#SystemAdministrator#** is able to access information about the **#Devices#** which are connecting with the system.
-
-  **Actors**
-
-  **#SystemAdministrator#**
-
-  **Pre-Conditions**
-
-  The management web page is open and running.
-
-  **Basic Flow**
-
-  |      | Actor                                                    | System                          |
-  | ---- | -------------------------------------------------------- | ------------------------------- |
-  | 1    | The **#SystemAdministrator#** hovers his mouse over the **#Devices#** key. |                                 |
-  | 2    |                                                          | Web page shows **[SensorList]** |
-
-  **Post Conditions**
-
-  **#SystemAdministrator#** should be able to obtain detailed information about the **#Devices#**.
-
-- (2) Case: Administrators wants to manage users' information
-
-  **Brief Introduction**
-
-  The **#SystemAdministrator#** is able to manage information about the users.
-
-  **Actors**
-
-  **#SystemAdministrator#**
-
-  **Pre-Conditions**
-
-  The management web page is opened.
-
-  **Basic Flow**
-
-  |      | Actor                                                        | System                                                       |
-  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#SystemAdministrator#** hovers his mouse over the users management key. |                                                              |
-  | 2    |                                                              | Web page shows **[AccountInformation]** and the add, delete, revise, import and derive keys. |
-  | 3    | **#SystemAdministrator#** views **[AccountInformation]** and manage **[AccountInformation]**. |                                                              |
+  <img src="pic\ViewDeviceList.png" style="zoom:60%;" />
   
-  **Post Conditions**
+  | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
+  | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
+  | The **#SystemAdministrator#** is able to access list of the **#Device#**s which are connecting with the **#System#**. | **#SystemAdministrator#** | The **#WebApp#** is open and running. |
   
-  **#SystemAdministrator#** can manage the users’ information in the system.
-
-- (3) Case: Administrators wants to put a notice on the web site
-
-  **Brief Introduction**
-
-  The **#SystemAdministrator#** is able to put a notice on the web site.
-
-  **Actors**
-
-  **#SystemAdministrator#**
-
-  **Pre-Conditions**
-
-  The management web page is opened.
-
-  **Basic Flow**
-
-  |      | Actor                                                        | System                                                       |
-  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#SystemAdministrator#** hovers his mouse over the notice adding key. |                                                              |
-  | 2    |                                                              | Web page turns to the page which has the function to edit a new notice. |
-  | 3    | **#SystemAdministrator#** adds the new notice on the website.            |                                                              |
-  s
-  **Post Conditions**
+  | Basic Flow | Actor                                                        | System                                       |
+  | ---------- | ------------------------------------------------------------ | -------------------------------------------- |
+  | 1          | The **#SystemAdministrator#** hovers his mouse over the **#Device#**s key. |                                              |
+  | 2          |                                                              | **#WebApp#** shows list of the **#Device#**s |
   
-  **#SystemAdministrator#** can add a new notice on the web.
+  > **Post Conditions**: **#SystemAdministrator#** obtains the list of **#Device#**s.
+  
+- **(2) Case: #SystemAdministrator# wants to manage [RegisterInformation]**
+
+  <img src="pic\ManageRegisterInfo.png" style="zoom:60%;" />
+  
+  | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
+  | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
+  | The **#SystemAdministrator#** is able to manage **[RegisterInformation]** of the **#AndroidAppUser#**s. | **#SystemAdministrator#** | The **#WebApp#** is open and running. |
+  
+  | **Basic Flow** | Actor                                                        | System                                                       |
+  | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | 1              | The **#SystemAdministrator#** hovers his mouse over the users management key. |                                                              |
+  | 2              |                                                              | Web page shows **[RegisterInformation]** and the add, delete, revise, import and derive keys. |
+  | 3              | **#SystemAdministrator#** views **[RegisterInformation]** and manage **[RegisterInformation]**. |                                                              |
+  
+  > **Post Conditions**: **#SystemAdministrator#** can manage the  **#AndroidAppUser#**'s **[RegisterInformation]**.
 
 #### 2.2.3 The secondary use cases
 
-- (4) Case: Administrators wants to view the historical data
+- **(3) Case: #SystemAdministrator# wants to view the historical [MotionRecord]**
 
-  **Brief Introduction**
-
-  The **#SystemAdministrator#** is able to access information about the historical data.
-
-  **Actors**
-
-  **#SystemAdministrator#**
-
-  **Pre-Conditions**
-
-  The management web page is opened.
-
-  **Basic Flow**
-
-  |      | Actor                                                    | System                                                       |
-  | ---- | -------------------------------------------------------- | ------------------------------------------------------------ |
-  | 1    | The **#SystemAdministrator#** hovers his mouse over the history key. |                                                              |
-  | 2    |                                                          | Web page shows the system historical data.                   |
-  | 3    | **#SystemAdministrator#** views the data.                           |                                                              |
-  | 4    | **#SystemAdministrator#** chooses to delete the history data.        |                                                              |
-  | 5    |                                                          | If the **#SystemAdministrator#** is successfully deleted, the page is returned. If the **#SystemAdministrator#** fails to delete, system prompt for deletion failed. |
+  <img src="pic\ViewData.png" style="zoom:60%;" />
   
-  **Post Conditions**
+  | **Brief Introduction**                                       | **Actors**                | **Pre-Conditions**                    |
+  | ------------------------------------------------------------ | ------------------------- | ------------------------------------- |
+  | The **#SystemAdministrator#** is able to access historical **[MotionRecord]**. | **#SystemAdministrator#** | The **#WebApp#** is open and running. |
   
-  **#SystemAdministrator#** can view the historical information and delete them.
-
-
-- (5) Case: Administrator wants to manage the **#System#** log
-
-  **Brief Introduction**
-
-  The **#SystemAdministrator#** is able to system log. 
-
-  **Actors**
-
-  **#SystemAdministrator#**
-
-  **Pre-Conditions**
-
-  The management web page is opened.
-
-  **Basic Flow**
-
-  |      | Actor                                                        | System                                                       |
-  | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-  | 1    | The **#SystemAdministrator#** hovers his mouse over the log management key. |                                                              |
-  | 2    |                                                              | Web page turns to the page which shows the list of the logs. |
-  | 3    | **#SystemAdministrator#** clicks the set key.                            |                                                              |
-  | 4    | **#SystemAdministrator#** can revise or delete the log.                 |                                                              |
-  | 5    | **#SystemAdministrator#** clicks the reserve button to reserve the log.  |                                                              |
+  | **Basic Flow** | Actor                                                        | System                                                       |
+  | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+  | 1              | The **#SystemAdministrator#** hovers his mouse over the history key. |                                                              |
+  | 2              |                                                              | **#WebApp#** shows the **[MotionRecord]**.                   |
+  | 3              | **#SystemAdministrator#** views the **[MotionRecord]**.      |                                                              |
+  | 4              | **#SystemAdministrator#** chooses to delete the history **[MotionRecord]**. |                                                              |
+  | 5              |                                                              | If the **#SystemAdministrator#** is successfully deleted, the page is returned. If the **#SystemAdministrator#** fails to delete, **#System#** prompt for deletion failed. |
   
-  **Post Conditions**
-  
-  **#SystemAdministrator#** can manage the system logs.
-
-
+  > **Post Conditions**: **#SystemAdministrator#** can view the historical **[MotionRecord]** and delete them.
 
 ## 3.Appendix
 
@@ -852,9 +534,11 @@ The detailed description of the main use cases.
 | **#AndroidApp#**           | An android application for **#Customer#**.           |
 | **#AndroidAppTeam#**       | A synonym for "**Dreamweaver-GUI Team**".                    |
 | **#CentralServer#**        | The program created by "**genshin-impact-server team**", which is a **#ServerProgram#**. |
+| **#DataList#** | List of **[MotionRecord]**s of  **#AndroidAppUser#**. |
 | **#Device#**               | A raspberry pi with six sensors, each **#Device#** will have a **FIXED** **[IPAddress]** and **[Port]** so that it can be accessed from the Internet if the **#Device#** is powered on. |
-|**#Devices#**|Many devices, a device refers to a **#Device#**.|
-| **#ManageTheWholeSystem#** | View, modify the binding relationship between users and **#Devices#**, manage user information and issue notifications. |
+| **#ManageTheWholeSystem#** | View, modify the binding relationship between users and **#Device#**s, manage user information and issue notifications. |
+| **#MotionData#** | Data recorded by users through the **#AndroidApp#** |
+| **#MotionPrediction#** | The real-time predictions displayed by **#AndroidApp#** using the trained model according to the current **#MotionData#**. |
 | **#RA#**                   | Short for "**Requirement Analysis**", which is a synonym for "**Software Requirement Specification**". |
 | **#ServerProgram#**        | A program which will keep running 24hours a day.             |
 | **#Software#**             | Refer to the software system 'Motion Prediction (MoPre)'.    |
@@ -870,23 +554,23 @@ The detailed description of the main use cases.
 | Data                | Definition                                                         |
 | ------------------------------ | ------------------------------------------------------------ |
 | **[AccountInformation]**       | = AccountNumber + (PhoneNumber) + (EmailAddress) + (Birthday) |
-| **[AccountNumber]:**           | A non-empty string consists of digits `"0-9"`, Latin letters `"a-z, A-Z"` and underscore `"_"`. |
+| **[AccountNumber]**           | A non-empty string consists of digits `"0-9"`, Latin letters `"a-z, A-Z"` and underscore `"_"`. |
 | **[AccountNumberAndPassword]** | = AccountNumber + Password                                   |
-| **[DeviceIdentifier]**         | = IPAddress + Port                                           |
+| **[DeviceIdentifier]**         | = IPAddress+ Port                  |
 | **[DeviceInformation]**        | = DeviceIdentifier + {SensorInformation}6                    |
 | **[DeviceStatus]**             | = {SensorStatus}6                                            |
-| **[InitialTimestamp]:**        | A Timestamp, used to mark the beginning time of a motion record. |
-| **[IPAddress]:**               | A string consists of digits and dot `"."`.                   |
+| **[InitialTimestamp]**        | A Timestamp, used to mark the beginning time of a motion record. |
+| **[IPAddress]**               | A string consists of digits and dot `"."`.                   |
 | **[ModelInfo]**                | = modelflag + acc                                            |
 | **[MotionFrame]**              | = {X + Y + Z + asX + asY + asZ + accX + accY + accZ}9 + Timestamp. <br>`X, Y, Z, asX, asY, asZ, accX, accY, accZ` are nine real numbers provided by the embedded system. |
 | **[MotionRecord]**             | = AccountNumber + InitialTimestamp + MotionTag + {MotionFrame} |
-| **[MotionTag]:**               | An integer between 0 and 6, including 0 and 6. `0` represents `'Sit'`, `1` represents `'Stand'`, `2` represents `'Go straight'`, `3` represents `'Go uphill/upstairs'`, `4` represents `'Go downhill/dwonstairs'`, `5` represents `'Go left'`, and `6` represents `'Go right'`.     |
-| **[Password]:**                | A non-empty string. The **#AndroidApp#** SHOULD assure that the password is "legal" so that the other team will just regard it as a string. |
-| **[Port]:**                    | An integer not less than zero.                               |
+| **[MotionTag]**               | An integer between 0 and 6, including 0 and 6. `0` represents `'Sit'`, `1` represents `'Stand'`, `2` represents `'Go straight'`, `3` represents `'Go uphill/upstairs'`, `4` represents `'Go downhill/dwonstairs'`, `5` represents `'Go left'`, and `6` represents `'Go right'`.     |
+| **[Password]**                | A non-empty string. The **#AndroidApp#** SHOULD assure that the password is "legal" so that the other team will just regard it as a string. |
+| **[Port]**                    | An integer not less than zero.                               |
 | **[RegisterInformation]**      | = AccountNumber + Password + (PhoneNumber) + (EmailAddress) + (Birthday) |
-| **[SensorBattery]:**           | A non-negative integer which is not greater than 100.        |
+| **[SensorBattery]**           | A non-negative integer which is not greater than 100.        |
 | **[SensorInformation]**        | = MACAddress + Name                                          |
 | **[SensorList]**               | = {SensorInformation}6                                       |
-| **[SensorOnlineStatus]:**      | An integer, where `0` represents the sensor is offline, and `1` represents the sensor is online. |
+| **[SensorOnlineStatus]**      | An integer, where `0` represents the sensor is offline, and `1` represents the sensor is online. |
 | **[SensorStatus]**             | = SensorOnlineStatus + SensorBattery                         |
 | **[Timestamp]**                | An integer, representing milliseconds from `1970-01-01 00:00`. |
