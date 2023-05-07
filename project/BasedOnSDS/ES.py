@@ -46,7 +46,7 @@ class SensorCollector:
         try:
             self.cache     = DataTransform().transform(data)
             self.cacheTime = datetime.datetime.utcnow()
-            print(data)
+            # print(data)
         except:
             pass
 
@@ -87,7 +87,10 @@ class SensorCollector:
                         print("[-] connection break with %s [%s]" % (self.macAddr, self.name), flush=True)
                         await client.disconnect()
                         break
-                await client.write_gatt_char(IMU_READ_UUID, bytearray(BATTERY_ORDER))
+                # dataRecv = await client.read_gatt_char(IMU_READ_UUID, bytearray(BATTERY_ORDER))
+                dataRecv = await client.read_gatt_char(IMU_READ_UUID)
+                print(dataRecv)
+                await asyncio.sleep(1000)
                 self.battery = self.__batteryCheck(client)
                 if self.needCalibrate:
                     self.__calibrate(client) # TODO: calibrate
