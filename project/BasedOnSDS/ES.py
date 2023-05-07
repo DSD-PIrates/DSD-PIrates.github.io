@@ -23,6 +23,7 @@ INVALID_DATA      = {
 }
 SENSOR_COUNT      = 6 # TODO
 TIME_OUT_SPAN     = 1 # seconds
+BATTERY_ORDER     = [0xFF, 0xAA, 0x27, 0x64, 0x00]
 
 
 class DataTransform:
@@ -45,6 +46,7 @@ class SensorCollector:
         try:
             self.cache     = DataTransform().transform(data)
             self.cacheTime = datetime.datetime.utcnow()
+            print(data)
         except:
             pass
 
@@ -56,7 +58,8 @@ class SensorCollector:
         else:
             return True
         
-    def __batteryCheck(self, client) -> int: # TODO: read battery
+    def __batteryCheck(self, client: BleakClient) -> int: # TODO: read battery
+        # print(self.cache)
         return 100
     
     def __calibrate(self, client) -> None: # TODO: calibrate
@@ -84,6 +87,7 @@ class SensorCollector:
                         print("[-] connection break with %s [%s]" % (self.macAddr, self.name), flush=True)
                         await client.disconnect()
                         break
+                await client.write_gatt_char(IMU_READ_UUID, bytearray(BATTERY_ORDER))
                 self.battery = self.__batteryCheck(client)
                 if self.needCalibrate:
                     self.__calibrate(client) # TODO: calibrate
@@ -274,6 +278,7 @@ class Router:
             return obj
         server = HTTPServer((ip, port), __MyConstractor)
         print("Server started on http://%s:%d" % (ip, port))
+        # print(self.transactionList)
         server.serve_forever()
 
 app = Router()

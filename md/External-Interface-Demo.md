@@ -252,3 +252,8 @@ Response:
 | **#IP#**、**#Port#**、**#IPAndPort#** | To simplify the design, we assume that each **#Device#** corresponds to a unique (IP, Port) pair. |
 | **#JsonAttribute#**                   | The keys that define the attributes or characteristics of the object, and their corresponding values representing the values of those attributes or characteristics. |
 | **\#MotionFrame#**                    | A snapshot of motion data captured by the six sensors at the same time. This data includes information such as acceleration, velocity, displacement and a timestamp. |
+
+## About the QR code
+In the second round of demand analysis, Party A suggested that our Android App use code scanning for device binding. Here is the QR code of the virtual embedded device.
+
+![](./SampleServer.png)

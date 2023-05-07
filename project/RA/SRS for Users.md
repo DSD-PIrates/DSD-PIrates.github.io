@@ -42,7 +42,7 @@ The **#Software#** should have below functions.
 
 #### 2.1.1 Use Case Diagram for #Customer#
 
-![](UseCaseForCustomer.svg)
+![](./UseCaseForCustomer.svg)
 
 #### 2.1.2 Main user stories and corresponding main use cases
 The main purposes of the **#AndroidAppUser#** are listed as follows:
@@ -692,7 +692,7 @@ The detailed description of the main use cases：
 
 #### 2.2.1 Use Case Diagram for #SystemAdministrator#
 
-<img src="UseCaseForSystemAdministrator.svg" style="zoom:70%;" />
+<img src="./UseCaseForSystemAdministrator.svg" style="zoom:70%;" />
 
 #### 2.2.2 Main user stories and corresponding main use cases
 
