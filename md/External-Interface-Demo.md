@@ -57,6 +57,11 @@ ret = clientRequest(dataNow, SERVER_IP, SERVER_PORT)
 print(ret)
 ```
 
+### 1.2 About the QR code
+In the second round of demand analysis, Party A suggested that our Android App use code scanning for device binding. Here is the QR code of the demo embedded device.
+
+![](./SampleServer.png)
+
 ## 2. Request Types
 
 In the JSON data (sent to the **#EmbeddedSystem#**), there should always be an string **#JsonAttribute#** called `type`, otherwise the **#EmbeddedSystem#** will response as follows.
@@ -253,7 +258,3 @@ Response:
 | **#JsonAttribute#**                   | The keys that define the attributes or characteristics of the object, and their corresponding values representing the values of those attributes or characteristics. |
 | **\#MotionFrame#**                    | A snapshot of motion data captured by the six sensors at the same time. This data includes information such as acceleration, velocity, displacement and a timestamp. |
 
-## About the QR code
-In the second round of demand analysis, Party A suggested that our Android App use code scanning for device binding. Here is the QR code of the virtual embedded device.
-
-![](./SampleServer.png)
