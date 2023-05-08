@@ -3,17 +3,34 @@ from bleak import BleakClient
 import datetime
 import json
 import traceback
-import threading
+import threadingz
 import os
 import Plugin
 
+TEST_IMU_READ_UUID = [
+    "00002a00-0000-1000-8000-00805f9b34fb", # bytearray(b'WT901-R3')
+    "00002a01-0000-1000-8000-00805f9b34fb", # bytearray(b'\x00\x00')
+    "00002a04-0000-1000-8000-00805f9b34fb", # bytearray(b'\x08\x00\x10\x00\x03\x00\x90\x01')
+    "0000ffe4-0000-1000-8000-00805f9a34fb", # bytearray(b'\t')
+    "0000ffe9-0000-1000-8000-00805f9a34fb", # bytearray(b'j')
+]
+
+TEST_IMU_NOTIFY_UUID = [
+    "00002a1c-0000-1000-8000-00805f9b34fb", # bytearray(b'\x04d\x00\x00\xfe\x04')
+    # "0000ffe4-0000-1000-8000-00805f9a34fb", # 多 bytearray(b"Ua\'\x00\xd8\xff\x00\x08\xe7\xff\xe9\xff\x01\x00\xab\xfd\x1c\xfe\xe58")
+]
+
+TEST_WRITE_UUID = [
+    "00002a19-0000-1000-8000-00805f9b34fb",
+    "00002a29-0000-1000-8000-00805f9b34fb",
+    "00002a50-0000-1000-8000-00805f9b34fb",
+]
 
 CALIBRATE_SPAN    = 10 # seconds
 COLLECT_TIME_SPAN = 0.2
 DEBUG_SHOW        = True
 ES_HOST_IP        = "127.0.0.1"
 ES_HOST_PORT      = 40096
-IMU_READ_UUID     = "0000FFE4-0000-1000-8000-00805F9A34FB"
 ERROR_MESSAGE     = {"type":"TypeError"}
 FILEPATH          = os.path.dirname(__file__)
 INVALID_DATA      = {
@@ -24,7 +41,9 @@ INVALID_DATA      = {
 SENSOR_COUNT      = 6 # TODO
 TIME_OUT_SPAN     = 1 # seconds
 BATTERY_ORDER     = [0xFF, 0xAA, 0x27, 0x64, 0x00]
-
+IMU_READ_UUID     = "0000FFE4-0000-1000-8000-00805F9A34FB"
+IMU_SERVICE_UUID  = "0000FFE5-0000-1000-8000-00805F9A34FB",
+IMU_WRITE_UUID    = "0000FFE9-0000-1000-8000-00805F9A34FB",
 
 class DataTransform:
     def transform(self, data): # TODO: algorithm
@@ -77,6 +96,19 @@ class SensorCollector:
                 continue # just retry
             if DEBUG_SHOW:
                 print("[+] connected with %s [%s]" % (self.macAddr, self.name), flush=True)
+
+            for sid in client.services.services:
+                for cid in client.services.services[sid].characteristics:
+                    print(cid)
+
+            def fn(sender, data):
+                print("[=]", sender, data)
+
+            await client.write_gatt_char(IMU_READ_UUID, bytearray(BATTERY_ORDER))
+            dataRecv = await client.start_notify(IMU_READ_UUID, fn)
+            print(dataRecv)
+            await asyncio.sleep(1000)
+
             await client.start_notify(IMU_READ_UUID, lambda sender, data: self.__callback(sender, data))
             await asyncio.sleep(COLLECT_TIME_SPAN)
             while True:
@@ -218,7 +250,7 @@ class SensorCalibration(Transaction):
             }
         else:
             return {
-                "type": " CalibrationFailure"
+                "type": "CalibrationFailure"
             }
 
 
@@ -279,6 +311,9 @@ class Router:
         print("Server started on http://%s:%d" % (ip, port))
         # print(self.transactionList)
         server.serve_forever()
+
+import bleak
+bleak.cli()
 
 app = Router()
 app.start(ES_HOST_IP, ES_HOST_PORT)
