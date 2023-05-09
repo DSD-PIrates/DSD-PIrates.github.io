@@ -4,6 +4,8 @@
 | :---- | :--------- | :---------- |
 | May 9 | Zin, Aidan |             |
 
+[TOC]
+
 ## 1. The structure of our codes
 
 ```mermaid
@@ -123,7 +125,7 @@ graph TD;
 
 We take an **incremental testing approach**: a **bottom-up integration approach**. In this way, the next module to be tested can be tested in combination with those modules that have been tested, and so on, adding one module at a time. This approach essentially accomplishes **unit testing** and **integration testing** at the same time. At the same time, we use the **conditional combination coverage** in logic coverage to write test cases.
 
-According to our function call relationship diagram, according to the level, it is divided into **eight tests** from bottom to top, and all functions in one layer are tested at the same time each time.
+According to our function call relationship diagram, it is divided into **eight tests** from bottom to top, testing all functions in the same layer at the same time each time.
 
 - **First Test**
 
