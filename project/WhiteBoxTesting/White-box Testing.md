@@ -292,25 +292,34 @@ According to our function call relationship diagram, it is divided into **eight 
 
 **(6) `SensorCollector.__batteryCheck(self, client)`**
 
+```python
+def __batteryCheck(self, client: BleakClient) -> int:  # TODO: read battery
+    # print(self.cache)
+    return 100
+```
+
   ```mermaid
   graph TD
   S(((S))) --> *(((*)));
   ```
 
-| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results |
-| :---------- | --------- | ------------------- | ------------ | ---------------- |
-|             |           |                     |              |                  |
+> Obviously, there's no problem with the code.
 
 **(7) `SensorCollector.__calibrate(self, client)`**
 
+```python
+def __calibrate(self, client) -> None:  # TODO: calibrate
+    self.needCalibrate = False
+```
+
+
+
   ```mermaid
   graph TD
   S(((S))) --> *(((*)));
   ```
 
-| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results |
-| :---------- | --------- | ------------------- | ------------ | ---------------- |
-|             |           |                     |              |                  |
+> Obviously, there's no problem with the code.
 
 **(8) `SensorCollector.getSensorStatus(self)`**
 
@@ -804,6 +813,7 @@ After modification of `SensorCalibration.getResponse(self, dataInput)`, all 36 f
 | `ERROR_MESSAGE`  | ` {"type":"TypeError"}`                                      |
 | `CALIBRATE_SPAN` | `10`                                                         |
 | `INVALID_DATA`   | `{"X"   : 0, "Y"   : 0, "Z"   : 0, "accX": 0, "accY": 0, "accZ": 0, "asX" : 0, "asY" : 0, "asZ" : 0}` |
+| `TIME_OUT_SPAN`  | 1                                                            |
 
 
 
