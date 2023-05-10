@@ -825,7 +825,7 @@ The details are shown in the table below.
 
 After modifying `SensorCalibration.getResponse(self, dataInput)`, all 52 test items of 36 functions passed the test. The test results are as follows, and the detailed test report is in `report.html`.
 
-![](pic.png)
+![](./pic.png)
 
 ## 6. Appendix
 
