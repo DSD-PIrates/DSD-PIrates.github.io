@@ -1,8 +1,9 @@
 # White-box Testing Document
 
-| Date  | Author     | Description |
-| :---- | :--------- | :---------- |
-| May 9 | Zin, Aidan |             |
+| Date   | Author     | Description                           |
+| :----- | :--------- | :------------------------------------ |
+| May 9  | Zin, Aidan | The first round of white-box testing  |
+| May 10 | Zin, Aidan | The second round of white-box testing |
 
 [TOC]
 
@@ -125,7 +126,9 @@ graph TD;
 
 We take an **incremental testing approach**: a **bottom-up integration approach**. In this way, the next module to be tested can be tested in combination with those modules that have been tested, and so on, adding one module at a time. This approach essentially accomplishes **unit testing** and **integration testing** at the same time. At the same time, we use the **conditional combination coverage** in logic coverage to write test cases.
 
-According to our function call relationship diagram, it is divided into **eight tests** from bottom to top, testing all functions in the same layer at the same time each time.
+According to our function call relationship diagram, it is divided into **eight layers** from bottom to top. We test all functions **from bottom to top** according to the hierarchy, and there is no requirement for testing order between functions in the same layer.
+
+Therefore, it can be divided into **eight test sets**, each containing all white-box testing cases in that layer.
 
 - **First Test**
 
@@ -235,7 +238,7 @@ According to our function call relationship diagram, it is divided into **eight 
 | :---------- | ------------------------------------------------------------ | ------------------------ | ------------ | ------------------------------------------------------------ |
 | 1           | `b'x55xb8xadxe6x96x87'`                                      | [(A, C):`(True, False)`] | SABC*        | `None`                                                       |
 | 2           | `b'xe4xb8xadxe6x96x87xe4xb8xadxe6x96x87xe4xb8xadxe6x96x87x96x87'` | [(A, C):`(False, True)`] | SA*          | `None`                                                       |
-| 3           | `b'x55x00x00x00x00x00x00x00x00x0x00x00x00x00x00x00x00x00x00x00'` | [(A, C): `(True, True)`] | SABCD*       | {  "X"   : 0, "Y"   : 0, "Z"   : 0,     "accX": 0  , "accY": 0  , "accZ":0, "asX" : 0  , "asY" : 0  , "asZ" : 0 } |
+| 3           | `b'x55x00x00x00x00x00x00x00x00x0x00x00x00x00x00x00x00x00x00x00'` | [(A, C): `(True, True)`] | SABCD*       | `{  "X"   : 0, "Y"   : 0, "Z"   : 0,     "accX": 0  , "accY": 0  , "accZ":0, "asX" : 0  , "asY" : 0  , "asZ" : 0 }` |
 
 ### 3.2 Second Test
 
@@ -248,7 +251,7 @@ According to our function call relationship diagram, it is divided into **eight 
 
 | Case Number | Test Case                                                    | Coverage Conditions | Overlay Path | Expected Results                                             |
 | :---------- | ------------------------------------------------------------ | ------------------- | ------------ | ------------------------------------------------------------ |
-| 1           | `b'x55x00x00x00x00x00x00x00x00x0x00x00x00x00x00x00x00x00x00x00` | No Condition        | SA*          | {  "X"   : 0, "Y"   : 0, "Z"   : 0,     "accX": 0  , "accY": 0  , "accZ":0, "asX" : 0  , "asY" : 0  , "asZ" : 0 } |
+| 1           | `b'x55x00x00x00x00x00x00x00x00x0x00x00x00x00x00x00x00x00x00x00` | No Condition        | SA*          | `{  "X"   : 0, "Y"   : 0, "Z"   : 0,     "accX": 0  , "accY": 0  , "accZ":0, "asX" : 0  , "asY" : 0  , "asZ" : 0 }` |
 
 **(3) `SensorCollector.__init__(self, macAddr, name)`**
 
@@ -425,14 +428,8 @@ flowchart TD;
 
 **(13) `SensorCollector.__start_raw(self)`**
 
-  ```mermaid
-  graph TD
-  S(((S))) --> *(((*)));
-  ```
-
-| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results |
-| :---------- | --------- | ------------------- | ------------ | ---------------- |
-|             |           |                     |              |                  |
+In the testing, we used `pytest` and `MagicMock` to simulate the `BleakClient` class, and `AsyncMock` to simulate some methods of the `BleakClient` class, such as `connect`, `start_ notify`、`write_ gatt_char` and so on. Then, we called the`__ start_raw (client)` method simulates the process of interaction between the `BleakClient` object and the incoming parameter `client`.
+Finally, we use various `assert` statements to check whether the simulated method is correctly called to ensure the correctness and stability of the method.
 
 **(14) `Configuration.getMacAddrOfSensor(self, index)`**
 
@@ -755,11 +752,35 @@ Obviously, the correctness of this function itself depends on the correctness of
 | :---------- | ---------------------------------- | ------------------- | ------------ | ------------------------------------------ |
 | 1           | ip = `"127.0.0.1"`, port = `40096` | No condition        | SA*          | "Server started on http://127.0.0.1:40096" |
 
-## 4. Test Report
+## 4. Description of automated testing tools
 
-### 4.1 The first round of white-box testing
+We used `Python`'s third-party library, `Pytest`, to complete automated white-box testing.
+`Pytest` is a relatively mature and fully functional Python testing framework. It provides comprehensive online documentation, with a large number of third-party plugins and built-in help, suitable for many small or large projects. `Pytest` is flexible and easy to learn, and can capture standard output during print debugging and test execution, making it suitable for simple unit testing to complex functional testing. You can also execute `nose`, `unittest`, and `doctest` style test cases, and even `Django` and `trial`. Support good integration practices, support extended `xUnit` style setups, and support `non Python testing`. Support for generating test coverage reports and supporting `PEP8` compatible encoding styles.
+The main features are as follows:
 
-Tested on 36 functions, 35 passed and 1 failed.
+- Simple and flexible, easy to learn, with rich documentation;
+
+- Support parameterization, allowing fine-grained control of the test cases to be tested;
+
+- It can support simple unit testing and complex functional testing, and can also be used for automation testing such as `selenium/appnium` and interface automation testing (`pytest`+`requests`);
+
+- `Pytest` has many third-party plugins and can be customized and extended, such as `pytest-selenium` (integrated selenium), `pytest-html` (perfect HTML test report generation), `pytest-rerunfailures` (repeated execution of failed cases), `pytest-xdist` (multi CPU distribution), etc; 
+
+  > In our testing, we used `pytest-html` to generate a test report: `report.html`.
+
+- Skip and xfail handling of test cases;
+
+- Can be well integrated with CI tools, such as `Jenkins`
+
+- The report framework - alloure also supports `pytest`
+
+## **5. Test Report**
+
+### 5.1 The first round of white-box testing
+
+A total of 52 test items were tested on 36 functions, of which 51 test items of 34 functions passed and 1 test item of 1 function failed.
+
+The details are shown in the table below.
 
 | Id   | Function                                                     | Test Result                                                 | Review                                                       |
 | ---- | ------------------------------------------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------ |
@@ -800,11 +821,13 @@ Tested on 36 functions, 35 passed and 1 failed.
 | (35) | `SensorCollector.getSensorStatus(self)`                      | **Passed**                                                  |                                                              |
 | (36) | `DataTransform.transform(self, data)`                        | **Passed**                                                  |                                                              |
 
-### 4.2 The second round of white-box testing
+### 5.2 The second round of white-box testing
 
-After modification of `SensorCalibration.getResponse(self, dataInput)`, all 36 functions passed the test.
+After modifying `SensorCalibration.getResponse(self, dataInput)`, all 52 test items of 36 functions passed the test. The test results are as follows, and the detailed test report is in `report.html`.
 
-## 5. Appendix
+![](pic.png)
+
+## 6. Appendix
 
 | Name             | Value                                                        |
 | ---------------- | ------------------------------------------------------------ |
