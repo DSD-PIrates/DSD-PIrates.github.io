@@ -552,15 +552,13 @@ flowchart TD;
 
 **(23) `SensorCollector.start(self)`**
 
-  ```mermaid
-   graph TD;
-   	S(((S))) -->A;
-       A-->*(((*)));
-  ```
+```python
+def start(self):
+    self.thread = threading.Thread(target=lambda: asyncio.run(self.__start_raw()))
+    self.thread.start()
+```
 
-| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results |
-| :---------- | --------- | ------------------- | ------------ | ---------------- |
-| 1           | None      | No Condition        | SA*          | "Success!"       |
+Obviously, the correctness of this function itself depends on the correctness of function `SensorCollector.__start__raw(self)`.
 
 **(24) `Router.__init__(self)`**
 
