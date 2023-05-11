@@ -455,7 +455,44 @@ When the embedded system detects that the User starts moving, it sends a "motion
 | Version | Date       | Author     | Description      | Status    |
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-05-11 | Aidan | Original Version | Unaudited |
-​		
+​
+
+### 3.7 Offer QR Code of the Embedded Device to User
+
+| Author     | Version | Statue    | Date       |
+| ---------- | ------- | --------- | ---------- |
+| Aidan | 1       | Unaudited | 2023-05-11 |
+
+**Brief Introduction**
+
+After the embedded device is turned on, the QR Code of the embedded device will display on the screen. And Android App use code scanning for device binding.
+
+**Actors**
+
+- User
+
+**Pre-Conditions**
+
+- The embedded device has been powered on.
+
+
+**Basic Flow**
+
+| **Basic Flow** | Actor                                                        | System                                                       | 
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1              |  |  When the embedded device is turned on, the QR Code is displayed on the screen.                                                      |                                   
+| 2              | The user uses Android App to scan the QR code for device binding.                                                         | |                                  
+
+**Visual Model**
+
+<img src="./UseCaseDiagram/Offer QR Code of the Embedded Device to User.svg" style="zoom:150%;" />
+
+**Revision History**
+
+| Version | Date       | Author     | Description      | Status    |
+| ------- | ---------- | ---------- | ---------------- | --------- |
+| 1       | 2023-05-11 | Aidan | Original Version | Unaudited |
+
 ## 4. Behavioral Requirements
 
 ### 4.1 System Inputs and Outputs
@@ -465,6 +502,7 @@ When the embedded system detects that the User starts moving, it sends a "motion
 #### 4.1.2 Outputs
 - HTTP Response for the request.
 - Send a "Motion Start" Signal (HTTP POST request) to Server
+- Offer QR Code of the Embedded Device to User
 
 ### 4.2 Quality Requirements
 - Request Response time: When the embedded system get a request from server, the response should be generated within 0.1 seconds;
