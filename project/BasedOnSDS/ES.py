@@ -9,7 +9,8 @@ import Plugin
 
 
 CALIBRATE_SPAN    = 10 # seconds
-COLLECT_TIME_SPAN = 0.2
+# COLLECT_TIME_SPAN = 0.2
+COLLECT_TIME_SPAN = 0.5
 DEBUG_SHOW        = True
 ES_HOST_IP        = "127.0.0.1"
 ES_HOST_PORT      = 40096
@@ -76,7 +77,7 @@ class SensorCollector:
             except:
                 continue # just retry
             if DEBUG_SHOW:
-                print("[+] connected with %s [%s]" % (self.macAddr, self.name), flush=True)
+                print("[+] connected with %s [%s] at %s" % (self.macAddr, self.name, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')), flush=True)
             await client.start_notify(IMU_READ_UUID, lambda sender, data: self.__callback(sender, data))
             await asyncio.sleep(COLLECT_TIME_SPAN)
             while True:
@@ -84,7 +85,7 @@ class SensorCollector:
                 self.connected = self.__connectionCheck()
                 if not self.connected:
                     if DEBUG_SHOW:
-                        print("[-] connection break with %s [%s]" % (self.macAddr, self.name), flush=True)
+                        print("[-] connection break with %s [%s] at %s" % (self.macAddr, self.name, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')), flush=True)
                         await client.disconnect()
                         break
                 self.battery = self.__batteryCheck(client)
