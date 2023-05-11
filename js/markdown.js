@@ -150,6 +150,7 @@ function LoadMarkdown(filepath) {
 		result = result.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"')
 		result = result.replace('[toc]', '').replace('[TOC]', '')
 		result = result.replace(/class="language-mermaid"/g, 'class="language-mermaid mermaid"')
+		result = result.replace(/\\\n/g, '\\\\\n')
 		//console.log(result)
         document.getElementById("markdown").innerHTML = result
         hljs.highlightAll()
