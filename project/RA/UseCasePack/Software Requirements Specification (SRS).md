@@ -404,6 +404,57 @@ None.
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-03-21 | Aidan, Bob | Original Version | Unaudited |
 
+
+### 3.6 Send a "Motion Start" Signal to Server
+
+| Author     | Version | Statue    | Date       |
+| ---------- | ------- | --------- | ---------- |
+| Aidan | 1       | Unaudited | 2023-05-11 |
+
+**Brief Introduction**
+
+When the embedded system detects that the User starts moving, it sends a "motion start" signal to the server.
+
+**Actors**
+
+- Server
+
+**Pre-Conditions**
+
+- The embedded system has been powered on.
+- The network is available and the server is able to send messages to the embedded system.
+
+**Basic Flow**
+
+| **Basic Flow** | Actor                                                        | System                                                       | 
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1              |  |   When the device is powered on, the embedded system starts monitoring real-time data and at some point the onset of motion is detected.                                                         |                                   
+| 2              |                                                          | The embedded system sends a "motion start" signal to the Server. |                                          
+| 3              | After Server receives the signal of "motion start", it sends a successful acceptance response to the embedded system.                                                             |                                                              |
+
+
+**Post Conditions**
+
+1. Server receives the signal of "motion start" and can start to predict the user's movement.
+
+**Supplemental Requirements**
+
+> Algorithm for monitoring motion: When the p-norm (the value of p is fixed) between two adjacent sensor data vectors detected during a period of time (fixed time length) is greater than a certain value, we think motion starts.
+>
+
+**Visual Model**
+
+<img src="./UseCaseDiagram/Send a signal that motion starts to the server.svg" style="zoom:150%;" />
+
+**Sequence Diagram**
+
+<img src="./SequenceDiagram/MotionStart.svg" style="zoom:100%;" />
+
+**Revision History**
+
+| Version | Date       | Author     | Description      | Status    |
+| ------- | ---------- | ---------- | ---------------- | --------- |
+| 1       | 2023-05-11 | Aidan | Original Version | Unaudited |
 ​		
 ## 4. Behavioral Requirements
 
@@ -413,6 +464,7 @@ None.
 
 #### 4.1.2 Outputs
 - HTTP Response for the request.
+- Send a "Motion Start" Signal (HTTP POST request) to Server
 
 ### 4.2 Quality Requirements
 - Request Response time: When the embedded system get a request from server, the response should be generated within 0.1 seconds;
