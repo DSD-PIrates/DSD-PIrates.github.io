@@ -1,10 +1,14 @@
 *{
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Helvetica Neue","Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
 }
-
+.row{
+  width: 100%;
+  height: 100%;
+}
 .blog{
     background-color: rgba(255, 255, 255, 0.933);
     max-width: 80%;
+    height: 100%;
 }
 .blog img{
   max-width: 80%;
@@ -122,7 +126,9 @@ body
   justify-content:left;
   align-items: center;
   flex-wrap: wrap;
-  padding: 70px 30px;
+  padding-top: 70px;
+  padding-left: 30px;
+  /*padding: 70px 30px;*/
 }
 .container .box 
 {
@@ -304,10 +310,11 @@ table td{
     text-overflow: ellipsis;
     vertical-align: middle;
     border-collapse: collapse;
-}/*
-ol{
-  padding-left: 20px;
 }
-ol li{
-  list-style: decimal;
-}*/
+iframe {
+  display: block;
+  position: fixed;
+  border: none;
+  height: 87.5vh;
+  width: 85%;
+}

@@ -61,6 +61,12 @@
             "src": "project/WhiteBoxTesting/White-box Testing.md",
             "time": "2023-05-11 13:18",
             "abstract": "# White-box Testing Document| Date   | Author     | Description                           || :----- | :--------- | :------------------------------------ || May 9  | Zin, Aidan | The first round of white-box testing  || May 10 | Zin, Aidan | The "
+        },
+        {
+            "title": "WhiteBox Test Report",
+            "src": "md/WhiteBox Test Report.md",
+            "time": "2023-05-12 15:35",
+            "abstract": "<iframe src=\"../project/WhiteBoxTesting/report.html\"></iframe>"
         }
     ]
 ]
