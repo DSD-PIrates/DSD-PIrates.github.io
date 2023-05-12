@@ -426,21 +426,19 @@ When the embedded system detects that the User starts moving, it sends a "motion
 
 **Basic Flow**
 
-| **Basic Flow** | Actor                                                        | System                                                       | 
-| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1              |  |   When the device is powered on, the embedded system starts monitoring real-time data and at some point the onset of motion is detected.                                                         |                                   
-| 2              |                                                          | The embedded system sends a "motion start" signal to the Server. |                                          
-| 3              | After Server receives the signal of "motion start", it sends a successful acceptance response to the embedded system.                                                             |                                                              |
-
+| **Basic Flow** | Actor | System                                                       |
+| -------------- | ----- | ------------------------------------------------------------ |
+| 1              |       | When the device is powered on, the embedded system starts monitoring real-time data and at some point the onset of motion is detected. |
+| 2              |       | The embedded system sends a "motion start" signal to the Server. |
 
 **Post Conditions**
 
-1. Server receives the signal of "motion start" and can start to predict the user's movement.
+1. Server receives the "motion start" signal and can make corresponding processing according to the current situation.
 
 **Supplemental Requirements**
 
-> Algorithm for monitoring motion: When the p-norm (the value of p is fixed) between two adjacent sensor data vectors detected during a period of time (fixed time length) is greater than a certain value, we think motion starts.
->
+1. Algorithm for monitoring motion: When the p-norm (the value of p is fixed) between two adjacent sensor data vectors detected during a period of time (fixed time length) is greater than a certain value, we think motion starts.
+2. We **do not guarantee** that Server is not recording while providing the "motion start" signal. After receiving the signal, Server does **not need** to send response to the embedded system, but processes the signal by itself according to the current system operation.
 
 **Visual Model**
 
@@ -455,7 +453,7 @@ When the embedded system detects that the User starts moving, it sends a "motion
 | Version | Date       | Author     | Description      | Status    |
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-05-11 | Aidan | Original Version | Unaudited |
-​
+|2|2023-05-12|Bob, Aidan|Revised Version||
 
 ### 3.7 Offer QR Code of the Embedded Device to User
 
@@ -478,10 +476,10 @@ After the embedded device is turned on, the QR Code of the embedded device will 
 
 **Basic Flow**
 
-| **Basic Flow** | Actor                                                        | System                                                       | 
+| **Basic Flow** | Actor                                                        | System                                                       |
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 1              |  |  When the embedded device is turned on, the QR Code is displayed on the screen.                                                      |                                   
-| 2              | The user uses Android App to scan the QR code for device binding.                                                         | |                                  
+| 1              |                                                              | When the embedded device is turned on, the QR Code is displayed on the screen of raspberry pi. |
+| 2              | The user uses Android App to scan the QR code for device binding. |                                                              |
 
 **Visual Model**
 
@@ -492,6 +490,7 @@ After the embedded device is turned on, the QR Code of the embedded device will 
 | Version | Date       | Author     | Description      | Status    |
 | ------- | ---------- | ---------- | ---------------- | --------- |
 | 1       | 2023-05-11 | Aidan | Original Version | Unaudited |
+| 2 | 2023-05-12 | Bob, Aidan | Revised Version |  |
 
 ## 4. Behavioral Requirements
 
