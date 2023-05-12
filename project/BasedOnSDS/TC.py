@@ -81,8 +81,9 @@ def cli():
         if instruction == "a": # auto start
             def __beginToRecord():
                 global runFlag
-                runFlag = True
-                print("[*] record auto start ...")
+                if not runFlag:
+                    runFlag = True
+                    print("[*] record auto start ...")
             if not runFlag and not MotionAlgo.MOTION_ALGO_RUN:        
                 print("[+] waiting for  auto start ...")
                 MotionAlgo.runMotionAlgo(GetInternetData, __beginToRecord)

@@ -6,9 +6,9 @@ SENSOR             = ["L1", "L2", "L3", "R1", "R2", "R3"]
 VALUE              = ["X", "Y", "Z", "accX", "accY", "accZ", "asX", "asY", "asZ"]
 THRESHOLD          = 500
 DEFAULT_TIME_SPAN  = 0.2
-TIME_SEGMENT_CHECK = 3
+TIME_SEGMENT_CHECK = 2
 FRAME_CNT_CHECK    = int(round(TIME_SEGMENT_CHECK / DEFAULT_TIME_SPAN))
-THRES_RATIO        = 0.8
+THRES_RATIO        = 0.7
 
 def checkMove(dic1, dic2) -> bool:
     if dic1 is None or dic2 is None:
@@ -33,6 +33,7 @@ def motionAlgo(getDictInterface, onStartCallBack, timeSpan = DEFAULT_TIME_SPAN):
         while len(cntBuf) > FRAME_CNT_CHECK: cntBuf = cntBuf[1:]
         if len(cntBuf) == FRAME_CNT_CHECK and __checkBufMove(cntBuf):
             onStartCallBack()
+        # print("[*] rate = %3.6lf %%" % (sum(cntBuf) / len(cntBuf) * 100))
         time.sleep(timeSpan)
 
 def stopMotionAlgo():
