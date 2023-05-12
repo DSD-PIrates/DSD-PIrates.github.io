@@ -59,7 +59,10 @@ def saveFile(cachedData, fileName):
         json.dump(cachedData, fp=fp)
     print("[*] save to file: %s" % fileName)
 
-if __name__ == "__main__":
+def cli():
+    global runFlag
+    global programOn
+    global cachedData
     my_thread = threading.Thread(target=collectData)
     my_thread.start()
     while True:
@@ -83,3 +86,6 @@ if __name__ == "__main__":
             break
     runFlag = False
     programOn = False
+
+if __name__ == "__main__":
+    cli()

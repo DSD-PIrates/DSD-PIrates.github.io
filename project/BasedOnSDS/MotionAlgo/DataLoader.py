@@ -5,7 +5,7 @@ DIRNAME   = os.path.dirname(__file__)
 DATAPATH  = os.path.join(DIRNAME, "DATA")
 SENSOR    = ["L1", "L2", "L3", "R1", "R2", "R3"]
 VALUE     = ["X", "Y", "Z", "accX", "accY", "accZ", "asX", "asY", "asZ"]
-THRESHOLD = 500
+THRESHOLD = 450
 
 def getData(filename):
     filepath = os.path.join(DATAPATH, filename)
@@ -55,4 +55,4 @@ def getThresAccForAllDataFile(thres):
     for file in os.listdir(DATAPATH):
         print("%-15s DIS : %6.2lf %%" % (file, getThresAcc(file, thres)* 100))
 
-getThresAccForAllDataFile(THRESHOLD)
+# getThresAccForAllDataFile(THRESHOLD)
