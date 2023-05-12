@@ -3,6 +3,7 @@ import json
 import time
 import os
 import threading
+import MotionAlgo.MotionAlgo as MotionAlgo
 
 ES_HOST_IP   = "127.0.0.1"
 ES_HOST_PORT = 40096
@@ -34,6 +35,13 @@ def GetJsonData(es_ip: str, es_port: int, jsonData):
     dataRecv = json.loads(response.read())
     return dataRecv
 
+def GetInternetData() -> dict:
+    try:
+        testData = GetJsonData(ES_HOST_IP, ES_HOST_PORT, {"type": "GetRealtimeData"})
+    except:
+        testData = None
+    return testData
+
 # 等待不超过一秒
 def wait1():
     time.sleep(min(DELTA_TIME * 10, 1))
@@ -44,10 +52,7 @@ cachedData = []
 def collectData():
     while programOn:
         while runFlag == True:
-            try:
-                testData = GetJsonData(ES_HOST_IP, ES_HOST_PORT, {"type": "GetRealtimeData"})
-            except:
-                testData = None
+            testData = GetInternetData()
             if testData is not None:
                 cachedData.append(testData)
             time.sleep(DELTA_TIME)
@@ -67,25 +72,44 @@ def cli():
     my_thread.start()
     while True:
         instruction = input(">>> ").strip()
-        if instruction == "s": # 开始录制
-            print("[+] record start ...")
-            runFlag = True
-        elif instruction == "e": # 结束录制
+        if instruction == "s": # start
+            if not runFlag and not MotionAlgo.MOTION_ALGO_RUN:
+                print("[+] record start ...")
+                runFlag = True
+            else:
+                print("[!] error: started ")
+        if instruction == "a": # auto start
+            def __beginToRecord():
+                global runFlag
+                runFlag = True
+                print("[*] record auto start ...")
+            if not runFlag and not MotionAlgo.MOTION_ALGO_RUN:        
+                print("[+] waiting for  auto start ...")
+                MotionAlgo.runMotionAlgo(GetInternetData, __beginToRecord)
+            else:
+                print("[!] error: started ")
+            wait1()
+        elif instruction == "e": # end
             print("[-] record end ...")
             runFlag = False
+            MotionAlgo.stopMotionAlgo()
             wait1()
-            print("[*] cachedData len = %d\n" % len(cachedData))
+            print("[*] cachedData len = %d" % len(cachedData))
             fileName   = input("fileName(.json) >>> ").strip()
-            if fileName.find(".json") == -1: # 补充后缀名
-                fileName += ".json"
-            saveFile(cachedData, fileName)
+            if fileName != "":
+                if fileName.find(".json") == -1: # 补充后缀名
+                    fileName += ".json"
+                saveFile(cachedData, fileName)
+            else:
+                print("[!] data discard")
             cachedData = []
             wait1()
         elif instruction == "exit": # 退出程序
             print("[*] bye ...")
             break
-    runFlag = False
+    runFlag   = False
     programOn = False
+    MotionAlgo.stopMotionAlgo()
 
 if __name__ == "__main__":
     cli()

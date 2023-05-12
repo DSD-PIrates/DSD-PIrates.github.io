@@ -1,6 +1,6 @@
 import time
 import threading
-import DataLoader
+import MotionAlgo.DataLoader as DataLoader
 
 SENSOR             = ["L1", "L2", "L3", "R1", "R2", "R3"]
 VALUE              = ["X", "Y", "Z", "accX", "accY", "accZ", "asX", "asY", "asZ"]
@@ -11,12 +11,14 @@ FRAME_CNT_CHECK    = int(round(TIME_SEGMENT_CHECK / DEFAULT_TIME_SPAN))
 THRES_RATIO        = 0.8
 
 def checkMove(dic1, dic2) -> bool:
+    if dic1 is None or dic2 is None:
+        return False
     return DataLoader.getDistanceFromDelta(dic1, dic2) >= THRESHOLD
 
 def __checkBufMove(cntBuf: list) -> bool:
     return sum(cntBuf) / len(cntBuf) >= THRES_RATIO
 
-MOTION_ALGO_RUN = True
+MOTION_ALGO_RUN = False
 def motionAlgo(getDictInterface, onStartCallBack, timeSpan = DEFAULT_TIME_SPAN):
     global MOTION_ALGO_RUN
     lastDic = getDictInterface()
@@ -34,9 +36,11 @@ def motionAlgo(getDictInterface, onStartCallBack, timeSpan = DEFAULT_TIME_SPAN):
         time.sleep(timeSpan)
 
 def stopMotionAlgo():
+    global MOTION_ALGO_RUN
     MOTION_ALGO_RUN = False
 
 def runMotionAlgo(__getDictInterface, __onStartCallBack):
+    global MOTION_ALGO_RUN
     MOTION_ALGO_RUN = True
     mythread = threading.Thread(target=motionAlgo, args=(__getDictInterface, __onStartCallBack))
     mythread.start()
