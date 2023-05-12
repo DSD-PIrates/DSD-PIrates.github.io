@@ -145,7 +145,14 @@ function LoadMarkdown(filepath) {
 			prefilepath = prefilepath + prefilepaths[i] + '/'
 		}
         //console.log(prefilepath)
-        var result = md.render(textDetail)
+		var doctype = filepath.split('.')[filepath.split('.').length - 1]
+		var result = ''
+		//console.log(filepath.split('.')[filepath.split('.').length - 1])
+		if(doctype == 'md') {
+			result = md.render(textDetail)
+		} else {
+			result = textDetail
+		}
 		result = result.replace(/\.\//g, prefilepath)
 		result = result.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"')
 		result = result.replace('[toc]', '').replace('[TOC]', '')
