@@ -1,5 +1,5 @@
-import DataLoader
-import MotionAlgo
+import MotionAlgo.DataLoader as DataLoader
+import MotionAlgo.MotionAlgo as MotionAlgo
 from termcolor import colored
 
 def __info(msg, status, ok: bool):
