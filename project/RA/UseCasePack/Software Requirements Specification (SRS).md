@@ -11,6 +11,8 @@ Revision History:
 | 2023-3-29 | Aidan      | Delete one Use Case: Get Realtime Data (Async)               |
 | 2023-4-1  | Aidan      | Grammar mistakes                                             |
 | 2023-4-5  | Bob, Aidan | Delete the character of `Sensor` in Sequence Diagrams        |
+| 2023-5-11 | Aidan      | Add new Use Cases: 3.6 Send a "Motion Start" Signal to Server & 3.7 Offer QR Code of the Embedded Device to User |
+| 2023-5-12 | Bob, Aidan | Update 3.6 and 3.7 Use Cases, delete the response of Server in 3.6, and improve the description in 3.7 |
 
 [TOC]
 
