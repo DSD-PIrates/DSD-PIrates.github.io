@@ -32,6 +32,34 @@ class DataTransform:
         return Plugin.f(data)
 
 
+def singleton(cls):
+    _instance = {}
+    def inner():
+        if cls not in _instance:
+            _instance[cls] = cls()
+        return _instance[cls]
+    return inner
+
+
+
+@singleton
+class Battery:
+    def __init__(self) :
+        with open("monitor.json", "r", encoding="utf-8") as fp:
+            self.data = json.load(fp)
+        self.data.timing.beginning = datetime.datetime.now().timestamp()
+    def batterycheck(self):
+        return self.data.battery.level - (datetime.datetime.now().timestamp() - self.data.timing.beginning) // 60000 // self.data.battery.COST_PER_LV
+    def reset(self):
+        self.data.timing.beginning = datetime.datetime.now().timestamp()
+        self.data.battery.level = 100
+    def save(self):
+        self.data.battery.level = self.batterycheck()
+        with open("monitor.json", "w", encoding="utf-8") as fp:
+            json.dump(self.data, fp)
+
+
+
 class SensorCollector:
     def __init__(self, macAddr: str, name: str):
         self.macAddr       = macAddr
@@ -41,7 +69,7 @@ class SensorCollector:
         self.needCalibrate = False
         self.lastCalibrate = datetime.datetime.utcnow()
         self.connected     = False
-        self.battery       = 0
+        self.battery       = Battery()
 
     def __callback(self, sender, data):
         try:
@@ -60,8 +88,7 @@ class SensorCollector:
             return True
         
     def __batteryCheck(self, client: BleakClient) -> int: # TODO: read battery
-        # print(self.cache)
-        return 100
+        return self.battery.batterycheck()
     
     def __calibrate(self, client) -> None: # TODO: calibrate
         self.needCalibrate = False
@@ -87,8 +114,9 @@ class SensorCollector:
                     if DEBUG_SHOW:
                         print("[-] connection break with %s [%s] at %s" % (self.macAddr, self.name, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')), flush=True)
                         await client.disconnect()
+                        self.battery.save()
                         break
-                self.battery = self.__batteryCheck(client)
+                # self.battery = self.__batteryCheck(client)
                 if self.needCalibrate:
                     self.__calibrate(client) # TODO: calibrate
     def start(self):
@@ -117,7 +145,7 @@ class SensorCollector:
     def getSensorStatus(self) -> dict:
         return {
             "connect": self.connected,
-            "battery": self.battery
+            "battery": self.battery.batterycheck()
         }
 
 
