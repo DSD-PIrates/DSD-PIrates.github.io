@@ -45,17 +45,19 @@ def singleton(cls):
 @singleton
 class Battery:
     def __init__(self) :
-        with open("monitor.json", "r", encoding="utf-8") as fp:
+        filename = os.path.join(FILEPATH, "monitor.json")
+        with open(filename, "r", encoding="utf-8") as fp:
             self.data = json.load(fp)
-        self.data.timing.beginning = datetime.datetime.now().timestamp()
+        self.data['timing']['beginning'] = datetime.datetime.now().timestamp()
     def batterycheck(self):
-        return self.data.battery.level - (datetime.datetime.now().timestamp() - self.data.timing.beginning) // 60000 // self.data.battery.COST_PER_LV
+        return self.data['battery']['level'] - (datetime.datetime.now().timestamp() - self.data['timing']['beginning']) // 60000 // self.data['battery']['COST_PER_LV']
     def reset(self):
-        self.data.timing.beginning = datetime.datetime.now().timestamp()
-        self.data.battery.level = 100
+        self.data['timing']['beginning'] = datetime.datetime.now().timestamp()
+        self.data['battery']['level'] = 100
     def save(self):
-        self.data.battery.level = self.batterycheck()
-        with open("monitor.json", "w", encoding="utf-8") as fp:
+        self.data['battery']['level'] = self.batterycheck()
+        filename = os.path.join(FILEPATH, "monitor.json")
+        with open(filename, "w", encoding="utf-8") as fp:
             json.dump(self.data, fp)
 
 
