@@ -282,7 +282,8 @@ Therefore, it can be divided into **eight test sets**, each containing all white
 
 | Case Number | Test Case                                       | Coverage Conditions | Overlay Path | Expected Results                                             |
 | :---------- | ----------------------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
-| 1           | macAddr = `"F2:02:E0:8D:B8:05"`, name =  `"R1"` | no condition        | SA*          | macAddr = `"F2:02:E0:8D:B8:05"`, name = `"R1"`, cache = `None`, type(cacheTime) = `datetime.datetime`, needCalibrate =` False`, type(lastCalibrate) = `datetime.datetime`, connected = `False`, battery = `0` |
+| 1           | macAddr = `"F2:02:E0:8D:B8:05"`, name =  `"R1"` | no condition        | SA*          | macAddr = `"F2:02:E0:8D:B8:05"`, name = `"R1"`, cache = `None`, type(cacheTime) = `datetime.datetime`, needCalibrate =` False`, type(lastCalibrate) = `datetime.datetime`, connected = `False`, type(battery) = `battery` |
+| 2           | macAddr = `"C4:39:0D:A9:91:89"`, name =  `"R2"` | no condition        | SA*          | macAddr = `"C4:39:0D:A9:91:89"`, name = `"R2"`, cache = `None`, type(cacheTime) = `datetime.datetime`, needCalibrate =` False`, type(lastCalibrate) = `datetime.datetime`, connected = `False`, type(battery) = `battery` |
 
 **(37) `Battery.__init__(self)`**
 
@@ -326,18 +327,14 @@ Therefore, it can be divided into **eight test sets**, each containing all white
 
 **(6) `SensorCollector.__batteryCheck(self, client)`**
 
-```python
-def __batteryCheck(self, client: BleakClient) -> int:  # TODO: read battery
-    # print(self.cache)
-    return 100
-```
-
   ```mermaid
   graph TD
-  S(((S))) --> *(((*)));
+  S(((S))) --> A --> *(((*)));
   ```
 
-> Obviously, there's no problem with the code.
+| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results |
+| :---------- | --------- | ------------------- | ------------ | ---------------- |
+| 1           | None      | no condition        | SA*          | `100`            |
 
 **(7) `SensorCollector.__calibrate(self, client)`**
 
@@ -606,9 +603,9 @@ graph TD;
     A-->*(((*)));
 ```
 
-| Case Number | Test Case                         | Coverage Conditions | Overlay Path | Expected Results                   |
-| ----------- | --------------------------------- | ------------------- | ------------ | ---------------------------------- |
-| 1           | `connected = False; battery = 0;` | no condition        | SA*          | `{"connect": False, "battery": 0}` |
+| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results                     |
+| ----------- | --------- | ------------------- | ------------ | ------------------------------------ |
+| 1           | None      | no condition        | SA*          | `{"connect": False, "battery": 100}` |
 
 ### 3.5 Fifth Test
 
