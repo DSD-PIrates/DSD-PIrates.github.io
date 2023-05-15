@@ -6,7 +6,6 @@
 | May 10 | Zin, Aidan | The second round of white-box testing                        |
 | May 14 | Zin, Aidan | The first round of white-box testing for the newly added code that returns battery level. |
 | May 15 | Zin, Aidan | The second round of white-box testing for the newly added code that returns battery level. |
-| May 15 | Zin        | White-box testing of code after the **First Iteration**      |
 
 [TOC]
 
@@ -900,15 +899,9 @@ A total of 56 test items were tested on 40 functions, of which 55 test items of 
 
 ### 5.4 The second round of white-box testing for the newly added code that returns battery level
 
-After modifying `Battery.batterycheck(self)`, all 56 test items of 40 functions passed the test. The test results are as follows, and the detailed test report is in `White-box Testing Report (add Battery).html`.
+After modifying `Battery.batterycheck(self)`, all 56 test items of 40 functions passed the test. The test results are as follows, and the detailed test report is in `White-box Testing Report.html`.
 
 ![](./pic_2.png)
-
-### 5.5 White-box testing of code after the first iteration
-
-All 70 test items of 54 functions passed the test. The test results are as follows, and the detailed test report is in `White-box Testing Report.html`.
-
-![](./pic_3.png)
 
 ## 6. Appendix
 
