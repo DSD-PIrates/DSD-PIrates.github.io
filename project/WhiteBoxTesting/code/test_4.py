@@ -32,13 +32,15 @@ def mock_client():
     client.is_connected = AsyncMock(return_value=True)
     client.read_gatt_char = AsyncMock(return_value=b'\x01\x02\x03')
     return client
+
+
 @pytest.mark.asyncio
 async def test_my_function(mock_client):
     async with mock_client as client:
         # Call the function to be tested
         tmp = TmpSensorCollector('00:11:22:33:44:55', 'My Device')
 
-        # 使用AsyncMock模拟BleakClient类和其方法
+        # Ê¹ÓÃAsyncMockÄ£ÄâBleakClientÀàºÍÆä·½·¨
         mock_client = AsyncMock()
         mock_client.notification_handler = AsyncMock()
         mock_client.read_gatt_char.return_value = b'\x01\x02\x03'
@@ -50,7 +52,7 @@ async def test_my_function(mock_client):
         mock_client.is_connected.return_value = True
         # mock_client.is_connected = AsyncMock(return_value=True)
 
-        # # 将模拟的BleakClient对象注入到MyClass实例中
+        # # ½«Ä£ÄâµÄBleakClient¶ÔÏó×¢Èëµ½MyClassÊµÀýÖÐ
         # tmp._SensorCollector__client = client
 
         await tmp._TmpSensorCollector__start_raw(client)
@@ -180,4 +182,10 @@ def test_TransactionCheckSuitable():
     assert transaction.checkSuitable({"name": "test", "macAddr":  "test"}) == False
 
 
-
+# (8) Test SensorCollector.getSensorStatus(self)
+@pytest.mark.parametrize('macAddr, name, expected_val', [
+    ("F2:02:E0:8D:B8:05", "R1", {"connect": False, "battery": 100})
+])
+def test_getSensorStatus(macAddr, name, expected_val):
+    testClass = SensorCollector(macAddr, name)
+    assert testClass.getSensorStatus() == expected_val

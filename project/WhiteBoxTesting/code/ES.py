@@ -9,7 +9,8 @@ import Plugin
 
 
 CALIBRATE_SPAN    = 10 # seconds
-COLLECT_TIME_SPAN = 0.2
+# COLLECT_TIME_SPAN = 0.2
+COLLECT_TIME_SPAN = 0.5
 DEBUG_SHOW        = True
 ES_HOST_IP        = "127.0.0.1"
 ES_HOST_PORT      = 40096
@@ -31,6 +32,37 @@ class DataTransform:
         return Plugin.f(data)
 
 
+def singleton(cls):
+    _instance = {}
+    def inner():
+        if cls not in _instance:
+            _instance[cls] = cls()
+        return _instance[cls]
+    return inner
+
+
+
+@singleton
+class Battery:
+    def __init__(self) :
+        filename = os.path.join(FILEPATH, "monitor.json")
+        with open(filename, "r", encoding="utf-8") as fp:
+            self.data = json.load(fp)
+        self.data['timing']['beginning'] = datetime.datetime.now().timestamp()
+    def batterycheck(self):
+        print(datetime.datetime.now().timestamp() - self.data['timing']['beginning'])
+        return self.data['battery']['level'] - 1000 * (datetime.datetime.now().timestamp() - self.data['timing']['beginning']) // 60000 // self.data['battery']['COST_PER_LV']
+    def reset(self):
+        self.data['timing']['beginning'] = datetime.datetime.now().timestamp()
+        self.data['battery']['level'] = 100
+    def save(self):
+        self.data['battery']['level'] = self.batterycheck()
+        filename = os.path.join(FILEPATH, "monitor.json")
+        with open(filename, "w", encoding="utf-8") as fp:
+            json.dump(self.data, fp)
+
+
+
 class SensorCollector:
     def __init__(self, macAddr: str, name: str):
         self.macAddr       = macAddr
@@ -40,13 +72,13 @@ class SensorCollector:
         self.needCalibrate = False
         self.lastCalibrate = datetime.datetime.utcnow()
         self.connected     = False
-        self.battery       = 0
+        self.battery       = Battery()
 
     def __callback(self, sender, data):
         try:
             self.cache     = DataTransform().transform(data)
             self.cacheTime = datetime.datetime.utcnow()
-            print(data)
+            # print(data)
         except:
             pass
 
@@ -59,8 +91,7 @@ class SensorCollector:
             return True
         
     def __batteryCheck(self, client: BleakClient) -> int: # TODO: read battery
-        # print(self.cache)
-        return 100
+        return self.battery.batterycheck()
     
     def __calibrate(self, client) -> None: # TODO: calibrate
         self.needCalibrate = False
@@ -76,7 +107,7 @@ class SensorCollector:
             except:
                 continue # just retry
             if DEBUG_SHOW:
-                print("[+] connected with %s [%s]" % (self.macAddr, self.name), flush=True)
+                print("[+] connected with %s [%s] at %s" % (self.macAddr, self.name, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')), flush=True)
             await client.start_notify(IMU_READ_UUID, lambda sender, data: self.__callback(sender, data))
             await asyncio.sleep(COLLECT_TIME_SPAN)
             while True:
@@ -84,11 +115,11 @@ class SensorCollector:
                 self.connected = self.__connectionCheck()
                 if not self.connected:
                     if DEBUG_SHOW:
-                        print("[-] connection break with %s [%s]" % (self.macAddr, self.name), flush=True)
+                        print("[-] connection break with %s [%s] at %s" % (self.macAddr, self.name, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')), flush=True)
                         await client.disconnect()
+                        self.battery.save()
                         break
-                await client.write_gatt_char(IMU_READ_UUID, bytearray(BATTERY_ORDER))
-                self.battery = self.__batteryCheck(client)
+                # self.battery = self.__batteryCheck(client)
                 if self.needCalibrate:
                     self.__calibrate(client) # TODO: calibrate
     def start(self):
@@ -117,7 +148,7 @@ class SensorCollector:
     def getSensorStatus(self) -> dict:
         return {
             "connect": self.connected,
-            "battery": self.battery
+            "battery": self.battery.batterycheck()
         }
 
 

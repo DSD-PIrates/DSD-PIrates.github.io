@@ -84,7 +84,7 @@ def server():
 
 @pytest.mark.parametrize('dataInput, expected_val', [
     ({"type": "Test"}, {"type":"TypeError"}),
-    ({"type": "GetSensorStatus"}, {"0": {"connect": False, "battery": 0}, "1": {"connect": False, "battery": 0}, "2": {"connect": False, "battery": 0}, "3": {"connect": False, "battery": 0}, "4": {"connect": False, "battery": 0}, "5": {"connect": False, "battery": 0}}),
+    ({"type": "GetSensorStatus"}, {"0": {"connect": False, "battery": 100.0}, "1": {"connect": False, "battery": 100.0}, "2": {"connect": False, "battery": 100.0}, "3": {"connect": False, "battery": 100.0}, "4": {"connect": False, "battery": 100.0}, "5": {"connect": False, "battery": 100.0}}),
     ({"type": "GetSensorDetails"}, [
                                         {
                                             "name": "R1",

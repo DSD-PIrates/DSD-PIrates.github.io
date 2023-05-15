@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>White-box Testing Report.html</title>
+    <title>report.html</title>
     <link href="assets/style.css" rel="stylesheet" type="text/css"/></head>
   <body onLoad="init()">
     <script>/* This Source Code Form is subject to the terms of the Mozilla Public
@@ -252,8 +252,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     notFoundMessage.hidden = !allRowsHidden;
 }
 </script>
-    <h1>White-box Testing Report.html</h1>
-    <p>Report generated on 10-May-2023 at 22:12:49 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <h1>report.html</h1>
+    <p>Report generated on 15-May-2023 at 09:39:20 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -264,13 +264,13 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Windows-10-10.0.22621-SP0</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{"anyio": "3.6.2", "asyncio": "0.21.0", "html": "3.2.0", "metadata": "2.0.4"}</td></tr>
+        <td>{"anyio": "3.6.2", "asyncio": "0.21.0", "html": "3.2.0", "metadata": "2.0.4", "mock": "3.10.0"}</td></tr>
       <tr>
         <td>Python</td>
         <td>3.8.3</td></tr></table>
     <h2>Summary</h2>
-    <p>52 tests ran in 30.69 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">52 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>56 tests ran in 30.44 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">56 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -284,27 +284,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_1.py::test_f[U                   -expected_val0]</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>0
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_2.py::test_transform[U                   -expected_val0]</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>0
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">test_2.py::test_init[F2:02:E0:8D:B8:05-R1]</td>
+          <td class="col-name">test_1.py::test_f[U                   -expected_val0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -313,7 +293,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_2.py::test_init[C4:39:0D:A9:91:89-R2]</td>
+          <td class="col-name">test_2.py::test_transform[U                   -expected_val0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -322,7 +302,26 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_3.py::TestSensorCollector::test_callback[U                   -expected_val0]</td>
+          <td class="col-name">test_2.py::test_singleton</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_2.py::test_battery_initial_level</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>0.14158010482788086
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_3.py::TestSensorCollector::test_callback[U                   -expected_val0]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -341,7 +340,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_3.py::test_connectionCheck[3-False]</td>
-          <td class="col-duration">3.02</td>
+          <td class="col-duration">3.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -349,12 +348,13 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">test_3.py::test_getSensorStatus[F2:02:E0:8D:B8:05-R1-expected_val0]</td>
+          <td class="col-name">test_3.py::test_SensorCollectorBatteryCheck[F2:02:E0:8D:B8:05-R1-100]</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>3.1553170680999756
+<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
@@ -421,8 +421,44 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
+          <td class="col-name">test_3.py::test_battery_level_change</td>
+          <td class="col-duration">0.04</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>2023-05-15 09:38:52.997998
+2023-05-15 01:48:49.842681
+1684086529.842681
+2023-05-15 01:48:49.842681
+1684115329.842681
+600.0
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_3.py::test_battery_reset</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>0.0
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">test_3.py::test_save</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>0.0
+0.0
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
           <td class="col-name">test_4.py::test_my_function</td>
-          <td class="col-duration">1.07</td>
+          <td class="col-duration">1.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -531,6 +567,16 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
+          <td class="col-name">test_4.py::test_getSensorStatus[F2:02:E0:8D:B8:05-R1-expected_val0]</td>
+          <td class="col-duration">0.00</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>1.0447139739990234
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
           <td class="col-name">test_5.py::test_SensorCollectorStart</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
@@ -554,7 +600,13 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>1.0603511333465576
+1.0603511333465576
+1.0603511333465576
+1.0603511333465576
+1.0603511333465576
+1.0603511333465576
+<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
@@ -631,23 +683,29 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_6.py::test_MyHttpRequestHandlerInit[dataInput0-expected_val0]</td>
-          <td class="col-duration">2.04</td>
+          <td class="col-duration">2.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;Test&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:25] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:38:56] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_6.py::test_MyHttpRequestHandlerInit[dataInput1-expected_val1]</td>
-          <td class="col-duration">2.01</td>
+          <td class="col-duration">2.02</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;GetSensorStatus&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:27] &quot;POST / HTTP/1.1&quot; 200 -
+5.1424150466918945
+5.1424150466918945
+5.1424150466918945
+5.1424150466918945
+5.1424150466918945
+5.1424150466918945
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:38:58] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
@@ -658,18 +716,18 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;GetSensorDetails&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:29] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:00] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_6.py::test_MyHttpRequestHandlerInit[dataInput3-expected_val3]</td>
-          <td class="col-duration">2.04</td>
+          <td class="col-duration">2.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;SensorCalibration&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:31] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:02] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
@@ -684,7 +742,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_6.py::test_getResponse[dataInput1-expected_val1]</td>
-          <td class="col-duration">0.50</td>
+          <td class="col-duration">0.52</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -693,34 +751,40 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_7.py::test_do_POST[dataInput0-expected_val0]</td>
-          <td class="col-duration">2.04</td>
+          <td class="col-duration">2.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;Test&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:34] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:04] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_7.py::test_do_POST[dataInput1-expected_val1]</td>
-          <td class="col-duration">2.05</td>
+          <td class="col-duration">2.02</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;GetSensorStatus&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:36] &quot;POST / HTTP/1.1&quot; 200 -
+13.776859045028687
+13.776859045028687
+13.776859045028687
+13.776859045028687
+13.776859045028687
+13.776859045028687
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:06] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_7.py::test_do_POST[dataInput2-expected_val2]</td>
-          <td class="col-duration">2.04</td>
+          <td class="col-duration">2.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;GetSensorDetails&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:38] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:08] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
@@ -731,50 +795,56 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;SensorCalibration&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:40] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:10] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_8.py::test_do_POST[dataInput0-expected_val0]</td>
-          <td class="col-duration">2.04</td>
+          <td class="col-duration">2.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>Server started on http://localhost:40096
 <br/> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;Test&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:42] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:13] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_8.py::test_do_POST[dataInput1-expected_val1]</td>
-          <td class="col-duration">2.04</td>
+          <td class="col-duration">2.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;GetSensorStatus&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:44] &quot;POST / HTTP/1.1&quot; 200 -
+22.43777298927307
+22.43777298927307
+22.43777298927307
+22.43777298927307
+22.43777298927307
+22.43777298927307
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:15] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_8.py::test_do_POST[dataInput2-expected_val2]</td>
-          <td class="col-duration">2.04</td>
+          <td class="col-duration">2.02</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;GetSensorDetails&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:46] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:17] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">test_8.py::test_do_POST[dataInput3-expected_val3]</td>
-          <td class="col-duration">2.55</td>
+          <td class="col-duration">2.52</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
             <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>do_POST: {&quot;type&quot;: &quot;SensorCalibration&quot;}
-<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [10/May/2023 22:12:48] &quot;POST / HTTP/1.1&quot; 200 -
+<br/> ------------------------------Captured stderr call------------------------------ <br/>127.0.0.1 - - [15/May/2023 09:39:19] &quot;POST / HTTP/1.1&quot; 200 -
 <br/></div></td></tr></tbody></table></body></html>

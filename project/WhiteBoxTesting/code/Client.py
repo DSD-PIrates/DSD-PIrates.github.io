@@ -35,7 +35,7 @@ def clientRequest(data: dict, serverIP: str, serverPort: int):
     
 # "dataNow" is the JSON data to send, "ret" is the response from EmbeddedSystem
 dataNow = {
-    "name": "Test"
+    "type": "GetSensorStatus"
 }
 # dataNow = [1,2]
 ret = clientRequest(dataNow, SERVER_IP, SERVER_PORT)

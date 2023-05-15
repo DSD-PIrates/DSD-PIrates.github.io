@@ -59,12 +59,12 @@ def test_init():
 
 # (25) Test SensorStatus.getResponse(self, dataInput)
 @pytest.mark.parametrize('dataInput, expected_val', [
-    ({"type":"GetSensorStatus"}, {'0': {'connect': False, 'battery': 0},
-                                  '1': {'connect': False, 'battery': 0},
-                                  '2': {'battery': 0, 'connect': False},
-                                  '3': {'battery': 0, 'connect': False},
-                                  '4': {'battery': 0, 'connect': False},
-                                  '5': {'battery': 0, 'connect': False}})
+    ({"type":"GetSensorStatus"}, {'0': {'connect': False, 'battery': 100},
+                                  '1': {'connect': False, 'battery': 100},
+                                  '2': {'battery': 100, 'connect': False},
+                                  '3': {'battery': 100, 'connect': False},
+                                  '4': {'battery': 100, 'connect': False},
+                                  '5': {'battery': 100, 'connect': False}})
 ])
 def test_SensorStatusGetResponse(dataInput, expected_val):
     testClass = SensorStatus(sensorCollectorList())

@@ -1,9 +1,9 @@
-def f(data:bytes)->None:
+def f(data:bytes):
     assert len(data)==20
     (ox55,ox61,axL,axH,ayL,ayH,azL,azH,wxL,wxH,wyL,wyH,wzL,wzH,RollL,RollH,PitchL,PitchH,YawL,YawH)=data
     assert ox55==0x55
     # assert ox61==0x61
-    print(ox61)
+    # print(ox61)
 
     def int2(h:int,l:int)->int:
         ans=(h<<8)|l
