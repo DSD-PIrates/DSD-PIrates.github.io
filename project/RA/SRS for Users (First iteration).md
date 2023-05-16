@@ -142,7 +142,7 @@ The detailed description of the main use cases.
     
     > **Post Conditions**: **#SystemAdministrator#** can view the historical and real-time **[MotionRecord]** and delete historical **[MotionRecord]**.
 
-- **(4) Case: #SystemAdministrator#  wants to manage the [SystemLog]**
+- **(4) Case: #WebAdministrator#  wants to manage the [SystemLog]**
 
     <img src="./pic2/ManageLog.png" style="zoom:60%;" />
 
