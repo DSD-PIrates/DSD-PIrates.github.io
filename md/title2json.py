@@ -3,7 +3,7 @@ import json
 import datetime
 
 data = {}
-file = r"project\WhiteBoxTesting\White-box Testing Report.html"
+file = r"project\RA\SRS for Users (First iteration).md"
 
 with open(file, "r", encoding='utf-8') as f:
     content = f.read(250)
