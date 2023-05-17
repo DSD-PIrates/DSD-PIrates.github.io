@@ -22,9 +22,10 @@ INVALID_DATA      = {
     "accX": 0, "accY": 0, "accZ": 0,
     "asX" : 0, "asY" : 0, "asZ" : 0
 }
-SENSOR_COUNT      = 6 # TODO
+SENSOR_COUNT      = 6
 TIME_OUT_SPAN     = 1 # seconds
 BATTERY_ORDER     = [0xFF, 0xAA, 0x27, 0x64, 0x00]
+SERVER_QUIT       = False
 
 
 class DataTransform:
@@ -67,7 +68,7 @@ class SensorCollector:
         self.needCalibrate = False
 
     async def __start_raw(self) -> None:
-        while True:
+        while True and not SERVER_QUIT:
             if DEBUG_SHOW:
                 # print("[.] try to connect %s [%s]" % (self.macAddr, self.name), flush=True)
                 pass
@@ -80,7 +81,7 @@ class SensorCollector:
                 print("[+] connected with %s [%s] at %s" % (self.macAddr, self.name, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')), flush=True)
             await client.start_notify(IMU_READ_UUID, lambda sender, data: self.__callback(sender, data))
             await asyncio.sleep(COLLECT_TIME_SPAN)
-            while True:
+            while True and not SERVER_QUIT:
                 await asyncio.sleep(COLLECT_TIME_SPAN)
                 self.connected = self.__connectionCheck()
                 if not self.connected:
@@ -268,6 +269,7 @@ class Router:
         return ERROR_MESSAGE
 
     def start(self, ip: str, port: int) -> None:
+        global SERVER_QUIT
         # start sensor client
         for sensorCollector in self.sensorCollectorList:
             sensorCollector.start()
@@ -279,7 +281,11 @@ class Router:
         server = HTTPServer((ip, port), __MyConstractor)
         print("Server started on http://%s:%d" % (ip, port))
         # print(self.transactionList)
-        server.serve_forever()
+        try:
+            server.serve_forever()
+        except:
+            SERVER_QUIT = True
+            print("[*] Server Quit ...")
 
 app = Router()
 app.start(ES_HOST_IP, ES_HOST_PORT)
