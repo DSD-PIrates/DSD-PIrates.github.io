@@ -1,0 +1,10 @@
+{
+    "battery": {
+        "level": 100,
+        "COST_PER_LV": 12
+    },
+    "timing": {
+        "beginning": 0,
+        "now": 0
+    }
+}

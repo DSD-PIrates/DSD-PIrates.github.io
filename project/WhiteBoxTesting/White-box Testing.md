@@ -1,9 +1,12 @@
 # White-box Testing Document
 
-| Date   | Author     | Description                           |
-| :----- | :--------- | :------------------------------------ |
-| May 9  | Zin, Aidan | The first round of white-box testing  |
-| May 10 | Zin, Aidan | The second round of white-box testing |
+| Date   | Author     | Description                                                  |
+| :----- | :--------- | :----------------------------------------------------------- |
+| May 9  | Zin, Aidan | The first round of white-box testing                         |
+| May 10 | Zin, Aidan | The second round of white-box testing                        |
+| May 14 | Zin, Aidan | The first round of white-box testing for the newly added code that returns battery level. |
+| May 15 | Zin, Aidan | The second round of white-box testing for the newly added code that returns battery level. |
+| May 15 | Zin        | White-box testing of code after the **First Iteration**      |
 
 [TOC]
 
@@ -69,18 +72,23 @@ graph TD;
 	a-->j;
 	a-->Z
 	b-->Z;
-	c-->Z;
+	 c-->k;  c-->Z;  
 	d-->Z;
 	
-	e-->a; e-->b; e-->c; e-->d;
+	e-->a; e-->b; e-->c; e-->d;   e-->n
 	
 	f-->e;
 
 	g-->Z;
 	h-->Z;
-	i-->Z;
+	i-->Z;   i-->l
 	
 	j-->Y
+	
+	
+	l-->k
+	m-->k
+	n-->k
 ```
 
 | Node Name | Function                                                     |
@@ -121,6 +129,10 @@ graph TD;
 | h         | `SensorCollector.calibrate(self)`                            |
 | i         | `SensorCollector.getSensorStatus(self)`                      |
 | j         | `DataTransform.transform(self, data)`                        |
+| k         | `Battery.__init__(self) `                                    |
+| l         | `Battery.batterycheck(self)`                                 |
+| m         | `Battery.reset(self)`                                        |
+| n         | `Battery.save(self)`                                         |
 
 ## 2. Test Plan
 
@@ -139,7 +151,9 @@ Therefore, it can be divided into **eight test sets**, each containing all white
   (2) `DataTransform.transform(self, data)`
 
   (3) `SensorCollector.__init__(self, macAddr, name)`
-  
+
+  (37) `Battery.__init__(self)`
+
 - **Third Test**
 
   (4) `SensorCollector.__callback(self, sender, data)`
@@ -150,8 +164,6 @@ Therefore, it can be divided into **eight test sets**, each containing all white
 
   (7) `SensorCollector.__calibrate(self, client)`
 
-  (8) `SensorCollector.getSensorStatus(self)`
-
   (9) `Configuration.__init__(self)`
 
   (10) `Transaction.__init__(self, sensorCollectorList)`
@@ -159,10 +171,16 @@ Therefore, it can be divided into **eight test sets**, each containing all white
   (11) `SensorCollector.getRealtimeData(self)`
 
   (12) `SensorCollector.calibrate(self)`
-  
+
+  (38) `Battery.batterycheck(self)`
+
+  (39) `Battery.reset(self)`
+
+  (40) `Battery.save(self)`
+
 - **Forth Test**
 
-  (13) `SensorCollector.__start_raw(self)`
+  **(13) `SensorCollector.__start_raw(self)`**
 
   (14) `Configuration.getMacAddrOfSensor(self, index)`
 
@@ -181,6 +199,8 @@ Therefore, it can be divided into **eight test sets**, each containing all white
   (21) `RealTimeData.__init__(self, sensorCollectorList)`
 
   (22) `Transaction.checkSuitable(self, dataInput)`
+
+  (8) `SensorCollector.getSensorStatus(self)`
 
 - **Fifth Test**
 
@@ -263,7 +283,20 @@ Therefore, it can be divided into **eight test sets**, each containing all white
 
 | Case Number | Test Case                                       | Coverage Conditions | Overlay Path | Expected Results                                             |
 | :---------- | ----------------------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
-| 1           | macAddr = `"F2:02:E0:8D:B8:05"`, name =  `"R1"` | no condition        | SA*          | macAddr = `"F2:02:E0:8D:B8:05"`, name = `"R1"`, cache = `None`, type(cacheTime) = `datetime.datetime`, needCalibrate =` False`, type(lastCalibrate) = `datetime.datetime`, connected = `False`, battery = `0` |
+| 1           | macAddr = `"F2:02:E0:8D:B8:05"`, name =  `"R1"` | no condition        | SA*          | macAddr = `"F2:02:E0:8D:B8:05"`, name = `"R1"`, cache = `None`, type(cacheTime) = `datetime.datetime`, needCalibrate =` False`, type(lastCalibrate) = `datetime.datetime`, connected = `False`, type(battery) = `battery` |
+| 2           | macAddr = `"C4:39:0D:A9:91:89"`, name =  `"R2"` | no condition        | SA*          | macAddr = `"C4:39:0D:A9:91:89"`, name = `"R2"`, cache = `None`, type(cacheTime) = `datetime.datetime`, needCalibrate =` False`, type(lastCalibrate) = `datetime.datetime`, connected = `False`, type(battery) = `battery` |
+
+**(37) `Battery.__init__(self)`**
+
+```mermaid
+ graph TD;
+ 	S(((S))) -->A;
+     A-->*(((*)));
+```
+
+| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results               |
+| :---------- | --------- | ------------------- | ------------ | ------------------------------ |
+| 1           | None      | no condition        | SA*          | `battery.batterycheck() = 100` |
 
 ### 3.3 Third Test
 
@@ -295,18 +328,14 @@ Therefore, it can be divided into **eight test sets**, each containing all white
 
 **(6) `SensorCollector.__batteryCheck(self, client)`**
 
-```python
-def __batteryCheck(self, client: BleakClient) -> int:  # TODO: read battery
-    # print(self.cache)
-    return 100
-```
-
   ```mermaid
   graph TD
-  S(((S))) --> *(((*)));
+  S(((S))) --> A --> *(((*)));
   ```
 
-> Obviously, there's no problem with the code.
+| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results |
+| :---------- | --------- | ------------------- | ------------ | ---------------- |
+| 1           | None      | no condition        | SA*          | `100`            |
 
 **(7) `SensorCollector.__calibrate(self, client)`**
 
@@ -323,18 +352,6 @@ def __calibrate(self, client) -> None:  # TODO: calibrate
   ```
 
 > Obviously, there's no problem with the code.
-
-**(8) `SensorCollector.getSensorStatus(self)`**
-
-```mermaid
-graph TD;
-    S(((S)))-->A;
-    A-->*(((*)));
-```
-
-| Case Number | Test Case                         | Coverage Conditions | Overlay Path | Expected Results                   |
-| ----------- | --------------------------------- | ------------------- | ------------ | ---------------------------------- |
-| 1           | `connected = False; battery = 0;` | no condition        | SA*          | `{"connect": False, "battery": 0}` |
 
 **(9) `Configuration.__init__(self)`**
 
@@ -381,7 +398,7 @@ graph TD;
 | :---------- | ------------------------------------------------------------ | ---------------------------------------------- | ------------ | ------------------------------------------------------------ |
 | 1           | sensorCollectorList = `666`                                  | [A : `False`]                                  | SA*          | sensorCollectorList = `None`                                 |
 | 2           | sensorCollectorList = `[SensorCollector("F2:02:E0:8D:B8:05", "R1")]` | [(A, B1, B2, C) : `(True, True, False), True`] | SABCBD*      | sensorCollectorList =`[SensorCollector("F2:02:E0:8D:B8:05", "R1")]` |
-| 3           | `sensorCollectorList = [2]`                                  | [(A, C) :`（True, False)`]                     | SABC*        | sensorCollectorList = `None`                                 |
+| 3           | `sensorCollectorList = [2]`                                  | [(A, C) :`(True, False)`]                      | SABC*        | sensorCollectorList = `None`                                 |
 
 **(11) `SensorCollector.getRealtimeData(self)`**
 
@@ -421,7 +438,41 @@ flowchart TD;
 | 1           | lastCalibrate = `datetime.datetime.utcfromtimestamp(0)` | `deltaTime.total_seconds() > CALIBRATE_SPAN`  | SABC*        | `type(lastCalibrate) = datetime.datetime; needCalibrate = True; returnValue = True;` |
 | 2           | lastCalibrate = `datetime.datetime.utcnow()`            | `deltaTime.total_seconds() <= CALIBRATE_SPAN` | SABD*        | `type(lastCalibrate) = datetime.datetime;  returnValue = False;` |
 
+**(38) `Battery.batterycheck(self)`**
 
+```mermaid
+ graph TD;
+ 	S(((S))) -->A;
+     A-->*(((*)));
+```
+
+| Case Number | Test Case                                                    | Coverage Conditions | Overlay Path | Expected Results              |
+| :---------- | ------------------------------------------------------------ | ------------------- | ------------ | ----------------------------- |
+| 1           | `datetime.datetime.now().timestamp() - battery.data['timing']['beginning'] == 600` | no condition        | SA*          | `battery.batterycheck() = 90` |
+
+**(39) `Battery.reset(self)`**
+
+```mermaid
+ graph TD;
+ 	S(((S))) -->A;
+     A-->*(((*)));
+```
+
+| Case Number | Test Case                               | Coverage Conditions | Overlay Path | Expected Results               |
+| :---------- | --------------------------------------- | ------------------- | ------------ | ------------------------------ |
+| 1           | `battery.data['battery']['level'] = 50` | no condition        | SA*          | `battery.batterycheck() = 100` |
+
+**(40) `Battery.save(self)`**
+
+```mermaid
+ graph TD;
+ 	S(((S))) -->A;
+     A-->*(((*)));
+```
+
+| Case Number | Test Case                               | Coverage Conditions | Overlay Path | Expected Results                |
+| :---------- | --------------------------------------- | ------------------- | ------------ | ------------------------------- |
+| 1           | `battery.data['battery']['level'] = 50` | no condition        | SA*          | `data['battery']['level'] = 50` |
 
 
 ### 3.4 Forth Test
@@ -442,7 +493,7 @@ Finally, we use various `assert` statements to check whether the simulated metho
 
 | Case Number | Test Case | Coverage Conditions       | Overlay Path | Expected Results      |
 | :---------- | --------- | ------------------------- | ------------ | --------------------- |
-| 1           | -1        | [(A, B): `(False, True`]  | SA*          | `None`                |
+| 1           | -1        | [(A, B): `(False, True)`] | SA*          | `None`                |
 | 2           | 6         | [(A, B): `(True, False)`] | SAB*         | `None`                |
 | 3           | 0         | [(A, B): `(True, True)`]  | SABC*        | `"F2:02:E0:8D:B8:05"` |
 
@@ -457,7 +508,7 @@ Finally, we use various `assert` statements to check whether the simulated metho
 
 | Case Number | Test Case | Coverage Conditions       | Overlay Path | Expected Results |
 | :---------- | --------- | ------------------------- | ------------ | ---------------- |
-| 1           | -1        | [(A, B):`(False, True`]   | SA*          | `None`           |
+| 1           | -1        | [(A, B):`(False, True)`]  | SA*          | `None`           |
 | 2           | 6         | [(A, B): `(True, False)`] | SAB*         | `None`           |
 | 3           | 0         | [(A, B): `(True, True)`]  | SABC*        | `"R1"`           |
 
@@ -545,6 +596,18 @@ Finally, we use various `assert` statements to check whether the simulated metho
 | ----------- | ------------------------------------------------- | ------------------- | ------------ | ---------------- |
 | 1           | dataInput = `{"name": "test", "macAddr": "test"}` | no condition        | SA*          | `False`          |
 
+**(8) `SensorCollector.getSensorStatus(self)`**
+
+```mermaid
+graph TD;
+    S(((S)))-->A;
+    A-->*(((*)));
+```
+
+| Case Number | Test Case | Coverage Conditions | Overlay Path | Expected Results                     |
+| ----------- | --------- | ------------------- | ------------ | ------------------------------------ |
+| 1           | None      | no condition        | SA*          | `{"connect": False, "battery": 100}` |
+
 ### 3.5 Fifth Test
 
 **(23) `SensorCollector.start(self)`**
@@ -583,7 +646,7 @@ Obviously, the correctness of this function itself depends on the correctness of
 
 | Case Number | Test Case                                | Coverage Conditions | Overlay Path | Expected Results                                             |
 | ----------- | ---------------------------------------- | ------------------- | ------------ | ------------------------------------------------------------ |
-| 1           | dataInput = `{"type":"GetSensorStatus"}` | no condition        | SABC..BD*    | `{'0': {'connect': False, 'battery': 0},'1': {'connect': False, 'battery': 0},'2': {'battery': 0, 'connect': False},'3': {'battery': 0, 'connect': False},'4': {'battery': 0, 'connect': False},'5': {'battery': 0, 'connect': False}}` |
+| 1           | dataInput = `{"type":"GetSensorStatus"}` | no condition        | SABC..BD*    | `{'0': {'connect': False, 'battery': 100.0},'1': {'connect': False, 'battery': 100.0},'2': {'battery': 100.0, 'connect': False},'3': {'battery': 100.0, 'connect': False},'4': {'battery': 100.0, 'connect': False},'5': {'battery': 100.0, 'connect': False}}` |
 
 **(26) `SensorDetails.getResponse(self, dataInput)`**
 
@@ -735,7 +798,7 @@ Obviously, the correctness of this function itself depends on the correctness of
 
 | Case Number | Test Case                                                    | Coverage Conditions                           | Overlay Path | Expected Results                                             |
 | ----------- | ------------------------------------------------------------ | --------------------------------------------- | ------------ | ------------------------------------------------------------ |
-| 1           | client request: `clientRequest({"type": "GetSensorStatus"}, "127.0.0.1", "40096") ` | `A: Success, B: True, D: Success, E: Success` | SABCDEG*     | `response = {'0': {'connect': False, 'battery': 0}, '1': {'connect': False, 'battery': 0}, '2': {'connect': False, 'battery': 0}, '3': {'connect': False, 'battery': 0}, '4': {'connect': False, 'battery': 0}, '5': {'connect': False, 'battery': 0}}` |
+| 1           | client request: `clientRequest({"type": "GetSensorStatus"}, "127.0.0.1", "40096") ` | `A: Success, B: True, D: Success, E: Success` | SABCDEG*     | `response = {'0': {'connect': False, 'battery': 100.0}, '1': {'connect': False, 'battery': 100.0}, '2': {'connect': False, 'battery': 100.0}, '3': {'connect': False, 'battery': 100.0}, '4': {'connect': False, 'battery': 100.0}, '5': {'connect': False, 'battery': 100.0}}` |
 | 2           | client request: `clientRequest({"name":"Test"}, "127.0.0.1", "40096") ` | `A: Success, B: True, D: Success, E: Failure` | SABCDEFG*    | `ERROR_MESSAGE`                                              |
 
 ### 3.8 Eighth Test
@@ -823,9 +886,29 @@ The details are shown in the table below.
 
 ### 5.2 The second round of white-box testing
 
-After modifying `SensorCalibration.getResponse(self, dataInput)`, all 52 test items of 36 functions passed the test. The test results are as follows, and the detailed test report is in `report.html`.
+After modifying `SensorCalibration.getResponse(self, dataInput)`, all 52 test items of 36 functions passed the test. The test results are as follows, and the detailed test report is in `White-box Testing Report (Old).html`.
 
 ![](./pic.png)
+
+### 5.3 The first round of white-box testing for the newly added code that returns battery level
+
+A total of 56 test items were tested on 40 functions, of which 55 test items of 39 functions passed and 1 test item of 1 function failed.
+
+|      |                              |                                                             |                                                              |
+| ---- | ---------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| (38) | `Battery.batterycheck(self)` | **<font color=#FF0000 >Failed on Test Case 1</font>**<br /> | **Analysis:**  *The unit returned by `datetime.datetime.now().timestamp()` should be **<font color=#FF0000 >in seconds</font>** and it was forgotten to convert it to **<font color=#FF0000 >milliseconds </font>**in the code.*<br />**Modification:** Multiply the time difference by 1000 |
+
+### 5.4 The second round of white-box testing for the newly added code that returns battery level
+
+After modifying `Battery.batterycheck(self)`, all 56 test items of 40 functions passed the test. The test results are as follows, and the detailed test report is in `White-box Testing Report (add Battery).html`.
+
+![](./pic_2.png)
+
+### 5.5 White-box testing of code after the first iteration
+
+All 70 test items of 54 functions passed the test. The test results are as follows, and the detailed test report is in `White-box Testing Report.html`.
+
+![](./pic_3.png)
 
 ## 6. Appendix
 
