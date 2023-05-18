@@ -6,7 +6,7 @@ SENSOR             = ["L1", "L2", "L3", "R1", "R2", "R3"]
 VALUE              = ["X", "Y", "Z", "accX", "accY", "accZ", "asX", "asY", "asZ"]
 THRESHOLD          = 500
 DEFAULT_TIME_SPAN  = 0.2
-TIME_SEGMENT_CHECK = 2
+TIME_SEGMENT_CHECK = 5
 FRAME_CNT_CHECK    = int(round(TIME_SEGMENT_CHECK / DEFAULT_TIME_SPAN))
 THRES_RATIO        = 0.7
 
