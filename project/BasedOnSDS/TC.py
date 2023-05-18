@@ -9,22 +9,23 @@ ES_HOST_IP   = "127.0.0.1"
 ES_HOST_PORT = 40096
 DELTA_TIME   = 0.2 # sec
 
-# 程序路径
+# Code Path
 # path = getCurDir()
 def getCurDir():
     return os.path.dirname(__file__)
 
-# 获得数据路径
+# Get Data File Dir Path
 def getDataDir():
     path = getCurDir()
     return os.path.join(path, "DATA")
 
-# 数据路径
+# Get Data File Path
 # dataFile = getFilePath(fileName)
 def getFilePath(fileName):
     path = getDataDir()
     return os.path.join(path, fileName)
 
+# Query ES
 def GetJsonData(es_ip: str, es_port: int, jsonData):
     headers = {
         "Content-type": "text/json"
@@ -35,6 +36,8 @@ def GetJsonData(es_ip: str, es_port: int, jsonData):
     dataRecv = json.loads(response.read())
     return dataRecv
 
+# Try to acuire data
+# when None is got/ network failure retry it
 def GetInternetData() -> dict:
     try:
         testData = GetJsonData(ES_HOST_IP, ES_HOST_PORT, {"type": "GetRealtimeData"})
@@ -42,7 +45,7 @@ def GetInternetData() -> dict:
         testData = None
     return testData
 
-# 等待不超过一秒
+# Wait for no more than 1 sec
 def wait1():
     time.sleep(min(DELTA_TIME * 10, 1))
 
@@ -98,14 +101,14 @@ def cli():
             print("[*] cachedData len = %d" % len(cachedData))
             fileName   = input("fileName(.json) >>> ").strip()
             if fileName != "":
-                if fileName.find(".json") == -1: # 补充后缀名
+                if fileName.find(".json") == -1: # append suffix: json
                     fileName += ".json"
                 saveFile(cachedData, fileName)
             else:
                 print("[!] data discard")
             cachedData = []
             wait1()
-        elif instruction == "exit": # 退出程序
+        elif instruction == "exit": # quit program
             print("[*] bye ...")
             break
     runFlag   = False
@@ -113,4 +116,6 @@ def cli():
     MotionAlgo.stopMotionAlgo()
 
 if __name__ == "__main__":
+    if not os.path.isdir(getDataDir()):
+        os.mkdir(getDataDir())
     cli()
