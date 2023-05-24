@@ -8,6 +8,8 @@ import os
 import Plugin
 import ComServer
 
+# test server: ssh -oPort=22 ggn@121.36.249.177
+
 CALIBRATE_SPAN    = 10 # seconds
 # COLLECT_TIME_SPAN = 0.2
 COLLECT_TIME_SPAN = 0.5
