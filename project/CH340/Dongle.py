@@ -4,13 +4,47 @@ import threading
 import datetime
 import sys
 import json
+import socket
 import time
 
-BAUD_RATE = 230400
+BAUD_RATE       = 230400
+
+UDP_AIM_IP      = "127.0.0.1" #
+UDP_AIM_PORT    = 17328       # UDP AIM PORT
+UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 def match_pre(text, temp):
     if len(text) < len(temp): return False
     return text[:len(temp)] == temp
+
+# turn bytes into int list
+def getListFromBytes(b: bytes):
+    arr = []
+    for x in b:
+        arr.append(int(x))
+    return arr
+
+NORMAL_DATA_LEN = 20
+
+# send the data to es
+def send_data_out_to_es(name: str, data: bytes, timeNow: str):
+
+    # discard invalid data
+    if len(data) != NORMAL_DATA_LEN:
+        print("warning: data length is not NORMAL_DATA_LEN = %d" % NORMAL_DATA_LEN)
+        return
+
+    # get data
+    dataToSend = {
+        "sensor-name": name,
+        "data": getListFromBytes(data),
+        "time":timeNow
+    }
+    bytesToSend = json.dumps(dataToSend)
+
+    # send UDP request
+    serverAddressPort = (UDP_AIM_IP, UDP_AIM_PORT)
+    UDPClientSocket.sendto(bytesToSend.encode(), serverAddressPort)
 
 # auto listen conn and save the data into conn
 def autoListener(conn, line_cache: list, list_cache: dict, data_cache: dict):
@@ -25,10 +59,12 @@ def autoListener(conn, line_cache: list, list_cache: dict, data_cache: dict):
 
             # route to data_cache
             if match_pre(now, b"WIT-REV"):
-                name = (now.split(b'"', 2)[1]).decode("ascii")
-                data = now.split(b"0x", 1)[1][16:-2]
-                data_cache[name] = (data, str(datetime.datetime.now()))
-                print(data_cache)
+                name    = (now.split(b'"', 2)[1]).decode("ascii")
+                data    = now.split(b"0x", 1)[1][16:-2]
+                timeNow = str(datetime.datetime.now())
+                data_cache[name] = (data, timeNow)
+                send_data_out_to_es(name, data, timeNow)
+                # print(data_cache)
 
             elif match_pre(now, b"WIT-LIST-#"):
                 num  = now.split(b":", 1)[0][11:]
