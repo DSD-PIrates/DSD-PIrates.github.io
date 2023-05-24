@@ -11,7 +11,7 @@ UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 # Bind to address and ip
 UDPServerSocket.bind((UDP_SERVER_IP, UDP_SERVER_PORT))
 
-def com_server_function():
+def com_server_function(__callback):
     while(True):
         bytesAddressPair = UDPServerSocket.recvfrom(bufferSize)
         message = bytesAddressPair[0]
@@ -22,7 +22,8 @@ def com_server_function():
             and dataNow.get("data"       ) is not None
             and dataNow.get("time"       ) is not None
         ):
-            print(dataNow)
+            # print(dataNow)
+            __callback(dataNow) # save the data back
 
 if __name__ == "__main__":
-    com_server_function()
+    com_server_function(lambda x: [])
