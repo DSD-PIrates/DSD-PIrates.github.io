@@ -31,7 +31,7 @@ def pushNewData(sensor_abstract_name, attr_prefix):
         yValue = yValue[-TIME_BUFFER:]
         zValue = zValue[-TIME_BUFFER:]
 
-def line_plot(abs_sensor_name = "R_Thigh(R1)", attr_prefix = ""):
+def line_plot(abs_sensor_name, attr_prefix):
     plt.ion() # interactive ON
     while True:
         plt.cla()
@@ -48,4 +48,4 @@ def line_plot(abs_sensor_name = "R_Thigh(R1)", attr_prefix = ""):
         plt.legend()
         plt.pause(0.1)
 
-line_plot()
+line_plot("R_Thigh(R1)", "")
