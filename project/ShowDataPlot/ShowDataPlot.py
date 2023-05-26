@@ -8,7 +8,7 @@ zValue    = []
 
 TIME_BUFFER = 25
 
-SENSOR_ABS_NAME_LIST = ["R_Thigh(R1)"]
+SENSOR_ABS_NAME_LIST = ["R1"]
 ATTR_PREFIX_LIST = ["", "acc", "as"]
 
 def pushNewData(sensor_abstract_name, attr_prefix):
@@ -48,4 +48,4 @@ def line_plot(abs_sensor_name, attr_prefix):
         plt.legend()
         plt.pause(0.1)
 
-line_plot("R_Thigh(R1)", "")
+line_plot("R1", "")
