@@ -18,15 +18,15 @@ function drawChart() {
         ['RA1', 'First Round of Requirement Analysis',
             new Date(2023, 2, 19), new Date(2023, 2, 23), null, 100, null],
         ['RA2', 'Second Round of Requirement Analysis',
-            new Date(2023, 2, 23), new Date(2023, 2, 30), null, 90, null],
+            new Date(2023, 2, 23), new Date(2023, 2, 30), null, 100, null],
         ['SD1', 'First Round of Software Design',
-            new Date(2023, 2, 31), new Date(2023, 3, 6), null, 80, 'RA1,RA2'],
+            new Date(2023, 2, 31), new Date(2023, 3, 6), null, 100, 'RA1,RA2'],
         ['CODE1', 'First Round of Coding',
             new Date(2023, 3, 7), new Date(2023, 3, 16), null, 100, 'SD1'],
         ['TEST1', 'First Round of Testing',
-            new Date(2023, 3, 14), new Date(2023, 3, 20), null, 80, 'SD1,CODE1'],
+            new Date(2023, 3, 14), new Date(2023, 3, 20), null, 100, 'SD1,CODE1'],
         ['TEST2', 'System Integration Testing',
-            new Date(2023, 3, 21), new Date(2023, 3, 27), null, 0, 'CODE1,TEST1'],
+            new Date(2023, 3, 21), new Date(2023, 3, 27), null, 71.4285, 'CODE1,TEST1'],
     ]);
 
     var options = {

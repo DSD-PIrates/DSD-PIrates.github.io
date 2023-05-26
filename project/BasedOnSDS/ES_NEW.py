@@ -63,7 +63,7 @@ class Battery:
             self.data = json.load(fp)
         self.data['timing']['beginning'] = datetime.datetime.now().timestamp()
     def batterycheck(self):
-        return self.data['battery']['level'] - (datetime.datetime.now().timestamp() - self.data['timing']['beginning']) // 60000 // self.data['battery']['COST_PER_LV']
+        return self.data['battery']['level'] - (datetime.datetime.now().timestamp() - self.data['timing']['beginning']) // 60 // self.data['battery']['COST_PER_LV']
     def reset(self):
         self.data['timing']['beginning'] = datetime.datetime.now().timestamp()
         self.data['battery']['level'] = 100
