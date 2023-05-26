@@ -28,7 +28,10 @@ SENSOR_COUNT      = 6
 TIME_OUT_SPAN     = 1 # seconds
 BATTERY_ORDER     = [0xFF, 0xAA, 0x27, 0x64, 0x00]
 SERVER_QUIT       = False
-
+PING_MESSAGE = {
+    "type"   : "PingResponse",
+    "message": "ConnectToEmbeddedSystemSuccessfully"
+}
 
 class DataTransform:
     def transform(self, data):
@@ -332,6 +335,9 @@ class Router:
         for transcation in self.transactionList:
             if transcation.checkSuitable(dataInput):
                 return transcation.getResponse(dataInput)
+        if type(dataInput) == dict and dataInput.get("type") == "Ping":
+            return PING_MESSAGE
+
         return ERROR_MESSAGE
 
     def start(self, ip: str, port: int) -> None:

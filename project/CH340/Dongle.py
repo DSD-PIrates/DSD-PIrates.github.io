@@ -1,5 +1,6 @@
  #!/usr/bin/python
 import serial
+import time
 import threading
 import datetime
 import sys
@@ -12,6 +13,8 @@ BAUD_RATE       = 230400
 UDP_AIM_IP      = "127.0.0.1" #
 UDP_AIM_PORT    = 17328       # UDP AIM PORT
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+REST_SLEEP_TIME = 0.5
 
 def match_pre(text, temp):
     if len(text) < len(temp): return False
@@ -33,6 +36,9 @@ def send_data_out_to_es(name: str, data: bytes, timeNow: str):
     if len(data) != NORMAL_DATA_LEN:
         print("warning: data length is not NORMAL_DATA_LEN = %d" % NORMAL_DATA_LEN)
         return
+
+    if name == "WT901BLE68":
+        name = "WT901-R3"
 
     # get data
     dataToSend = {
@@ -129,6 +135,7 @@ class Dongle:
                 self.send("AT+SCAN=0")
                 print("Sensors Got")
                 return True
+            time.sleep(REST_SLEEP_TIME)
 
 
     def check_name_list(self):
