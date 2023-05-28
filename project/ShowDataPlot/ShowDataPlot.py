@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from Interface import getRealtimeData
+import sys
 
 timeIndex = []
 xValue    = []
@@ -46,6 +47,9 @@ def line_plot(abs_sensor_name, attr_prefix):
         plt.plot(timeIndex, yValue,'g-', label=attr_prefix + "Y-" + abs_sensor_name)
         plt.plot(timeIndex, zValue,'b-', label=attr_prefix + "Z-" + abs_sensor_name)
         plt.legend()
-        plt.pause(0.1)
+        plt.pause(1)
 
-line_plot("R1", "")
+if __name__ == "__main__":
+    sensor = sys.argv[1]
+    prefix = sys.argv[2]
+    line_plot(sensor, prefix)
