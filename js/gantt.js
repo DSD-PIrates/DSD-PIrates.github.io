@@ -26,7 +26,7 @@ function drawChart() {
         ['TEST1', 'First Round of Testing',
             new Date(2023, 3, 14), new Date(2023, 3, 20), null, 100, 'SD1,CODE1'],
         ['TEST2', 'System Integration Testing',
-            new Date(2023, 3, 21), new Date(2023, 3, 27), null, 71.4285, 'CODE1,TEST1'],
+            new Date(2023, 3, 21), new Date(2023, 3, 27), null, 100, 'CODE1,TEST1'],
     ]);
 
     var options = {
